@@ -6,13 +6,13 @@ public class PlayerSkin : MonoBehaviour
 {
     public static bool Rota;
     public static int rota;
-    float speed;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
         rota = -1;
         Rota = true;
-        speed = 750f;
+        //speed = 750f;
     }
 
     // Update is called once per frame

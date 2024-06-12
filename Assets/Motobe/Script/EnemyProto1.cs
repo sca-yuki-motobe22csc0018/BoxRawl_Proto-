@@ -176,7 +176,7 @@ public class EnemyProto1 : MonoBehaviour
         {
             rand = 6;
         }
-        Debug.Log(random);
+        //Debug.Log(random);
         for (int i = 1; i < rand; i++)
         {
             ObjectEnemy(this.transform.position.x, this.transform.position.y + i);

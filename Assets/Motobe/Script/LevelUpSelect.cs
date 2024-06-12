@@ -6,11 +6,14 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class LevelUpSelect : MonoBehaviour
 {
     public GameObject Select;
-    public GameObject SelectBack;
-    public GameObject SelectBackDefault;
+    public GameObject SelectBackCenter;
+    public GameObject SelectBackRight;
+    public GameObject SelectBackLeft;
+
     public GameObject Select2;
-    public GameObject Select2Back;
-    public GameObject Select2BackDefault;
+    public GameObject Select2BackRight;
+    public GameObject Select2BackLeft;
+
     public GameObject[] Level;
     bool conf;
     public GameObject ConfirmWindow;
@@ -20,6 +23,8 @@ public class LevelUpSelect : MonoBehaviour
     int dir;
     public GameObject Player;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +32,6 @@ public class LevelUpSelect : MonoBehaviour
         set = 2;
         set2 = 0;
         dir = 0;
-//        for(int i = 0; i < 3; i++)
-//        {
-//            Level[i].SetActive(false);
-//        }
         ConfirmWindow.SetActive(false);
         
     }
@@ -40,66 +41,78 @@ public class LevelUpSelect : MonoBehaviour
     {
         if (!conf)
         {
+            if (set == 1)
+            {
+                if (SelectBackLeft.transform.position.x < Select.transform.position.x && dir == -1)
+                {
+                    Select.transform.position -= new Vector3(75f * Time.deltaTime, 0, 0);
+                }
+            }
+            if (set == 2)
+            {
+                if (SelectBackCenter.transform.position.x < Select.transform.position.x && dir == -1)
+                {
+                    Select.transform.position += new Vector3(-75f * Time.deltaTime, 0, 0);
+                }
+                if (SelectBackCenter.transform.position.x > Select.transform.position.x && dir == 1)
+                {
+                    Select.transform.position += new Vector3(75f * Time.deltaTime, 0, 0);
+                }
+            }
+            if (set == 3)
+            {
+                if (SelectBackRight.transform.position.x > Select.transform.position.x && dir == 1)
+                {
+                    Select.transform.position += new Vector3(75f * Time.deltaTime, 0, 0);
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.A) && set >= 2)
             {
                 set -= 1;
-                SelectBack.transform.position += new Vector3(-8.15f, 0, 0);
                 dir = -1;
             }
             if (Input.GetKeyDown(KeyCode.D) && set <= 2)
             {
                 set += 1;
-                SelectBack.transform.position += new Vector3(8.15f, 0, 0);
                 dir = 1;
             }
-            if (SelectBack.transform.position.x > Select.transform.position.x && dir == 1)
-            {
-                Select.transform.position += new Vector3(75f * Time.deltaTime, 0, 0);
-            }
-            if (SelectBack.transform.position.x < Select.transform.position.x && dir == -1)
-            {
-                Select.transform.position += new Vector3(-75f * Time.deltaTime, 0, 0);
-            }
+            
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (set == 1)
-                {
-                    //Level[0].SetActive(true);
-                }
-                if (set == 2)
-                {
-                    //Level[1].SetActive(true);
-                }
-                if (set == 3)
-                {
-                    //Level[2].SetActive(true);
-                }
                 ConfirmWindow.SetActive(true); 
                 conf = true;
             }
         }
         else
         {
+            if (set2 == 0)
+            {
+                if (Select2BackLeft.transform.position.x < Select2.transform.position.x)
+                {
+                    Select2.transform.position -= new Vector3(75f * Time.deltaTime, 0, 0);
+                }
+            }
+            if (set2 == 1)
+            {
+                if (Select2BackRight.transform.position.x > Select2.transform.position.x)
+                {
+                    Select2.transform.position += new Vector3(75f * Time.deltaTime, 0, 0);
+                }
+
+            }
             if (Input.GetKeyDown(KeyCode.A) && set2 ==1)
             {
                 set2 = 0;
-                Select2Back.transform.position += new Vector3(-8.85f, 0, 0);
                 dir = -1;
             }
             if (Input.GetKeyDown(KeyCode.D) && set2 ==0)
             {
                 set2 = 1;
-                Select2Back.transform.position += new Vector3(8.85f, 0, 0);
                 dir = 1;
             }
-            if (Select2Back.transform.position.x > Select2.transform.position.x && dir == 1)
-            {
-                Select2.transform.position += new Vector3(75f * Time.deltaTime, 0, 0);
-            }
-            if (Select2Back.transform.position.x < Select2.transform.position.x && dir == -1)
-            {
-                Select2.transform.position += new Vector3(-75f * Time.deltaTime, 0, 0);
-            }
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 conf = false;
@@ -108,32 +121,43 @@ public class LevelUpSelect : MonoBehaviour
                     set = 2;
                     dir = 0;
                     set2 = 0;
-                    SelectBack.transform.position = SelectBackDefault.transform.position;
-                    Select.transform.position = SelectBackDefault.transform.position;
-                    Select2Back.transform.position = Select2BackDefault.transform.position;
-                    Select2.transform.position = Select2BackDefault.transform.position;
+                    Select.transform.position = SelectBackCenter.transform.position;
+                    Select2.transform.position = Select2BackLeft.transform.position;
                     ConfirmWindow.SetActive(false);
                 }
                 if (set2 == 1)
                 {
                     if (set == 1)
                     {
-                        PlayerMove.PlusSpeed += 3.3f;
+                        if (StateController.level01 < 3)
+                        {
+                            PlayerMove.PlusSpeed += 3.3f;
+                            StateController.level01 += 1;
+                        }
+                        
                     }else if(set == 2)
                     {
-                        PlayerMove.PlusJumpForce += 3.3f;
+                        if (StateController.level02 < 3)
+                        {
+                            PlayerMove.PlusJumpForce += 3.3f;
+                            StateController.level02 += 1;
+                        }
+                        
                     }
                     else if (set == 3)
                     {
-                        PlayerMove.PlusInvincibleTime += 4;
+                        if (StateController.level03 < 3)
+                        {
+                            PlayerMove.PlusInvincibleTime += 4;
+                            StateController.level03 += 1;
+                        }
+                        
                     }
                     set = 2;
                     dir = 0;
                     set2 = 0;
-                    SelectBack.transform.position = SelectBackDefault.transform.position;
-                    Select.transform.position = SelectBackDefault.transform.position;
-                    Select2Back.transform.position=Select2BackDefault.transform.position;
-                    Select2.transform.position = Select2BackDefault.transform.position;
+                    Select.transform.position = SelectBackCenter.transform.position;
+                    Select2.transform.position = Select2BackLeft.transform.position;
                     EnemySpawner.SetActive(true);
                     ConfirmWindow.SetActive(false);
                     PlayerMove.blink = true;

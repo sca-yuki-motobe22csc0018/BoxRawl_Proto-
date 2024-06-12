@@ -134,7 +134,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(OnWall);
+        //Debug.Log(OnWall);
 
         //ステータスを入力
         JumpForce = DefaultJumpForce + PlusJumpForce;
@@ -260,7 +260,7 @@ public class PlayerMove : MonoBehaviour
                 //ヒップドロップ
                 if (Input.GetKeyDown(KeyCode.S))
                 {
-                    Debug.Log(ParyController.parySet);
+                    //Debug.Log(ParyController.parySet);
                     //空中にいるとき
                     if (!Drop)
                     {
@@ -393,13 +393,16 @@ public class PlayerMove : MonoBehaviour
                 {
                     if (!blink)
                     {
+                        /*
                         if(PlayerUp.setBarrier)
                         {
                             Debug.Log("バリア");
                             blink = true;
                             PlayerUp.setBarrier = false;
                         }
-                        else if (Hp > 1)
+                        else 
+                        */
+                        if (Hp > 1)
                         {
                             HpObject[Hp - 1].SetActive(false);
                             Hp -= 1;
