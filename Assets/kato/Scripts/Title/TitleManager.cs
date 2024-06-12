@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class TitleManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class TitleManager : MonoBehaviour
 
     bool startFlag;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,9 @@ public class TitleManager : MonoBehaviour
         isStart = false;
 
         startFlag = false;
+
+        PlayerSkin.Rota = false;
+
     }
 
     // Update is called once per frame
@@ -69,6 +74,7 @@ public class TitleManager : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         Vector2 force = new Vector3(1.0f, 9.5f);
         rg.AddForce(force *50);
+        PlayerSkin.Rota = true;
 
         yield return new WaitForSeconds(2.0f);
         startFlag = true;

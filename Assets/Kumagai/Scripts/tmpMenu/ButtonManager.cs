@@ -16,7 +16,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject floorRight;
     [SerializeField] private GameObject[] playerChild;
     private bool sceneChangeFlag;
-    private string yesOrNo;
+    public static string yesOrNo;
     [SerializeField] private string thisSceneName;
     public static bool sceneCheck;
     public static bool sceneChange;
@@ -27,7 +27,7 @@ public class ButtonManager : MonoBehaviour
     {
         sceneChange = false;
         sceneCheck = false;
-        yesOrNo = "No";
+        yesOrNo = "";
         StartCoroutine(ButtonStart());
 
     }
@@ -84,16 +84,6 @@ public class ButtonManager : MonoBehaviour
         if (sceneCheck && sceneName.text == "Tutorial" || sceneCheck && sceneName.text == "Main Game")
         {
             sceneCheckBackGround.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                yesOrNo = "Yes";
-            }
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                yesOrNo = "No";
-
-                sceneCheck = false;
-            }
         }
         else if (sceneCheck && sceneName.text == "StatusUp")
         {
@@ -107,6 +97,12 @@ public class ButtonManager : MonoBehaviour
         {
             StartCoroutine(SceneChanger());
         }
+        if(yesOrNo=="No")
+        {
+            sceneCheck = false;
+             sceneCheckBackGround.SetActive(false);
+            yesOrNo = "";
+        }
 
     }
 
@@ -114,21 +110,21 @@ public class ButtonManager : MonoBehaviour
     //シーン切り替え時の演出（仮）
     public IEnumerator SceneChanger()
     {
-        //mainCamera.transform.position = new Vector3(Player.transform.position.x, 2, -10);
-        Player.GetComponent<Rigidbody2D>().gravityScale = 5;
-        Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-        for(int i = 0; i < playerChild.Length; i++) { playerChild[i].SetActive(false); }
-        FlooringOpen();
-        sceneCheckBackGround.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-        sceneChangeFlag = true;
-        yield return new WaitForSeconds(1f);
-        sceneGround.SetActive(false);
-        this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-        this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;
-        sceneChange=true;   
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(thisSceneName);
+            //mainCamera.transform.position = new Vector3(Player.transform.position.x, 2, -10);
+            Player.GetComponent<Rigidbody2D>().gravityScale = 5;//重力を変更
+            Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            for (int i = 0; i < playerChild.Length; i++) { playerChild[i].SetActive(false); }
+            FlooringOpen();
+            sceneCheckBackGround.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            sceneChangeFlag = true;
+            yield return new WaitForSeconds(1f);
+            sceneGround.SetActive(false);
+            this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+            this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;
+            sceneChange = true;
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene(thisSceneName);
     }
 
     float alpha = 0;
