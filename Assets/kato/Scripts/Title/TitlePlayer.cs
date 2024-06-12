@@ -42,7 +42,6 @@ public class TitlePlayer : MonoBehaviour
     IEnumerator playerAttack()
     {
         yield return new WaitForSeconds(0.4f);
-        //this.gameObject.transform.DORotate(new Vector3(0, 0, 0), 1.0f, RotateMode.FastBeyond360);
         rg.gravityScale = 20.0f;
         dropObj.SetActive(true);
 
