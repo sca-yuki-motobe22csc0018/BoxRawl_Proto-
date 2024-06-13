@@ -36,7 +36,7 @@ public class ButtonManager : MonoBehaviour
     void Update()
     {
         SceneCheck();
-        Debug.Log(sceneCheck);
+        //Debug.Log(sceneCheck);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -137,7 +137,7 @@ public class ButtonManager : MonoBehaviour
             alpha += Time.deltaTime / alphaSec;
             this.transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(bc.r, bc.g, bc.b, alpha);
             sceneGround.transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(gc.r, gc.g, gc.b, alpha);
-            Debug.Log("ŒÄ‚Î‚ê‚Ä‚¢‚Ü‚·");
+            //Debug.Log("ŒÄ‚Î‚ê‚Ä‚¢‚Ü‚·");
             yield return new WaitForEndOfFrame();
         }
     }

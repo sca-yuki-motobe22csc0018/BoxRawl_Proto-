@@ -57,7 +57,7 @@ public class TutorialManager : MonoBehaviour
             //this.transform.position = new Vector3(this.transform.position.x, collision.collider.transform.position.y + 1, 0);
             rb.AddForce(new Vector3(0, 300, 0));
             OnGround = true;
-            Debug.Log("A");
+            //Debug.Log("A");
         }
         if (collision.GetComponent<Collider2D>().CompareTag("Player"))
         {
@@ -75,7 +75,7 @@ public class TutorialManager : MonoBehaviour
         {
             rb.AddForce(new Vector3(0, 100f, 0));
             OnGround = true;
-            Debug.Log("B");
+            //Debug.Log("B");
         }
        
     }

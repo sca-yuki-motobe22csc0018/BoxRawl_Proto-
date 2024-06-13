@@ -84,6 +84,8 @@ public class PlayerMove : MonoBehaviour
 
     //死亡判定
     public static bool PlayerDead;
+    bool death;
+    bool deathBlink;
 
     //経験値倍率
     public static int EXPUP;
@@ -109,10 +111,12 @@ public class PlayerMove : MonoBehaviour
         blinkCount = 0;
         invincibleTimeCheck = 0;
         startRota = false;
+        if(EnemySpawnner!=null)
         EnemySpawnner.SetActive(false);
         PlusSpeed = 0;
         PlusJumpForce = 0;
-
+        death = false;
+        deathBlink = false;
         
         //Size = DefaultSize + PlusSize;
         Hp = 5;//DefaultHp + PlusHp;
@@ -148,6 +152,7 @@ public class PlayerMove : MonoBehaviour
 
         if (PlayerDead)
         {
+            if(EnemySpawnner!=null)
             EnemySpawnner.SetActive(false);
         }
         //ダメージを受けた時の点滅
@@ -182,6 +187,13 @@ public class PlayerMove : MonoBehaviour
         }
         if (!blink)
         {
+            if (death&&!deathBlink)
+            {
+                blink = true;
+                deathBlink = true;
+                DamageEffect();
+                return;
+            }
             PlayerSkinObject.SetActive(true);
             blinkCount = 0;
         }
@@ -413,11 +425,29 @@ public class PlayerMove : MonoBehaviour
                         }
                         else
                         {
-                            CameraMove.damageSway = true;
-                            DamageEffect();
-                            SEController.dead = true;
-                            Dead();
-                            blink = true;
+                            if(SceneManager.GetActiveScene().name == "Tutorial")
+                            {
+                                Hp = 5;
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    HpObject[i].SetActive(false);
+                                }
+                                for (int i = 0; i < Hp; i++)
+                                {
+                                    HpObject[i].SetActive(true);
+                                }
+                                return;
+                            }
+                            if (!death)
+                            {
+                                death = true;
+                                CameraMove.damageSway = true;
+                                DamageEffect();
+                                SEController.dead = true;
+                                Dead();
+                                blink = true;
+                            }
+                            
                         }
                     }
                 }
@@ -489,7 +519,7 @@ public class PlayerMove : MonoBehaviour
     public void StartEnd()
     {
         startRota = true;
-        
+        if(EnemySpawnner!=null)
         EnemySpawnner.SetActive(true);
     }
 
@@ -514,6 +544,7 @@ public class PlayerMove : MonoBehaviour
         HpObject[0].SetActive(false);
         Hp = 0;
         PlayerDead = true;
+        if(EnemySpawnner!=null)
         EnemySpawnner.SetActive(false);
         Destroy(rb);
         PlayerSkin.Rota = false;

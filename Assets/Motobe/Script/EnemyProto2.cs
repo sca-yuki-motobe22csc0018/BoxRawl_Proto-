@@ -39,7 +39,7 @@ public class EnemyProto2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Drop"))
         {
-            EXPController.EXP += 5 * PlayerMove.EXPUP;
+            EXPController.EXP += 8.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             Destroy(this.gameObject);
         }

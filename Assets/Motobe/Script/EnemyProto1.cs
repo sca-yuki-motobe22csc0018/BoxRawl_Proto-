@@ -90,7 +90,7 @@ public class EnemyProto1 : MonoBehaviour
         if (other.gameObject.CompareTag("Drop"))
         {
             var sequence = DOTween.Sequence();
-            EXPController.EXP += 3 * PlayerMove.EXPUP;
+            EXPController.EXP += 3.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             sequence.AppendCallback(() => dest());
         }

@@ -20,13 +20,15 @@ public class EXPController : MonoBehaviour
         exp = 0;
         expup = 0;
         LevelUpSet.SetActive(false);
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        
+
         if (PlayerMove.EXPUP > expup)
         {
             expup = PlayerMove.EXPUP;
