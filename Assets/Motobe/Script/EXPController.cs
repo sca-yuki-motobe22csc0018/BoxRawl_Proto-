@@ -46,7 +46,7 @@ public class EXPController : MonoBehaviour
         EXPGage2.rectTransform.sizeDelta = new Vector2(exp * 19, 75);
         if (EXP > exp)
         {
-            exp += 10 * expup * Time.deltaTime;
+            exp += 10 * expup * 2 * Time.deltaTime;
         }
         if (exp >= 100)
         {

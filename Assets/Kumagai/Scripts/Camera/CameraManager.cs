@@ -29,6 +29,6 @@ public class CameraManager : MonoBehaviour
         //{
         //        jumpCameraRevision = tmpRevision;
         //}
-        this.gameObject.transform.position = new Vector3(player.transform.position.x, player.transform.position.y * jumpCameraRevision, -10);
+        this.gameObject.transform.position = new Vector3(player.transform.position.x, player.transform.position.y+1 * jumpCameraRevision, -10);
     }
 }

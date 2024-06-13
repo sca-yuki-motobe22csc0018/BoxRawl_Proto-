@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProto : MonoBehaviour
+public class EnemyTutorial : MonoBehaviour
 {
     float posy;
     float posx;
@@ -22,7 +22,7 @@ public class EnemyProto : MonoBehaviour
     bool Jump;
 
     public GameObject EnemySkin;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,23 +30,9 @@ public class EnemyProto : MonoBehaviour
         wallSpeed = false;
         rb = GetComponent<Rigidbody2D>();
         OnGround = false;
-        int rand = Random.Range(0, 2);
-        if (rand == 0)
-        {
-            right = false;
-            dir = 1;
-        }
-        else
-        {
-            right = true;
-            dir = -1;
-        }
-        
+        dir=1;
         Jump = false;
-        float speedrand=Random.Range(0, 2.0f);
-        defaultSpeed = speed+speedrand;
-        int random = Random.Range(0, 4);
-        EnemyCheck = random;
+        defaultSpeed = speed;
         Rota = true;
     }
 
@@ -55,7 +41,7 @@ public class EnemyProto : MonoBehaviour
     {
         if (PlayerMove.PlayerDead)
         {
-            rb.velocity = new Vector2(0,0);
+            rb.velocity = new Vector2(0, 0);
             return;
         }
         if (!PlayerMove.PlayerDead)
@@ -146,14 +132,16 @@ public class EnemyProto : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Drop"))
         {
-            EXPController.EXP += 5.0f*PlayerMove.EXPUP;
-            PlayerMove.EXPUP += 1;
+            EXPController.EXP += 5.0f * PlayerMove.EXPUP;
+            //PlayerMove.EXPUP += 1;
             this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
         }
 
         if (other.gameObject.CompareTag("DestroyObj"))
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
         }
     }
 
@@ -180,7 +168,8 @@ public class EnemyProto : MonoBehaviour
             {
                 rb.velocity = new Vector3(0, 20, 0);
                 OnGround = false;
-                if (wallSpeed == false){
+                if (wallSpeed == false)
+                {
                     speed += 3;
                     wallSpeed = true;
                 }
@@ -209,22 +198,9 @@ public class EnemyProto : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            if(EnemyCheck == 1 || EnemyCheck == 2 || EnemyCheck == 3)
-            Rota = true;
+            if (EnemyCheck == 1 || EnemyCheck == 2 || EnemyCheck == 3)
+                Rota = true;
             OnWall = false;
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-
     }
 }
