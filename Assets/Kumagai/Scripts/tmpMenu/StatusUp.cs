@@ -1,3 +1,4 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class StatusUp : MonoBehaviour
@@ -5,8 +6,8 @@ public class StatusUp : MonoBehaviour
     public static string nowPlayerType;
     [SerializeField]private string selectPlayerType;
     private int nowTypeNumber;
-    [SerializeField] private int tmpTypeNumber;
-    [SerializeField]private int selectTypeNumber;
+    public static int tmpTypeNumber;
+    public static int selectTypeNumber;
     public static bool selectType;
     [SerializeField] private GameObject window;
     [SerializeField] private GameObject[] type;
@@ -31,6 +32,8 @@ public class StatusUp : MonoBehaviour
             PlayerTypeSelection();
         }
         this.transform.position=player.transform.position;
+        if(tmpTypeNumber>=0&&tmpTypeNumber<=3) { selector.transform.position = type[tmpTypeNumber].transform.position; }
+      
     }
 
     private void PlayerTypeSet()
