@@ -24,8 +24,10 @@ public class StatusUp : MonoBehaviour
     void Update()
     {
         window.SetActive(selectType);
+        player.SetActive(!selectType);
         if (selectType)
         {
+            PlayerMove.Drop = false;
             PlayerTypeSelection();
         }
         this.transform.position=player.transform.position;
