@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StatusUp : MonoBehaviour
 {
-    [SerializeField]private string nowPlayerType;
+    public static string nowPlayerType;
     [SerializeField]private string selectPlayerType;
     private int nowTypeNumber;
     [SerializeField] private int tmpTypeNumber;
@@ -11,10 +11,9 @@ public class StatusUp : MonoBehaviour
     [SerializeField] private GameObject window;
     [SerializeField] private GameObject[] type;
     [SerializeField] private GameObject player;
-
+    [SerializeField] private GameObject selector;
     void OnEnable()
     {
-        Debug.Log("aaaa");
         nowPlayerType = "Default";
         nowTypeNumber = 0;
         tmpTypeNumber = 0;
@@ -48,12 +47,12 @@ public class StatusUp : MonoBehaviour
                 break;
             case 2:
                 {
-                    selectPlayerType = "Defense";
+                    selectPlayerType = "Hp";
                 }
                 break;
             case 3:
                 {
-                    selectPlayerType = "Attack";
+                    selectPlayerType = "Jump";
                 }
                 break;
             case -1:
