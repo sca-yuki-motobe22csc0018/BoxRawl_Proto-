@@ -10,9 +10,11 @@ public class StatusUp : MonoBehaviour
     public static bool selectType;
     [SerializeField] private GameObject window;
     [SerializeField] private GameObject[] type;
+    [SerializeField] private GameObject player;
 
-    void Start()
+    void OnEnable()
     {
+        Debug.Log("aaaa");
         nowPlayerType = "Default";
         nowTypeNumber = 0;
         tmpTypeNumber = 0;
@@ -27,6 +29,7 @@ public class StatusUp : MonoBehaviour
         {
             PlayerTypeSelection();
         }
+        this.transform.position=player.transform.position;
     }
 
     private void PlayerTypeSet()
@@ -55,7 +58,7 @@ public class StatusUp : MonoBehaviour
                 break;
             case -1:
                 {
-                    selectType = false;
+                   
                 }
                 break;
             default:
@@ -116,7 +119,7 @@ public class StatusUp : MonoBehaviour
                 tmpTypeNumber++;
             }
         }
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             if(tmpTypeNumber!=100&&tmpTypeNumber!=-1)
             {
@@ -126,10 +129,13 @@ public class StatusUp : MonoBehaviour
             {
                 nowTypeNumber=selectTypeNumber;
                 nowPlayerType = selectPlayerType;
+                selectType = false;
+                ButtonManager.sceneCheck = false;
                 selectTypeNumber = 0;
             }
             else
             {
+                ButtonManager.sceneCheck = false;
                 selectType = false;
                 selectTypeNumber=0;
             }
