@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 
-public class TutorialPlayer : MonoBehaviour
+public class TutorialPlayer01 : MonoBehaviour
 {
     //Rigidbody
     private Rigidbody2D rb;
@@ -27,7 +27,7 @@ public class TutorialPlayer : MonoBehaviour
     public float DefaultSpeed;
     public static float PlusSpeed;
     private float Speed;
-    
+
     //空中に居るかの判定
     public static int JumpCount;
 
@@ -45,11 +45,6 @@ public class TutorialPlayer : MonoBehaviour
     public static bool blink;
     private bool blinkCheck;
     float blinkCount;
-    /*
-    //パリィ処理
-    public GameObject ParyObject;
-    public static bool paryCheck;
-    */
 
     //Skin
     public static bool Rota;
@@ -60,6 +55,7 @@ public class TutorialPlayer : MonoBehaviour
 
     int dir;
     public int playerNumber;
+    bool wallCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -73,13 +69,9 @@ public class TutorialPlayer : MonoBehaviour
         blinkCount = 0;
         PlusSpeed = 0;
         PlusJumpForce = 0;
-        dir=-1;
-
+        dir = 1;
+        wallCheck = false;
         ButtonManager.sceneCheck = false;
-        /*
-        ParyObject.SetActive(false);
-        paryCheck = false;
-        */
 
         //Skin
         rota = 1;
@@ -93,30 +85,6 @@ public class TutorialPlayer : MonoBehaviour
         //ステータスを入力
         JumpForce = DefaultJumpForce + PlusJumpForce;
         Speed = DefaultSpeed + PlusSpeed;
-        /*
-        //ジャンプ
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (JumpCount == 0)
-            {
-                //壁での連続ジャンプ防止
-                if (OnWall)
-                {
-                    if (!DoubleWall)
-                    {
-                        rb.velocity = new Vector3(0, JumpForce, 0);
-                        DoubleWall = true;
-                        SEController.jump = true;
-                    }
-                }
-                else
-                {
-                    rb.velocity = new Vector3(0, JumpForce, 0);
-                    SEController.jump = true;
-                }
-            }
-        }
-        */
         //壁めり込み防止
         if (!right)
         {
@@ -131,23 +99,6 @@ public class TutorialPlayer : MonoBehaviour
         {
             this.transform.position += new Vector3(dir * Speed * Time.deltaTime, 0, 0);
         }
-            
-        /*
-        //ヒップドロップ
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            //Debug.Log(ParyController.parySet);
-            //空中にいるとき
-            if (!Drop)
-            {
-                if (JumpCount == 1 || ParyController.paryJump)
-                {
-                    DropSystem();
-                }
-            }
-
-        }
-        */
 
         //ジャンプ可能か確認用オブジェクトの表示非表示
         if (JumpCount == 0)
@@ -187,29 +138,23 @@ public class TutorialPlayer : MonoBehaviour
         //Groundにふれたとき
         if (other.gameObject.CompareTag("Ground"))
         {
-            DoubleWall = false;
-
             if (playerNumber == 0)
             {
-                if (dir == -1)
+                if (dir == 1)
                 {
                     rb.velocity = new Vector3(0, JumpForce, 0);
                 }
-                dir *= -1;
-            }
-            if (playerNumber == 1)
-            {
-                if (dir == -1)
+                if (wallCheck)
                 {
-                    rb.velocity = new Vector3(0, JumpForce, 0);
+                    dir *= -1;
                 }
-                dir *= -1;
             }
         }
         if (other.gameObject.CompareTag("Wall"))
         {
+            rb.velocity = new Vector3(0, JumpForce, 0);
             OnWall = true;
-            rota=0;
+            rota = 0;
             Rota = false;
         }
     }
@@ -219,17 +164,14 @@ public class TutorialPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             JumpCount = 0;
-            //ParyObject.SetActive(false);
         }
         //地面に触れている間
         if (collision.gameObject.CompareTag("Ground"))
         {
             Time.timeScale = 1.0f;
             Drop = false;
-            //rota = 0;
             Rota = false;
             JumpCount = 0;
-            //ParyObject.SetActive(false);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -238,42 +180,17 @@ public class TutorialPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             JumpCount = 1;
-            //if (ParyObject != null)
-            //    ParyObject.SetActive(true);
             Rota = true;
             OnWall = false;
             DoubleWall = false;
+            wallCheck = true;
         }
         //地面から離れたとき
         if (collision.gameObject.CompareTag("Ground"))
         {
             JumpCount = 1;
-            //if (ParyObject != null)
-            //    ParyObject.SetActive(true);
             rota *= -1;
             Rota = true;
         }
-    }
-
-    public void DropSystem()
-    {
-        var sequence = DOTween.Sequence();
-        rb.velocity = new Vector3(0, JumpForce, 0);
-        Drop = true;
-        SEController.drop1 = true;
-        if (rota == 0)
-        {
-            rota = 1;
-        }
-        rota *= -2;
-        sequence.AppendInterval(0.2f);
-        sequence.AppendCallback(() => DropSystem2());
-    }
-    public void DropSystem2()
-    {
-        DropObject.SetActive(true);
-        Rota = false;
-        rota = 0;
-        rb.velocity = new Vector3(0, -JumpForce * 2, 0);
     }
 }
