@@ -25,6 +25,7 @@ public class StatusUp : MonoBehaviour
     void Update()
     {
         window.SetActive(selectType);
+        selector.SetActive(selectType);
         player.SetActive(!selectType);
         if (selectType)
         {
@@ -118,7 +119,7 @@ public class StatusUp : MonoBehaviour
             {
                 tmpTypeNumber = 0;
             }
-            else if(tmpTypeNumber<=2)
+            else if(tmpTypeNumber<=2&&tmpTypeNumber>0)
             {
                 tmpTypeNumber++;
             }

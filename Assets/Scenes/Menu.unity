@@ -2900,6 +2900,7 @@ GameObject:
   - component: {fileID: 171355229}
   - component: {fileID: 171355228}
   - component: {fileID: 171355230}
+  - component: {fileID: 171355231}
   m_Layer: 0
   m_Name: PlayerStatus
   m_TagString: Untagged
@@ -3002,6 +3003,25 @@ MonoBehaviour:
   - {fileID: 1702836566}
   player: {fileID: 1790036947}
   selector: {fileID: 939136226}
+--- !u!114 &171355231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171355227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988af6a2a145d5743bccbe6dd6e7fc4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+  - {fileID: 21300000, guid: 1e481428568af58459f7a5f28ed6d1ce, type: 3}
+  - {fileID: 21300000, guid: 9aa5a419e7d56034783c6ec13c3a9907, type: 3}
+  - {fileID: 21300000, guid: d6fc253c9f4735c43a13d604f3615e0b, type: 3}
+  - {fileID: 21300000, guid: 0edfa4112e6cc9d4fa58f5f1382e84df, type: 3}
+  nowSelectType: {fileID: 1190551913}
+  playerSkin: {fileID: 962702451}
 --- !u!1 &177699458
 GameObject:
   m_ObjectHideFlags: 0
@@ -13482,7 +13502,6 @@ GameObject:
   m_Component:
   - component: {fileID: 962702452}
   - component: {fileID: 962702453}
-  - component: {fileID: 962702454}
   m_Layer: 0
   m_Name: PlayerTypeSkin
   m_TagString: Untagged
@@ -13557,24 +13576,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &962702454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962702451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988af6a2a145d5743bccbe6dd6e7fc4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin:
-  - {fileID: 21300000, guid: 1e481428568af58459f7a5f28ed6d1ce, type: 3}
-  - {fileID: 21300000, guid: 9aa5a419e7d56034783c6ec13c3a9907, type: 3}
-  - {fileID: 21300000, guid: d6fc253c9f4735c43a13d604f3615e0b, type: 3}
-  - {fileID: 21300000, guid: 0edfa4112e6cc9d4fa58f5f1382e84df, type: 3}
-  nowSelectType: {fileID: 1190551913}
 --- !u!1 &967134327
 GameObject:
   m_ObjectHideFlags: 0
@@ -26981,7 +26982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 241520905785417579, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 12.68
+      value: 11.15
       objectReference: {fileID: 0}
     - target: {fileID: 241520905785417579, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: m_AnchoredPosition.y
