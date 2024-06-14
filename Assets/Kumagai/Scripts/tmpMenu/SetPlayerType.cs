@@ -8,10 +8,13 @@ public class SetPlayerType : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite[] skin;
+    SpriteRenderer nowSprite;
+    [SerializeField] GameObject nowSelectType;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer=this.gameObject.GetComponent<SpriteRenderer>();
+        nowSprite=nowSelectType.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -40,5 +43,6 @@ public class SetPlayerType : MonoBehaviour
                 }
                 break;
         }
+        nowSprite.sprite = skin[StatusUp.selectTypeNumber];
     }
 }
