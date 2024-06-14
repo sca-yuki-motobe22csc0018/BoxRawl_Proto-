@@ -21,11 +21,12 @@ public class ParticleHit : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("ìGÇ∆è’ìÀÇµÇ‹ÇµÇΩ");
+            EXPController.EXP += 5.0f * PlayerMove.EXPUP;
+            PlayerMove.EXPUP += 1;
+            Destroy(other.gameObject);
         }
         else
         {
-            Debug.Log("è’ìÀÇµÇ‹ÇµÇΩ");
         }
     }
 }
