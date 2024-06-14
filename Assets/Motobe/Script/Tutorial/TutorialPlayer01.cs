@@ -55,7 +55,7 @@ public class TutorialPlayer01 : MonoBehaviour
 
     int dir;
     public int playerNumber;
-    bool wallCheck;
+    bool Check;
 
     // Start is called before the first frame update
     void Start()
@@ -69,8 +69,8 @@ public class TutorialPlayer01 : MonoBehaviour
         blinkCount = 0;
         PlusSpeed = 0;
         PlusJumpForce = 0;
-        dir = 1;
-        wallCheck = false;
+        dir = -1;
+        Check = true;
         ButtonManager.sceneCheck = false;
 
         //Skin
@@ -85,18 +85,10 @@ public class TutorialPlayer01 : MonoBehaviour
         //ステータスを入力
         JumpForce = DefaultJumpForce + PlusJumpForce;
         Speed = DefaultSpeed + PlusSpeed;
-        //壁めり込み防止
-        if (!right)
-        {
-            OnWall = false;
-        }
-        if (right)
-        {
-            OnWall = false;
-        }
 
         if (playerNumber == 0)
         {
+            if(!OnWall)
             this.transform.position += new Vector3(dir * Speed * Time.deltaTime, 0, 0);
         }
 
@@ -138,16 +130,9 @@ public class TutorialPlayer01 : MonoBehaviour
         //Groundにふれたとき
         if (other.gameObject.CompareTag("Ground"))
         {
-            if (playerNumber == 0)
+            if (!Check)
             {
-                if (dir == 1)
-                {
-                    rb.velocity = new Vector3(0, JumpForce, 0);
-                }
-                if (wallCheck)
-                {
-                    dir *= -1;
-                }
+                //rb.velocity = new Vector3(0, JumpForce, 0);
             }
         }
         if (other.gameObject.CompareTag("Wall"))
@@ -164,6 +149,7 @@ public class TutorialPlayer01 : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             JumpCount = 0;
+            OnWall = true;
         }
         //地面に触れている間
         if (collision.gameObject.CompareTag("Ground"))
@@ -183,7 +169,10 @@ public class TutorialPlayer01 : MonoBehaviour
             Rota = true;
             OnWall = false;
             DoubleWall = false;
-            wallCheck = true;
+            if (rota == 0)
+            {
+                rota = 1;
+            }
         }
         //地面から離れたとき
         if (collision.gameObject.CompareTag("Ground"))
@@ -191,6 +180,24 @@ public class TutorialPlayer01 : MonoBehaviour
             JumpCount = 1;
             rota *= -1;
             Rota = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            dir *= -1;
+            if (rota == 0)
+            {
+                rota = -1;
+            }
+            if (Check)
+            {
+                rb.velocity = new Vector3(0, JumpForce, 0);
+                rota = 1;
+            }
+            Check = !Check;
         }
     }
 }
