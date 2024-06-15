@@ -96,15 +96,15 @@ public class ProtoControllerEnemy : MonoBehaviour
         }
         if (random == 1)
         {
-            ObjectEnemy1(-40, 22);
+            ObjectEnemy(-40, 22);
         }
         if (random == 2)
         {
-            ObjectEnemy2(-40, 30);
+            ObjectEnemy(-40, 30);
         }
         if (random == 3)
         {
-            ObjectEnemy3(-40, 22);
+            ObjectEnemy(-40, 22);
         }
     }
     void SpawnDraw3()
@@ -116,15 +116,15 @@ public class ProtoControllerEnemy : MonoBehaviour
         }
         if (random == 1)
         {
-            ObjectEnemy1(0, 22);
+            ObjectEnemy(0, 22);
         }
         if (random == 2)
         {
-            ObjectEnemy2(0, 30);
+            ObjectEnemy(0, 30);
         }
         if (random == 3)
         {
-            ObjectEnemy3(0, 22);
+            ObjectEnemy(0, 22);
         }
     }
     void SpawnDraw4()

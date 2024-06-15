@@ -88,7 +88,7 @@ public class EnemyProto : MonoBehaviour
                 rb.velocity = new Vector3(0, 13, 0);
                 Jump = false;
             }
-
+            Rota = false;
             if (Rota)
             {
                 EnemySkin.transform.Rotate(0, 0, 750 * rota * Time.deltaTime);

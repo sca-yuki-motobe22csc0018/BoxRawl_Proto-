@@ -550,7 +550,8 @@ public class PlayerMove : MonoBehaviour
         PlayerSkin.Rota = false;
         sequence.AppendInterval(3.0f);
         //‚±‚±‚ÉƒV[ƒ““]ˆÚ‚Ì‚â‚Â
-        sequence.AppendCallback(() => SceneChange());
+        SceneChange();
+        //sequence.AppendCallback(() => SceneChange());
     }
 
     public void SceneChange()
