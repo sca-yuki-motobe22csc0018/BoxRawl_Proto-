@@ -32,7 +32,10 @@ public class StatusUp : MonoBehaviour
             PlayerTypeSelection();
         }
         this.transform.position=player.transform.position;
-        if(tmpTypeNumber>=0&&tmpTypeNumber<=3) { selector.transform.position = type[tmpTypeNumber].transform.position; }
+        if(tmpTypeNumber>=0&&tmpTypeNumber<=3) 
+        {
+            selector.transform.position = type[tmpTypeNumber].transform.position; 
+        }
       
     }
 
