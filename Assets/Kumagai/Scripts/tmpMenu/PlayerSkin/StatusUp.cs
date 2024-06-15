@@ -15,7 +15,6 @@ public class StatusUp : MonoBehaviour
     [SerializeField] private GameObject selector;
     void OnEnable()
     {
-        nowPlayerType = "Default";
         nowTypeNumber = 0;
         tmpTypeNumber = 0;
         selectType = true;
@@ -33,7 +32,10 @@ public class StatusUp : MonoBehaviour
             PlayerTypeSelection();
         }
         this.transform.position=player.transform.position;
-        if(tmpTypeNumber>=0&&tmpTypeNumber<=3) { selector.transform.position = type[tmpTypeNumber].transform.position; }
+        if(tmpTypeNumber>=0&&tmpTypeNumber<=3) 
+        {
+            selector.transform.position = type[tmpTypeNumber].transform.position; 
+        }
       
     }
 
@@ -136,13 +138,13 @@ public class StatusUp : MonoBehaviour
                 nowPlayerType = selectPlayerType;
                 selectType = false;
                 ButtonManager.sceneCheck = false;
-                selectTypeNumber = 0;
+                //selectTypeNumber = 0;
             }
             else
             {
                 ButtonManager.sceneCheck = false;
                 selectType = false;
-                selectTypeNumber=0;
+                //selectTypeNumber=0;
             }
             PlayerTypeSet();
         }
