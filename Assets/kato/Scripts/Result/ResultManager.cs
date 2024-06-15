@@ -3,35 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ResultManager : MonoBehaviour
 {
-    int totalScore;
+    public int totalScore;
     float countScore;
     bool isCountUp;
     int tenScore;
-    [SerializeField] Text scoreText;
+    float time;   //ê∂Ç´écÇ¡ÇΩéûä‘
+    int timeScore;
+    int ExPoint;//åoå±íl
+    int ExpScore;
+    [SerializeField] Text[] scoreText;
 
     string myName;
     [SerializeField] InputField nameField;
     [SerializeField] GameObject nameCanvas;
 
+    enum Result
+    {
+        Exp,
+        Time,
+        Total
+    }
+    Result result; 
+
+    float counter;
     void Start()
     {
+        result = Result.Exp;
         nameCanvas.SetActive(false);
         countScore = 0;
-        totalScore = -1;
         isCountUp = true;
 
         myName = null;
 
         tenScore = RankingSet.getTenScore();
         Debug.Log(tenScore);
+
+        scoreText[0].text = "0";
+        for (int i = 1; i < scoreText.Length; i++) 
+        {
+            scoreText[i].color = new Color(0, 0, 0, 0);
+        }
+
+        scoreCalculation();
+
+        counter = 0;
     }
 
 
     void Update()
     {
+        counter += Time.deltaTime;
         if (isCountUp)
         {
             scoreCountUp();
@@ -62,17 +87,62 @@ public class ResultManager : MonoBehaviour
 
     void scoreCountUp()
     {
-        if (countScore < totalScore)
+        switch(result)
         {
-            countScore += (totalScore * Time.deltaTime) / 7;
-            scoreText.text = countScore.ToString("f0");
+            case Result.Exp:
+                scoreText[1].DOFade(1,1.0f);
+                if(counter >= 1.0f)
+                {
+                    result = Result.Time;
+                }
+                break;
+            case Result.Time:
+                scoreText[2].DOFade(1,1.0f);
+                if (counter >= 1.5f)
+                {
+                    result = Result.Total;
+                }
+                break;
+            case Result.Total:
+                if (countScore < totalScore)
+                {
+                    countScore += (totalScore * Time.deltaTime) / 7;
+                    scoreText[0].text = countScore.ToString("f0");
+                }
+                else if (countScore > totalScore)
+                {
+                    countScore = totalScore;
+                    scoreText[0].text = totalScore.ToString("f0");
+                    isCountUp = false;
+                }
+
+                //while (countScore < totalScore)
+                //{
+                //    countScore += (totalScore * Time.deltaTime);
+                //    scoreText[0].text = countScore.ToString("f0");
+                //    if (countScore >= totalScore)
+                //    {
+                //        countScore = totalScore;
+                //        scoreText[0].text = totalScore.ToString("f0");
+                //    }
+                //}
+                break;
         }
-        else if(countScore > totalScore) 
-        {
-            countScore = totalScore;
-            scoreText.text = totalScore.ToString("f0");
-            isCountUp=false;
-        }
+    }
+
+    void scoreCalculation()
+    {
+        //timeScore = (int)Mathf.Floor(time * 1000);
+        //ExpScore = ExPoint * 1000;
+        //totalScore = timeScore + ExpScore;
+
+        timeScore = 5000;
+        ExpScore = 6000;
+        totalScore = timeScore + ExpScore;
+
+        //scoreText[0].text = totalScore.ToString();
+        scoreText[1].text = ExpScore.ToString();
+        scoreText[2].text = timeScore.ToString();
     }
 
     void nameInput()
