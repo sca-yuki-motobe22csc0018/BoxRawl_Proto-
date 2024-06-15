@@ -15,11 +15,13 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject floorLeft;
     [SerializeField] private GameObject floorRight;
     [SerializeField] private GameObject[] playerChild;
+    [SerializeField] private GameObject stageSelectWindow;
     private bool sceneChangeFlag;
     public static string yesOrNo;
     [SerializeField] private string thisSceneName;
     public static bool sceneCheck;
     public static bool sceneChange;
+    public static bool stageSelect;
 
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class ButtonManager : MonoBehaviour
     {
         sceneChange = false;
         sceneCheck = false;
+        stageSelect = false;
         yesOrNo = "";
         StartCoroutine(ButtonStart());
 
@@ -36,6 +39,11 @@ public class ButtonManager : MonoBehaviour
     void Update()
     {
         SceneCheck();
+        stageSelectWindow.SetActive(stageSelect);
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            stageSelect = false;
+        }
         //Debug.Log(sceneCheck);
     }
 
@@ -81,29 +89,44 @@ public class ButtonManager : MonoBehaviour
     //ステータス割り振りの時にはこのシーンはスキップする
     private void SceneCheck()
     {
-        if (sceneCheck && sceneName.text == "Tutorial" || sceneCheck && sceneName.text == "Main Game")
+        if (sceneCheck)
         {
-            sceneCheckBackGround.SetActive(true);
-        }
-        else if (sceneCheck && sceneName.text == "StatusUp")
-        {
-            statusWindow.SetActive(true);
-        }
-        else
-        {
-            sceneCheckBackGround.SetActive(false);
-        }
-        if (yesOrNo == "Yes")
-        {
-            StartCoroutine(SceneChanger());
-        }
-        if(yesOrNo=="No")
-        {
-            sceneCheck = false;
-             sceneCheckBackGround.SetActive(false);
-            yesOrNo = "";
-        }
+            switch (sceneName.text)
+            {
+                case "Tutorial":
+                    {
+                        sceneCheckBackGround.SetActive(true);
+                    }
+                    break;
+                case "Main Game":
+                    {
+                        sceneCheckBackGround.SetActive(true);
+                        // stageSelect = true;
+                    }
+                    break;
+                case "StatusUp":
+                    {
+                        statusWindow.SetActive(true);
+                    }
+                    break;
+                default:
+                    {
+                        sceneCheckBackGround.SetActive(false);
+                    }
+                    break;
+            }
+            if (yesOrNo == "Yes")
+            {
+                StartCoroutine(SceneChanger());
+            }
+            if (yesOrNo == "No")
+            {
+                sceneCheck = false;
+                sceneCheckBackGround.SetActive(false);
+                yesOrNo = "";
+            }
 
+        }
     }
 
 
