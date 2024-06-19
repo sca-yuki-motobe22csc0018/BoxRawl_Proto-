@@ -19,26 +19,30 @@ public class SetPlayerType : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(StatusUp.nowPlayerType)
+        switch (StatusUp.nowPlayerType)
         {
             case "Defult":
                 {
                     spriteRenderer.sprite = skin[0];
+                    Debug.Log("a");
                 }
                 break;
             case "Speed":
                 {
                     spriteRenderer.sprite = skin[1];
+                    Debug.Log("b");
                 }
                 break;
             case "Hp":
                 {
                     spriteRenderer.sprite = skin[2];
+                    Debug.Log("c");
                 }
                 break;
             case "Jump":
                 {
                     spriteRenderer.sprite = skin[3];
+                    Debug.Log("d");
                 }
                 break;
         }
