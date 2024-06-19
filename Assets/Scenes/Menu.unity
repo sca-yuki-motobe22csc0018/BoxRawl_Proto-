@@ -13533,7 +13533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descriptStagePosObj: {fileID: 1763041477}
-  speed: 1
+  speed: 5
 --- !u!212 &915027739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13576,7 +13576,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 30
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8113208, g: 0.14159843, b: 0.14159843, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
