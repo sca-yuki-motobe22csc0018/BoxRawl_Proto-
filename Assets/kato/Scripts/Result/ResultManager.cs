@@ -11,9 +11,9 @@ public class ResultManager : MonoBehaviour
     float countScore;
     bool isCountUp;
     int tenScore;
-    float time;   //生き残った時間
+    static float time;   //生き残った時間
     int timeScore;
-    int ExPoint;//経験値
+    static int ExPoint;//経験値
     int ExpScore;
     [SerializeField] Text[] scoreText;
 
@@ -63,23 +63,28 @@ public class ResultManager : MonoBehaviour
         }
         else if(!isCountUp)
         {
-            if(totalScore > tenScore)
+            //if(totalScore > tenScore)
+            //{
+            //    if (Input.GetKeyUp(KeyCode.A))
+            //    {
+            //        nameCanvas.SetActive(true);
+            //    }
+            //}
+            //else
+            //{
+            //    if (Input.GetKeyUp(KeyCode.A))
+            //    {
+            //        SceneManager.LoadScene("Menu");
+            //    }
+            //}
+
+            if (Input.GetKeyUp(KeyCode.Return))
             {
-                if (Input.GetKeyUp(KeyCode.A))
-                {
-                    nameCanvas.SetActive(true);
-                }
-            }
-            else
-            {
-                if (Input.GetKeyUp(KeyCode.A))
-                {
-                    SceneManager.LoadScene("Menu");
-                }
+                SceneManager.LoadScene("Menu");
             }
         }
 
-        if(Input.GetKeyUp(KeyCode.Return))
+        if (Input.GetKeyUp(KeyCode.Return))
         {
             SceneManager.LoadScene("Menu");
         }
@@ -114,18 +119,18 @@ public class ResultManager : MonoBehaviour
                     countScore = totalScore;
                     scoreText[0].text = totalScore.ToString("f0");
                     isCountUp = false;
+                    result = default(Result);
                 }
 
-                //while (countScore < totalScore)
-                //{
-                //    countScore += (totalScore * Time.deltaTime);
-                //    scoreText[0].text = countScore.ToString("f0");
-                //    if (countScore >= totalScore)
-                //    {
-                //        countScore = totalScore;
-                //        scoreText[0].text = totalScore.ToString("f0");
-                //    }
-                //}
+                if(Input.GetKey(KeyCode.O))
+                {
+                    countScore = totalScore;
+                    scoreText[0].text = totalScore.ToString("f0");
+                    isCountUp = false;
+                    result = default(Result);
+                }
+                break;
+            default:
                 break;
         }
     }
@@ -136,6 +141,7 @@ public class ResultManager : MonoBehaviour
         //ExpScore = ExPoint * 1000;
         //totalScore = timeScore + ExpScore;
 
+        //デバッグ用
         timeScore = 5000;
         ExpScore = 6000;
         totalScore = timeScore + ExpScore;
@@ -154,5 +160,11 @@ public class ResultManager : MonoBehaviour
             RankingSet.setScore(totalScore,myName);
             RankingSet.rankingUpdate = true;
         }
+    }
+
+    public static void SetScore (float _time, int _Exp)
+    {
+        time = _time;
+        ExPoint = _Exp;
     }
 }
