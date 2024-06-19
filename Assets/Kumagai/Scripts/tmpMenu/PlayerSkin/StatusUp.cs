@@ -59,7 +59,7 @@ public class StatusUp : MonoBehaviour
         {
             case 0:
                 {
-                    selectPlayerType = "Default";
+                    selectPlayerType = "Defult";
                 }
                 break;
             case 1:
