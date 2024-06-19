@@ -40,6 +40,7 @@ public class ButtonManager : MonoBehaviour
     {
         SceneCheck();
         stageSelectWindow.SetActive(stageSelect);
+        Player.SetActive(!stageSelect);
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             stageSelect = false;
@@ -100,8 +101,8 @@ public class ButtonManager : MonoBehaviour
                     break;
                 case "Main Game":
                     {
-                        sceneCheckBackGround.SetActive(true);
-                        // stageSelect = true;
+                       // sceneCheckBackGround.SetActive(true);
+                        stageSelect = true;
                     }
                     break;
                 case "StatusUp":

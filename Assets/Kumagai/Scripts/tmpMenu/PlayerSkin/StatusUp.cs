@@ -13,6 +13,8 @@ public class StatusUp : MonoBehaviour
     [SerializeField] private GameObject[] type;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject selector;
+    [SerializeField] private GameObject cancel;
+    [SerializeField] private GameObject setSkin;
     void OnEnable()
     {
         nowTypeNumber = 0;
@@ -20,6 +22,10 @@ public class StatusUp : MonoBehaviour
         selectType = true;
     }
 
+    private void Start()
+    {
+        this.gameObject.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +41,14 @@ public class StatusUp : MonoBehaviour
         if(tmpTypeNumber>=0&&tmpTypeNumber<=3) 
         {
             selector.transform.position = type[tmpTypeNumber].transform.position; 
+        }
+        if(tmpTypeNumber==-1)
+        {
+            selector.transform.position = cancel.transform.position;
+        }
+        if(tmpTypeNumber==100)
+        {
+            selector.transform.position=setSkin.transform.position; 
         }
       
     }
@@ -80,7 +94,11 @@ public class StatusUp : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.W))
         {
-            if(tmpTypeNumber<=3)
+            if(tmpTypeNumber==1)
+            {
+                tmpTypeNumber = -1;
+            }
+           else if(tmpTypeNumber<=3)
             {
                 tmpTypeNumber = 0;
             }
