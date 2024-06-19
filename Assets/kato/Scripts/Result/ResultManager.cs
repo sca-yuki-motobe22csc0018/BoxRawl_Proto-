@@ -21,6 +21,8 @@ public class ResultManager : MonoBehaviour
     [SerializeField] InputField nameField;
     [SerializeField] GameObject nameCanvas;
 
+    bool isRank;
+
     enum Result
     {
         Exp,
