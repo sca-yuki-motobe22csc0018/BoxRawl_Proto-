@@ -15,6 +15,7 @@ public class StageSelect : MonoBehaviour
     void OnEnable()
     {
         stages = new GameObject[3, 3];
+        StageDscript.nextScene = false;
         x = 0;
         y = 0;
         selectNumber = 0;
@@ -115,7 +116,7 @@ public class StageSelect : MonoBehaviour
                         ButtonManager.sceneCheck = false;
                         ButtonManager.stageSelect = false;
                     }
-                    else if (y!= -1 && x != 1)
+                    else if ( y!=1 || x != 1)
                     {
                         selectNumber = int.Parse(stages[x, y].gameObject.name);
                         descriptionFlag = true;
@@ -126,10 +127,10 @@ public class StageSelect : MonoBehaviour
                
             }
         }
-        if(Input.GetKeyDown(KeyCode.Space)&&descriptionFlag)
-        {
-            SceneManager.LoadScene("Main Game");
-        }
+        //if(Input.GetKeyDown(KeyCode.Space)&&StageDscript.nextScene)
+        //{
+        //    SceneManager.LoadScene("Main Game");
+        //}
     }
 
    
