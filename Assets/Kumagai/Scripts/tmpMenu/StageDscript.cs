@@ -36,11 +36,12 @@ public class StageDscript : MonoBehaviour
 
     private IEnumerator SetPos()
     {
+        yield return new WaitForSeconds(0.5f);
         float time = 0;
         while(time<1) {
-            time += Time.deltaTime*speed;
+            time += Time.deltaTime/speed;
             Debug.Log(time);
-            selectStage.transform.position += vec * speed*Time.deltaTime;
+            selectStage.transform.position += vec *Time.deltaTime/speed;
             yield return null;
         }
         StartCoroutine(SetSize());
@@ -48,6 +49,7 @@ public class StageDscript : MonoBehaviour
 
     private IEnumerator SetSize()
     {
+        yield return new WaitForSeconds(0.5f);
         float time = 0;
         while(time<0.5f) 
         {
