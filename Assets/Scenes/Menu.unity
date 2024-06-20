@@ -13533,7 +13533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descriptStagePosObj: {fileID: 1763041477}
-  speed: 5
+  speed: 0.5
 --- !u!212 &915027739
 SpriteRenderer:
   m_ObjectHideFlags: 0
