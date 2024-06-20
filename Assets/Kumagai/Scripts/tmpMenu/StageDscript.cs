@@ -26,11 +26,7 @@ public class StageDscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)&&nextScene) 
-        {
-            //StartCoroutine(StageSet());
-            Debug.Log("‚±‚±‚ÅƒV[ƒ“‚ğˆÚ“®");
-        }
+       
     }
     private void DscriptSetVec()
     {

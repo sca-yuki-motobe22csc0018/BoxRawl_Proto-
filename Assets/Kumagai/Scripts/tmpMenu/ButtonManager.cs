@@ -18,7 +18,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject stageSelectWindow;
     private bool sceneChangeFlag;
     public static string yesOrNo;
-    [SerializeField] private string thisSceneName;
+    public static string thisSceneName;
     public static bool sceneCheck;
     public static bool sceneChange;
     public static bool stageSelect;
@@ -44,6 +44,12 @@ public class ButtonManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             stageSelect = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && StageDscript.nextScene)
+        {
+            thisSceneName = "Main Game";
+            StartCoroutine(SceneChanger());
+            Debug.Log("Ç±Ç±Ç≈ÉVÅ[ÉìÇà⁄ìÆ");
         }
         //Debug.Log(sceneCheck);
     }
