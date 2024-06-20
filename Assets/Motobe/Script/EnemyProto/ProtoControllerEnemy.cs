@@ -6,23 +6,68 @@ public class ProtoControllerEnemy : MonoBehaviour
 {
     float spawnTimer;
     private float speed = 2;
+    public int playStageNum;
+    public GameObject[] playSpawnPoint;
+    public GameObject[] SpawnPoint01;
+    public GameObject[] SpawnPoint02;
+    public GameObject[] SpawnPoint03;
+    public GameObject[] SpawnPoint04;
+    public GameObject[] SpawnPoint05;
+    public GameObject[] SpawnPoint06;
+    public GameObject[] SpawnPoint07;
+    public GameObject[] SpawnPoint08;
+    
     // Start is called before the first frame update
     void Start()
     {
-        SpawnDraw3();
-        SpawnDraw3();
+        playStageNum = 1;
+        for (int i = 0; i < 10; i++)
+        {
+            if (playStageNum == 1)
+            {
+                playSpawnPoint[i] = SpawnPoint01[i];
+            }else
+            if (playStageNum == 2)
+            {
+                playSpawnPoint[i] = SpawnPoint02[i];
+            }else
+            if (playStageNum == 3)
+            {
+                playSpawnPoint[i] = SpawnPoint03[i];
+            }else
+            if (playStageNum == 4)
+            {
+                playSpawnPoint[i] = SpawnPoint04[i];
+            }else
+            if (playStageNum == 5)
+            {
+                playSpawnPoint[i] = SpawnPoint05[i];
+            }else
+            if (playStageNum == 6)
+            {
+                playSpawnPoint[i] = SpawnPoint06[i];
+            }else
+            if (playStageNum == 7)
+            {
+                playSpawnPoint[i] = SpawnPoint07[i];
+            }else
+            if (playStageNum == 8)
+            {
+                playSpawnPoint[i] = SpawnPoint08[i];
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (spawnTimer > 3)
+        if (spawnTimer > 2)
         {
             int random = Random.Range(0, 10);
             if (random < 2)
             {
-                SpawnDraw();
+                SpawnDraw1();
             }
             else
             if (random < 5)
@@ -66,73 +111,25 @@ public class ProtoControllerEnemy : MonoBehaviour
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         return;
     }
-    void SpawnDraw()
+    void SpawnDraw1()
     {
-        int random = Random.Range(0, 4);
-        if (random == 0)
-        {
-            ObjectEnemy(40, 13);
-        }
-        if (random == 1)
-        {
-            ObjectEnemy1(40, 13);
-        }
-        if (random == 2)
-        {
-            ObjectEnemy2(40, 30);
-        }
-        if (random == 3)
-        {
-            ObjectEnemy3(40, 13);
-        }
-
+        int rand=Random.Range(0, 10);
+        ObjectEnemy(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
     }
     void SpawnDraw2()
     {
-        int random = Random.Range(0, 4);
-        if (random == 0)
-        {
-            ObjectEnemy(-40, 22);
-        }
-        if (random == 1)
-        {
-            ObjectEnemy(-40, 22);
-        }
-        if (random == 2)
-        {
-            ObjectEnemy(-40, 30);
-        }
-        if (random == 3)
-        {
-            ObjectEnemy(-40, 22);
-        }
+        int rand = Random.Range(0, 10);
+        ObjectEnemy1(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
     }
     void SpawnDraw3()
     {
-        int random = Random.Range(0, 4);
-        if (random == 0)
-        {
-            ObjectEnemy(0, 22);
-        }
-        if (random == 1)
-        {
-            ObjectEnemy(0, 22);
-        }
-        if (random == 2)
-        {
-            ObjectEnemy(0, 30);
-        }
-        if (random == 3)
-        {
-            ObjectEnemy(0, 22);
-        }
+        int rand = Random.Range(0, 10);
+        ObjectEnemy2(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
     }
     void SpawnDraw4()
     {
-        SpawnDraw();
+        SpawnDraw1();
         SpawnDraw2();
         SpawnDraw3();
-        ObjectEnemy2(20, 30);
-        ObjectEnemy2(-20, 30);
     }
 }
