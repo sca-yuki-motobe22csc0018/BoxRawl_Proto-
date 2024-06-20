@@ -7,12 +7,15 @@ public class StageDscript : MonoBehaviour
 {
 
     [SerializeField] private GameObject descriptStagePosObj;
+    [SerializeField] private GameObject centerObj;
     private GameObject selectStage;
     [SerializeField] private float speed;
     Vector3 selectStagePos;
     Vector3 tmpStagePos;
     Vector3 vec;
     Vector3 tmpSize;
+    Vector3 tmptmpSize;
+    public static bool nextScene;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -23,6 +26,11 @@ public class StageDscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space)&&nextScene) 
+        {
+            //StartCoroutine(StageSet());
+            Debug.Log("Ç±Ç±Ç≈ÉVÅ[ÉìÇà⁄ìÆ");
+        }
     }
     private void DscriptSetVec()
     {
@@ -57,5 +65,27 @@ public class StageDscript : MonoBehaviour
             selectStage.transform.localScale=tmpSize+new Vector3 (1,1,1)*time;
             yield return null;
         }
+        tmptmpSize = selectStage.transform.localScale;
+        nextScene = true;
+    }
+
+    private IEnumerator StageSet()
+    {
+        float time = 0;
+        Vector3 centerVec = centerObj.transform.position-selectStage.transform.position;
+        while (time<1)
+        {
+            time += Time.deltaTime;
+            selectStage.transform.position += centerVec * Time.deltaTime;
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        while(time>1&&time<2)
+        {
+            time += Time.deltaTime*2;
+            selectStage.transform.localScale= tmptmpSize * time*2;
+            yield return null;
+        }
+        yield break;
     }
 }
