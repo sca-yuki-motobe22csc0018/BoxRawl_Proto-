@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageDscript : MonoBehaviour
 {
@@ -26,7 +27,10 @@ public class StageDscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (Input.GetKeyDown(KeyCode.Space)&&nextScene)
+        {
+            StartCoroutine(StageSet());
+        }
     }
     private void DscriptSetVec()
     {
@@ -58,7 +62,7 @@ public class StageDscript : MonoBehaviour
         while(time<0.5f) 
         {
             time += Time.deltaTime;
-            selectStage.transform.localScale=tmpSize+new Vector3 (1,1,1)*time;
+            selectStage.transform.localScale=tmpSize+new Vector3 (0.5f,0.5f,0.5f)*time;
             yield return null;
         }
         tmptmpSize = selectStage.transform.localScale;
@@ -82,6 +86,7 @@ public class StageDscript : MonoBehaviour
             selectStage.transform.localScale= tmptmpSize * time*2;
             yield return null;
         }
+        SceneManager.LoadScene("Main Game");
         yield break;
     }
 }

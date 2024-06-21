@@ -45,12 +45,13 @@ public class ButtonManager : MonoBehaviour
         {
             stageSelect = false;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && StageDscript.nextScene)
-        {
-            thisSceneName = "Main Game";
-            StartCoroutine(SceneChanger());
-            Debug.Log("ここでシーンを移動");
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && StageDscript.nextScene)
+        //{
+        //    thisSceneName = "Main Game";
+        //    //yesOrNo = "Yes";
+        //    //StartCoroutine(SceneChanger());
+        //    Debug.Log("ここでシーンを移動");
+        //}
         //Debug.Log(sceneCheck);
     }
 
@@ -70,7 +71,7 @@ public class ButtonManager : MonoBehaviour
                         break;
                     case "Tutorial":
                         {
-                            thisSceneName = "Tutorial";
+                            thisSceneName = "Result";
                         }
                         break;
                     case "AddStatus":
@@ -100,7 +101,7 @@ public class ButtonManager : MonoBehaviour
         {
             switch (sceneName.text)
             {
-                case "Tutorial":
+                case "Result":
                     {
                         sceneCheckBackGround.SetActive(true);
                     }
@@ -174,6 +175,7 @@ public class ButtonManager : MonoBehaviour
     private float timer=0;
     private void FlooringOpen() 
     {
+            Debug.Log("床を開きます");
             timer += Time.deltaTime*5;
             floorLeft.transform.Rotate(0, 0, timer*Time.deltaTime);
             floorRight.transform.Rotate(0,0, -timer*Time.deltaTime);
