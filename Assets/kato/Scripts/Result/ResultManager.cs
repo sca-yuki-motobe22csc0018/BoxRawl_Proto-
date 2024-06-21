@@ -53,6 +53,8 @@ public class ResultManager : MonoBehaviour
         scoreCalculation();
 
         counter = 0;
+
+
     }
 
 
