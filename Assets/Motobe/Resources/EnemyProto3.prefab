@@ -264,7 +264,7 @@ MonoBehaviour:
   hitDirDown: 0
   hitDirRight: 0
   hitDirLeft: 0
-  speed: 2
+  speed: 5
   EnemySkin: {fileID: 6941964656783628917}
 --- !u!1 &6941964656783628917
 GameObject:
