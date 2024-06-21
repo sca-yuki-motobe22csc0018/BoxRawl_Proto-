@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class ResultManager : MonoBehaviour
 {
-    public int totalScore;
+    public static int totalScore;
     float countScore;
     bool isCountUp;
     int tenScore;
@@ -171,5 +171,11 @@ public class ResultManager : MonoBehaviour
     {
         time = _time;
         ExPoint = _Exp;
+    }
+
+    public static int GetTotalScore(float _time, int _Exp)
+    {
+        totalScore = ((int)Mathf.Floor(_time * 1000)) + (_Exp * 1000);
+        return totalScore;
     }
 }

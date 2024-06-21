@@ -51,6 +51,7 @@ public class TitleManager : MonoBehaviour
         }
 
         FadeIO.FadeOut(startFlag);
+
     }
 
     void startGame()
