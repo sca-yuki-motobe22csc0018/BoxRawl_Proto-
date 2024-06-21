@@ -64,25 +64,30 @@ public class ProtoControllerEnemy : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnTimer > 2)
         {
-            int random = Random.Range(0, 10);
+            int random = Random.Range(0, 15);
             if (random < 2)
             {
-                SpawnDraw1();
+                SpawnDraw0();
             }
             else
             if (random < 5)
             {
-                SpawnDraw2();
+                SpawnDraw1();
             }
             else
             if (random < 8)
             {
+                SpawnDraw2();
+            }
+            else
+            if (random < 11)
+            {
                 SpawnDraw3();
             }
             else
-            if (random < 10)
+            if (random < 14)
             {
-                SpawnDraw4();
+                SpawnDrawAll();
             }
             spawnTimer = 0;
         }
@@ -107,27 +112,33 @@ public class ProtoControllerEnemy : MonoBehaviour
     }
     private void ObjectEnemy3(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyProto");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyProto3");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         return;
     }
-    void SpawnDraw1()
+    void SpawnDraw0()
     {
         int rand=Random.Range(0, 10);
         ObjectEnemy(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
     }
-    void SpawnDraw2()
+    void SpawnDraw1()
     {
         int rand = Random.Range(0, 10);
         ObjectEnemy1(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
     }
-    void SpawnDraw3()
+    void SpawnDraw2()
     {
         int rand = Random.Range(0, 10);
         ObjectEnemy2(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
     }
-    void SpawnDraw4()
+    void SpawnDraw3()
     {
+        int rand = Random.Range(0, 10);
+        ObjectEnemy3(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+    }
+    void SpawnDrawAll()
+    {
+        SpawnDraw0();
         SpawnDraw1();
         SpawnDraw2();
         SpawnDraw3();

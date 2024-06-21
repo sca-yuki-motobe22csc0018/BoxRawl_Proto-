@@ -1,24 +1,21 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using Unity.VisualScripting;
 using UnityEngine;
-//EnemyCheck‚Ì4‚ÌƒLƒƒƒ‰‚ªƒoƒO‚Á‚Ä‚é
-public class EnemyDefault : MonoBehaviour
+
+public class EnemyProto4 : MonoBehaviour
 {
     float posy;
     float posx;
     Rigidbody2D rb;
-    [SerializeField]bool OnGround;
-    [SerializeField]bool OnWall;
+    [SerializeField] bool OnGround;
+    [SerializeField] bool OnWall;
     [SerializeField] bool hitPlayer;
     [SerializeField] private bool hitDirUp;
     [SerializeField] private bool hitDirDown;
     [SerializeField] private bool hitDirRight;
     [SerializeField] private bool hitDirLeft;
     Vector3 target;
-    private float momongaUp=15;
+    private float momongaUp = 15;
     private bool momongaUpFlag;
     private bool momongaDownFlag;
     bool Rota;
@@ -34,21 +31,21 @@ public class EnemyDefault : MonoBehaviour
     public GameObject EnemySkin;
     private GameObject player;
     private bool myIsTrigger;
-   
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        momongaUpFlag = false ;
-      
-        momongaDownFlag = true ;
+        momongaUpFlag = false;
+
+        momongaDownFlag = true;
         OnGround = false;
         right = false;
         dir = 1;
         Jump = false;
         defaultSpeed = speed;
-        player=GameObject.Find("Player").gameObject;
-        target = player.transform.position-this.transform.position;
+        player = GameObject.Find("Player").gameObject;
+        target = player.transform.position - this.transform.position;
         Rota = true;
     }
 
@@ -59,11 +56,11 @@ public class EnemyDefault : MonoBehaviour
         posx = transform.position.x;
         posx += speed * Time.deltaTime * dir;
         transform.position = new Vector3(posx, posy);
-        if (!OnGround)
-        {
-            Vector2 myGravity = new Vector2(0, -9.81f * 200 * Time.deltaTime);
-            rb.AddForce(myGravity);
-        }
+        //if (!OnGround)
+        //{
+        //    Vector2 myGravity = new Vector2(0, -9.81f * 200 * Time.deltaTime);
+        //    rb.AddForce(myGravity);
+        //}
         if (right)
         {
             dir = 1;
@@ -161,7 +158,6 @@ public class EnemyDefault : MonoBehaviour
 
         if (other.gameObject.CompareTag("Ground"))
         {
-
             transform.position = new Vector3(posx, posy - 0.2f);
             transform.position = new Vector3(posx, posy - 0.2f);
             Rota = false;
@@ -201,16 +197,13 @@ public class EnemyDefault : MonoBehaviour
             hitPlayer = false;
             Rota = true;
         }
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wall"))
         {
-
             Rota = false;
         }
-
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -232,7 +225,6 @@ public class EnemyDefault : MonoBehaviour
         {
             Rota = true;
         }
-
     }
 
     private void HitRay(Vector3 dir)
@@ -264,7 +256,6 @@ public class EnemyDefault : MonoBehaviour
                     }
                     break;
             }
-
         }
         else
         {
@@ -273,6 +264,5 @@ public class EnemyDefault : MonoBehaviour
             hitDirRight = false;
             hitDirUp = false;
         }
-
     }
 }

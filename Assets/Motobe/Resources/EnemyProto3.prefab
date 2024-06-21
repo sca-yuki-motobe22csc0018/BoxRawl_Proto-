@@ -96,9 +96,8 @@ GameObject:
   - component: {fileID: 7194087395818242512}
   - component: {fileID: 1532895428101846152}
   - component: {fileID: 8833631537820832151}
-  - component: {fileID: 6057320954413535571}
   - component: {fileID: 6228735201076507958}
-  - component: {fileID: 4626085224229881829}
+  - component: {fileID: -9160539510459676983}
   m_Layer: 2
   m_Name: EnemyProto3
   m_TagString: Enemy
@@ -219,19 +218,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6057320954413535571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5121024294189907850}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8846a5d609320b148b7fdae563c6c0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemySkin: {fileID: 6941964656783628917}
 --- !u!50 &6228735201076507958
 Rigidbody2D:
   serializedVersion: 4
@@ -259,7 +245,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4626085224229881829
+--- !u!114 &-9160539510459676983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,13 +254,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5121024294189907850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00e6f0d2691927d49bae555364b5fd43, type: 3}
+  m_Script: {fileID: 11500000, guid: f74d1240abf72f748a4e33a1a4ff4aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnGround: 0
   OnWall: 0
-  speed: 1
-  EnemyCheck: 0
+  hitPlayer: 0
+  hitDirUp: 0
+  hitDirDown: 0
+  hitDirRight: 0
+  hitDirLeft: 0
+  speed: 2
   EnemySkin: {fileID: 6941964656783628917}
 --- !u!1 &6941964656783628917
 GameObject:
