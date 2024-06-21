@@ -71,7 +71,7 @@ public class ButtonManager : MonoBehaviour
                         break;
                     case "Tutorial":
                         {
-                            thisSceneName = "Result";
+                            thisSceneName = "Tutorial";
                         }
                         break;
                     case "AddStatus":
@@ -101,7 +101,7 @@ public class ButtonManager : MonoBehaviour
         {
             switch (sceneName.text)
             {
-                case "Result":
+                case "Tutorial":
                     {
                         sceneCheckBackGround.SetActive(true);
                     }
