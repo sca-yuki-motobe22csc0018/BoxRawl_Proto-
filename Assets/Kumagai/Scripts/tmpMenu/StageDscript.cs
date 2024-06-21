@@ -59,10 +59,11 @@ public class StageDscript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         float time = 0;
+       const float defSize=0.15f;
         while(time<0.5f) 
         {
             time += Time.deltaTime;
-            selectStage.transform.localScale=tmpSize+new Vector3 (0.5f,0.5f,0.5f)*time;
+            selectStage.transform.localScale=tmpSize+new Vector3 (defSize,defSize,defSize)*time;
             yield return null;
         }
         tmptmpSize = selectStage.transform.localScale;
@@ -80,7 +81,7 @@ public class StageDscript : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
-        while(time>1&&time<2)
+        while(time>1&&time<4)
         {
             time += Time.deltaTime*2;
             selectStage.transform.localScale= tmptmpSize * time*2;
