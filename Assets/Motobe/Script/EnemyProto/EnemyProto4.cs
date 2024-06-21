@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyProto4 : MonoBehaviour
 {
-    float posy;
-    float posx;
     Rigidbody2D rb;
     [SerializeField] bool OnGround;
     [SerializeField] bool OnWall;
@@ -45,17 +43,17 @@ public class EnemyProto4 : MonoBehaviour
         Jump = false;
         defaultSpeed = speed;
         player = GameObject.Find("Player").gameObject;
-        target = player.transform.position - this.transform.position;
+        target = player.transform.position - transform.position;
         Rota = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        posy = transform.position.y;
-        posx = transform.position.x;
-        posx += speed * Time.deltaTime * dir;
-        transform.position = new Vector3(posx, posy);
+        //posy = transform.position.y;
+        //posx = transform.position.x;
+        //posx += speed * Time.deltaTime * dir;
+        //transform.position = new Vector3(posx, posy);
         //if (!OnGround)
         //{
         //    Vector2 myGravity = new Vector2(0, -9.81f * 200 * Time.deltaTime);
@@ -71,11 +69,11 @@ public class EnemyProto4 : MonoBehaviour
             dir = -1;
             rota = 1;
         }
-        if (Jump)
-        {
-            rb.velocity = new Vector3(0, 13, 0);
-            Jump = false;
-        }
+        //if (Jump)
+        //{
+        //    rb.velocity = new Vector3(0, 13, 0);
+        //    Jump = false;
+        //}
 
         if (Rota)
         {
@@ -116,10 +114,9 @@ public class EnemyProto4 : MonoBehaviour
 
         if (momongaUpFlag)
         {
-            Vector3 pos = this.transform.position;
-            target.x = 0;
+            Vector3 pos = transform.position;
             pos.y += speed * Time.deltaTime;
-            this.transform.position = new Vector3(pos.x, pos.y, pos.z);
+            transform.position = new Vector3(pos.x, pos.y, pos.z);
         }
         else
         {
@@ -158,8 +155,6 @@ public class EnemyProto4 : MonoBehaviour
 
         if (other.gameObject.CompareTag("Ground"))
         {
-            transform.position = new Vector3(posx, posy - 0.2f);
-            transform.position = new Vector3(posx, posy - 0.2f);
             Rota = false;
         }
         if (other.gameObject.CompareTag("Ground"))
@@ -213,10 +208,10 @@ public class EnemyProto4 : MonoBehaviour
             Rota = false;
         }
 
-        if (collision.gameObject.CompareTag("DestroyObj"))
-        {
-            Destroy(this.gameObject);
-        }
+        //if (collision.gameObject.CompareTag("DestroyObj"))
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
 
     private void OnCollisionExit2D(Collision2D collision)
