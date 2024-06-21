@@ -34,6 +34,7 @@ public class ResultManager : MonoBehaviour
     float counter;
     void Start()
     {
+        PlayerSkin.Rota = false;
         result = Result.Exp;
         nameCanvas.SetActive(false);
         countScore = 0;
