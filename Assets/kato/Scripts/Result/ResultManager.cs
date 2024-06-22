@@ -13,8 +13,12 @@ public class ResultManager : MonoBehaviour
     int tenScore;
     static float time;   //生き残った時間
     int timeScore;
-    static int ExPoint;//経験値
-    int ExpScore;
+    static int level;  //レベル
+    int levelScore;
+    static int enemyKillNum;    //通常サイズの敵を倒した数
+    int enemyKillScore;
+    static int smallEnemyKillNum;   //小さいサイズの敵を倒した数
+    int sEnemyKillScore;
     [SerializeField] Text[] scoreText;
 
     string myName;
@@ -27,13 +31,20 @@ public class ResultManager : MonoBehaviour
     {
         Exp,
         Time,
+        Enemy,
+        SmallEnemy,
+        ClearCheck,
         Total
     }
     Result result; 
 
     float counter;
+
+    [SerializeField] RectMask2D mask;
+
     void Start()
     {
+        mask.padding = new Vector4(0, 0, 75, 0);
         PlayerSkin.Rota = false;
         result = Result.Exp;
         nameCanvas.SetActive(false);
@@ -64,7 +75,7 @@ public class ResultManager : MonoBehaviour
         counter += Time.deltaTime;
         if (isCountUp)
         {
-            scoreCountUp();
+            scoreDisplay();
         }
         else if(!isCountUp)
         {
@@ -95,20 +106,34 @@ public class ResultManager : MonoBehaviour
         }
     }
 
-    void scoreCountUp()
+    void scoreDisplay()
     {
         switch(result)
         {
             case Result.Exp:
                 scoreText[1].DOFade(1,1.0f);
-                if(counter >= 1.0f)
+                if(counter >= 0.5f)
                 {
                     result = Result.Time;
                 }
                 break;
             case Result.Time:
                 scoreText[2].DOFade(1,1.0f);
+                if (counter >= 1.0f)
+                {
+                    result = Result.Enemy;
+                }
+                break;
+            case Result.Enemy:
+                scoreText[3].DOFade(1, 1.0f);
                 if (counter >= 1.5f)
+                {
+                    result = Result.SmallEnemy;
+                }
+                break;
+            case Result.SmallEnemy:
+                scoreText[4].DOFade(1, 1.0f);
+                if (counter >= 2.0f)
                 {
                     result = Result.Total;
                 }
@@ -116,7 +141,7 @@ public class ResultManager : MonoBehaviour
             case Result.Total:
                 if (countScore < totalScore)
                 {
-                    countScore += (totalScore * Time.deltaTime) / 7;
+                    countScore += (totalScore * Time.deltaTime) / 3;
                     scoreText[0].text = countScore.ToString("f0");
                 }
                 else if (countScore > totalScore)
@@ -125,6 +150,7 @@ public class ResultManager : MonoBehaviour
                     scoreText[0].text = totalScore.ToString("f0");
                     isCountUp = false;
                     result = default(Result);
+                    //result = Result.ClearCheck;
                 }
 
                 if(Input.GetKey(KeyCode.O))
@@ -135,6 +161,9 @@ public class ResultManager : MonoBehaviour
                     result = default(Result);
                 }
                 break;
+            case Result.ClearCheck:
+                mask.padding -= new Vector4(0, 0, (75 * Time.deltaTime), 0);
+                break;
             default:
                 break;
         }
@@ -142,18 +171,24 @@ public class ResultManager : MonoBehaviour
 
     void scoreCalculation()
     {
-        //timeScore = (int)Mathf.Floor(time * 1000);
-        //ExpScore = ExPoint * 1000;
-        //totalScore = timeScore + ExpScore;
-
         //デバッグ用
-        timeScore = 5000;
-        ExpScore = 6000;
-        totalScore = timeScore + ExpScore;
+        time = Random.Range(100,601);
+        level = Random.Range(10, 100);
+        enemyKillNum = Random.Range(10, 50);
+        smallEnemyKillNum = Random.Range(10, 50);
+
+        timeScore = (int)Mathf.Floor(time * 10);
+        levelScore = level * 2000;
+        enemyKillScore = enemyKillNum * 200;
+        sEnemyKillScore = smallEnemyKillNum * 100;
+        totalScore = timeScore + levelScore
+                        + enemyKillScore + sEnemyKillScore;
 
         //scoreText[0].text = totalScore.ToString();
-        scoreText[1].text = ExpScore.ToString();
-        scoreText[2].text = timeScore.ToString();
+        scoreText[1].text = level.ToString();
+        scoreText[2].text = time.ToString();
+        scoreText[3].text = enemyKillNum.ToString();
+        scoreText[4].text = smallEnemyKillNum.ToString();
     }
 
     void nameInput()
@@ -167,10 +202,12 @@ public class ResultManager : MonoBehaviour
         }
     }
 
-    public static void SetScore (float _time, int _Exp)
+    public static void SetScore (float _time, int _Exp , int _enemyKill , int _senemyKill)
     {
         time = _time;
-        ExPoint = _Exp;
+        level = _Exp;
+        enemyKillNum = _enemyKill;
+        smallEnemyKillNum = _senemyKill;
     }
 
     public static int GetTotalScore(float _time, int _Exp)
