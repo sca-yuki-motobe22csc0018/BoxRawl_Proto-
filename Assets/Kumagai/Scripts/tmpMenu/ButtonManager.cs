@@ -16,12 +16,14 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject floorRight;
     [SerializeField] private GameObject[] playerChild;
     [SerializeField] private GameObject stageSelectWindow;
+    [SerializeField] private GameObject[] stageWindow;
     private bool sceneChangeFlag;
     public static string yesOrNo;
     public static string thisSceneName;
     public static bool sceneCheck;
     public static bool sceneChange;
     public static bool stageSelect;
+
 
 
     // Start is called before the first frame update
@@ -45,13 +47,12 @@ public class ButtonManager : MonoBehaviour
         {
             stageSelect = false;
         }
-        //if (Input.GetKeyDown(KeyCode.Space) && StageDscript.nextScene)
-        //{
-        //    thisSceneName = "Main Game";
-        //    //yesOrNo = "Yes";
-        //    //StartCoroutine(SceneChanger());
-        //    Debug.Log("ここでシーンを移動");
-        //}
+        if (Input.GetKeyDown(KeyCode.Space) && StageDscript.nextScene)
+        {
+            thisSceneName = "Main Game";
+            yesOrNo = "Yes";
+            Debug.Log("ここでシーンを移動");
+        }
         //Debug.Log(sceneCheck);
     }
 
@@ -147,6 +148,8 @@ public class ButtonManager : MonoBehaviour
             for (int i = 0; i < playerChild.Length; i++) { playerChild[i].SetActive(false); }
             FlooringOpen();
             sceneCheckBackGround.SetActive(false);
+        stageSelect = false;
+            foreach(var child in stageWindow) { child.SetActive(false); }
             yield return new WaitForSeconds(0.5f);
             sceneChangeFlag = true;
             yield return new WaitForSeconds(1f);
