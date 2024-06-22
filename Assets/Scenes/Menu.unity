@@ -6782,6 +6782,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: playerChild.Array.data[0]
       value: 
       objectReference: {fileID: 256187647}
@@ -6789,6 +6793,14 @@ PrefabInstance:
       propertyPath: playerChild.Array.data[1]
       value: 
       objectReference: {fileID: 1773962915}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.data[0]
+      value: 
+      objectReference: {fileID: 1990548051}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.data[1]
+      value: 
+      objectReference: {fileID: 915027736}
     - target: {fileID: 4376624122847506784, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: m_Name
       value: Tutorial
@@ -13566,7 +13578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   descriptStagePosObj: {fileID: 1763041477}
   centerObj: {fileID: 17279964}
-  speed: 0.5
+  speed: 0.25
 --- !u!212 &915027739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28352,6 +28364,18 @@ PrefabInstance:
       propertyPath: sceneCheckBackGround
       value: 
       objectReference: {fileID: 1944984441}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.data[0]
+      value: 
+      objectReference: {fileID: 1990548051}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.data[1]
+      value: 
+      objectReference: {fileID: 1990548051}
     - target: {fileID: 4376624122847506784, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: m_Name
       value: AddStatus
@@ -31278,6 +31302,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: playerChild.Array.data[0]
       value: 
       objectReference: {fileID: 1773962915}
@@ -31289,6 +31317,14 @@ PrefabInstance:
       propertyPath: playerChild.Array.data[2]
       value: 
       objectReference: {fileID: 2060672424}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.data[0]
+      value: 
+      objectReference: {fileID: 1990548051}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: stageWindow.Array.data[1]
+      value: 
+      objectReference: {fileID: 915027736}
     - target: {fileID: 4376624122847506784, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: m_Name
       value: Main Game

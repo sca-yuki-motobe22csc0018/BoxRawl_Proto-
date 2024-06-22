@@ -58,7 +58,7 @@ public class StageSelect : MonoBehaviour
             }
             if (!escape)
             {
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     if (x == 0)
                     {
@@ -69,7 +69,7 @@ public class StageSelect : MonoBehaviour
                         x--;
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.RightAlt))
                 {
                     if (x == 2)
                     {
@@ -81,18 +81,19 @@ public class StageSelect : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (y == -1)
                 {
-                    y = 2;
+                    y = 0;
                 }
-                else
+                else if(y==0)
                 {
-                    y--;
+                    //y--;
+                    y = -1;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S)||Input.GetKeyDown(KeyCode.DownArrow))
             {
                 if (y == -1)
                 {
@@ -104,7 +105,7 @@ public class StageSelect : MonoBehaviour
                 }
                 else
                 {
-                    y++;
+                    y=-1;
                 }
             }
             if (Input.GetKeyDown(KeyCode.Space))

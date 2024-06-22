@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyProto4 : MonoBehaviour
@@ -12,6 +14,7 @@ public class EnemyProto4 : MonoBehaviour
     [SerializeField] private bool hitDirDown;
     [SerializeField] private bool hitDirRight;
     [SerializeField] private bool hitDirLeft;
+    SpriteRenderer spriteRendere;
     Vector3 target;
     private float momongaUp = 15;
     private bool momongaUpFlag;
@@ -26,7 +29,7 @@ public class EnemyProto4 : MonoBehaviour
 
     bool Jump;
 
-    public GameObject EnemySkin;
+   // public GameObject EnemySkin;
     private GameObject player;
     private bool myIsTrigger;
 
@@ -35,7 +38,7 @@ public class EnemyProto4 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         momongaUpFlag = false;
-
+        spriteRendere = GetComponent<SpriteRenderer>();
         momongaDownFlag = true;
         OnGround = false;
         right = false;
@@ -45,6 +48,10 @@ public class EnemyProto4 : MonoBehaviour
         player = GameObject.Find("Player").gameObject;
         target = player.transform.position - transform.position;
         Rota = true;
+        int a = Random.Range(0, 2);
+        Debug.Log(Resources.Load<GameObject>("MomongaSprite/Momonga_0"+(a+1).ToString()).GetComponent<SpriteRenderer>().sprite);
+        spriteRendere.sprite = Resources.Load<GameObject>("MomongaSprite/Momonga_01").GetComponent<SpriteRenderer>().sprite;
+
     }
 
     // Update is called once per frame
@@ -75,14 +82,14 @@ public class EnemyProto4 : MonoBehaviour
         //    Jump = false;
         //}
 
-        if (Rota)
-        {
-            EnemySkin.transform.Rotate(0, 0, 750 * rota * Time.deltaTime);
-        }
-        if (!Rota)
-        {
-            EnemySkin.transform.rotation = new Quaternion(0, 0, 0, 0);
-        }
+        //if (Rota)
+        //{
+        //    EnemySkin.transform.Rotate(0, 0, 750 * rota * Time.deltaTime);
+        //}
+        //if (!Rota)
+        //{
+        //    EnemySkin.transform.rotation = new Quaternion(0, 0, 0, 0);
+        //}
         MomongaEnemy();
     }
 
@@ -104,6 +111,9 @@ public class EnemyProto4 : MonoBehaviour
         if (OnGround || hitPlayer)
         {
             momongaUpFlag = true;
+            int a = Random.Range(0, 2);
+            Debug.Log(Resources.Load<GameObject>("MomongaSprite/Momonga_0" + (a + 1).ToString()).GetComponent<SpriteRenderer>().sprite);
+            spriteRendere.sprite = Resources.Load<GameObject>("MomongaSprite/Momonga_01").GetComponent<SpriteRenderer>().sprite;
             Rota = false;
         }
         if (OnWall)

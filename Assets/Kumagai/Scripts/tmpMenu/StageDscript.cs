@@ -27,10 +27,10 @@ public class StageDscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)&&nextScene)
-        {
-            StartCoroutine(StageSet());
-        }
+        //if (Input.GetKeyDown(KeyCode.Space)&&nextScene)
+        //{
+        //    StartCoroutine(StageSet());
+        //}
     }
     private void DscriptSetVec()
     {
@@ -44,7 +44,6 @@ public class StageDscript : MonoBehaviour
 
     private IEnumerator SetPos()
     {
-        yield return new WaitForSeconds(0.5f);
         float time = 0;
         while(time<1) {
             time += Time.deltaTime/speed;
@@ -57,7 +56,7 @@ public class StageDscript : MonoBehaviour
 
     private IEnumerator SetSize()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         float time = 0;
        const float defSize=0.15f;
         while(time<0.5f) 
