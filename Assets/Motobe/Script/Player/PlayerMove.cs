@@ -534,7 +534,6 @@ public class PlayerMove : MonoBehaviour
             sequence.Append(DOTween.ToAlpha(() => img.color, color => img.color = color, 0.8f, 0.1f));
             sequence.Append(DOTween.ToAlpha(() => img.color, color => img.color = color, 0, 0.1f));
         }
-        
     }
 
     public void Dead()
@@ -549,9 +548,7 @@ public class PlayerMove : MonoBehaviour
         Destroy(rb);
         PlayerSkin.Rota = false;
         sequence.AppendInterval(3.0f);
-        //‚±‚±‚ÉƒV[ƒ““]ˆÚ‚Ì‚â‚Â
-        SceneChange();
-        //sequence.AppendCallback(() => SceneChange());
+        sequence.AppendCallback(() => SceneChange());
     }
 
     public void SceneChange()
