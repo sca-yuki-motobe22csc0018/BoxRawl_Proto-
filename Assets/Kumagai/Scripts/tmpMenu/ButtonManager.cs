@@ -157,6 +157,7 @@ public class ButtonManager : MonoBehaviour
             this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;
             sceneChange = true;
+            FadeIO.FadeOut();
             yield return new WaitForSeconds(2f);
             SceneManager.LoadScene(thisSceneName);
     }
