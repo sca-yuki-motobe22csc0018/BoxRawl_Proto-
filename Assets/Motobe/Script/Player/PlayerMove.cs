@@ -93,6 +93,9 @@ public class PlayerMove : MonoBehaviour
     //天井
     public GameObject Ceiling;
 
+    //フェード
+    bool fadeFlag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,6 +120,7 @@ public class PlayerMove : MonoBehaviour
         PlusJumpForce = 0;
         death = false;
         deathBlink = false;
+        fadeFlag = false;
         
         //Size = DefaultSize + PlusSize;
         Hp = 5;//DefaultHp + PlusHp;
@@ -139,6 +143,8 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         //Debug.Log(OnWall);
+
+        FadeIO.FadeOut(fadeFlag);
 
         //ステータスを入力
         JumpForce = DefaultJumpForce + PlusJumpForce;
@@ -547,6 +553,7 @@ public class PlayerMove : MonoBehaviour
         EnemySpawnner.SetActive(false);
         Destroy(rb);
         PlayerSkin.Rota = false;
+        fadeFlag = true;
         sequence.AppendInterval(3.0f);
         sequence.AppendCallback(() => SceneChange());
     }
