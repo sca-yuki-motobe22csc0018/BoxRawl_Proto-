@@ -24,6 +24,8 @@ public class TitleManager : MonoBehaviour
 
     bool startFlag;
 
+    [SerializeField] GameObject fadeObj;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class TitleManager : MonoBehaviour
         startFlag = false;
 
         PlayerSkin.Rota = false;
+        fadeObj.SetActive(true);
 
     }
 
@@ -51,6 +54,11 @@ public class TitleManager : MonoBehaviour
         }
 
         FadeIO.FadeOut(startFlag);
+
+        if(Input.GetKeyDown(KeyCode.Return)) 
+        {
+            Debug.Log(ResultManager.GetTotalScore(1,2,5,3));
+        }
 
     }
 

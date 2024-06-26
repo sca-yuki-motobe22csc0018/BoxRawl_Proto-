@@ -12,13 +12,17 @@ public class ResultManager : MonoBehaviour
     bool isCountUp;
     int tenScore;
     static float time;   //¶‚«Žc‚Á‚½ŽžŠÔ
-    int timeScore;
+    static int timeScore = 10;
+    static int timeTotalScore;
     static int level;  //ƒŒƒxƒ‹
-    int levelScore;
+    static int levelScore = 2000;
+    static int levelTotalScore;
     static int enemyKillNum;    //’ÊíƒTƒCƒY‚Ì“G‚ð“|‚µ‚½”
-    int enemyKillScore;
+    static int enemyKillScore = 200;
+    static int enemyKillTotalScore;
     static int smallEnemyKillNum;   //¬‚³‚¢ƒTƒCƒY‚Ì“G‚ð“|‚µ‚½”
-    int sEnemyKillScore;
+    static int sEnemyKillScore = 100;
+    static int sEnemyKillTotalScore;
     [SerializeField] Text[] scoreText;
 
     string myName;
@@ -79,20 +83,6 @@ public class ResultManager : MonoBehaviour
         }
         else if(!isCountUp)
         {
-            //if(totalScore > tenScore)
-            //{
-            //    if (Input.GetKeyUp(KeyCode.A))
-            //    {
-            //        nameCanvas.SetActive(true);
-            //    }
-            //}
-            //else
-            //{
-            //    if (Input.GetKeyUp(KeyCode.A))
-            //    {
-            //        SceneManager.LoadScene("Menu");
-            //    }
-            //}
 
             if (Input.GetKeyUp(KeyCode.Return))
             {
@@ -177,12 +167,11 @@ public class ResultManager : MonoBehaviour
         enemyKillNum = Random.Range(10, 50);
         smallEnemyKillNum = Random.Range(10, 50);
 
-        timeScore = (int)Mathf.Floor(time * 10);
-        levelScore = level * 2000;
-        enemyKillScore = enemyKillNum * 200;
-        sEnemyKillScore = smallEnemyKillNum * 100;
-        totalScore = timeScore + levelScore
-                        + enemyKillScore + sEnemyKillScore;
+        timeTotalScore = (int)Mathf.Floor(time * timeScore);
+        levelTotalScore = level * levelScore;
+        enemyKillTotalScore = enemyKillNum * enemyKillScore;
+        sEnemyKillTotalScore = smallEnemyKillNum * sEnemyKillScore;
+        totalScore = timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
 
         //scoreText[0].text = totalScore.ToString();
         scoreText[1].text = level.ToString();
@@ -210,9 +199,17 @@ public class ResultManager : MonoBehaviour
         smallEnemyKillNum = _senemyKill;
     }
 
-    public static int GetTotalScore(float _time, int _Exp)
+    public static int GetTotalScore(float _time, int _Exp, int _enemyKill, int _senemyKill)
     {
-        totalScore = ((int)Mathf.Floor(_time * 1000)) + (_Exp * 1000);
+        time = _time;
+        level = _Exp;
+        enemyKillNum = _enemyKill;
+        smallEnemyKillNum = _senemyKill;
+        timeTotalScore = (int)Mathf.Floor(time * timeScore);
+        levelTotalScore = level * levelScore;
+        enemyKillTotalScore = enemyKillNum * enemyKillScore;
+        sEnemyKillTotalScore = smallEnemyKillNum * sEnemyKillScore;
+        totalScore = timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
         return totalScore;
     }
 }
