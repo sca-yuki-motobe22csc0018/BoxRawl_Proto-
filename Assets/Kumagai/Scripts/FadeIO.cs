@@ -33,9 +33,14 @@ public class FadeIO : MonoBehaviour
         }
         yield return null;
     }
-    public static void FadeOut()
+    public static void FadeOut(bool flag)
     {
+            //Debug.Log("フェードアウトします");
+            if (flag)
+            { 
                 alpha += Time.deltaTime / 2;
-            
+            }
+        
+
     }
 }
