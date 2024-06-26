@@ -20,7 +20,6 @@ public class ParyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         transform.position = PlayerObject.transform.position;
         if (parySet)
         {
