@@ -179,7 +179,7 @@ public class ButtonManager : MonoBehaviour
     private void FlooringOpen() 
     {
             Debug.Log("°‚ğŠJ‚«‚Ü‚·");
-            timer += Time.deltaTime*5;
+            timer += Time.deltaTime*3.75f;
             floorLeft.transform.Rotate(0, 0, timer*Time.deltaTime);
             floorRight.transform.Rotate(0,0, -timer*Time.deltaTime);
         
