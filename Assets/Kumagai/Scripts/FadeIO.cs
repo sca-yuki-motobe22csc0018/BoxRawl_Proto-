@@ -17,7 +17,6 @@ public class FadeIO : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FadeOut(ButtonManager.sceneChange);
         color.a = alpha;
         fadePanel.GetComponent<SpriteRenderer>().color = color;
         fader.GetComponent<SpriteRenderer>().color = color;
@@ -34,14 +33,9 @@ public class FadeIO : MonoBehaviour
         }
         yield return null;
     }
-    public static void FadeOut(bool flag)
+    public static void FadeOut()
     {
-            //Debug.Log("フェードアウトします");
-            if (flag)
-            { 
                 alpha += Time.deltaTime / 2;
-            }
-        
-
+            
     }
 }
