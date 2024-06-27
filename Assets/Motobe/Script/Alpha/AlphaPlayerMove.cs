@@ -84,6 +84,10 @@ public class AlphaPlayerMove : MonoBehaviour
             {
                 Stop = true;
             }
+            else
+            {
+                OnGround = true;
+            }
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
