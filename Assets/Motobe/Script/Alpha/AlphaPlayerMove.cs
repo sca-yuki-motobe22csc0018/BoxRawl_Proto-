@@ -12,6 +12,8 @@ public class AlphaPlayerMove : MonoBehaviour
     int dir;
     int JumpCount;
     bool WallJump;
+    bool JumpCheck;
+    bool OnGround;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +24,14 @@ public class AlphaPlayerMove : MonoBehaviour
         dir = 0;
         JumpCount = 0;
         WallJump = false;
+        OnGround = false;
+        JumpCheck = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(JumpCheck);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (JumpCount == 0 && !WallJump)
@@ -34,8 +39,13 @@ public class AlphaPlayerMove : MonoBehaviour
                 rb.velocity = new Vector3(0, 20, 0);
             }
         }
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            JumpCheck = false;
+        }
         if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
+            JumpCheck = true;
             if (Stop)
             {
                 if (dir == -1)
@@ -50,6 +60,7 @@ public class AlphaPlayerMove : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
+            JumpCheck = true;
             if (Stop)
             {
                 if (dir == 1)
@@ -68,6 +79,7 @@ public class AlphaPlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            JumpCount = 0;
             if (AlphaGroundChecker.WallCheck == true)
             {
                 Stop = true;
@@ -76,6 +88,10 @@ public class AlphaPlayerMove : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (JumpCheck == false) 
+        {
+            return;
+        }
         JumpCount = 0;
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -86,6 +102,7 @@ public class AlphaPlayerMove : MonoBehaviour
             if (AlphaGroundChecker.WallCheck == false)
             {
                 dir = 0;
+                OnGround = true;
             }
         }
     }
