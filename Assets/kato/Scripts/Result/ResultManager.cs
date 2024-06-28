@@ -161,11 +161,18 @@ public class ResultManager : MonoBehaviour
 
     void scoreCalculation()
     {
+#if false
         //デバッグ用
         time = Random.Range(100,601);
         level = Random.Range(10, 100);
         enemyKillNum = Random.Range(10, 50);
         smallEnemyKillNum = Random.Range(10, 50);
+#endif
+
+        time = ScoreManager.timer;
+        level = ScoreManager.lvUpCount;
+        enemyKillNum = ScoreManager.bigEnemyKillCount;
+        smallEnemyKillNum = ScoreManager.smallEnemyKillCount;
 
         timeTotalScore = (int)Mathf.Floor(time * timeScore);
         levelTotalScore = level * levelScore;
