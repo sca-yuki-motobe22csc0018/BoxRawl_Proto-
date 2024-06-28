@@ -92,18 +92,14 @@ public class EnemyProto1 : MonoBehaviour
             var sequence = DOTween.Sequence();
             EXPController.EXP += 3.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
-            sequence.AppendCallback(() => dest());
+            ScoreManager.bigEnemyKillCount++;
+            Destroy(this.gameObject);
         }
 
         if (other.gameObject.CompareTag("DestroyObj"))
         {
             Destroy(this.gameObject);
         }
-    }
-
-    public void dest()
-    {
-        Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

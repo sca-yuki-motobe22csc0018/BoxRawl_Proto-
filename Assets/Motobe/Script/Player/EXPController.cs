@@ -50,6 +50,7 @@ public class EXPController : MonoBehaviour
         }
         if (exp >= 100)
         {
+            ScoreManager.lvUpCount++;
             exp -= 100;
             EXP -= 100;
             LevelUpSet.SetActive(true);

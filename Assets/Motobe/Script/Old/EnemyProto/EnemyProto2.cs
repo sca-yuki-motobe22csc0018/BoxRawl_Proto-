@@ -41,6 +41,7 @@ public class EnemyProto2 : MonoBehaviour
         {
             EXPController.EXP += 8.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
+            ScoreManager.bigEnemyKillCount++;
             Destroy(this.gameObject);
         }
 
