@@ -20,7 +20,7 @@ public class ProtoControllerEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playStageNum = 1;
+        playStageNum = 2;
         for (int i = 0; i < 10; i++)
         {
             if (playStageNum == 1)
