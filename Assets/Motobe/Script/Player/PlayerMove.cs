@@ -91,7 +91,9 @@ public class PlayerMove : MonoBehaviour
     public static int EXPUP;
 
     //天井
-    public GameObject Ceiling;
+    public GameObject Ceiling01;
+    public GameObject Ceiling02;
+    public GameObject Ceiling03;
 
     //フェード
     bool fadeFlag;
@@ -99,9 +101,17 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Ceiling != null)
+        if (Ceiling01 != null)
         {
-            Ceiling.SetActive(false);
+            Ceiling01.SetActive(false);
+        }
+        if (Ceiling02 != null)
+        {
+            Ceiling02.SetActive(false);
+        }
+        if (Ceiling03 != null)
+        {
+            Ceiling03.SetActive(false);
         }
         EXPUP = 1;
         PlayerDead = false;
@@ -137,6 +147,19 @@ public class PlayerMove : MonoBehaviour
         ButtonManager.sceneCheck = false;
         ParyObject.SetActive(false);
         paryCheck = false;
+
+        if (StageSelect.selectNumber == 1)
+        {
+            this.transform.position = new Vector3(-70,35,0);
+        }
+        if (StageSelect.selectNumber == 2)
+        {
+            this.transform.position = new Vector3(0, 35, 0);
+        }
+        if (StageSelect.selectNumber == 3)
+        {
+            this.transform.position = new Vector3(70, 35, 0);
+        }
     }
 
     // Update is called once per frame
@@ -312,6 +335,54 @@ public class PlayerMove : MonoBehaviour
                 DropObject.SetActive(false);
             }
         }
+
+        if (Trigger.EnemyTrigger)
+        {
+            if (!paryCheck)
+            {
+                if (!Drop)
+                {
+                    if (!blink)
+                    {
+                        if (Hp > 1)
+                        {
+                            HpObject[Hp - 1].SetActive(false);
+                            Hp -= 1;
+                            blink = true;
+                            CameraMove.damageSway = true;
+                            DamageEffect();
+                            SEController.damage = true;
+                        }
+                        else
+                        {
+                            if(SceneManager.GetActiveScene().name == "Tutorial")
+                            {
+                                Hp = 5;
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    HpObject[i].SetActive(false);
+                                }
+                                for (int i = 0; i < Hp; i++)
+                                {
+                                    HpObject[i].SetActive(true);
+                                }
+                                return;
+                            }
+                            if (!death)
+                            {
+                                death = true;
+                                CameraMove.damageSway = true;
+                                DamageEffect();
+                                SEController.dead = true;
+                                Dead();
+                                blink = true;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -323,11 +394,19 @@ public class PlayerMove : MonoBehaviour
             {
                 PlayerSkin.Rota = false;
                 StartCount();
-                if (Ceiling != null)
+                if (Ceiling01 != null)
                 {
-                    Ceiling.SetActive(true);
+                    Ceiling01.SetActive(true);
                 }
-                    
+                if (Ceiling02 != null)
+                {
+                    Ceiling02.SetActive(true);
+                }
+                if (Ceiling03 != null)
+                {
+                    Ceiling01.SetActive(true);
+                }
+
                 //Time.timeScale = 0;
             }
             else if(SceneManager.GetActiveScene().name=="Menu")
@@ -400,67 +479,6 @@ public class PlayerMove : MonoBehaviour
             PlayerSkin.Rota = true;
         }
     }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            if (!paryCheck)
-            {
-                if (!Drop)
-                {
-                    if (!blink)
-                    {
-                        /*
-                        if(PlayerUp.setBarrier)
-                        {
-                            Debug.Log("バリア");
-                            blink = true;
-                            PlayerUp.setBarrier = false;
-                        }
-                        else 
-                        */
-                        if (Hp > 1)
-                        {
-                            HpObject[Hp - 1].SetActive(false);
-                            Hp -= 1;
-                            blink = true;
-                            CameraMove.damageSway = true;
-                            DamageEffect();
-                            SEController.damage = true;
-                        }
-                        else
-                        {
-                            if(SceneManager.GetActiveScene().name == "Tutorial")
-                            {
-                                Hp = 5;
-                                for (int i = 0; i < 5; i++)
-                                {
-                                    HpObject[i].SetActive(false);
-                                }
-                                for (int i = 0; i < Hp; i++)
-                                {
-                                    HpObject[i].SetActive(true);
-                                }
-                                return;
-                            }
-                            if (!death)
-                            {
-                                death = true;
-                                CameraMove.damageSway = true;
-                                DamageEffect();
-                                SEController.dead = true;
-                                Dead();
-                                blink = true;
-                            }
-                            
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     public void DropSystem()
     {
         var sequence = DOTween.Sequence();
