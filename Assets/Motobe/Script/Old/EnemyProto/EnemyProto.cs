@@ -148,7 +148,6 @@ public class EnemyProto : MonoBehaviour
         {
             EXPController.EXP += 5.0f*PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
-            ScoreManager.bigEnemyKillCount++;
             this.gameObject.SetActive(false);
         }
 
