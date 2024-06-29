@@ -95,6 +95,9 @@ public class PlayerMove : MonoBehaviour
     public GameObject Ceiling02;
     public GameObject Ceiling03;
 
+    //LevelUpWindowを出すためのbool
+    public static bool LevelUpWindowSet;
+
     //フェード
     bool fadeFlag;
 
@@ -113,6 +116,7 @@ public class PlayerMove : MonoBehaviour
         {
             Ceiling03.SetActive(false);
         }
+        LevelUpWindowSet = false;
         EXPUP = 1;
         PlayerDead = false;
         JumpCount = 0;
@@ -390,6 +394,7 @@ public class PlayerMove : MonoBehaviour
         //Groundにふれたとき
         if (other.gameObject.CompareTag("Ground"))
         {
+            LevelUpWindowSet = true;
             if (!startRota&&SceneManager.GetActiveScene().name!="TmpMenu")
             {
                 PlayerSkin.Rota = false;
@@ -459,6 +464,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+
         //壁から離れたとき
         if (collision.gameObject.CompareTag("Wall"))
         {
@@ -472,6 +478,7 @@ public class PlayerMove : MonoBehaviour
         //地面から離れたとき
         if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Button"))
         {
+            LevelUpWindowSet = false;
             //Time.timeScale = 0.1f;
             JumpCount = 1;
             if(ParyObject!=null)
