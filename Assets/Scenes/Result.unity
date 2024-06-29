@@ -729,6 +729,7 @@ MonoBehaviour:
   - {fileID: 1987652591}
   - {fileID: 495175165}
   - {fileID: 456238093}
+  pressText: {fileID: 2002659492}
   nameField: {fileID: 3291928555858493870}
   nameCanvas: {fileID: 3092234263529827729}
   mask: {fileID: 1528227951}
@@ -5228,7 +5229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -436.09}
+  m_AnchoredPosition: {x: 0, y: -450}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2002659494
@@ -5264,7 +5265,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "enter\u3067menu\u306B\u79FB\u52D5"
+  m_Text: PRESS TO ENTER
 --- !u!222 &2002659495
 CanvasRenderer:
   m_ObjectHideFlags: 0

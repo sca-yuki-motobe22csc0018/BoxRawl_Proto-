@@ -23,7 +23,10 @@ public class ResultManager : MonoBehaviour
     static int smallEnemyKillNum;   //è¨Ç≥Ç¢ÉTÉCÉYÇÃìGÇì|ÇµÇΩêî
     static int sEnemyKillScore = 100;
     static int sEnemyKillTotalScore;
+    int clearScore = 10000;
     [SerializeField] Text[] scoreText;
+
+    [SerializeField] GameObject pressText;
 
     string myName;
     [SerializeField] InputField nameField;
@@ -38,7 +41,8 @@ public class ResultManager : MonoBehaviour
         Enemy,
         SmallEnemy,
         ClearCheck,
-        Total
+        Total,
+        None
     }
     Result result; 
 
@@ -69,7 +73,7 @@ public class ResultManager : MonoBehaviour
         scoreCalculation();
 
         counter = 0;
-
+        pressText.SetActive(false);
 
     }
 
@@ -90,10 +94,10 @@ public class ResultManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Return))
-        {
-            SceneManager.LoadScene("Menu");
-        }
+        //if (Input.GetKeyUp(KeyCode.Return))
+        //{
+        //    SceneManager.LoadScene("Menu");
+        //}
     }
 
     void scoreDisplay()
@@ -138,21 +142,34 @@ public class ResultManager : MonoBehaviour
                 {
                     countScore = totalScore;
                     scoreText[0].text = totalScore.ToString("f0");
-                    isCountUp = false;
-                    result = default(Result);
-                    //result = Result.ClearCheck;
+                    result = Result.ClearCheck;
                 }
 
                 if(Input.GetKey(KeyCode.O))
                 {
                     countScore = totalScore;
                     scoreText[0].text = totalScore.ToString("f0");
-                    isCountUp = false;
-                    result = default(Result);
+                    result = Result.ClearCheck;
                 }
+
                 break;
             case Result.ClearCheck:
-                mask.padding -= new Vector4(0, 0, (75 * Time.deltaTime), 0);
+                if (clearScore <= totalScore)
+                {
+                    mask.padding -= new Vector4(0, 0, ((75 * Time.deltaTime) * 5), 0);
+                    if(mask.padding.z < 0)
+                    {
+                        result = Result.None;
+                    }
+                }
+                else
+                {
+                    result = Result.None;
+                }
+                break;
+            case Result.None:
+                pressText.SetActive(true);
+                isCountUp = false;
                 break;
             default:
                 break;
