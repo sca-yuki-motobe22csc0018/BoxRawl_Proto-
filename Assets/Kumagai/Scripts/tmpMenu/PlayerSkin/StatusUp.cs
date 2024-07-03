@@ -37,19 +37,6 @@ public class StatusUp : MonoBehaviour
             PlayerMove.Drop = false;
             PlayerTypeSelection();
         }
-        this.transform.position=player.transform.position;
-        if(tmpTypeNumber>=0&&tmpTypeNumber<=3) 
-        {
-            selector.transform.position = type[tmpTypeNumber].transform.position; 
-        }
-        if(tmpTypeNumber==-1)
-        {
-            selector.transform.position = cancel.transform.position;
-        }
-        if(tmpTypeNumber==100)
-        {
-            selector.transform.position=setSkin.transform.position; 
-        }
       
     }
 
