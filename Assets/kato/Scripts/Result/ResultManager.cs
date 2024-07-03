@@ -88,7 +88,7 @@ public class ResultManager : MonoBehaviour
         else if(!isCountUp)
         {
 
-            if (Input.GetKeyUp(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 SceneManager.LoadScene("Menu");
             }
@@ -145,7 +145,13 @@ public class ResultManager : MonoBehaviour
                     result = Result.ClearCheck;
                 }
 
-                if(Input.GetKey(KeyCode.O))
+                if(0 >= totalScore)
+                {
+                    result = Result.ClearCheck;
+                    Debug.Log("yonda");
+                }
+
+                if(Input.GetKey(KeyCode.Return))
                 {
                     countScore = totalScore;
                     scoreText[0].text = totalScore.ToString("f0");
