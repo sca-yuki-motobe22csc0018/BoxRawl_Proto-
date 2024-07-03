@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerTypeSelect : MonoBehaviour
 {
     [SerializeField] private GameObject[] playerTypes;
-    public int selectNumber;
+    public static int selectNumber;
     [SerializeField] private float MaxSize;
     private float startSize;
     float x;
@@ -56,7 +56,6 @@ public class PlayerTypeSelect : MonoBehaviour
             y += Time.deltaTime*2;
             playerTypes[selectNumber].transform.localScale = new Vector3(x, y, 1);
         }
-        StartCoroutine(SizeUp(selectNumber));
         for(int i = 0; i < playerTypes.Length; i++)
         {
             if(i!=selectNumber)
@@ -64,18 +63,19 @@ public class PlayerTypeSelect : MonoBehaviour
                 playerTypes[i].transform.localScale= new Vector3 (startSize, startSize, startSize);
             }
         }
-
-    }
-    private IEnumerator SizeUp(int i)
-    {
-     
-        while (playerTypes[i].transform.localScale.x < startSize * MaxSize)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-          
-            yield return null;
+            StatusUp.selectTypeNumber = selectNumber;
+            StartCoroutine(FALSE());
         }
     }
 
+    IEnumerator FALSE()
+    {
+        yield return new WaitForSeconds(0.01f);
+        ButtonManager.sceneCheck = false;
+        StatusUp.selectType = false;
+    }
 
     //private IEnumerator SizeDown(int i)
     //{
