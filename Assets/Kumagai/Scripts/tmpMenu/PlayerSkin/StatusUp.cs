@@ -4,7 +4,7 @@ using UnityEngine;
 public class StatusUp : MonoBehaviour
 {
     public static string nowPlayerType;
-    [SerializeField]private string selectPlayerType;
+    [SerializeField] private string selectPlayerType;
     private int nowTypeNumber;
     public static int tmpTypeNumber;
     public static int selectTypeNumber;
@@ -31,30 +31,17 @@ public class StatusUp : MonoBehaviour
     {
         window.SetActive(selectType);
         selector.SetActive(selectType);
-        player.SetActive(!selectType);
         if (selectType)
         {
+            Debug.Log("’Ê‰ß‚µ‚Ü‚µ‚½‚Q");
             PlayerMove.Drop = false;
-            PlayerTypeSelection();
         }
-        this.transform.position=player.transform.position;
-        if(tmpTypeNumber>=0&&tmpTypeNumber<=3) 
-        {
-            selector.transform.position = type[tmpTypeNumber].transform.position; 
-        }
-        if(tmpTypeNumber==-1)
-        {
-            selector.transform.position = cancel.transform.position;
-        }
-        if(tmpTypeNumber==100)
-        {
-            selector.transform.position=setSkin.transform.position; 
-        }
-      
+        PlayerTypeSet();
     }
 
     private void PlayerTypeSet()
     {
+        nowPlayerType=selectPlayerType;
         switch (selectTypeNumber)
         {
             case 0:
@@ -64,12 +51,12 @@ public class StatusUp : MonoBehaviour
                 break;
             case 1:
                 {
-                    selectPlayerType = "Speed";
+                    selectPlayerType = "Hp";
                 }
                 break;
             case 2:
                 {
-                    selectPlayerType = "Hp";
+                    selectPlayerType = "Speed";
                 }
                 break;
             case 3:
@@ -79,7 +66,7 @@ public class StatusUp : MonoBehaviour
                 break;
             case -1:
                 {
-                   
+
                 }
                 break;
             default:
@@ -89,84 +76,5 @@ public class StatusUp : MonoBehaviour
                 break;
         }
     }
-
-    private void PlayerTypeSelection()
-    {
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            if(tmpTypeNumber==1)
-            {
-                tmpTypeNumber = -1;
-            }
-           else if(tmpTypeNumber<=3)
-            {
-                tmpTypeNumber = 0;
-            }
-            if(tmpTypeNumber==100)
-            {
-                tmpTypeNumber = 2;
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-          if(tmpTypeNumber==0)
-            {
-                tmpTypeNumber = 2;
-            }
-          else if(tmpTypeNumber>0)
-            {
-                tmpTypeNumber = 100;
-            }
-          else if(tmpTypeNumber==-1)
-            {
-                tmpTypeNumber = 1;
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            if (tmpTypeNumber <= 1 || tmpTypeNumber == 100)
-            {
-                tmpTypeNumber = -1;
-            }
-            else
-            {
-                tmpTypeNumber--;
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.D))
-        {
-            if (tmpTypeNumber == -1)
-            {
-                tmpTypeNumber = 0;
-            }
-            else if(tmpTypeNumber<=2&&tmpTypeNumber>0)
-            {
-                tmpTypeNumber++;
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(tmpTypeNumber!=100&&tmpTypeNumber!=-1)
-            {
-                selectTypeNumber = tmpTypeNumber;
-            }
-            else if(tmpTypeNumber==100)
-            {
-                nowTypeNumber=selectTypeNumber;
-                nowPlayerType = selectPlayerType;
-                selectType = false;
-                ButtonManager.sceneCheck = false;
-                //selectTypeNumber = 0;
-            }
-            else
-            {
-                ButtonManager.sceneCheck = false;
-                selectType = false;
-                //selectTypeNumber=0;
-            }
-            PlayerTypeSet();
-        }
-    }
-
 
 }
