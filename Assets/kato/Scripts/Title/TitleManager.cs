@@ -25,7 +25,7 @@ public class TitleManager : MonoBehaviour
     bool startFlag;
 
     [SerializeField] GameObject fadeObj;
-
+    [SerializeField] GameObject ButtonImage;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +39,7 @@ public class TitleManager : MonoBehaviour
         PlayerSkin.Rota = false;
         fadeObj.SetActive(true);
 
+        ButtonImage.SetActive(true);
     }
 
     // Update is called once per frame
@@ -50,6 +51,7 @@ public class TitleManager : MonoBehaviour
         {
             isStart = true;
             hallObject.SetActive(false);
+            ButtonImage.SetActive(false);
             startGame();
         }
 
