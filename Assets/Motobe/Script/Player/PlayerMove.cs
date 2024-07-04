@@ -92,8 +92,11 @@ public class PlayerMove : MonoBehaviour
 
     //天井
     public GameObject Ceiling01;
-    public GameObject Ceiling02;
-    public GameObject Ceiling03;
+    //public GameObject Ceiling02;
+    //public GameObject Ceiling03;
+
+    //LevelUpWindowを出すためのbool
+    public static bool LevelUpWindowSet;
 
     //フェード
     bool fadeFlag;
@@ -104,7 +107,7 @@ public class PlayerMove : MonoBehaviour
         if (Ceiling01 != null)
         {
             Ceiling01.SetActive(false);
-        }
+        }/*
         if (Ceiling02 != null)
         {
             Ceiling02.SetActive(false);
@@ -112,7 +115,8 @@ public class PlayerMove : MonoBehaviour
         if (Ceiling03 != null)
         {
             Ceiling03.SetActive(false);
-        }
+        }*/
+        LevelUpWindowSet = false;
         EXPUP = 1;
         PlayerDead = false;
         JumpCount = 0;
@@ -390,6 +394,7 @@ public class PlayerMove : MonoBehaviour
         //Groundにふれたとき
         if (other.gameObject.CompareTag("Ground"))
         {
+            LevelUpWindowSet = true;
             if (!startRota&&SceneManager.GetActiveScene().name!="TmpMenu")
             {
                 PlayerSkin.Rota = false;
@@ -397,7 +402,7 @@ public class PlayerMove : MonoBehaviour
                 if (Ceiling01 != null)
                 {
                     Ceiling01.SetActive(true);
-                }
+                }/*
                 if (Ceiling02 != null)
                 {
                     Ceiling02.SetActive(true);
@@ -405,7 +410,7 @@ public class PlayerMove : MonoBehaviour
                 if (Ceiling03 != null)
                 {
                     Ceiling01.SetActive(true);
-                }
+                }*/
 
                 //Time.timeScale = 0;
             }
@@ -459,6 +464,7 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+
         //壁から離れたとき
         if (collision.gameObject.CompareTag("Wall"))
         {
@@ -472,6 +478,7 @@ public class PlayerMove : MonoBehaviour
         //地面から離れたとき
         if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Button"))
         {
+            LevelUpWindowSet = false;
             //Time.timeScale = 0.1f;
             JumpCount = 1;
             if(ParyObject!=null)

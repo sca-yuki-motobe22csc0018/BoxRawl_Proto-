@@ -50,10 +50,13 @@ public class EXPController : MonoBehaviour
         }
         if (exp >= 100)
         {
-            exp -= 100;
-            EXP -= 100;
-            LevelUpSet.SetActive(true);
-            PlayerMove.PlayerDead = true;
+            if (PlayerMove.LevelUpWindowSet)
+            {
+                exp -= 100;
+                EXP -= 100;
+                LevelUpSet.SetActive(true);
+                PlayerMove.PlayerDead = true;
+            }
         }
     }
 }

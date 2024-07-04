@@ -11,7 +11,7 @@ public class FadeIO : MonoBehaviour
         alpha = 1;
         fader = fadePanel;
         StartCoroutine(FadeIn());
-        Debug.Log("ŒÄ‚Ño‚³‚ê‚Ü‚µ‚½");
+        //Debug.Log("ŒÄ‚Ño‚³‚ê‚Ü‚µ‚½");
     }
 
     // Update is called once per frame
