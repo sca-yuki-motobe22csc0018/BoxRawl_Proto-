@@ -22,7 +22,7 @@ public class EnemyAlpha00 : MonoBehaviour
     bool Jump;
 
     public GameObject EnemySkin;
-
+    Vector3 scale;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +48,7 @@ public class EnemyAlpha00 : MonoBehaviour
         int random = Random.Range(0, 4);
         EnemyCheck = 0;// random;
         Rota = true;
+        scale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -65,11 +66,15 @@ public class EnemyAlpha00 : MonoBehaviour
         {
             dir = 1;
             rota = -1;
+            scale.x = 1;
+            transform.localScale = scale;
         }
         else
         {
             dir = -1;
             rota = 1;
+            scale.x = -1;
+            transform.localScale = scale;
         }
         if (Jump)
         {
@@ -122,6 +127,7 @@ public class EnemyAlpha00 : MonoBehaviour
             {
                 rb.velocity = new Vector3(0, 20, 0);
                 OnGround = false;
+                
                 if (wallSpeed == false)
                 {
                     speed += 3;
@@ -186,6 +192,8 @@ public class EnemyAlpha00 : MonoBehaviour
             if (EnemyCheck == 1 || EnemyCheck == 2 || EnemyCheck == 3)
                 Rota = true;
             OnWall = false;
+            scale.x *= -1;
+            transform.localScale = scale;
         }
     }
 }

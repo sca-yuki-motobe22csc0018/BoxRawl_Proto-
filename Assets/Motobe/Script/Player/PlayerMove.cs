@@ -92,8 +92,8 @@ public class PlayerMove : MonoBehaviour
 
     //ìVà‰
     public GameObject Ceiling01;
-    public GameObject Ceiling02;
-    public GameObject Ceiling03;
+    //public GameObject Ceiling02;
+    //public GameObject Ceiling03;
 
     //LevelUpWindowÇèoÇ∑ÇΩÇﬂÇÃbool
     public static bool LevelUpWindowSet;
@@ -107,7 +107,7 @@ public class PlayerMove : MonoBehaviour
         if (Ceiling01 != null)
         {
             Ceiling01.SetActive(false);
-        }
+        }/*
         if (Ceiling02 != null)
         {
             Ceiling02.SetActive(false);
@@ -115,7 +115,7 @@ public class PlayerMove : MonoBehaviour
         if (Ceiling03 != null)
         {
             Ceiling03.SetActive(false);
-        }
+        }*/
         LevelUpWindowSet = false;
         EXPUP = 1;
         PlayerDead = false;
@@ -402,7 +402,7 @@ public class PlayerMove : MonoBehaviour
                 if (Ceiling01 != null)
                 {
                     Ceiling01.SetActive(true);
-                }
+                }/*
                 if (Ceiling02 != null)
                 {
                     Ceiling02.SetActive(true);
@@ -410,7 +410,7 @@ public class PlayerMove : MonoBehaviour
                 if (Ceiling03 != null)
                 {
                     Ceiling01.SetActive(true);
-                }
+                }*/
 
                 //Time.timeScale = 0;
             }
