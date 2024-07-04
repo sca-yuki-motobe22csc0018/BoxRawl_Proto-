@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class EnemyChildren : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if (PlayerMove.PlayerDead)
@@ -26,7 +15,6 @@ public class EnemyChildren : MonoBehaviour
             this.gameObject.transform.parent = null;
             EXPController.EXP += 1.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
-
             Destroy(this.gameObject);
         }
 

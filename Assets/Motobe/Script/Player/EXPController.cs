@@ -11,24 +11,21 @@ public class EXPController : MonoBehaviour
     public Image EXPGage2;
     public GameObject LevelUpSet;
     int expup;
+    public GameObject DestroyObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Fade.FadeOut(true);
         EXP = 0;
         exp = 0;
         expup = 0;
         LevelUpSet.SetActive(false);
-        
-
+        DestroyObj.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-
         if (PlayerMove.EXPUP > expup)
         {
             expup = PlayerMove.EXPUP;
@@ -36,6 +33,10 @@ public class EXPController : MonoBehaviour
         if (EXPGage2.rectTransform.sizeDelta.x >= EXPGage.rectTransform.sizeDelta.x)
         {
             expup = PlayerMove.EXPUP;
+        }
+        if (exp >= 100)
+        {
+            DestroyObj.SetActive(true);
         }
         if (PlayerMove.PlayerDead)
         {
@@ -46,7 +47,7 @@ public class EXPController : MonoBehaviour
         EXPGage2.rectTransform.sizeDelta = new Vector2(exp * 19, 75);
         if (EXP > exp)
         {
-            exp += 10 * expup * 2 * Time.deltaTime;
+            exp += 10 * expup * 3 * Time.deltaTime;
         }
         if (exp >= 100)
         {

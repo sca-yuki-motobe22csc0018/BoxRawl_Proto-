@@ -22,7 +22,7 @@ public class LevelUpSelect : MonoBehaviour
     int set2;
     int dir;
     public GameObject Player;
-
+    public GameObject DestroyObj;
     
 
     // Start is called before the first frame update
@@ -33,7 +33,6 @@ public class LevelUpSelect : MonoBehaviour
         set2 = 0;
         dir = 0;
         ConfirmWindow.SetActive(false);
-        
     }
 
     // Update is called once per frame
@@ -162,6 +161,7 @@ public class LevelUpSelect : MonoBehaviour
                     ConfirmWindow.SetActive(false);
                     PlayerMove.blink = true;
                     PlayerMove.PlayerDead = false;
+                    DestroyObj.SetActive(false);
                     this.gameObject.SetActive(false);
 
                 }

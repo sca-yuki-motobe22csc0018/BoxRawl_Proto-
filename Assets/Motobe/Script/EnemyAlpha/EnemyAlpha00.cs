@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class EnemyAlpha00 : MonoBehaviour
 {
-    float posy;
-    float posx;
     Rigidbody2D rb;
-    [SerializeField] bool OnGround;
-    [SerializeField] bool OnWall;
-    bool Rota;
-    int rota;
     bool wallSpeed;
 
     public float speed;
@@ -21,7 +15,6 @@ public class EnemyAlpha00 : MonoBehaviour
     public int EnemyCheck;
     bool Jump;
 
-    public GameObject EnemySkin;
     Vector3 scale;
 
     // Start is called before the first frame update
@@ -29,7 +22,6 @@ public class EnemyAlpha00 : MonoBehaviour
     {
         wallSpeed = false;
         rb = GetComponent<Rigidbody2D>();
-        OnGround = false;
         int rand = Random.Range(0, 2);
         if (rand == 0)
         {
@@ -41,13 +33,9 @@ public class EnemyAlpha00 : MonoBehaviour
             right = true;
             dir = -1;
         }
-
         Jump = false;
         float speedrand = Random.Range(0, 2.0f);
         defaultSpeed = speed + speedrand;
-        int random = Random.Range(0, 4);
-        EnemyCheck = 0;// random;
-        Rota = true;
         scale = transform.localScale;
     }
 
@@ -65,14 +53,12 @@ public class EnemyAlpha00 : MonoBehaviour
         if (right)
         {
             dir = 1;
-            rota = -1;
             scale.x = 1;
             transform.localScale = scale;
         }
         else
         {
             dir = -1;
-            rota = 1;
             scale.x = -1;
             transform.localScale = scale;
         }
@@ -80,15 +66,6 @@ public class EnemyAlpha00 : MonoBehaviour
         {
             rb.velocity = new Vector3(0, 13, 0);
             Jump = false;
-        }
-        //Rota = false;
-        if (Rota)
-        {
-            EnemySkin.transform.Rotate(0, 0, 750 * rota * Time.deltaTime);
-        }
-        if (!Rota)
-        {
-            EnemySkin.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
     }
     private void OnTriggerStay2D(Collider2D other)
@@ -112,25 +89,16 @@ public class EnemyAlpha00 : MonoBehaviour
         {
             return;
         }
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            Rota = false;
-        }
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            OnGround = true;
-        }
+        
+
         if (other.gameObject.CompareTag("Wall"))
         {
-            OnWall = true;
             if (EnemyCheck == 1 || EnemyCheck == 2 || EnemyCheck == 3)
             {
-                rb.velocity = new Vector3(0, 20, 0);
-                OnGround = false;
-                
                 if (wallSpeed == false)
                 {
-                    speed += 3;
+                    speed -= defaultSpeed-1;
+                    rb.velocity = new Vector3(0, 20, 0);
                     wallSpeed = true;
                 }
             }
@@ -148,7 +116,7 @@ public class EnemyAlpha00 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            wallSpeed = false;
+            
             if (EnemyCheck == 1)
             {
                 Jump = true;
@@ -182,16 +150,8 @@ public class EnemyAlpha00 : MonoBehaviour
         {
             return;
         }
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Button"))
-        {
-            Rota = true;
-            OnGround = false;
-        }
         if (other.gameObject.CompareTag("Wall"))
         {
-            if (EnemyCheck == 1 || EnemyCheck == 2 || EnemyCheck == 3)
-                Rota = true;
-            OnWall = false;
             scale.x *= -1;
             transform.localScale = scale;
         }

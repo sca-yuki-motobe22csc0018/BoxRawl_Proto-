@@ -121,7 +121,7 @@ public class EnemyAlpha01 : MonoBehaviour
 
     private void ObjectEnemy(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyProto1-1");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyAlpha01Children");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         Enemy.transform.parent = this.transform;
         return;

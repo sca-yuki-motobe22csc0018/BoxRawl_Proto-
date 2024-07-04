@@ -110,13 +110,13 @@ public class ProtoControllerEnemy : MonoBehaviour
     }
     private void ObjectEnemy2(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyAlpha00");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyAlpha02");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         return;
     }
     private void ObjectEnemy3(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyAlpha01");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyAlpha00");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         return;
     }
