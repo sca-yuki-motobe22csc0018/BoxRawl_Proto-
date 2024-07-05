@@ -404,7 +404,7 @@ public class PlayerMove : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             LevelUpWindowSet = true;
-            if (!startRota&&SceneManager.GetActiveScene().name!="TmpMenu")
+            if (!startRota&&SceneManager.GetActiveScene().name!="Menu")
             {
                 PlayerSkin.Rota = false;
                 StartCount();
@@ -594,6 +594,6 @@ public class PlayerMove : MonoBehaviour
 
     public void SceneChange()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Result");
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] private GameObject sceneGround;
+    //[SerializeField] private GameObject sceneGround;
     [SerializeField] private GameObject sceneCheckBackGround;
     [SerializeField] private GameObject Player;
     [SerializeField] private Text sceneName;
@@ -78,7 +78,7 @@ public class ButtonManager : MonoBehaviour
                         break;
                     case "AddStatus":
                         {
-                            thisSceneName = "StatusUp";
+                            thisSceneName = "CharaChange";
                         }
                         break;
                 }
@@ -114,7 +114,7 @@ public class ButtonManager : MonoBehaviour
                         stageSelect = true;
                     }
                     break;
-                case "StatusUp":
+                case "CharaChange":
                     {
                         statusWindow.SetActive(true);
                         PlayerMove.Drop = false;
@@ -149,14 +149,14 @@ public class ButtonManager : MonoBehaviour
             Player.GetComponent<Rigidbody2D>().gravityScale = 5;//èdóÕÇïœçX
             Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             for (int i = 0; i < playerChild.Length; i++) { playerChild[i].SetActive(false); }
-            FlooringOpen();
+           // FlooringOpen();
             sceneCheckBackGround.SetActive(false);
         stageSelect = false;
             foreach(var child in stageWindow) { child.SetActive(false); }
             yield return new WaitForSeconds(0.5f);
             sceneChangeFlag = true;
             yield return new WaitForSeconds(1f);
-            sceneGround.SetActive(false);
+            //sceneGround.SetActive(false);
             this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;
             sceneChange = true;
@@ -171,10 +171,10 @@ public class ButtonManager : MonoBehaviour
         while (this.transform.gameObject.GetComponent<SpriteRenderer>().color.a <= 1)
         {
             Color bc = this.GetComponent<SpriteRenderer>().color;
-            Color gc = sceneGround.GetComponent<SpriteRenderer>().color;
+            //Color gc = sceneGround.GetComponent<SpriteRenderer>().color;
             alpha += Time.deltaTime / alphaSec;
             this.transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(bc.r, bc.g, bc.b, alpha);
-            sceneGround.transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(gc.r, gc.g, gc.b, alpha);
+            //sceneGround.transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(gc.r, gc.g, gc.b, alpha);
             //Debug.Log("åƒÇŒÇÍÇƒÇ¢Ç‹Ç∑");
             yield return new WaitForEndOfFrame();
         }

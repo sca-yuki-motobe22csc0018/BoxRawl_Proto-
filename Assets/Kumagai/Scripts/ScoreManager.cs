@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
         {
             timer += Time.deltaTime;
         }
-        //scoreText.text = (bigEnemyKillCount * 200 + smallEnemyKillCount * 100 + lvUpCount * 2000 + (int)timer * 10).ToString();
+        scoreText.text = (bigEnemyKillCount * 200 + smallEnemyKillCount * 100 + lvUpCount * 2000 + (int)timer * 10).ToString();
         int tmpTimer = (int)(timer*100);
         timeText.text =timer.ToString("f2");
         //Debug.Log(timer.ToString("f2"));
