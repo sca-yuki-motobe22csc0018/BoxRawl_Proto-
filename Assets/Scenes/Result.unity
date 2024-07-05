@@ -2565,8 +2565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin:
   - {fileID: 21300000, guid: 1e481428568af58459f7a5f28ed6d1ce, type: 3}
-  - {fileID: 21300000, guid: 9aa5a419e7d56034783c6ec13c3a9907, type: 3}
   - {fileID: 21300000, guid: d6fc253c9f4735c43a13d604f3615e0b, type: 3}
+  - {fileID: 21300000, guid: 9aa5a419e7d56034783c6ec13c3a9907, type: 3}
   - {fileID: 21300000, guid: 0edfa4112e6cc9d4fa58f5f1382e84df, type: 3}
   playerSkin: {fileID: 1370599170}
 --- !u!1 &926817146
