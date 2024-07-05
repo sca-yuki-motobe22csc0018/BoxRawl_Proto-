@@ -12,7 +12,6 @@ public class StatusUp : MonoBehaviour
     [SerializeField] private GameObject window;
     [SerializeField] private GameObject[] type;
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject selector;
     [SerializeField] private GameObject cancel;
     [SerializeField] private GameObject setSkin;
     void OnEnable()
@@ -30,7 +29,6 @@ public class StatusUp : MonoBehaviour
     void Update()
     {
         window.SetActive(selectType);
-        selector.SetActive(selectType);
         if (selectType)
         {
             Debug.Log("’Ê‰ß‚µ‚Ü‚µ‚½‚Q");

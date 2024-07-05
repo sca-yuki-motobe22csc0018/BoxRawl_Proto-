@@ -17,6 +17,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject[] playerChild;
     [SerializeField] private GameObject stageSelectWindow;
     [SerializeField] private GameObject[] stageWindow;
+    [SerializeField] private GameObject DropObject;
     private bool sceneChangeFlag;
     public static string yesOrNo;
     public static string thisSceneName;
@@ -116,6 +117,8 @@ public class ButtonManager : MonoBehaviour
                 case "StatusUp":
                     {
                         statusWindow.SetActive(true);
+                        PlayerMove.Drop = false;
+                        DropObject.SetActive(false);
                     }
                     break;
                 default:
