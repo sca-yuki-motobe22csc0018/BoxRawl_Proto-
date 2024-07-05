@@ -27,13 +27,13 @@ public class SetPlayerType : MonoBehaviour
                     Debug.Log("a");
                 }
                 break;
-            case "Speed":
+            case "Hp":
                 {
                     spriteRenderer.sprite = skin[1];
                     Debug.Log("b");
                 }
                 break;
-            case "Hp":
+            case "Speed":
                 {
                     spriteRenderer.sprite = skin[2];
                     Debug.Log("c");
