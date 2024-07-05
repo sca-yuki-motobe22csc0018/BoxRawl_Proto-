@@ -12,8 +12,8 @@ public class ResultManager : MonoBehaviour
     bool isCountUp;
     int tenScore;
     static float time;   //ê∂Ç´écÇ¡ÇΩéûä‘
-    static int timeScore = 10;
-    static int timeTotalScore;
+    static float timeScore = 10;
+    static float timeTotalScore;
     static int level;  //ÉåÉxÉã
     static int levelScore = 2000;
     static int levelTotalScore;
@@ -201,7 +201,7 @@ public class ResultManager : MonoBehaviour
         levelTotalScore = level * levelScore;
         enemyKillTotalScore = enemyKillNum * enemyKillScore;
         sEnemyKillTotalScore = smallEnemyKillNum * sEnemyKillScore;
-        totalScore = timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
+        totalScore = (int)timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
 
         //scoreText[0].text = totalScore.ToString();
         scoreText[1].text = level.ToString();
@@ -235,11 +235,11 @@ public class ResultManager : MonoBehaviour
         level = _Exp;
         enemyKillNum = _enemyKill;
         smallEnemyKillNum = _senemyKill;
-        timeTotalScore = (int)Mathf.Floor(time * timeScore);
+        timeTotalScore = (time * timeScore);
         levelTotalScore = level * levelScore;
         enemyKillTotalScore = enemyKillNum * enemyKillScore;
         sEnemyKillTotalScore = smallEnemyKillNum * sEnemyKillScore;
-        totalScore = timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
+        totalScore = (int)timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
         return totalScore;
     }
 }
