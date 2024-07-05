@@ -152,18 +152,27 @@ public class PlayerMove : MonoBehaviour
         ParyObject.SetActive(false);
         paryCheck = false;
 
-        if (StageSelect.selectNumber == 1)
+        if (SceneManager.GetActiveScene().name == "Main Game")
         {
-            this.transform.position = new Vector3(-70,35,0);
+            if (StageSelect.selectNumber == 1)
+            {
+                this.transform.position = new Vector3(-70, 35, 0);
+            }
+            if (StageSelect.selectNumber == 2)
+            {
+                this.transform.position = new Vector3(0, 35, 0);
+            }
+            if (StageSelect.selectNumber == 3)
+            {
+                this.transform.position = new Vector3(70, 35, 0);
+            }
         }
-        if (StageSelect.selectNumber == 2)
+        else
         {
-            this.transform.position = new Vector3(0, 35, 0);
+            this.transform.position = new Vector3(0, 15, 0);
         }
-        if (StageSelect.selectNumber == 3)
-        {
-            this.transform.position = new Vector3(70, 35, 0);
-        }
+            
+        
     }
 
     // Update is called once per frame

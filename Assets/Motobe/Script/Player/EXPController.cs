@@ -34,7 +34,7 @@ public class EXPController : MonoBehaviour
         {
             expup = PlayerMove.EXPUP;
         }
-        if (exp >= 100)
+        if (EXP >= 100)
         {
             DestroyObj.SetActive(true);
         }
