@@ -34,8 +34,9 @@ public class ButtonManager : MonoBehaviour
         sceneCheck = false;
         stageSelect = false;
         yesOrNo = "";
+        thisSceneName = "";
         StartCoroutine(ButtonStart());
-
+        StageDscript.nextScene = false;
     }
 
     // Update is called once per frame
