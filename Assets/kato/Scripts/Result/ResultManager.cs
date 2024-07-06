@@ -205,7 +205,7 @@ public class ResultManager : MonoBehaviour
 
         //scoreText[0].text = totalScore.ToString();
         scoreText[1].text = level.ToString();
-        scoreText[2].text = time.ToString();
+        scoreText[2].text = time.ToString("f2");
         scoreText[3].text = enemyKillNum.ToString();
         scoreText[4].text = smallEnemyKillNum.ToString();
     }
