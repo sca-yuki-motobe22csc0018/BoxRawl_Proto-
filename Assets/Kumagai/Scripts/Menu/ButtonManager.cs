@@ -157,8 +157,8 @@ public class ButtonManager : MonoBehaviour
             sceneChangeFlag = true;
             yield return new WaitForSeconds(1f);
             //sceneGround.SetActive(false);
-            this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-            this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;
+            //this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+            //this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;
             sceneChange = true;
             FadeIO.FadeOut(sceneChange);
             yield return new WaitForSeconds(2f);

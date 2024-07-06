@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: cbf1cabceb9f02543998025abce5df3e
+  - enabled: 1
     path: Assets/kato/Title.unity
     guid: 3719defc5d0702a46980d7166407f565
   - enabled: 1
@@ -13,10 +16,7 @@ EditorBuildSettings:
     guid: 6e799be0b62a70048b4daeed2db57a3c
   - enabled: 1
     path: Assets/Scenes/Main Game.unity
-    guid: 964fa0d56ef27e044b2e44e74dcf7816
-  - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: cbf1cabceb9f02543998025abce5df3e
+    guid: 79d0becb7df9b864a81f9137365d400a
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: fd72e1d83ad0c7a42856fe1b968e0f62
