@@ -53,6 +53,7 @@ public class EXPController : MonoBehaviour
         {
             if (PlayerMove.LevelUpWindowSet)
             {
+                ScoreManager.lvUpCount++;
                 exp -= 100;
                 EXP -= 100;
                 LevelUpSet.SetActive(true);

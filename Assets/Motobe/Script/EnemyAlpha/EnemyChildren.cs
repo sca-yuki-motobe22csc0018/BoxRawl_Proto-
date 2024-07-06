@@ -15,6 +15,7 @@ public class EnemyChildren : MonoBehaviour
             this.gameObject.transform.parent = null;
             EXPController.EXP += 1.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
+            ScoreManager.smallEnemyKillCount++;
             Destroy(this.gameObject);
         }
 

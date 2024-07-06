@@ -275,7 +275,7 @@ public class PlayerMove : MonoBehaviour
             if (startRota)
             {
                 //ƒWƒƒƒ“ƒv
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space)&&!Drop)
                 {
                     if (JumpCount == 0)
                     {
