@@ -27,6 +27,8 @@ public class TitleManager : MonoBehaviour
     [SerializeField] GameObject fadeObj;
     [SerializeField] GameObject ButtonImage;
 
+    int isTutorial = -1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,9 @@ public class TitleManager : MonoBehaviour
         fadeObj.SetActive(true);
 
         ButtonImage.SetActive(true);
+
+        isTutorial = PlayerPrefs.GetInt("Tutorial", 0);
+        Debug.Log(isTutorial);
     }
 
     // Update is called once per frame
@@ -62,6 +67,11 @@ public class TitleManager : MonoBehaviour
             Debug.Log(ResultManager.GetTotalScore(1,2,5,3));
         }
 
+        if(Input.GetKeyDown (KeyCode.D)) 
+        {
+            isTutorial = -1;
+            PlayerPrefs.DeleteKey("Tutorial");
+        }
     }
 
     void startGame()
@@ -90,7 +100,17 @@ public class TitleManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         startFlag = true;
         yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("Menu");
+        if(isTutorial <= 0)
+        {
+            SceneManager.LoadScene("Tutorial");
+            isTutorial = 1;
+        }
+        else if (isTutorial >= 1)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        PlayerPrefs.SetInt("Tutorial", isTutorial);
+        PlayerPrefs.Save();
         yield return null;
     }
 
