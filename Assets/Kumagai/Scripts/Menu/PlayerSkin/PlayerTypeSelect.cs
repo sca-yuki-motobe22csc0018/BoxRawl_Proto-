@@ -20,7 +20,9 @@ public class PlayerTypeSelect : MonoBehaviour
     private void OnEnable()
     {
         selectNumber = 0;
+       
         InsObject();
+        //PlayerSkin.Rota = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class PlayerTypeSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     //   PlayerSkin.Rota = true;
         insPlayer.SetActive(true);
         insPlayer.transform.position = selectorPos[StatusUp.selectTypeNumber].transform.position;
         if (Input.GetKeyDown(KeyCode.S)||Input.GetKeyDown(KeyCode.DownArrow))
@@ -84,7 +87,7 @@ public class PlayerTypeSelect : MonoBehaviour
                 StatusUp.selectTypeNumber = selectNumber;
                 StartCoroutine(FALSE());
                
-                
+
             }
             else
             {
@@ -95,6 +98,8 @@ public class PlayerTypeSelect : MonoBehaviour
                 }
                 ButtonManager.sceneCheck = false;
                 StatusUp.selectType = false;
+
+               // PlayerSkin.Rota = false;
             }
 
         }
@@ -115,6 +120,7 @@ public class PlayerTypeSelect : MonoBehaviour
     
     private void InsObject()
     {
+       
         if (insPlayer == null&&selectNumber!=4)
         {
             insPlayer = Instantiate(player);
@@ -124,7 +130,6 @@ public class PlayerTypeSelect : MonoBehaviour
         insPlayer.GetComponent<SpriteRenderer>().sortingOrder = 10000;
         insPlayer.transform. localScale= new Vector3(0.8f, 0.8f, 1);
         Destroy(insPlayer.GetComponent<PlayerMove>());
-        PlayerSkin.Rota = true;
     }
     //private IEnumerator SizeDown(int i)
     //{

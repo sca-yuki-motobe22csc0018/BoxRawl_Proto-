@@ -17,7 +17,7 @@ public class SceneChanger : MonoBehaviour
     {
         if(player.transform.position.y<=-30)
         {
-            SceneManager.LoadScene("Title");
+            SceneManager.LoadScene("Menu");
         }
     }
 }
