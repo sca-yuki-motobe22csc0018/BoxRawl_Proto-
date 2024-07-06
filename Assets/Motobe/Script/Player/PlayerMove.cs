@@ -171,7 +171,33 @@ public class PlayerMove : MonoBehaviour
         {
             this.transform.position = new Vector3(0, 15, 0);
         }
-            
+
+
+
+        if (StatusUp.selectTypeNumber == 0)
+        {
+            PlusJumpForce = 0;
+            PlusSpeed=0;
+            PlusInvincibleTime=4;
+        }
+        else if (StatusUp.selectTypeNumber==1)
+        {
+            PlusJumpForce = -2;
+            PlusSpeed = 0;
+            PlusInvincibleTime = 20;
+        }
+        else if (StatusUp.selectTypeNumber==2)
+        {
+            PlusJumpForce = 0;
+            PlusSpeed = 4;
+            PlusInvincibleTime = 0;
+        }
+        else
+        {
+            PlusJumpForce = 4;
+            PlusSpeed = -2;
+            PlusInvincibleTime = 4;
+        }
         
     }
 
