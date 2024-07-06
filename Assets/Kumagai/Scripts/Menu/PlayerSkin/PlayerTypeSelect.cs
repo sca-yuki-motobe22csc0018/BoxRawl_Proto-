@@ -124,6 +124,7 @@ public class PlayerTypeSelect : MonoBehaviour
         insPlayer.GetComponent<SpriteRenderer>().sortingOrder = 10000;
         insPlayer.transform. localScale= new Vector3(0.8f, 0.8f, 1);
         Destroy(insPlayer.GetComponent<PlayerMove>());
+        PlayerSkin.Rota = true;
     }
     //private IEnumerator SizeDown(int i)
     //{
