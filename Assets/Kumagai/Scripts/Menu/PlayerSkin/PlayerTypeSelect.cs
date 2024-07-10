@@ -10,6 +10,7 @@ public class PlayerTypeSelect : MonoBehaviour
     private GameObject insPlayer;
     [SerializeField] private GameObject[] selectorPos;
     public static int selectNumber;
+    private int nowType;
     [SerializeField] private float MaxSize;
     [SerializeField] private float iconSize;
     private float startSizeX;
@@ -20,7 +21,7 @@ public class PlayerTypeSelect : MonoBehaviour
     private void OnEnable()
     {
         selectNumber = 0;
-       
+        nowType = selectNumber;
         InsObject();
         //PlayerSkin.Rota = true;
     }
@@ -86,35 +87,34 @@ public class PlayerTypeSelect : MonoBehaviour
             {
                 StatusUp.selectTypeNumber = selectNumber;
                 StartCoroutine(FALSE());
-               
-
             }
             else
             {
-                if (insPlayer != null)
+                if (insPlayer != null&&selectNumber!=nowType)
                 {
                     Destroy(insPlayer);
                     insPlayer = null;
                 }
+                PlayerSkin.Rota = false;
                 ButtonManager.sceneCheck = false;
                 StatusUp.selectType = false;
-
-               // PlayerSkin.Rota = false;
             }
-
+          
         }
     }
 
     IEnumerator FALSE()
     {
         yield return new WaitForSeconds(0.01f);
-        if(insPlayer!=null)
+        if(insPlayer!=null&&selectNumber!=nowType)
         {
             Destroy(insPlayer);
             insPlayer = null;
         }
-        InsObject();
-       
+        if (selectNumber != nowType)
+        {
+            InsObject();
+        }
        
     }
     
@@ -129,7 +129,7 @@ public class PlayerTypeSelect : MonoBehaviour
         insPlayer.SetActive(false);
         insPlayer.GetComponent<SpriteRenderer>().sortingOrder = 10000;
         insPlayer.transform. localScale= new Vector3(0.8f, 0.8f, 1);
-        Destroy(insPlayer.GetComponent<PlayerMove>());
+        nowType = selectNumber;
     }
     //private IEnumerator SizeDown(int i)
     //{

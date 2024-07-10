@@ -16,6 +16,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject floorRight;
     [SerializeField] private GameObject[] playerChild;
     [SerializeField] private GameObject stageSelectWindow;
+    [SerializeField] private GameObject stageDiscriptWindow;
     [SerializeField] private GameObject[] stageWindow;
     [SerializeField] private GameObject DropObject;
     private bool sceneChangeFlag;
@@ -49,11 +50,22 @@ public class ButtonManager : MonoBehaviour
         {
             stageSelect = false;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && StageDscript.nextScene)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            thisSceneName = "Main Game";
-            yesOrNo = "Yes";
-            Debug.Log("ここでシーンを移動");
+            if (StageDscript.nextScene)
+            {
+                thisSceneName = "Main Game";
+                yesOrNo = "Yes";
+                Debug.Log("ここでシーンを移動");
+            }
+            else if(stageDiscriptWindow.activeSelf) 
+            {
+                StageSelect.stages[StageSelect.x, StageSelect.y].transform.position = StageDscript.tmpStagePos;
+                StageSelect.stages[StageSelect.x, StageSelect.y].transform.localScale = StageDscript.tmpSize;
+                StageSelect.stages[StageSelect.x, StageSelect.y].GetComponent<SpriteRenderer>().sortingOrder = 15;
+                StageSelect.descriptionFlag = false;    
+               
+            }
         }
         //Debug.Log(sceneCheck);
     }
