@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spine.Unity;
+using Spine;
 
 public class EnemyAlpha00 : MonoBehaviour
 {
@@ -16,10 +18,36 @@ public class EnemyAlpha00 : MonoBehaviour
     bool Jump;
 
     Vector3 scale;
+    /*
+    [SerializeField]
+    private string JumpA;
 
+    [SerializeField]
+    private string JumpB;
+
+    [SerializeField]
+    private string JumpC;
+
+    private SkeletonAnimation _skeletonAnimation;
+
+    /// <summary> ゲームオブジェクトに設定されているSkeletonAnimation </summary>
+    private SkeletonAnimation skeletonAnimation = default;
+
+    /// <summary> Spineアニメーションを適用するために必要なAnimationState </summary>
+    private Spine.AnimationState spineAnimationState = default;
+    */
     // Start is called before the first frame update
     void Start()
     {
+        /*
+        // ゲームオブジェクトのSkeletonAnimationを取得
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
+
+        // SkeletonAnimationからAnimationStateを取得
+        spineAnimationState = skeletonAnimation.AnimationState;
+
+        _skeletonAnimation = GetComponent<SkeletonAnimation>();
+        */
         wallSpeed = false;
         rb = GetComponent<Rigidbody2D>();
         int rand = Random.Range(0, 2);
@@ -94,11 +122,11 @@ public class EnemyAlpha00 : MonoBehaviour
 
         if (other.gameObject.CompareTag("Wall"))
         {
-            if (EnemyCheck == 1 || EnemyCheck == 2 || EnemyCheck == 3)
+            if (EnemyCheck == 1)
             {
                 if (wallSpeed == false)
                 {
-                    speed -= defaultSpeed-1;
+                    speed += 3;
                     rb.velocity = new Vector3(0, 20, 0);
                     wallSpeed = true;
                 }
@@ -156,5 +184,27 @@ public class EnemyAlpha00 : MonoBehaviour
             scale.x *= -1;
             transform.localScale = scale;
         }
+        if (other.gameObject.CompareTag("Ground"))
+        {/*
+            if (EnemyCheck == 1)
+            {
+                PlayJumpAnimationA();
+            }
+            */
+        }
     }
+    /*
+    private void PlayJumpAnimationA()
+    {
+        spineAnimationState.SetAnimation(0, JumpA, true);
+    }
+    private void PlayJumpAnimationB()
+    {
+        spineAnimationState.SetAnimation(0, JumpB, true);
+    }
+    private void PlayJumpAnimationC()
+    {
+        spineAnimationState.SetAnimation(0, JumpC, true);
+    }
+    */
 }

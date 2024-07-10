@@ -469,8 +469,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e067d3a5a2010a14d927856b4d8386e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGround: 0
-  OnWall: 0
   speed: 7
   EnemyCheck: 0
-  EnemySkin: {fileID: 2057790184937107375}
