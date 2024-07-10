@@ -24,8 +24,6 @@ public class StageScore : MonoBehaviour
     void Update()
     {
         CheckTotalScore();
-        Debug.Log(ScoreManager.bigEnemyKillCount * 200 + ScoreManager.smallEnemyKillCount * 100
-            + (int)ScoreManager.timer * 10 + ScoreManager.lvUpCount * 2000);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             for(int i = 0; i < scores.Length;i++)

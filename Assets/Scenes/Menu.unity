@@ -1364,7 +1364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c46c3e8c265e7049982db9e3d452a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectPlayerType: 
   window: {fileID: 171355227}
   type:
   - {fileID: 807988613}
@@ -1372,8 +1371,6 @@ MonoBehaviour:
   - {fileID: 677619089}
   - {fileID: 1374818414}
   player: {fileID: 1790036947}
-  cancel: {fileID: 0}
-  setSkin: {fileID: 0}
 --- !u!114 &171355231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3062,7 +3059,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543252320}
@@ -3108,7 +3105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1001
-  m_Sprite: {fileID: 21300000, guid: 591fa855d9452b841a405d86fcd15d7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb8e888a004b9ec4ab784137df84eb78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8880,6 +8877,7 @@ GameObject:
   - component: {fileID: 1001084083}
   - component: {fileID: 1001084082}
   - component: {fileID: 1001084081}
+  - component: {fileID: 1001084086}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8994,6 +8992,24 @@ Transform:
   - {fileID: 171355229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1001084086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001084080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988af6a2a145d5743bccbe6dd6e7fc4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+  - {fileID: 21300000, guid: 1e481428568af58459f7a5f28ed6d1ce, type: 3}
+  - {fileID: 21300000, guid: d6fc253c9f4735c43a13d604f3615e0b, type: 3}
+  - {fileID: 21300000, guid: 9aa5a419e7d56034783c6ec13c3a9907, type: 3}
+  - {fileID: 21300000, guid: 0edfa4112e6cc9d4fa58f5f1382e84df, type: 3}
+  playerSkin: {fileID: 962702451}
 --- !u!1 &1008675513
 GameObject:
   m_ObjectHideFlags: 0
@@ -15774,7 +15790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1990548052
 SpriteRenderer:
   m_ObjectHideFlags: 0
