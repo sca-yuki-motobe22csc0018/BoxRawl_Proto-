@@ -11,6 +11,7 @@ public class SelectPlayerSkin : MonoBehaviour
     void Start()
     {
         nowSprite=playerType.GetComponent<SpriteRenderer>();
+        nowSprite.sprite = skin[StatusUp.selectTypeNumber];
     }
 
     // Update is called once per frame

@@ -52,6 +52,11 @@ public class SetDiscriptionIcon : MonoBehaviour
                     TypeDataSet(0,2,1);
                 }
                 break;
+            case 4:
+                {
+                    TypeDataSet(-1, -1, -1);
+                }
+                break;
         }
     }
 

@@ -27,7 +27,11 @@ public class StageSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StageSelection();
+        if (!descriptionWindow.activeSelf)
+        {
+            StageSelection();
+        }
+        selector.SetActive(!descriptionWindow.activeSelf);
         descriptionWindow.SetActive(descriptionFlag);
         Debug.Log(descriptionFlag);
     }
