@@ -4,26 +4,23 @@ using UnityEngine;
 public class StatusUp : MonoBehaviour
 {
     public static string nowPlayerType;
-    [SerializeField] private string selectPlayerType;
-    private int nowTypeNumber;
+    public static string selectPlayerType;
     public static int tmpTypeNumber;
     public static int selectTypeNumber;
     public static bool selectType;
     [SerializeField] private GameObject window;
     [SerializeField] private GameObject[] type;
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject cancel;
-    [SerializeField] private GameObject setSkin;
     void OnEnable()
     {
-        nowTypeNumber = 0;
         tmpTypeNumber = 0;
         selectType = true;
     }
 
-    private void Start()
+    private void Awake()
     {
         this.gameObject.SetActive(false);
+        PlayerTypeSet();
     }
     // Update is called once per frame
     void Update()
