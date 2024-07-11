@@ -18,36 +18,10 @@ public class EnemyAlpha00 : MonoBehaviour
     bool Jump;
 
     Vector3 scale;
-    /*
-    [SerializeField]
-    private string JumpA;
-
-    [SerializeField]
-    private string JumpB;
-
-    [SerializeField]
-    private string JumpC;
-
-    private SkeletonAnimation _skeletonAnimation;
-
-    /// <summary> ゲームオブジェクトに設定されているSkeletonAnimation </summary>
-    private SkeletonAnimation skeletonAnimation = default;
-
-    /// <summary> Spineアニメーションを適用するために必要なAnimationState </summary>
-    private Spine.AnimationState spineAnimationState = default;
-    */
+    
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        // ゲームオブジェクトのSkeletonAnimationを取得
-        skeletonAnimation = GetComponent<SkeletonAnimation>();
-
-        // SkeletonAnimationからAnimationStateを取得
-        spineAnimationState = skeletonAnimation.AnimationState;
-
-        _skeletonAnimation = GetComponent<SkeletonAnimation>();
-        */
         wallSpeed = false;
         rb = GetComponent<Rigidbody2D>();
         int rand = Random.Range(0, 2);
@@ -184,27 +158,5 @@ public class EnemyAlpha00 : MonoBehaviour
             scale.x *= -1;
             transform.localScale = scale;
         }
-        if (other.gameObject.CompareTag("Ground"))
-        {/*
-            if (EnemyCheck == 1)
-            {
-                PlayJumpAnimationA();
-            }
-            */
-        }
     }
-    /*
-    private void PlayJumpAnimationA()
-    {
-        spineAnimationState.SetAnimation(0, JumpA, true);
-    }
-    private void PlayJumpAnimationB()
-    {
-        spineAnimationState.SetAnimation(0, JumpB, true);
-    }
-    private void PlayJumpAnimationC()
-    {
-        spineAnimationState.SetAnimation(0, JumpC, true);
-    }
-    */
 }
