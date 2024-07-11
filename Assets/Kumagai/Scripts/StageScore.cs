@@ -2,27 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageScore : MonoBehaviour
 {
 
     public static int[] scores = new int[9];
     public static string[] scoreDatas =new string[9];
-    public int[] tmp=new int[9];
+    public int[] tmp=new int[9];//Šm”F—p
+    [SerializeField] private Text stageHighScore;
     // Start is called before the first frame update
     void Start()
     {
-      for(int i=0;i<9;i++)
-        {
-            scoreDatas[i] = "stage" + (i+1).ToString();
-            scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
-        }
-      tmp = scores; 
+     
     }
 
     // Update is called once per frame
     void Update()
     {
+      
         CheckTotalScore();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -30,6 +28,19 @@ public class StageScore : MonoBehaviour
             {
                 PlayerPrefs.SetInt(scoreDatas[i], 0);
                 scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                scoreDatas[i] = "stage" + (i + 1).ToString();
+                scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
+            }
+            tmp = scores;
+            if (StageSelect.selectNumber != 0)
+            {
+                stageHighScore.text = scores[StageSelect.selectNumber - 1].ToString();
             }
         }
     }
