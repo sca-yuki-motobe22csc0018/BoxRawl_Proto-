@@ -11,6 +11,10 @@ public class StageScore : MonoBehaviour
     public static string[] scoreDatas =new string[9];
     public int[] tmp=new int[9];//Šm”F—p
     [SerializeField] private Text stageHighScore;
+    private void Awake()
+    {
+        CheckTotalScore();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,7 @@ public class StageScore : MonoBehaviour
     void Update()
     {
       
-        CheckTotalScore();
+       
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             for(int i = 0; i < scores.Length;i++)
@@ -40,7 +44,7 @@ public class StageScore : MonoBehaviour
             tmp = scores;
             if (StageSelect.selectNumber != 0)
             {
-                stageHighScore.text = scores[StageSelect.selectNumber - 1].ToString();
+                stageHighScore.text = scores[StageSelect.selectNumber].ToString();
             }
         }
     }
@@ -51,7 +55,7 @@ public class StageScore : MonoBehaviour
             +(int)ScoreManager.timer*10+ScoreManager.lvUpCount*2000;
         for(int i=0;i<scores.Length;i++)
         {
-            if(StageSelect.selectNumber==i+1)
+            if(StageSelect.selectNumber==i)
             {
                 if (tmpScore > scores[i])
                 {
