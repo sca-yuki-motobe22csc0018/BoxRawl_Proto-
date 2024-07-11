@@ -12,6 +12,7 @@ public class CeilingSetUp : MonoBehaviour
     void Start()
     {
         timer = 0;
+        PlayerMove.Drop=false;
     }
 
     // Update is called once per frame
