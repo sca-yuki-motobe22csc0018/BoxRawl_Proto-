@@ -85,7 +85,7 @@ public class StageDscript : MonoBehaviour
         while(time<0.5f) 
         {
             time += Time.deltaTime;
-            selectStage.transform.localScale=tmpSize+new Vector3 (defSize,defSize,defSize)*time;
+            selectStage.transform.localScale=tmpSize+new Vector3 (defSize,defSize,defSize)*time*0.8f;
             yield return null;
         }
         tmptmpSize = selectStage.transform.localScale;
