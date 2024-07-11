@@ -19,8 +19,6 @@ public class SetPlayerType : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
-        Debug.Log(StatusUp.nowPlayerType);
         switch (StatusUp.nowPlayerType)
         {
             case "Defult":
