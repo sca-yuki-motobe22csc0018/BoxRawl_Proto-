@@ -204,6 +204,12 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool downA = Input.GetKeyDown(KeyCode.A);
+        bool stayA = Input.GetKey(KeyCode.A);
+        bool upA = Input.GetKeyUp(KeyCode.A);
+
+
+
         //Debug.Log(OnWall);
 
         FadeIO.FadeOut(fadeFlag);
@@ -295,20 +301,28 @@ public class PlayerMove : MonoBehaviour
                 moveVec = -1;
             }
         }
+
+        
         if (!ButtonManager.sceneCheck)
         {
             if (startRota)
             {
+                bool jumpKey = Input.GetKeyDown(KeyCode.Space);
+                Debug.Log(jumpKey);
                 //ジャンプ
-                if (Input.GetKeyDown(KeyCode.Space)&&!Drop||Input.GetMouseButtonDown(0)&&!Drop)
+                if (Input.GetMouseButton(0))
                 {
+                    Debug.Log(1);
                     if (JumpCount == 0)
                     {
+                        Debug.Log(2);
                         //壁での連続ジャンプ防止
                         if (OnWall)
                         {
+                            Debug.Log(3);
                             if (!DoubleWall)
                             {
+                                Debug.Log(4);
                                 rb.velocity = new Vector3(0, JumpForce, 0);
                                 DoubleWall = true;
                                 SEController.jump = true;
@@ -316,6 +330,7 @@ public class PlayerMove : MonoBehaviour
                         }
                         else
                         {
+                            Debug.Log(5);
                             rb.velocity = new Vector3(0, JumpForce, 0);
                             SEController.jump = true;
                         }
@@ -367,7 +382,7 @@ public class PlayerMove : MonoBehaviour
                 }
                 
                 //ヒップドロップ
-                if (Input.GetKeyDown(KeyCode.S)||Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonDown(1))
                 {
                     //Debug.Log(ParyController.parySet);
                     //空中にいるとき

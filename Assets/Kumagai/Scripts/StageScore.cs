@@ -10,6 +10,7 @@ public class StageScore : MonoBehaviour
     public static int[] scores = new int[9];
     public static string[] scoreDatas =new string[9];
     public int[] tmp=new int[9];//Šm”F—p
+    [SerializeField] private GameObject check;
     [SerializeField] private Text stageHighScore;
     private void Awake()
     {
@@ -40,6 +41,11 @@ public class StageScore : MonoBehaviour
             {
                 scoreDatas[i] = "stage" + (i + 1).ToString();
                 scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
+                if(StatusUp.selectTypeNumber==i)
+                {
+                    check.SetActive(scores[i]>10000);
+                }
+
             }
             tmp = scores;
             if (StageSelect.selectNumber != 0)
