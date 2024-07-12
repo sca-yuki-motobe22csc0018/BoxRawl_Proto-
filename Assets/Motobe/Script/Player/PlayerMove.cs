@@ -167,10 +167,10 @@ public class PlayerMove : MonoBehaviour
                 this.transform.position = new Vector3(70, 35, 0);
             }
         }
-        else
-        {
-            this.transform.position = new Vector3(0, 0, 0);
-        }
+        //else
+        //{
+        //    this.transform.position = new Vector3(0, 0, 0);
+        //}
 
 
 
