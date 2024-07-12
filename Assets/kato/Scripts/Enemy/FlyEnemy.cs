@@ -72,7 +72,7 @@ public class FlyEnemy : MonoBehaviour
 
     public void Move()
     {
-        MoveNum = Random.RandomRange(1, 2);
+        MoveNum = Random.RandomRange(1, 3);
 
         if(MoveNum == 1)
         {
@@ -91,7 +91,7 @@ public class FlyEnemy : MonoBehaviour
             }
             else if (this.gameObject.transform.position.y > 0)
             {
-                addPos_Y = Random.RandomRange(-2, 2);
+                addPos_Y = Random.RandomRange(-2, 3);
             }
             else if (this.gameObject.transform.position.y < 0)
             {
@@ -100,8 +100,8 @@ public class FlyEnemy : MonoBehaviour
         }
         else if(MoveNum == 2)
         {
-            addPos_X = Random.RandomRange(-2, 2);
-            addPos_Y = Random.RandomRange(1, 2);
+            addPos_X = Random.RandomRange(-2, 3);
+            addPos_Y = Random.RandomRange(1, 3);
         }
 
         this.gameObject.transform.DOMove(new Vector2( this.gameObject.transform.position.x + addPos_X,
