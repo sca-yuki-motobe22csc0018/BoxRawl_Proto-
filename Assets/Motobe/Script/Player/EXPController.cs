@@ -49,7 +49,7 @@ public class EXPController : MonoBehaviour
         {
             exp += 10 * expup * 3 * Time.deltaTime;
         }
-        if (exp >= 100)
+        if (EXP >= 100)
         {
             if (PlayerMove.LevelUpWindowSet)
             {

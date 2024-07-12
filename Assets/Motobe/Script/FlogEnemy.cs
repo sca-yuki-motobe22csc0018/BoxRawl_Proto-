@@ -103,7 +103,8 @@ public class FlogEnemy : MonoBehaviour
         }
         if (Jump)
         {
-            rb.velocity = new Vector3(0, 20, 0);
+            int jumpRand = Random.Range(0, 4);
+            rb.velocity = new Vector3(0, 20+jumpRand, 0);
             Jump = false;
             PlayJumpAnimationA();
         }
@@ -152,8 +153,8 @@ public class FlogEnemy : MonoBehaviour
                 
                 wallSpeed = true;
             }
-
-            rb.velocity = new Vector3(0, 20, 0);
+            int jumpRand = Random.Range(2, 5);
+            rb.velocity = new Vector3(0, 20+jumpRand, 0);
 
             if (right == false)
             {
