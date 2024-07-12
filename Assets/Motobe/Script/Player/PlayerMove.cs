@@ -97,13 +97,14 @@ public class PlayerMove : MonoBehaviour
 
     //LevelUpWindowを出すためのbool
     public static bool LevelUpWindowSet;
-
+    int moveVec=1;
     //フェード
     bool fadeFlag;
 
     // Start is called before the first frame update
     void Start()
     {
+        moveVec = 1;
         if (Ceiling01 != null)
         {
             Ceiling01.SetActive(false);
@@ -270,12 +271,37 @@ public class PlayerMove : MonoBehaviour
         {
             return;
         }
+        //壁めり込み防止
+        if (Input.GetKeyDown(KeyCode.A) && !right)
+        {
+            OnWall = false;
+            moveVec = -1;
+        }
+        if (Input.GetKeyDown(KeyCode.D) && right)
+        {
+            OnWall = false;
+            moveVec = 1;
+        }
+        if(Input.GetKeyUp(KeyCode.A))
+        {
+            if(Input.GetKey(KeyCode.D))
+            {
+                moveVec = 1;
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.D))
+        {
+            if(Input.GetKey(KeyCode.A))
+            {
+                moveVec = -1;
+            }
+        }
         if (!ButtonManager.sceneCheck)
         {
             if (startRota)
             {
                 //ジャンプ
-                if (Input.GetKeyDown(KeyCode.Space)&&!Drop)
+                if (Input.GetKeyDown(KeyCode.Space)&&!Drop||Input.GetMouseButtonDown(0)&&!Drop)
                 {
                     if (JumpCount == 0)
                     {
@@ -296,49 +322,52 @@ public class PlayerMove : MonoBehaviour
                         }
                     }
                 }
-                //壁めり込み防止
-                if (Input.GetKeyDown(KeyCode.A)&&!right)
-                {
-                    OnWall = false;
-                }
-                if (Input.GetKeyDown(KeyCode.D)&&right)
-                {
-                    OnWall = false;
-                }
+            
 
 
                 //左移動
-                if (Input.GetKey(KeyCode.A))
+                if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D))
                 {
-                    right = true;
-                    //壁に触れたまま移動しない
-                    if (!OnWall)
+                    if(!Drop&&!OnWall)
                     {
-                        //ヒップドロップ中に移動しない
-                        if (!Drop)
+                        this.transform.position += new Vector3(moveVec * Speed * Time.deltaTime, 0, 0);
+                    }
+                    
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        right = true;
+                        //壁に触れたまま移動しない
+                        if (!OnWall)
                         {
-                            PlayerSkin.rota = 1;
-                            this.transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
+                            //ヒップドロップ中に移動しない
+                            if (!Drop)
+                            {
+                                PlayerSkin.rota = 1;
+
+                              
+                            }
+                        }
+                    }
+                    //右移動
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        right = false;
+                        //壁に触れたまま移動しない
+                        if (!OnWall)
+                        {
+                            //ヒップドロップ中に移動しない
+                            if (!Drop)
+                            {
+                                PlayerSkin.rota = -1;
+
+                               
+                            }
                         }
                     }
                 }
-                //右移動
-                if (Input.GetKey(KeyCode.D))
-                {
-                    right = false;
-                    //壁に触れたまま移動しない
-                    if (!OnWall)
-                    {
-                        //ヒップドロップ中に移動しない
-                        if (!Drop)
-                        {
-                            PlayerSkin.rota = -1;
-                            this.transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);
-                        }
-                    }
-                }
+              
                 //ヒップドロップ
-                if (Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.S)||Input.GetMouseButtonDown(1))
                 {
                     //Debug.Log(ParyController.parySet);
                     //空中にいるとき
