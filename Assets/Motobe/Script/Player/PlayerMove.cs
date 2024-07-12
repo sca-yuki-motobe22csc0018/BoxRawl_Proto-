@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
 
     //壁に触れているかの判定
    [SerializeField]private bool OnWall;
-    bool right;
+   public  bool right;
 
     //連続壁ジャンプをしないようにする
     private bool DoubleWall;
@@ -201,7 +201,6 @@ public class PlayerMove : MonoBehaviour
         }
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -335,10 +334,11 @@ public class PlayerMove : MonoBehaviour
                     
                     if (Input.GetKey(KeyCode.A))
                     {
-                        right = true;
+                        
                         //壁に触れたまま移動しない
                         if (!OnWall)
                         {
+                            right = true;
                             //ヒップドロップ中に移動しない
                             if (!Drop)
                             {
@@ -351,10 +351,10 @@ public class PlayerMove : MonoBehaviour
                     //右移動
                     if (Input.GetKey(KeyCode.D))
                     {
-                        right = false;
                         //壁に触れたまま移動しない
                         if (!OnWall)
                         {
+                            right = false;
                             //ヒップドロップ中に移動しない
                             if (!Drop)
                             {
@@ -365,7 +365,7 @@ public class PlayerMove : MonoBehaviour
                         }
                     }
                 }
-              
+                
                 //ヒップドロップ
                 if (Input.GetKeyDown(KeyCode.S)||Input.GetMouseButtonDown(1))
                 {
@@ -504,6 +504,14 @@ public class PlayerMove : MonoBehaviour
             OnWall = true;
             PlayerSkin.rota = 0;
             PlayerSkin.Rota = false;
+            if(moveVec==1)
+            {
+                right = false;
+            }
+            if(moveVec==-1)
+            {
+                right = true;
+            }
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
