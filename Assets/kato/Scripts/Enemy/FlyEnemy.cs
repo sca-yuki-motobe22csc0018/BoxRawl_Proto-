@@ -107,4 +107,5 @@ public class FlyEnemy : MonoBehaviour
         this.gameObject.transform.DOMove(new Vector2( this.gameObject.transform.position.x + addPos_X,
                                          this.gameObject.transform.position.y + addPos_Y), 1.0f);
     }
+
 }
