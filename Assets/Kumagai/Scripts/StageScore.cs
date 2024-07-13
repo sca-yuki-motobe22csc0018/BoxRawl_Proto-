@@ -25,8 +25,12 @@ public class StageScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-       
+        Debug.Log("selectNumber" + StageSelect.selectNumber);
+        
+        if(StageSelect.selectNumber!=0 )
+        {
+            check.SetActive(scores[StageSelect.selectNumber - 1] > 10000);
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             for(int i = 0; i < scores.Length;i++)
@@ -39,18 +43,18 @@ public class StageScore : MonoBehaviour
         {
             for (int i = 0; i < 9; i++)
             {
-                scoreDatas[i] = "stage" + (i + 1).ToString();
+                scoreDatas[i] = "stage" + i.ToString();
                 scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
                 if(StatusUp.selectTypeNumber==i)
                 {
-                    check.SetActive(scores[i]>10000);
+                   
                 }
 
             }
             tmp = scores;
             if (StageSelect.selectNumber != 0)
             {
-                stageHighScore.text = scores[StageSelect.selectNumber].ToString();
+                stageHighScore.text = scores[StageSelect.selectNumber-1].ToString();
             }
         }
     }
@@ -61,7 +65,7 @@ public class StageScore : MonoBehaviour
             +(int)ScoreManager.timer*10+ScoreManager.lvUpCount*2000;
         for(int i=0;i<scores.Length;i++)
         {
-            if(StageSelect.selectNumber==i)
+            if(StageSelect.selectNumber-1==i)
             {
                 if (tmpScore > scores[i])
                 {
