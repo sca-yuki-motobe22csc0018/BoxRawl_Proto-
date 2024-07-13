@@ -70,7 +70,6 @@ public class StageDscript : MonoBehaviour
         float time = 0;
         while(time<1) {
             time += Time.deltaTime/speed;
-            Debug.Log(time);
             selectStage.transform.position += vec *Time.deltaTime/speed;
             yield return null;
         }

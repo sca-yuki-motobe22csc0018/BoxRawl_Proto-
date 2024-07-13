@@ -205,23 +205,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(1)||Input.GetKeyDown(KeyCode.S))
-        {
-            //Debug.Log(ParyController.parySet);
-            //空中にいるとき
-            if (!Drop)
-            {
-                if (JumpCount == 1 || ParyController.paryJump)
-                {
-                    DropSystem();
-                }
-                if(!onGround)
-                {
-                    DropSystem();
-                }
-            }
-
-        }
+      
 
         //Debug.Log(OnWall);
 
@@ -320,6 +304,23 @@ public class PlayerMove : MonoBehaviour
         {
             if (startRota)
             {
+                if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.S))
+                {
+                    //Debug.Log(ParyController.parySet);
+                    //空中にいるとき
+                    if (!Drop)
+                    {
+                        if (JumpCount == 1 || ParyController.paryJump)
+                        {
+                            DropSystem();
+                        }
+                        if (!onGround)
+                        {
+                            DropSystem();
+                        }
+                    }
+
+                }
                 bool jumpKey = Input.GetKeyDown(KeyCode.Space);
                 Debug.Log(jumpKey);
                 //ジャンプ
