@@ -11,94 +11,94 @@ public class PlayerMove : MonoBehaviour
     //Rigidbody
     private Rigidbody2D rb;
 
-    //ƒvƒŒƒCƒ„[‚ÌŒ©‚½–Ú‚ÌƒIƒuƒWƒFƒNƒg
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®è¦‹ãŸç›®ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     public GameObject PlayerSkinObject;
 
-    //ƒWƒƒƒ“ƒv‚Å‚«‚é‚©Šm”F‚·‚é‚½‚ß‚ÌƒIƒuƒWƒFƒNƒg
+    //ã‚¸ãƒ£ãƒ³ãƒ—ã§ãã‚‹ã‹ç¢ºèªã™ã‚‹ãŸã‚ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     public GameObject JumpChecker;
 
-    //ƒqƒbƒvƒhƒƒbƒv‚Å“G‚ğ“|‚·”»’è‚ÌƒIƒuƒWƒFƒNƒg
+    //ãƒ’ãƒƒãƒ—ãƒ‰ãƒ­ãƒƒãƒ—ã§æ•µã‚’å€’ã™åˆ¤å®šã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     public GameObject DropObject;
 
-    //‘Ì—Í•\¦—p‚ÌƒIƒuƒWƒFƒNƒg
+    //ä½“åŠ›è¡¨ç¤ºç”¨ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     public GameObject[] HpObject;
 
-    //ƒWƒƒƒ“ƒv‚Ì‚‚³ŠÖŒW
+    //ã‚¸ãƒ£ãƒ³ãƒ—ã®é«˜ã•é–¢ä¿‚
     public float DefaultJumpForce;
     public static float PlusJumpForce;
     private float JumpForce;
 
-    //‘¬‚³ŠÖŒW
+    //é€Ÿã•é–¢ä¿‚
     public float DefaultSpeed;
     public static float PlusSpeed;
     private float Speed;
 
     /*
-    //‘å‚«‚³ŠÖŒW(ƒXƒe[ƒW‚Ì\¬“I‚Éƒqƒbƒvƒhƒƒbƒv‚Ì”ÍˆÍ‹­‰»‚Ì‚Ù‚¤‚ª—Ç‚³‚»‚¤‚Æ’ñˆÄ)
+    //å¤§ãã•é–¢ä¿‚(ã‚¹ãƒ†ãƒ¼ã‚¸ã®æ§‹æˆçš„ã«ãƒ’ãƒƒãƒ—ãƒ‰ãƒ­ãƒƒãƒ—ã®ç¯„å›²å¼·åŒ–ã®ã»ã†ãŒè‰¯ã•ãã†ã¨ææ¡ˆ)
     //[SerializeField] public float DefaultSize;
     //[SerializeField] public float PlusSize;
     //private float Size;
     */
 
-    //‘Ì—ÍŠÖŒW
+    //ä½“åŠ›é–¢ä¿‚
     private int DefaultHp=5;
     //[SerializeField] public int PlusHp;
     private int Hp;
 
-    //‹ó’†‚É‹‚é‚©‚Ì”»’è
+    //ç©ºä¸­ã«å±…ã‚‹ã‹ã®åˆ¤å®š
     public static int JumpCount;
 
-    //•Ç‚ÉG‚ê‚Ä‚¢‚é‚©‚Ì”»’è
+    //å£ã«è§¦ã‚Œã¦ã„ã‚‹ã‹ã®åˆ¤å®š
    [SerializeField]private bool OnWall;
    public  bool right;
 
-    //˜A‘±•ÇƒWƒƒƒ“ƒv‚ğ‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+    //é€£ç¶šå£ã‚¸ãƒ£ãƒ³ãƒ—ã‚’ã—ãªã„ã‚ˆã†ã«ã™ã‚‹
     private bool DoubleWall;
 
-    //ƒqƒbƒvƒhƒƒbƒv‚ğ‚µ‚Ä‚¢‚é‚©‚Ì”»’è
+    //ãƒ’ãƒƒãƒ—ãƒ‰ãƒ­ãƒƒãƒ—ã‚’ã—ã¦ã„ã‚‹ã‹ã®åˆ¤å®š
     public static bool Drop;
 
-    //ƒ_ƒ[ƒW‚ğó‚¯‚Ä‚¢‚é‚©‚ÌŠm”F
+    //ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ã¦ã„ã‚‹ã‹ã®ç¢ºèª
     public static bool blink;
     private bool blinkCheck;
     float blinkCount;
 
-    //ƒ_ƒ[ƒW‚ğó‚¯‚½Œã‚Ì–³“GŠÔ
-    //invincibleTime*0.05•b–³“GŠÔ(invincibleTime==8‚È‚ç0.4•b)
+    //ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ãŸå¾Œã®ç„¡æ•µæ™‚é–“
+    //invincibleTime*0.05ç§’ç„¡æ•µæ™‚é–“(invincibleTime==8ãªã‚‰0.4ç§’)
     public int DefaultInvincibleTime;
     public static int PlusInvincibleTime;
     private int InvincibleTime;
     int invincibleTimeCheck;
 
-    //ƒXƒ^[ƒgˆ—
+    //ã‚¹ã‚¿ãƒ¼ãƒˆå‡¦ç†
     bool startRota;
     public Image[] Count;
     public GameObject EnemySpawnner;
 
-    //ƒpƒŠƒBˆ—
+    //ãƒ‘ãƒªã‚£å‡¦ç†
     public GameObject ParyObject;
     public static bool paryCheck;
 
-    //ƒ_ƒ[ƒW‰‰o
+    //ãƒ€ãƒ¡ãƒ¼ã‚¸æ¼”å‡º
     public Image damageEffect;
 
-    //€–S”»’è
+    //æ­»äº¡åˆ¤å®š
     public static bool PlayerDead;
     bool death;
     bool deathBlink;
-
-    //ŒoŒ±’l”{—¦
+    private bool onGround;
+    //çµŒé¨“å€¤å€ç‡
     public static int EXPUP;
 
-    //“Vˆä
+    //å¤©äº•
     public GameObject Ceiling01;
     //public GameObject Ceiling02;
     //public GameObject Ceiling03;
 
-    //LevelUpWindow‚ğo‚·‚½‚ß‚Ìbool
+    //LevelUpWindowã‚’å‡ºã™ãŸã‚ã®bool
     public static bool LevelUpWindowSet;
     int moveVec=1;
-    //ƒtƒF[ƒh
+    //ãƒ•ã‚§ãƒ¼ãƒ‰
     bool fadeFlag;
 
     // Start is called before the first frame update
@@ -136,7 +136,7 @@ public class PlayerMove : MonoBehaviour
         death = false;
         deathBlink = false;
         fadeFlag = false;
-        
+        onGround = false;
         //Size = DefaultSize + PlusSize;
         Hp = 5;//DefaultHp + PlusHp;
 
@@ -204,11 +204,30 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetMouseButtonDown(1)||Input.GetKeyDown(KeyCode.S))
+        {
+            //Debug.Log(ParyController.parySet);
+            //ç©ºä¸­ã«ã„ã‚‹ã¨ã
+            if (!Drop)
+            {
+                if (JumpCount == 1 || ParyController.paryJump)
+                {
+                    DropSystem();
+                }
+                if(!onGround)
+                {
+                    DropSystem();
+                }
+            }
+
+        }
+
         //Debug.Log(OnWall);
 
         FadeIO.FadeOut(fadeFlag);
 
-        //ƒXƒe[ƒ^ƒX‚ğ“ü—Í
+        //ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’å…¥åŠ›
         JumpForce = DefaultJumpForce + PlusJumpForce;
         Speed = DefaultSpeed + PlusSpeed;
         InvincibleTime = DefaultInvincibleTime + PlusInvincibleTime;
@@ -223,10 +242,10 @@ public class PlayerMove : MonoBehaviour
             if(EnemySpawnner!=null)
             EnemySpawnner.SetActive(false);
         }
-        //ƒ_ƒ[ƒW‚ğó‚¯‚½‚Ì“_–Å
+        //ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ãŸæ™‚ã®ç‚¹æ»…
         if (blink)
         {
-            //“_–Å
+            //ç‚¹æ»…
             if (blinkCount > 0.05f)
             {
                 if (blinkCheck)
@@ -270,7 +289,7 @@ public class PlayerMove : MonoBehaviour
         {
             return;
         }
-        //•Ç‚ß‚è‚İ–h~
+        //å£ã‚ã‚Šè¾¼ã¿é˜²æ­¢
         if (Input.GetKeyDown(KeyCode.A) && !right)
         {
             OnWall = false;
@@ -303,14 +322,15 @@ public class PlayerMove : MonoBehaviour
             {
                 bool jumpKey = Input.GetKeyDown(KeyCode.Space);
                 Debug.Log(jumpKey);
-                //ƒWƒƒƒ“ƒv
-                if (Input.GetMouseButton(0)||Input.GetKeyDown(KeyCode.Space))
+                //ã‚¸ãƒ£ãƒ³ãƒ—
+                if (Input.GetMouseButton(0)&&!Drop||Input.GetKey(KeyCode.Space)&&!Drop)
                 {
                     Debug.Log(1);
+                    onGround = false;
                     if (JumpCount == 0)
                     {
                         Debug.Log(2);
-                        //•Ç‚Å‚Ì˜A‘±ƒWƒƒƒ“ƒv–h~
+                        //å£ã§ã®é€£ç¶šã‚¸ãƒ£ãƒ³ãƒ—é˜²æ­¢
                         if (OnWall)
                         {
                             Debug.Log(3);
@@ -333,7 +353,7 @@ public class PlayerMove : MonoBehaviour
             
 
 
-                //¶ˆÚ“®
+                //å·¦ç§»å‹•
                 if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D))
                 {
                     if(!Drop&&!OnWall)
@@ -344,11 +364,11 @@ public class PlayerMove : MonoBehaviour
                     if (Input.GetKey(KeyCode.A))
                     {
                         
-                        //•Ç‚ÉG‚ê‚½‚Ü‚ÜˆÚ“®‚µ‚È‚¢
+                        //å£ã«è§¦ã‚ŒãŸã¾ã¾ç§»å‹•ã—ãªã„
                         if (!OnWall)
                         {
                             right = true;
-                            //ƒqƒbƒvƒhƒƒbƒv’†‚ÉˆÚ“®‚µ‚È‚¢
+                            //ãƒ’ãƒƒãƒ—ãƒ‰ãƒ­ãƒƒãƒ—ä¸­ã«ç§»å‹•ã—ãªã„
                             if (!Drop)
                             {
                                 PlayerSkin.rota = 1;
@@ -357,14 +377,14 @@ public class PlayerMove : MonoBehaviour
                             }
                         }
                     }
-                    //‰EˆÚ“®
+                    //å³ç§»å‹•
                     if (Input.GetKey(KeyCode.D))
                     {
-                        //•Ç‚ÉG‚ê‚½‚Ü‚ÜˆÚ“®‚µ‚È‚¢
+                        //å£ã«è§¦ã‚ŒãŸã¾ã¾ç§»å‹•ã—ãªã„
                         if (!OnWall)
                         {
                             right = false;
-                            //ƒqƒbƒvƒhƒƒbƒv’†‚ÉˆÚ“®‚µ‚È‚¢
+                            //ãƒ’ãƒƒãƒ—ãƒ‰ãƒ­ãƒƒãƒ—ä¸­ã«ç§»å‹•ã—ãªã„
                             if (!Drop)
                             {
                                 PlayerSkin.rota = -1;
@@ -375,11 +395,11 @@ public class PlayerMove : MonoBehaviour
                     }
                 }
                 
-                //ƒqƒbƒvƒhƒƒbƒv
+                //ãƒ’ãƒƒãƒ—ãƒ‰ãƒ­ãƒƒãƒ—
                 if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.S))
                 {
                     //Debug.Log(ParyController.parySet);
-                    //‹ó’†‚É‚¢‚é‚Æ‚«
+                    //ç©ºä¸­ã«ã„ã‚‹ã¨ã
                     if (!Drop)
                     {
                         if (JumpCount == 1||ParyController.paryJump)
@@ -389,7 +409,7 @@ public class PlayerMove : MonoBehaviour
                     }
                     
                 }
-                //ƒWƒƒƒ“ƒv‰Â”\‚©Šm”F—pƒIƒuƒWƒFƒNƒg‚Ì•\¦”ñ•\¦
+                //ã‚¸ãƒ£ãƒ³ãƒ—å¯èƒ½ã‹ç¢ºèªç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è¡¨ç¤ºéè¡¨ç¤º
                 if (JumpCount == 0)
                 {
                     if (!DoubleWall)
@@ -406,7 +426,7 @@ public class PlayerMove : MonoBehaviour
                     JumpChecker.SetActive(false);
                 }
             }
-            //ƒqƒbƒvƒhƒƒbƒv‚Ì”»’è
+            //ãƒ’ãƒƒãƒ—ãƒ‰ãƒ­ãƒƒãƒ—ã®åˆ¤å®š
             if (!Drop)
             {
                 DropObject.SetActive(false);
@@ -464,9 +484,10 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //Ground‚É‚Ó‚ê‚½‚Æ‚«
+        //Groundã«ãµã‚ŒãŸã¨ã
         if (other.gameObject.CompareTag("Ground"))
         {
+            onGround = true;
             LevelUpWindowSet = true;
             if (!startRota&&SceneManager.GetActiveScene().name!="Menu")
             {
@@ -493,7 +514,7 @@ public class PlayerMove : MonoBehaviour
                 startRota = true;
             }
             DoubleWall = false;
-            //ƒqƒbƒvƒhƒƒbƒv‚ÅG‚ê‚½‚çƒJƒƒ‰‚ğ—h‚ç‚·
+            //ãƒ’ãƒƒãƒ—ãƒ‰ãƒ­ãƒƒãƒ—ã§è§¦ã‚ŒãŸã‚‰ã‚«ãƒ¡ãƒ©ã‚’æºã‚‰ã™
             if (Drop)
             {
                 CameraMove.dropSway = true;
@@ -525,14 +546,14 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //•Ç‚ÉG‚ê‚Ä‚¢‚éŠÔ
+        //å£ã«è§¦ã‚Œã¦ã„ã‚‹é–“
         if (collision.gameObject.CompareTag("Wall"))
         {
             
             JumpCount = 0;
             ParyObject.SetActive(false);
         }
-        //’n–Ê‚ÉG‚ê‚Ä‚¢‚éŠÔ
+        //åœ°é¢ã«è§¦ã‚Œã¦ã„ã‚‹é–“
         if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Button"))
         {
             Time.timeScale = 1.0f;
@@ -546,7 +567,7 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
 
-        //•Ç‚©‚ç—£‚ê‚½‚Æ‚«
+        //å£ã‹ã‚‰é›¢ã‚ŒãŸã¨ã
         if (collision.gameObject.CompareTag("Wall"))
         {
             JumpCount = 1;
@@ -556,7 +577,7 @@ public class PlayerMove : MonoBehaviour
             OnWall = false;
             DoubleWall = false;
         }
-        //’n–Ê‚©‚ç—£‚ê‚½‚Æ‚«
+        //åœ°é¢ã‹ã‚‰é›¢ã‚ŒãŸã¨ã
         if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Button"))
         {
             LevelUpWindowSet = false;
