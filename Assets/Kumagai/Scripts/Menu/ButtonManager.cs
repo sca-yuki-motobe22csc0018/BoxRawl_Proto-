@@ -25,7 +25,7 @@ public class ButtonManager : MonoBehaviour
     public static bool sceneCheck;
     public static bool sceneChange;
     public static bool stageSelect;
-
+    
 
 
     // Start is called before the first frame update
@@ -58,10 +58,11 @@ public class ButtonManager : MonoBehaviour
                 yesOrNo = "Yes";
                 Debug.Log("Ç±Ç±Ç≈ÉVÅ[ÉìÇà⁄ìÆ");
             }
-            else if(stageDiscriptWindow.activeSelf) 
+            else if(stageDiscriptWindow.activeSelf&&StageDscript.setSizeEnd) 
             {
-                StageSelect.stages[StageSelect.x, StageSelect.y].transform.position = StageDscript.tmpStagePos;
-                StageSelect.stages[StageSelect.x, StageSelect.y].transform.localScale = StageDscript.tmpSize;
+
+                //StageSelect.stages[StageSelect.x, StageSelect.y].transform.position = StageDscript.tmpStagePos;
+                //StageSelect.stages[StageSelect.x, StageSelect.y].transform.localScale = StageDscript.tmpSize;
                 StageSelect.stages[StageSelect.x, StageSelect.y].GetComponent<SpriteRenderer>().sortingOrder = 15;
                 StageSelect.descriptionFlag = false;    
                

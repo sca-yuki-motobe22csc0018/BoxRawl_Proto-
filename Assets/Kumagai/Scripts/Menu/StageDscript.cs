@@ -21,11 +21,13 @@ public class StageDscript : MonoBehaviour
     [SerializeField] private GameObject cancel;
     [SerializeField] private GameObject start;
     [SerializeField] private GameObject insPlayer;
+    public static bool setSizeEnd;
     private bool cancelFlag;
     // Start is called before the first frame update
     void OnEnable()
     {
         DscriptSetVec();
+        setSizeEnd = false;
         StartCoroutine(SetPos());
         
     }
@@ -55,8 +57,9 @@ public class StageDscript : MonoBehaviour
             insPlayer.transform.position = start.transform.position;
         }
     }
-    private void DscriptSetVec()
+     void DscriptSetVec()
     {
+        Debug.Log("aa");
         selectStage = StageSelect.stages[StageSelect.x, StageSelect.y];
         selectStage.GetComponent<SpriteRenderer>().sortingOrder = 50;
         selectStagePos = selectStage.transform.position;
@@ -88,6 +91,7 @@ public class StageDscript : MonoBehaviour
             yield return null;
         }
         tmptmpSize = selectStage.transform.localScale;
+        setSizeEnd = true;
        // nextScene = true;
        // stageSelect.SetActive(false);
     }

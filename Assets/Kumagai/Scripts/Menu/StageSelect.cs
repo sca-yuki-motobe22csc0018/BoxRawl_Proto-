@@ -65,7 +65,6 @@ public class StageSelect : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    Debug.Log("AAA");
                     if (x == 0)
                     {
                         x = 2;
@@ -77,7 +76,6 @@ public class StageSelect : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    Debug.Log("AA");
                     if (x == 2)
                     {
                         x = 0;
