@@ -23,6 +23,10 @@ public class FlyEnemy : MonoBehaviour
     int addPos_Y;
 
     int MoveNum;
+
+    public GameObject beeSkin;
+    Vector3 left = new Vector3(0, 180, 0);
+    Vector3 ritht = new Vector3(0, 0, 0);
     void Start()
     {
         PlayerObj = GameObject.FindWithTag("Player");
@@ -36,6 +40,7 @@ public class FlyEnemy : MonoBehaviour
 
     void Update()
     {
+
         timer += Time.deltaTime;
 
         if(timer > 1 && isAttack)
@@ -106,6 +111,22 @@ public class FlyEnemy : MonoBehaviour
 
         this.gameObject.transform.DOMove(new Vector2( this.gameObject.transform.position.x + addPos_X,
                                          this.gameObject.transform.position.y + addPos_Y), 1.0f);
+
+        Invoke("lookPlayer", 0.5f);
+    }
+
+    void lookPlayer()
+    {
+        if (this.gameObject.transform.position.x > PlayerObj.transform.position.x)
+        {
+            beeSkin.transform.eulerAngles = ritht;
+            Debug.Log("‰E");
+        }
+        else
+        {
+            beeSkin.transform.eulerAngles = left;
+            Debug.Log("hidari");
+        }
     }
 
 }
