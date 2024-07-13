@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,7 +34,7 @@ public class StageSelect : MonoBehaviour
         }
         selector.SetActive(!descriptionWindow.activeSelf);
         descriptionWindow.SetActive(descriptionFlag);
-        Debug.Log(descriptionFlag);
+        
     }
 
     private void StageSet()
@@ -114,31 +115,33 @@ public class StageSelect : MonoBehaviour
                     y=-1;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space))
             {
-                if(!descriptionFlag)
-                {
-                    if ((y == -1))
-                    {
-                        ButtonManager.sceneCheck = false;
-                        ButtonManager.stageSelect = false;
-                    }
-                    else if ( y!=1 || x != 1)
-                    {
-                        selectNumber = int.Parse(stages[x, y].gameObject.name);
-                        descriptionFlag = true;
-                        //
-                    }
-                }
-              
-               
+                getKeySpace();
             }
+           
         }
         //if(Input.GetKeyDown(KeyCode.Space)&&StageDscript.nextScene)
         //{
         //    SceneManager.LoadScene("Main Game");
         //}
     }
-
+    public static void getKeySpace()
+    {
+            if (!descriptionFlag)
+            {
+                if ((y == -1))
+                {
+                    ButtonManager.sceneCheck = false;
+                    ButtonManager.stageSelect = false;
+                }
+                else if (y != 1 || x != 1)
+                {
+                    selectNumber = int.Parse(stages[x, y].gameObject.name);
+                    descriptionFlag = true;
+                    //
+                }
+            }
+    }
    
 }
