@@ -25,8 +25,9 @@ public class StageScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-       
+
+        check.SetActive(scores[StageSelect.selectNumber] > 10000);
+        Debug.Log(StageSelect.selectNumber);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             for(int i = 0; i < scores.Length;i++)
@@ -43,7 +44,7 @@ public class StageScore : MonoBehaviour
                 scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
                 if(StatusUp.selectTypeNumber==i)
                 {
-                    check.SetActive(scores[i]>10000);
+                   
                 }
 
             }

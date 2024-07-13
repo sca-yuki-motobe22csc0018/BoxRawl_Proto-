@@ -86,7 +86,7 @@ public class PlayerMove : MonoBehaviour
     public static bool PlayerDead;
     bool death;
     bool deathBlink;
-
+    private bool onGround;
     //経験値倍率
     public static int EXPUP;
 
@@ -136,7 +136,7 @@ public class PlayerMove : MonoBehaviour
         death = false;
         deathBlink = false;
         fadeFlag = false;
-        
+        onGround = false;
         //Size = DefaultSize + PlusSize;
         Hp = 5;//DefaultHp + PlusHp;
 
@@ -204,11 +204,24 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool downA = Input.GetKeyDown(KeyCode.A);
-        bool stayA = Input.GetKey(KeyCode.A);
-        bool upA = Input.GetKeyUp(KeyCode.A);
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            //Debug.Log(ParyController.parySet);
+            //空中にいるとき
+            if (!Drop)
+            {
+                if (JumpCount == 1 || ParyController.paryJump)
+                {
+                    DropSystem();
+                }
+                if(!onGround)
+                {
+                    DropSystem();
+                }
+            }
 
+        }
 
         //Debug.Log(OnWall);
 
@@ -310,9 +323,10 @@ public class PlayerMove : MonoBehaviour
                 bool jumpKey = Input.GetKeyDown(KeyCode.Space);
                 Debug.Log(jumpKey);
                 //ジャンプ
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0)&&!Drop)
                 {
                     Debug.Log(1);
+                    onGround = false;
                     if (JumpCount == 0)
                     {
                         Debug.Log(2);
@@ -382,19 +396,7 @@ public class PlayerMove : MonoBehaviour
                 }
                 
                 //ヒップドロップ
-                if (Input.GetMouseButtonDown(1))
-                {
-                    //Debug.Log(ParyController.parySet);
-                    //空中にいるとき
-                    if (!Drop)
-                    {
-                        if (JumpCount == 1||ParyController.paryJump)
-                        {
-                            DropSystem();
-                        }
-                    }
-                    
-                }
+               
                 //ジャンプ可能か確認用オブジェクトの表示非表示
                 if (JumpCount == 0)
                 {
@@ -473,6 +475,7 @@ public class PlayerMove : MonoBehaviour
         //Groundにふれたとき
         if (other.gameObject.CompareTag("Ground"))
         {
+            onGround = true;
             LevelUpWindowSet = true;
             if (!startRota&&SceneManager.GetActiveScene().name!="Menu")
             {
