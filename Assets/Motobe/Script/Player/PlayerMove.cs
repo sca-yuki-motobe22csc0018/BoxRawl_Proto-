@@ -204,12 +204,6 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool downA = Input.GetKeyDown(KeyCode.A);
-        bool stayA = Input.GetKey(KeyCode.A);
-        bool upA = Input.GetKeyUp(KeyCode.A);
-
-
-
         //Debug.Log(OnWall);
 
         FadeIO.FadeOut(fadeFlag);
@@ -310,7 +304,7 @@ public class PlayerMove : MonoBehaviour
                 bool jumpKey = Input.GetKeyDown(KeyCode.Space);
                 Debug.Log(jumpKey);
                 //ジャンプ
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0)||Input.GetKeyDown(KeyCode.Space))
                 {
                     Debug.Log(1);
                     if (JumpCount == 0)
@@ -382,7 +376,7 @@ public class PlayerMove : MonoBehaviour
                 }
                 
                 //ヒップドロップ
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.S))
                 {
                     //Debug.Log(ParyController.parySet);
                     //空中にいるとき
