@@ -8347,63 +8347,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &866723568
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -22.036577
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.1698422
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3925408937330708803, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_Name
-      value: MomongaEnemy Beta
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
 --- !u!1 &868604226
 GameObject:
   m_ObjectHideFlags: 0
@@ -10278,6 +10221,7 @@ MonoBehaviour:
   DefaultJumpForce: 18
   DefaultSpeed: 10
   OnWall: 0
+  right: 0
   DefaultInvincibleTime: 8
   Count:
   - {fileID: 0}
@@ -11393,63 +11337,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1232634724
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.8293
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.367816
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3925408937330708803, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_Name
-      value: MomongaEnemy Beta (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
 --- !u!1 &1233424269
 GameObject:
   m_ObjectHideFlags: 0
@@ -19794,5 +19681,3 @@ SceneRoots:
   - {fileID: 761336541}
   - {fileID: 1510404423}
   - {fileID: 814768890}
-  - {fileID: 866723568}
-  - {fileID: 1232634724}

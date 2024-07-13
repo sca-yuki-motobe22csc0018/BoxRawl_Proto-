@@ -6,15 +6,17 @@ public class MomongaEnemyBeta : MonoBehaviour
 {
     GameObject PlayerObj;
 
-    Vector3 GoPosition;
-
     Vector3 scale;
+
+    public GameObject GoObject;
 
     // Start is called before the first frame update
     void Start()
     {
         PlayerObj = GameObject.FindGameObjectWithTag("Player");
         scale = transform.localScale;
+        GoObject.transform.position = PlayerObj.transform.position;
+        GoObject.transform.parent = null;
     }
 
     // Update is called once per frame
@@ -22,16 +24,16 @@ public class MomongaEnemyBeta : MonoBehaviour
     {
         if (!PlayerMove.PlayerDead)
         {
-            if (Vector2.Distance(transform.position, new Vector2(PlayerObj.transform.position.x, PlayerObj.transform.position.y)) < 0.1f)
+            if (Vector2.Distance(transform.position, new Vector2(GoObject.transform.position.x, GoObject.transform.position.y)) < 0.1f)
             {
-
+                GoObject.transform.position = PlayerObj.transform.position;
             }
             else
             {
                 transform.position = Vector2.MoveTowards(transform.position,
-                    new Vector2(PlayerObj.transform.position.x, PlayerObj.transform.position.y), 5 * Time.deltaTime);
+                    new Vector2(GoObject.transform.position.x, GoObject.transform.position.y), 5 * Time.deltaTime);
             }
-            if (PlayerObj.transform.position.x >= this.transform.position.x)
+            if (GoObject.transform.position.x >= this.transform.position.x)
             {
                 scale.x = 1;
                 transform.localScale = scale;
