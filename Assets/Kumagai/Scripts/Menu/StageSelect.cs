@@ -12,9 +12,11 @@ public class StageSelect : MonoBehaviour
     public static int selectNumber;
     [SerializeField] private GameObject descriptionWindow;
     public static  bool descriptionFlag;
+    public static bool onCursor;
     // Start is called before the first frame update
     void OnEnable()
     {
+        onCursor = false;
         stages = new GameObject[3, 3];
         StageDscript.nextScene = false;
         x = 0;
@@ -53,64 +55,68 @@ public class StageSelect : MonoBehaviour
         escape = (y == -1);
         if (!descriptionFlag)
         {
-            if (y != -1)
-            {
-                selector.transform.position = stages[x, y].transform.position;
-            }
-            else
-            {
-                selector.transform.position = cancel.transform.position;
-            }
-            if (!escape)
-            {
-                if (Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.LeftArrow))
+            
+                if (y != -1)
                 {
-                    if (x == 0)
-                    {
-                        x = 2;
-                    }
-                    else
-                    {
-                        x--;
-                    }
-                }
-                if (Input.GetKeyDown(KeyCode.D)||Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    if (x == 2)
-                    {
-                        x = 0;
-                    }
-                    else
-                    {
-                        x++;
-                    }
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (y == -1)
-                {
-                    y = 0;
-                }
-                else if(y==0)
-                {
-                    //y--;
-                    y = -1;
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.S)||Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (y == -1)
-                {
-                    y = 0;
-                }
-                else if (y == 2)
-                {
-                    y = -1;
+                    selector.transform.position = stages[x, y].transform.position;
                 }
                 else
                 {
-                    y=-1;
+                    selector.transform.position = cancel.transform.position;
+                }
+            if (!onCursor)
+            {
+                if (!escape)
+                {
+                    if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        if (x == 0)
+                        {
+                            x = 2;
+                        }
+                        else
+                        {
+                            x--;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        if (x == 2)
+                        {
+                            x = 0;
+                        }
+                        else
+                        {
+                            x++;
+                        }
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    if (y == -1)
+                    {
+                        y = 0;
+                    }
+                    else if (y == 0)
+                    {
+                        //y--;
+                        y = -1;
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    if (y == -1)
+                    {
+                        y = 0;
+                    }
+                    else if (y == 2)
+                    {
+                        y = -1;
+                    }
+                    else
+                    {
+                        y = -1;
+                    }
                 }
             }
             if(Input.GetKeyDown(KeyCode.Space))
