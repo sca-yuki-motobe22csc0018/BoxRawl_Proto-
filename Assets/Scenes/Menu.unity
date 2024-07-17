@@ -2730,9 +2730,9 @@ GameObject:
   m_Component:
   - component: {fileID: 325916930}
   - component: {fileID: 325916931}
-  - component: {fileID: 325916933}
   - component: {fileID: 325916932}
   - component: {fileID: 325916934}
+  - component: {fileID: 325916935}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
@@ -2824,7 +2824,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 325916933}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventDown
           m_Mode: 1
@@ -2840,7 +2840,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 325916933}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventEnter
           m_Mode: 1
@@ -2852,20 +2852,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &325916933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325916929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 1
 --- !u!61 &325916934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2911,6 +2897,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.11, y: 1.11}
   m_EdgeRadius: 0
+--- !u!114 &325916935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325916929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1 &335185052
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,9 +5592,9 @@ GameObject:
   m_Component:
   - component: {fileID: 610382982}
   - component: {fileID: 610382983}
-  - component: {fileID: 610382985}
   - component: {fileID: 610382984}
   - component: {fileID: 610382986}
+  - component: {fileID: 610382987}
   m_Layer: 0
   m_Name: 5
   m_TagString: Untagged
@@ -5686,7 +5686,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 610382985}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventDown
           m_Mode: 1
@@ -5702,7 +5702,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 610382985}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventEnter
           m_Mode: 1
@@ -5714,20 +5714,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &610382985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610382981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 2
-  y: 1
 --- !u!61 &610382986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5773,6 +5759,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.11, y: 1.11}
   m_EdgeRadius: 0
+--- !u!114 &610382987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610382981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1 &612430223
 GameObject:
   m_ObjectHideFlags: 0
@@ -8697,9 +8697,9 @@ GameObject:
   m_Component:
   - component: {fileID: 932824029}
   - component: {fileID: 932824030}
-  - component: {fileID: 932824032}
   - component: {fileID: 932824031}
   - component: {fileID: 932824033}
+  - component: {fileID: 932824034}
   m_Layer: 0
   m_Name: 6
   m_TagString: Untagged
@@ -8791,7 +8791,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 932824032}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventDown
           m_Mode: 1
@@ -8807,7 +8807,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 932824032}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventEnter
           m_Mode: 1
@@ -8819,20 +8819,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &932824032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932824028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 2
 --- !u!61 &932824033
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8878,6 +8864,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.11, y: 1.11}
   m_EdgeRadius: 0
+--- !u!114 &932824034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932824028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1 &934525435
 GameObject:
   m_ObjectHideFlags: 0
@@ -10472,9 +10472,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1132461001}
   - component: {fileID: 1132461002}
-  - component: {fileID: 1132461004}
   - component: {fileID: 1132461003}
   - component: {fileID: 1132461005}
+  - component: {fileID: 1132461006}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -10566,9 +10566,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1132461004}
+        - m_Target: {fileID: 1132461000}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10582,7 +10582,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1132461004}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventEnter
           m_Mode: 1
@@ -10594,20 +10594,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1132461004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132461000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 1
-  y: 0
 --- !u!61 &1132461005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10653,6 +10639,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.98, y: 8.67}
   m_EdgeRadius: 0
+--- !u!114 &1132461006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132461000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1 &1175694055
 GameObject:
   m_ObjectHideFlags: 0
@@ -10663,9 +10663,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1175694056}
   - component: {fileID: 1175694057}
-  - component: {fileID: 1175694059}
   - component: {fileID: 1175694058}
   - component: {fileID: 1175694060}
+  - component: {fileID: 1175694061}
   m_Layer: 0
   m_Name: 7
   m_TagString: Untagged
@@ -10757,7 +10757,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1175694059}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventDown
           m_Mode: 1
@@ -10773,7 +10773,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1175694059}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventEnter
           m_Mode: 1
@@ -10785,20 +10785,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1175694059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175694055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 1
-  y: 2
 --- !u!61 &1175694060
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10844,6 +10830,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.11, y: 1.11}
   m_EdgeRadius: 0
+--- !u!114 &1175694061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175694055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1 &1197073102
 GameObject:
   m_ObjectHideFlags: 0
@@ -11019,9 +11019,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1215485563}
   - component: {fileID: 1215485564}
-  - component: {fileID: 1215485566}
   - component: {fileID: 1215485565}
   - component: {fileID: 1215485567}
+  - component: {fileID: 1215485568}
   m_Layer: 0
   m_Name: 9
   m_TagString: Untagged
@@ -11113,7 +11113,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1215485566}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventDown
           m_Mode: 1
@@ -11129,7 +11129,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1215485566}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventEnter
           m_Mode: 1
@@ -11141,20 +11141,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1215485566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215485562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 1
-  y: 1
 --- !u!61 &1215485567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11200,6 +11186,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.11, y: 1.11}
   m_EdgeRadius: 0
+--- !u!114 &1215485568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215485562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1001 &1217812212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11405,9 +11405,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1253366139}
   - component: {fileID: 1253366140}
-  - component: {fileID: 1253366142}
   - component: {fileID: 1253366141}
   - component: {fileID: 1253366143}
+  - component: {fileID: 1253366144}
   m_Layer: 0
   m_Name: 8
   m_TagString: Untagged
@@ -11499,7 +11499,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1253366142}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventDown
           m_Mode: 1
@@ -11515,7 +11515,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1253366142}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventEnter
           m_Mode: 1
@@ -11527,20 +11527,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1253366142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253366138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 2
-  y: 2
 --- !u!61 &1253366143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11586,6 +11572,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.11, y: 1.11}
   m_EdgeRadius: 0
+--- !u!114 &1253366144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253366138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1 &1271907925
 GameObject:
   m_ObjectHideFlags: 0
@@ -13552,9 +13552,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1651598556}
   - component: {fileID: 1651598557}
-  - component: {fileID: 1651598559}
   - component: {fileID: 1651598561}
   - component: {fileID: 1651598562}
+  - component: {fileID: 1651598563}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -13629,20 +13629,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1651598559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651598555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  y: 0
 --- !u!61 &1651598561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13705,9 +13691,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1651598559}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 1651598563}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13721,9 +13707,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1651598559}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+        - m_Target: {fileID: 1651598563}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -13733,6 +13719,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1651598563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651598555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1 &1664427463
 GameObject:
   m_ObjectHideFlags: 0
@@ -15033,9 +15033,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1779675028}
   - component: {fileID: 1779675029}
-  - component: {fileID: 1779675031}
   - component: {fileID: 1779675030}
   - component: {fileID: 1779675032}
+  - component: {fileID: 1779675033}
   m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
@@ -15127,7 +15127,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1779675031}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventDown
           m_Mode: 1
@@ -15143,7 +15143,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1779675031}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
           m_MethodName: EventEnter
           m_Mode: 1
@@ -15155,20 +15155,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1779675031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779675027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 379601b75a13af54490a2b4c699b3268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 2
-  y: 0
 --- !u!61 &1779675032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15214,6 +15200,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.22, y: 7.35}
   m_EdgeRadius: 0
+--- !u!114 &1779675033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779675027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!1 &1784115574
 GameObject:
   m_ObjectHideFlags: 0
