@@ -15,8 +15,14 @@ public class MouseStageSelect : MouseSelect
     {
 
         firstPos = transform.localPosition;
-        SetEvent setEvent = new SetEvent(PointerExit);
-        SetEventType("",setEvent,"event追加");
+        SetEvent setEvent = new SetEvent(PointerEnter);
+        SetEventType("Enter",setEvent);
+
+        setEvent = new SetEvent(PointerDown);
+        SetEventType("Down", setEvent);
+
+        setEvent=new SetEvent(PointerExit);
+        SetEventType("Exit", setEvent);
     }
 
     private void Update()
@@ -28,19 +34,21 @@ public class MouseStageSelect : MouseSelect
     }
     public override void PointerEnter()
     {
+        StageSelect.onCursor = true;
         StageSelect.x = x; 
         StageSelect.y = y;
-        Debug.Log("オーバーライド");//基底クラスのバーチャル関数が呼び出されていないかのチェック
+        Debug.Log("Enter");//基底クラスのバーチャル関数が呼び出されていないかのチェック
     }
 
     public override void PointerDown()
     {
         StageSelect.getKeySpace();
-        Debug.Log("オーバーライド");
+        Debug.Log("Down");
     }
 
-    public override void PointerExit(string str)
+    public override void PointerExit()
     {
-        Debug.Log(str);
+        StageSelect.onCursor = false;   
+        Debug.Log("Exit");
     }
 }
