@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProtoControllerEnemy : MonoBehaviour
 {
     float spawnTimer;
+    public float spawnTime;
     private float speed = 2;
     public int playStageNum;
     public GameObject[] playSpawnPoint;
@@ -66,7 +67,7 @@ public class ProtoControllerEnemy : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
-        if (spawnTimer > 2)
+        if (spawnTimer > spawnTime)
         {
             int random = Random.Range(0, 15);
             if (random < 2)

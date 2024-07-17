@@ -168,10 +168,10 @@ public class PlayerMove : MonoBehaviour
                 this.transform.position = new Vector3(70, 35, 0);
             }
         }
-        //else
-        //{
-        //    this.transform.position = new Vector3(0, 0, 0);
-        //}
+        else if (SceneManager.GetActiveScene().name == "a")
+        {
+            this.transform.position = new Vector3(0, 0, 0);
+        }
 
 
 
@@ -659,6 +659,11 @@ public class PlayerMove : MonoBehaviour
 
     public void DamageEffect()
     {
+
+        if (SceneManager.GetActiveScene().name == "a")
+        {
+            return;
+        }
         var sequence = DOTween.Sequence();
         var img = damageEffect;
         var color = damageEffect.color;

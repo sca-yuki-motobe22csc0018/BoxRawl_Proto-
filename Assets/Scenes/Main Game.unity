@@ -11012,6 +11012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe9c88e8c5380a4fa382f0650632f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnTime: 5
   playStageNum: 0
   playSpawnPoint:
   - {fileID: 0}
