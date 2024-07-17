@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,7 +13,10 @@ public class MouseStageSelect : MouseSelect
 
     private void Start()
     {
+
         firstPos = transform.localPosition;
+        SetEvent setEvent = new SetEvent(PointerExit);
+        SetEventType("",setEvent,"event追加");
     }
 
     private void Update()
@@ -33,5 +37,10 @@ public class MouseStageSelect : MouseSelect
     {
         StageSelect.getKeySpace();
         Debug.Log("オーバーライド");
+    }
+
+    public override void PointerExit(string str)
+    {
+        Debug.Log(str);
     }
 }
