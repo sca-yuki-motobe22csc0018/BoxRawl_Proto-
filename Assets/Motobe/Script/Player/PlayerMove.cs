@@ -100,6 +100,9 @@ public class PlayerMove : MonoBehaviour
     int moveVec=1;
     //フェード
     bool fadeFlag;
+    //死亡演出
+    [SerializeField] GameObject deathPrefab;
+    [SerializeField] Camera camera;
 
     // Start is called before the first frame update
     void Start()
@@ -687,6 +690,9 @@ public class PlayerMove : MonoBehaviour
         Destroy(rb);
         PlayerSkin.Rota = false;
         fadeFlag = true;
+        Instantiate(deathPrefab,this.gameObject.transform.position,Quaternion.identity);
+        camera.transform.parent = null;
+        this.gameObject.SetActive(false);
         sequence.AppendInterval(3.0f);
         sequence.AppendCallback(() => SceneChange());
     }

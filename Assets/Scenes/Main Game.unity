@@ -72919,6 +72919,8 @@ MonoBehaviour:
   ParyObject: {fileID: 1732826220}
   damageEffect: {fileID: 97606}
   Ceiling01: {fileID: 960338692}
+  deathPrefab: {fileID: 3104951671339974050, guid: 3deaa0ad5e8907e4ab9a5ac1cb6ce9c0, type: 3}
+  camera: {fileID: 1689591424}
 --- !u!50 &2140782971
 Rigidbody2D:
   serializedVersion: 4
