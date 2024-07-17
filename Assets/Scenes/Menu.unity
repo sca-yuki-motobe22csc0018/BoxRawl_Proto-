@@ -2824,9 +2824,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+        - m_Target: {fileID: 325916935}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2840,9 +2840,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 325916935}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2910,7 +2910,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 0
-  y: 0
+  y: 1
+  dscriptWindow: {fileID: 915027736}
 --- !u!1 &335185052
 GameObject:
   m_ObjectHideFlags: 0
@@ -5686,9 +5687,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+        - m_Target: {fileID: 610382987}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5702,9 +5703,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 610382987}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5771,8 +5772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
+  x: 2
+  y: 1
+  dscriptWindow: {fileID: 915027736}
 --- !u!1 &612430223
 GameObject:
   m_ObjectHideFlags: 0
@@ -8791,9 +8793,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+        - m_Target: {fileID: 932824034}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8807,9 +8809,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 932824034}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8877,7 +8879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 0
-  y: 0
+  y: 2
+  dscriptWindow: {fileID: 915027736}
 --- !u!1 &934525435
 GameObject:
   m_ObjectHideFlags: 0
@@ -10566,9 +10569,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1132461000}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: 
+        - m_Target: {fileID: 1132461006}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10582,9 +10585,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 1132461006}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10651,8 +10654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
+  x: 1
   y: 0
+  dscriptWindow: {fileID: 915027736}
 --- !u!1 &1175694055
 GameObject:
   m_ObjectHideFlags: 0
@@ -10757,9 +10761,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+        - m_Target: {fileID: 1175694061}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10773,9 +10777,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 1175694061}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10842,8 +10846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
+  x: 1
+  y: 2
+  dscriptWindow: {fileID: 915027736}
 --- !u!1 &1197073102
 GameObject:
   m_ObjectHideFlags: 0
@@ -11113,9 +11118,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+        - m_Target: {fileID: 1215485568}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11129,9 +11134,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 1215485568}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11198,8 +11203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
+  x: 1
+  y: 1
+  dscriptWindow: {fileID: 915027736}
 --- !u!1001 &1217812212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11499,9 +11505,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+        - m_Target: {fileID: 1253366144}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11515,9 +11521,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 1253366144}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11584,8 +11590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
+  x: 2
+  y: 2
+  dscriptWindow: {fileID: 915027736}
 --- !u!1 &1271907925
 GameObject:
   m_ObjectHideFlags: 0
@@ -13733,6 +13740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  dscriptWindow: {fileID: 915027736}
 --- !u!1 &1664427463
 GameObject:
   m_ObjectHideFlags: 0
@@ -15127,9 +15135,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventDown
+        - m_Target: {fileID: 1779675033}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -15143,9 +15151,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: StageSelectMouse, Assembly-CSharp
-          m_MethodName: EventEnter
+        - m_Target: {fileID: 1779675033}
+          m_TargetAssemblyTypeName: MouseStageSelect, Assembly-CSharp
+          m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -15212,8 +15220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98171147aefa0fd4e900c15435ec1af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
+  x: 2
   y: 0
+  dscriptWindow: {fileID: 915027736}
 --- !u!1 &1784115574
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ public class ButtonManager : MonoBehaviour
         {
             stageSelect = false;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&StageDscript.setSizeEnd)
         {
             if (StageDscript.nextScene)
             {
@@ -61,8 +61,8 @@ public class ButtonManager : MonoBehaviour
             else if(stageDiscriptWindow.activeSelf&&StageDscript.setSizeEnd) 
             {
 
-                //StageSelect.stages[StageSelect.x, StageSelect.y].transform.position = StageDscript.tmpStagePos;
-                //StageSelect.stages[StageSelect.x, StageSelect.y].transform.localScale = StageDscript.tmpSize;
+                StageSelect.stages[StageSelect.x, StageSelect.y].transform.position = StageDscript.tmpStagePos;
+                StageSelect.stages[StageSelect.x, StageSelect.y].transform.localScale = StageDscript.tmpSize;
                 StageSelect.stages[StageSelect.x, StageSelect.y].GetComponent<SpriteRenderer>().sortingOrder = 15;
                 StageSelect.descriptionFlag = false;    
                
