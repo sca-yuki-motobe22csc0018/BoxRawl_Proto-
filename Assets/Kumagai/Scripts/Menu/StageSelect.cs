@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -121,7 +122,7 @@ public class StageSelect : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                getKeySpace();
+                StartCoroutine(jumpSet());
             }
            
         }
@@ -130,6 +131,8 @@ public class StageSelect : MonoBehaviour
         //    SceneManager.LoadScene("Main Game");
         //}
     }
+
+   
     public static void getKeySpace()
     {
             if (!descriptionFlag)
@@ -146,6 +149,12 @@ public class StageSelect : MonoBehaviour
                     //
                 }
             }
+    }
+
+    public static IEnumerator jumpSet()
+    {
+            yield return new WaitForSeconds(0.1f);
+            StageSelect.getKeySpace();
     }
    
 }
