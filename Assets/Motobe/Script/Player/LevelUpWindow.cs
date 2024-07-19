@@ -86,5 +86,7 @@ public class LevelUpWindow : MonoBehaviour
         sequence.Join(LevelUpBack.transform.DOScale(new Vector3(27, 12, 1), 0.15f).SetEase(Ease.InQuint));
 
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(0, 12, 1), 0.15f).SetEase(Ease.InQuint));
+
+        sequence.Append(LevelUpBack.transform.DOScale(new Vector3(0, 0, 1), 0f).SetEase(Ease.InQuint));
     }
 }
