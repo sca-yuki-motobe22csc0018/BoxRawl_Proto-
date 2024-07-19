@@ -489,7 +489,7 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         //Groundにふれたとき
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground")||other.gameObject.CompareTag("Button"))
         {
             onGround = true;
             LevelUpWindowSet = true;
