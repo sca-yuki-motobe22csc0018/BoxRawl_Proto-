@@ -52,7 +52,8 @@ public class TitleManager : MonoBehaviour
     {
         //ゲームスタート
         if(Input.GetKeyDown(KeyCode.Return) && !isStart
-            || Input.GetKeyDown(KeyCode.Space) && !isStart)
+            || Input.GetKeyDown(KeyCode.Space) && !isStart
+            || Input.GetMouseButton(0) && !isStart)
         {
             isStart = true;
             hallObject.SetActive(false);
