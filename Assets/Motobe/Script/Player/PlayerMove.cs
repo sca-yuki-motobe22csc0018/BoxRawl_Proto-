@@ -329,18 +329,14 @@ public class PlayerMove : MonoBehaviour
                 //ジャンプ
                 if (Input.GetMouseButton(0)&&!Drop||Input.GetKey(KeyCode.Space)&&!Drop)
                 {
-                    Debug.Log(1);
                     onGround = false;
                     if (JumpCount == 0)
                     {
-                        Debug.Log(2);
                         //壁での連続ジャンプ防止
                         if (OnWall)
                         {
-                            Debug.Log(3);
                             if (!DoubleWall)
                             {
-                                Debug.Log(4);
                                 rb.velocity = new Vector3(0, JumpForce, 0);
                                 DoubleWall = true;
                                 SEController.jump = true;
@@ -348,7 +344,6 @@ public class PlayerMove : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log(5);
                             rb.velocity = new Vector3(0, JumpForce, 0);
                             SEController.jump = true;
                         }

@@ -16,13 +16,13 @@ public class MouseStageSelect : MouseSelect
 
         firstPos = transform.localPosition;
         SetEvent setEvent = new SetEvent(PointerEnter);
-        SetEventType("Enter",setEvent);
+        SetEventType(enter,setEvent);
 
         setEvent = new SetEvent(PointerDown);
-        SetEventType("Down", setEvent);
+        SetEventType(down, setEvent);
 
         setEvent=new SetEvent(PointerExit);
-        SetEventType("Exit", setEvent);
+        SetEventType(exit, setEvent);
     }
 
     private void Update()
@@ -37,18 +37,17 @@ public class MouseStageSelect : MouseSelect
         StageSelect.onCursor = true;
         StageSelect.x = x; 
         StageSelect.y = y;
-        Debug.Log("Enter");//基底クラスのバーチャル関数が呼び出されていないかのチェック
     }
 
     public override void PointerDown()
     {
-        StageSelect.getKeySpace();
-        Debug.Log("Down");
+        StartCoroutine(StageSelect.jumpSet());
     }
 
     public override void PointerExit()
     {
         StageSelect.onCursor = false;   
-        Debug.Log("Exit");
     }
+
+
 }

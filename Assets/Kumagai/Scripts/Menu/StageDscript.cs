@@ -22,7 +22,7 @@ public class StageDscript : MonoBehaviour
     [SerializeField] private GameObject start;
     [SerializeField] private GameObject insPlayer;
     public static bool setSizeEnd;
-    private bool cancelFlag;
+    public static bool cancelFlag;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -59,7 +59,6 @@ public class StageDscript : MonoBehaviour
     }
      void DscriptSetVec()
     {
-        Debug.Log("aa");
         selectStage = StageSelect.stages[StageSelect.x, StageSelect.y];
         selectStage.GetComponent<SpriteRenderer>().sortingOrder = 50;
         selectStagePos = selectStage.transform.position;

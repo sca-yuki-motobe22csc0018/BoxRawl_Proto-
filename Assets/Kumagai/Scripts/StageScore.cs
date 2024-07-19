@@ -25,7 +25,6 @@ public class StageScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("selectNumber" + StageSelect.selectNumber);
         
         if(StageSelect.selectNumber!=0 )
         {
