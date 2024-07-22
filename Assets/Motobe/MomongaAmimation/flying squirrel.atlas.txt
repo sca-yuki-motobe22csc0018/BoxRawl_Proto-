@@ -1,0 +1,23 @@
+flying squirrel.png
+size:618,117
+filter:Linear,Linear
+pma:true
+scale:0.5
+arm_L
+bounds:497,71,77,44
+arm_R
+bounds:497,4,72,65
+body
+bounds:147,2,113,113
+head
+bounds:393,14,101,102
+rotate:90
+leg_L
+bounds:571,26,36,43
+leg_R
+bounds:576,74,41,40
+rotate:90
+teil
+bounds:262,11,129,104
+wing
+bounds:2,2,143,113

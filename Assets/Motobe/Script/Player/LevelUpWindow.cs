@@ -13,6 +13,15 @@ public class LevelUpWindow : MonoBehaviour
     public GameObject LevelUp01Back;
     public GameObject LevelUp02Back;
     public GameObject LevelUp03Back;
+    public SpriteRenderer levelUp1Back;
+    public SpriteRenderer levelUp2Back;
+    public SpriteRenderer levelUp3Back;
+    byte a1;
+    byte a2;
+    byte a3;
+    bool b1;
+    bool b2;
+    bool b3;
 
     bool levelUp;
 
@@ -21,6 +30,12 @@ public class LevelUpWindow : MonoBehaviour
     {
         LevelUpBack.transform.DOScale(new Vector2(0, 0), 0);
         levelUp = false;
+        a1 = 255;
+        a2 = 255;
+        a3 = 255;
+        b1 = false; b2=false; b3=false;
+        levelUp1Back.DOColor(new Color(255, 255, 255, 0), 0);
+
     }
 
     // Update is called once per frame
@@ -38,6 +53,10 @@ public class LevelUpWindow : MonoBehaviour
                 LevelUpEnd();
                 levelUp = false;
             }
+        }
+        if (b1)
+        {
+
         }
     }
 
@@ -88,5 +107,10 @@ public class LevelUpWindow : MonoBehaviour
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(0, 12, 1), 0.15f).SetEase(Ease.InQuint));
 
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(0, 0, 1), 0f).SetEase(Ease.InQuint));
+    }
+
+    private void Alpha(bool a)
+    {
+
     }
 }
