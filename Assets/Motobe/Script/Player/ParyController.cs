@@ -23,7 +23,7 @@ public class ParyController : MonoBehaviour
         transform.position = PlayerObject.transform.position;
         if (parySet)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
             {
                 PlayerMove.JumpCount = 1;
                 PlayerMove.paryCheck = true;
@@ -36,16 +36,21 @@ public class ParyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            PlayerMove.JumpCount = 0;
-            paryJump = true;
+          
         }
     }
+
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            parySet = true;
+            if(Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Space))
+            {
+                PlayerMove.JumpCount = 0;
+                parySet = true;
+            }
+          
         }
     }
 
