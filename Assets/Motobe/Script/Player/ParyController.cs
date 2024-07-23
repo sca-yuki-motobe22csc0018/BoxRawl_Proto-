@@ -34,10 +34,6 @@ public class ParyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-          
-        }
     }
 
 
@@ -45,10 +41,11 @@ public class ParyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            if(Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Space))
             {
                 PlayerMove.JumpCount = 0;
                 parySet = true;
+                PlayerDekoi.Set = true;
             }
           
         }

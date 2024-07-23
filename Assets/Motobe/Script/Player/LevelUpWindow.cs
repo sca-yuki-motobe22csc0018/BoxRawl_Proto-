@@ -16,12 +16,6 @@ public class LevelUpWindow : MonoBehaviour
     public SpriteRenderer levelUp1Back;
     public SpriteRenderer levelUp2Back;
     public SpriteRenderer levelUp3Back;
-    byte a1;
-    byte a2;
-    byte a3;
-    bool b1;
-    bool b2;
-    bool b3;
 
     bool levelUp;
 
@@ -30,12 +24,9 @@ public class LevelUpWindow : MonoBehaviour
     {
         LevelUpBack.transform.DOScale(new Vector2(0, 0), 0);
         levelUp = false;
-        a1 = 255;
-        a2 = 255;
-        a3 = 255;
-        b1 = false; b2=false; b3=false;
-        levelUp1Back.DOColor(new Color(255, 255, 255, 0), 0);
-
+        levelUp1Back.DOFade(0, 0);
+        levelUp2Back.DOFade(0, 0);
+        levelUp3Back.DOFade(0, 0);
     }
 
     // Update is called once per frame
@@ -54,10 +45,6 @@ public class LevelUpWindow : MonoBehaviour
                 levelUp = false;
             }
         }
-        if (b1)
-        {
-
-        }
     }
 
     public void LevelUp()
@@ -72,11 +59,14 @@ public class LevelUpWindow : MonoBehaviour
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(25, 12, 1), 0.1f));
 
         sequence.Append(LevelUp01Back.transform.DOMoveY(LevelUp01Back.transform.position.y - 15, 0.15f));
+        sequence.Join(levelUp1Back.DOFade(1, 0.15f));
 
         sequence.Append(LevelUp02Back.transform.DOMoveY(LevelUp02Back.transform.position.y - 15, 0.15f));
+        sequence.Join(levelUp2Back.DOFade(1, 0.15f));
         sequence.Join(LevelUp01Back.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
 
         sequence.Append(LevelUp03Back.transform.DOMoveY(LevelUp03Back.transform.position.y - 15, 0.15f));
+        sequence.Join(levelUp3Back.DOFade(1, 0.15f));
         sequence.Join(LevelUp01.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
         sequence.Join(LevelUp02Back.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
 
@@ -93,15 +83,19 @@ public class LevelUpWindow : MonoBehaviour
 
         sequence.Append(LevelUp02.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
         sequence.Join(LevelUp01Back.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
+        
 
         sequence.Append(LevelUp01Back.transform.DOMoveY(LevelUp01.transform.position.y + 15, 0.15f));
+        sequence.Join(levelUp1Back.DOFade(0, 0.15f));
         sequence.Join(LevelUp02Back.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
         sequence.Join(LevelUp03.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
 
         sequence.Append(LevelUp02Back.transform.DOMoveY(LevelUp02.transform.position.y + 15, 0.15f));
+        sequence.Join(levelUp2Back.DOFade(0, 0.15f));
         sequence.Join(LevelUp03Back.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
 
         sequence.Append(LevelUp03Back.transform.DOMoveY(LevelUp03.transform.position.y + 15, 0.15f));
+        sequence.Join(levelUp3Back.DOFade(0, 0.15f));
         sequence.Join(LevelUpBack.transform.DOScale(new Vector3(27, 12, 1), 0.15f).SetEase(Ease.InQuint));
 
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(0, 12, 1), 0.15f).SetEase(Ease.InQuint));

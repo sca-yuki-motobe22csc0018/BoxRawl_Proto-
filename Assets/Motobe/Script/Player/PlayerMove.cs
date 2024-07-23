@@ -33,13 +33,6 @@ public class PlayerMove : MonoBehaviour
     public static float PlusSpeed;
     private float Speed;
 
-    /*
-    //大きさ関係(ステージの構成的にヒップドロップの範囲強化のほうが良さそうと提案)
-    //[SerializeField] public float DefaultSize;
-    //[SerializeField] public float PlusSize;
-    //private float Size;
-    */
-
     //体力関係
     private int DefaultHp=5;
     //[SerializeField] public int PlusHp;
@@ -140,7 +133,6 @@ public class PlayerMove : MonoBehaviour
         deathBlink = false;
         fadeFlag = false;
         onGround = false;
-        //Size = DefaultSize + PlusSize;
         Hp = 5;//DefaultHp + PlusHp;
 
         for(int i = 0; i < 5; i++)
@@ -207,9 +199,6 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-      
-
         //Debug.Log(OnWall);
 
         FadeIO.FadeOut(fadeFlag);
@@ -325,7 +314,7 @@ public class PlayerMove : MonoBehaviour
 
                 }
                 bool jumpKey = Input.GetKeyDown(KeyCode.Space);
-                Debug.Log(jumpKey);
+                //Debug.Log(jumpKey);
                 //ジャンプ
                 if (Input.GetMouseButton(0)&&!Drop||Input.GetKey(KeyCode.Space)&&!Drop)
                 {
