@@ -9,6 +9,7 @@ public class MomongaEnemyBeta : MonoBehaviour
     Vector3 scale;
 
     public GameObject GoObject;
+    public GameObject Pary;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class MomongaEnemyBeta : MonoBehaviour
         scale = transform.localScale;
         GoObject.transform.position = PlayerObj.transform.position;
         GoObject.transform.parent = null;
+        Pary.transform.parent = null;
     }
 
     // Update is called once per frame
@@ -43,6 +45,14 @@ public class MomongaEnemyBeta : MonoBehaviour
                 scale.x = -1;
                 transform.localScale = scale;
             }
+        }
+        if (scale.x == 1)
+        {
+            Pary.transform.position = new Vector3(this.transform.position.x-0.075f,this.transform.position.y-0.05f,0);
+        }
+        else
+        {
+            Pary.transform.position = new Vector3(this.transform.position.x + 0.075f, this.transform.position.y - 0.05f, 0);
         }
     }
     private void OnTriggerStay2D(Collider2D other)

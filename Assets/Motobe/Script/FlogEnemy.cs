@@ -40,6 +40,8 @@ public class FlogEnemy : MonoBehaviour
 
     bool OnGround;
 
+    public GameObject Pary;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,8 @@ public class FlogEnemy : MonoBehaviour
 
         OnGround = false;
         this.gameObject.tag = "Untagged";
+
+        Pary.transform.parent = null;
     }
 
     // Update is called once per frame
@@ -107,6 +111,14 @@ public class FlogEnemy : MonoBehaviour
             rb.velocity = new Vector3(0, 20+jumpRand, 0);
             Jump = false;
             PlayJumpAnimationA();
+        }
+        if (dir == 1)
+        {
+            Pary.transform.position = new Vector3(this.transform.position.x - 0.4f, this.transform.position.y - 0.5f, 0);
+        }
+        else
+        {
+            Pary.transform.position = new Vector3(this.transform.position.x + 0.4f, this.transform.position.y - 0.5f, 0);
         }
     }
 
