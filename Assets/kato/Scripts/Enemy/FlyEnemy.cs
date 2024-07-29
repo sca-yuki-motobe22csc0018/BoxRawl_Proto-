@@ -1,15 +1,11 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlyEnemy : MonoBehaviour
 {
-    public GameObject BulletPrefab;
-    GameObject Bullet;
-    Rigidbody2D BulletRg;
-    Vector2 BulletDir;  //’e‚ğ”ò‚Î‚·•ûŒü
-
     public GameObject PlayerObj;
 
     float timer;
@@ -17,18 +13,28 @@ public class FlyEnemy : MonoBehaviour
     bool isMove;
     bool isAttack;
 
+    //’eŠÖŒW
+    public GameObject BulletPrefab;
+    GameObject Bullet;
+    Rigidbody2D BulletRg;
+    Vector2 BulletDir;  //’e‚ğ”ò‚Î‚·•ûŒü
     Vector2 BulletPos;
 
+    //“®‚«ŠÖŒW
     int addPos_X;
     int addPos_Y;
 
     int MoveNum;
 
+    //ƒXƒLƒ“
     public GameObject beeSkin;
-    Vector3 left = new Vector3(0, 180, 0);
-    Vector3 ritht = new Vector3(0, 0, 0);
+    SpriteRenderer skinSprite;
+    bool left = true;
+    bool right = false;
+
     void Start()
     {
+        skinSprite = beeSkin.GetComponent<SpriteRenderer>();
         PlayerObj = GameObject.FindWithTag("Player");
 
         isMove = true;
@@ -36,6 +42,8 @@ public class FlyEnemy : MonoBehaviour
         timer = 0;
 
         MoveNum = 0;
+
+        lookDirection();
     }
 
     void Update()
@@ -61,6 +69,8 @@ public class FlyEnemy : MonoBehaviour
             isMove = true ;
             timer = 0;
         }
+
+        lookDirection();
     }
 
     public void BulletAttack()
@@ -111,21 +121,19 @@ public class FlyEnemy : MonoBehaviour
 
         this.gameObject.transform.DOMove(new Vector2( this.gameObject.transform.position.x + addPos_X,
                                          this.gameObject.transform.position.y + addPos_Y), 1.0f);
-
-        Invoke("lookPlayer", 0.5f);
     }
 
-    void lookPlayer()
+    void lookDirection()   //ƒvƒŒƒCƒ„[‚Ì‚Ù‚¤‚ğŒ©‚é
     {
         if (this.gameObject.transform.position.x > PlayerObj.transform.position.x)
         {
-            beeSkin.transform.eulerAngles = ritht;
+            skinSprite.flipX = right;
             Debug.Log("‰E");
         }
         else
         {
-            beeSkin.transform.eulerAngles = left;
-            Debug.Log("hidari");
+            skinSprite.flipX = left;
+            Debug.Log("¶");
         }
     }
 

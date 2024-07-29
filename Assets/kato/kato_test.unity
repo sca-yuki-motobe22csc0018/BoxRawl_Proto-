@@ -11510,7 +11510,6 @@ MonoBehaviour:
   Ceiling01: {fileID: 0}
   deathPrefab: {fileID: 3104951671339974050, guid: 3deaa0ad5e8907e4ab9a5ac1cb6ce9c0, type: 3}
   Camera_test: {fileID: 581419454}
-  testObj: {fileID: 1058680489}
 --- !u!1 &1058750803
 GameObject:
   m_ObjectHideFlags: 0
@@ -16618,17 +16617,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3244210343863933058, guid: c41156c874226674b97c459031c5ca82, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244210343863933058, guid: c41156c874226674b97c459031c5ca82, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244210343863933058, guid: c41156c874226674b97c459031c5ca82, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244210343863933058, guid: c41156c874226674b97c459031c5ca82, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3354638904345986979, guid: c41156c874226674b97c459031c5ca82, type: 3}
       propertyPath: m_Name
       value: FlyEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6888358143617223588, guid: c41156c874226674b97c459031c5ca82, type: 3}
+      propertyPath: PlayerObj
+      value: 
+      objectReference: {fileID: 1058680489}
+    - target: {fileID: 6888358143617223588, guid: c41156c874226674b97c459031c5ca82, type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 1577878741882480444, guid: a6198ed0817af984993fe3364b959cdc, type: 3}
     - target: {fileID: 7563644696057587779, guid: c41156c874226674b97c459031c5ca82, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.9688993
       objectReference: {fileID: 0}
     - target: {fileID: 7563644696057587779, guid: c41156c874226674b97c459031c5ca82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.95
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 7563644696057587779, guid: c41156c874226674b97c459031c5ca82, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16660,6 +16683,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7563644696057587779, guid: c41156c874226674b97c459031c5ca82, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863747341156414312, guid: c41156c874226674b97c459031c5ca82, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863747341156414312, guid: c41156c874226674b97c459031c5ca82, type: 3}
+      propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
