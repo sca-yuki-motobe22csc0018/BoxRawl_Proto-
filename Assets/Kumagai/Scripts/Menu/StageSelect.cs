@@ -96,12 +96,11 @@ public class StageSelect : MonoBehaviour
                 {
                     if (y == -1)
                     {
-                        y = 0;
+                        y = 2;
                     }
-                    else if (y == 0)
+                    else
                     {
-                        //y--;
-                        y = -1;
+                        y--;
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
@@ -116,7 +115,7 @@ public class StageSelect : MonoBehaviour
                     }
                     else
                     {
-                        y = -1;
+                        y++;
                     }
                 }
             }
