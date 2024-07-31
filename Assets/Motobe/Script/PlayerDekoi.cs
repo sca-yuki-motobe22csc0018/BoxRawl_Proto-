@@ -11,18 +11,24 @@ public class PlayerDekoi : MonoBehaviour
     //Rigidbody
     private Rigidbody2D rb;
     bool a;
+    public GameObject dekoiPary;
+    public static bool dekoiDrop;
+    public GameObject dropObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        dropObject.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         Set = false;
+        dekoiDrop = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        dekoiPary.transform.Rotate(0, 0, 550 * -1 * Time.deltaTime);
+        transform.Rotate(0, 0, 750 * -1 * Time.deltaTime);
         if (Set)
         {
             this.transform.position = Player.transform.position;
@@ -31,6 +37,7 @@ public class PlayerDekoi : MonoBehaviour
         if (PlayerMove.Drop)
         {
             a = true;
+            dekoiDrop = true;
             DropSystem();
         }
         if (a == true)
@@ -60,6 +67,7 @@ public class PlayerDekoi : MonoBehaviour
     }
     public void DropSystem2()
     {
+        dropObject.SetActive(true);
         PlayerSkin.Rota = false;
         PlayerSkin.rota = 0;
         rb.velocity = new Vector3(0, -15 * 2, 0);
@@ -70,9 +78,11 @@ public class PlayerDekoi : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             Debug.Log(a);
+            dropObject.SetActive(false);
             a = false;
             SEController.drop2 = true;
-            //Destroy(this);
+            dekoiDrop = false;
+            this.gameObject.SetActive(false);
         }
     }
 }

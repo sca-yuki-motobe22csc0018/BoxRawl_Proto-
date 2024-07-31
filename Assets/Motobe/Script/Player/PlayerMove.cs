@@ -97,9 +97,15 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] GameObject deathPrefab;
     [SerializeField] Camera camera;
 
+    public static bool ParyJump;
+
+    public GameObject dekoi;
+
     // Start is called before the first frame update
     void Start()
     {
+        dekoi.SetActive(false);
+        ParyJump = false;
         moveVec = 1;
         if (Ceiling01 != null)
         {
@@ -338,6 +344,13 @@ public class PlayerMove : MonoBehaviour
                         }
                     }
                 }
+
+                if (!Drop && ParyJump)
+                {
+                    rb.velocity = new Vector3(0, JumpForce, 0);
+                    SEController.jump = true;
+                    ParyJump = false;
+                }
             
 
 
@@ -475,6 +488,10 @@ public class PlayerMove : MonoBehaviour
         //Groundにふれたとき
         if (other.gameObject.CompareTag("Ground")||other.gameObject.CompareTag("Button"))
         {
+            if (!PlayerDekoi.dekoiDrop)
+            {
+                dekoi.SetActive(false);
+            }
             onGround = true;
             LevelUpWindowSet = true;
             if (!startRota&&SceneManager.GetActiveScene().name!="Menu")
