@@ -134,6 +134,7 @@ public class FlogEnemy : MonoBehaviour
             EXPController.EXP += 5.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             ScoreManager.bigEnemyKillCount++;
+            Destroy(Pary.gameObject);
             Destroy(this.gameObject);
         }
     }

@@ -77,7 +77,8 @@ public class MoleEnemy : MonoBehaviour
         if (timer > 5 && onGroun)
         {
             onGroun = false;
-            rg.velocity = new Vector2(0, 15.5f);
+            float plusY = Random.Range(0, 3);
+            rg.velocity = new Vector2(0, 12.5f+plusY);
         }
     }
 
@@ -102,11 +103,17 @@ public class MoleEnemy : MonoBehaviour
             this.gameObject.transform.DOMoveY(this.transform.position.y - 1, 2.0f).OnComplete(OnGround);
             Pary.SetActive(false);
         }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(smoke);
+            Destroy(this.gameObject);
+        }
     }
         
     private void OnCollisionExit2D(Collision2D collision)
     {
-        rg.gravityScale = 3;
+        rg.gravityScale = 2.5f;
         this.tag = "Enemy";
         PlayJumpAnimation();
         Pary.SetActive(true);

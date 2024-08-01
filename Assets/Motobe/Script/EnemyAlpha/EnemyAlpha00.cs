@@ -18,7 +18,11 @@ public class EnemyAlpha00 : MonoBehaviour
     bool Jump;
 
     Vector3 scale;
-    
+
+    public float sizeX;
+
+    public GameObject Pary;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,13 +59,13 @@ public class EnemyAlpha00 : MonoBehaviour
         if (right)
         {
             dir = 1;
-            scale.x = 1;
+            scale.x = sizeX;
             transform.localScale = scale;
         }
         else
         {
             dir = -1;
-            scale.x = -1;
+            scale.x = -sizeX;
             transform.localScale = scale;
         }
         if (Jump)
@@ -83,6 +87,7 @@ public class EnemyAlpha00 : MonoBehaviour
             EXPController.EXP += 5.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             ScoreManager.bigEnemyKillCount++;
+            Destroy(Pary.gameObject);
             Destroy(this.gameObject);
         }
     }
@@ -155,7 +160,7 @@ public class EnemyAlpha00 : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            scale.x *= -1;
+            scale.x *= -sizeX;
             transform.localScale = scale;
         }
     }
