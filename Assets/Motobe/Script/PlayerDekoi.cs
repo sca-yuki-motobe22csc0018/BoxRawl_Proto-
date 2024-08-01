@@ -77,7 +77,6 @@ public class PlayerDekoi : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            Debug.Log(a);
             dropObject.SetActive(false);
             a = false;
             SEController.drop2 = true;

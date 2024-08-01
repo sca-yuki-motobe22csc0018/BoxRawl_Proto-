@@ -1,0 +1,20 @@
+turtle.png
+size:291,270
+filter:Linear,Linear
+pma:true
+scale:0.5
+body
+bounds:2,2,196,146
+front_ leg
+bounds:200,17,44,49
+head
+bounds:200,68,80,69
+rotate:90
+hind_leg
+bounds:246,22,44,43
+rotate:90
+shell
+bounds:2,150,247,118
+tail
+bounds:251,219,49,37
+rotate:90

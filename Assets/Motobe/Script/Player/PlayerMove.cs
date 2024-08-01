@@ -436,50 +436,48 @@ public class PlayerMove : MonoBehaviour
 
         if (Trigger.EnemyTrigger)
         {
-            if (!paryCheck)
+            if (!Drop)
             {
-                if (!Drop)
+                if (!blink)
                 {
-                    if (!blink)
+                    if (Hp > 1)
                     {
-                        if (Hp > 1)
+                        HpObject[Hp - 1].SetActive(false);
+                        Hp -= 1;
+                        blink = true;
+                        CameraMove.damageSway = true;
+                        DamageEffect();
+                        SEController.damage = true;
+                    }
+                    else
+                    {
+                        if (SceneManager.GetActiveScene().name == "Tutorial")
                         {
-                            HpObject[Hp - 1].SetActive(false);
-                            Hp -= 1;
-                            blink = true;
+                            Hp = 5;
+                            for (int i = 0; i < 5; i++)
+                            {
+                                HpObject[i].SetActive(false);
+                            }
+                            for (int i = 0; i < Hp; i++)
+                            {
+                                HpObject[i].SetActive(true);
+                            }
+                            return;
+                        }
+                        if (!death)
+                        {
+                            death = true;
                             CameraMove.damageSway = true;
                             DamageEffect();
-                            SEController.damage = true;
+                            SEController.dead = true;
+                            Dead();
+                            blink = true;
                         }
-                        else
-                        {
-                            if(SceneManager.GetActiveScene().name == "Tutorial")
-                            {
-                                Hp = 5;
-                                for (int i = 0; i < 5; i++)
-                                {
-                                    HpObject[i].SetActive(false);
-                                }
-                                for (int i = 0; i < Hp; i++)
-                                {
-                                    HpObject[i].SetActive(true);
-                                }
-                                return;
-                            }
-                            if (!death)
-                            {
-                                death = true;
-                                CameraMove.damageSway = true;
-                                DamageEffect();
-                                SEController.dead = true;
-                                Dead();
-                                blink = true;
-                            }
-                            
-                        }
+
                     }
                 }
             }
+
         }
     }
 
