@@ -14,6 +14,7 @@ public class PlayerDekoi : MonoBehaviour
     public GameObject dekoiPary;
     public static bool dekoiDrop;
     public GameObject dropObject;
+    public static bool dekoiDestroy;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +23,16 @@ public class PlayerDekoi : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Set = false;
         dekoiDrop = false;
+        dekoiDestroy = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (dekoiDestroy)
+        {
+            Destroy(this.gameObject);
+        }
         dekoiPary.transform.Rotate(0, 0, 550 * -1 * Time.deltaTime);
         transform.Rotate(0, 0, 750 * -1 * Time.deltaTime);
         if (Set)

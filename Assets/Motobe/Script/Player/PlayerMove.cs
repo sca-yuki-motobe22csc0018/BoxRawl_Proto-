@@ -99,12 +99,12 @@ public class PlayerMove : MonoBehaviour
 
     public static bool ParyJump;
 
-    public GameObject dekoi;
+    //public GameObject dekoi;
 
     // Start is called before the first frame update
     void Start()
     {
-        dekoi.SetActive(false);
+        //dekoi.SetActive(false);
         ParyJump = false;
         moveVec = 1;
         if (Ceiling01 != null)
@@ -488,7 +488,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (!PlayerDekoi.dekoiDrop)
             {
-                dekoi.SetActive(false);
+                PlayerDekoi.dekoiDestroy = true;
             }
             onGround = true;
             LevelUpWindowSet = true;
@@ -694,6 +694,18 @@ public class PlayerMove : MonoBehaviour
         this.gameObject.SetActive(false);
         sequence.AppendInterval(3.0f);
         sequence.AppendCallback(() => SceneChange());
+    }
+
+    private void DekoiObject(float x, float y)
+    {
+        GameObject Dekoi_prefab = Resources.Load<GameObject>("PlayerDekoi");
+        GameObject Dekoi = Instantiate(Dekoi_prefab, new Vector3(x, y, 0), Quaternion.identity);
+        return;
+    }
+
+    void SpawnDekoi()
+    {
+        DekoiObject(this.transform.position.x,this.transform.position.y);
     }
 
     public void SceneChange()

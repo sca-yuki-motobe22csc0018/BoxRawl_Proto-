@@ -10,7 +10,6 @@ public class ParyController : MonoBehaviour
     public GameObject PlayerObject;
     public static bool parySet;
     public static bool paryJump;
-    public GameObject dekoi;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +26,6 @@ public class ParyController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
             {
                 //PlayerMove.JumpCount = 1;
-                dekoi.SetActive(true);
                 PlayerMove.ParyJump = true;
                 PlayerMove.paryCheck = true;
                 SEController.pary = true;
