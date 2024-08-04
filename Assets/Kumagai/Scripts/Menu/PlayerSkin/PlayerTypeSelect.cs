@@ -7,24 +7,29 @@ public class PlayerTypeSelect : MonoBehaviour
 {
     [SerializeField] private GameObject[] playerTypes;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject menuPlayer;
     private GameObject insPlayer;
     [SerializeField] private GameObject[] selectorPos;
     public static int selectNumber;
     private int nowType;
+    public static bool mouseCheck;
     [SerializeField] private float MaxSize;
     [SerializeField] private float iconSize;
     private float startSizeX;
     private float startSizeY;
     float x;
     float y;
+    Vector3 fPos;
 
     private void OnEnable()
     {
         selectNumber = 0;
         nowType = selectNumber;
         InsObject();
-        //PlayerSkin.Rota = true;
+        mouseCheck = false;
+        fPos = menuPlayer.transform.position;
     }
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +42,7 @@ public class PlayerTypeSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        menuPlayer.transform.position=fPos;
      //   PlayerSkin.Rota = true;
         insPlayer.SetActive(true);
         insPlayer.transform.position = selectorPos[StatusUp.selectTypeNumber].transform.position;
@@ -69,7 +75,6 @@ public class PlayerTypeSelect : MonoBehaviour
         }
         if ((playerTypes[selectNumber].transform.localScale.x < startSizeX * MaxSize))
         {
-            Debug.Log("’Ê‰ß‚µ‚Ä‚¢‚Ü‚·");
             x += Time.deltaTime*2;
             y += Time.deltaTime*2;
             playerTypes[selectNumber].transform.localScale = new Vector3(x, y, 1);
@@ -81,7 +86,7 @@ public class PlayerTypeSelect : MonoBehaviour
                 playerTypes[i].transform.localScale= new Vector3 (startSizeX, startSizeY, 1);
             }
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space)||mouseCheck)
         {
             if(selectNumber != 4)
             {
@@ -99,7 +104,7 @@ public class PlayerTypeSelect : MonoBehaviour
                 ButtonManager.sceneCheck = false;
                 StatusUp.selectType = false;
             }
-          
+            mouseCheck=false;
         }
     }
 
@@ -123,7 +128,7 @@ public class PlayerTypeSelect : MonoBehaviour
        
         if (insPlayer == null&&selectNumber!=4)
         {
-            insPlayer = Instantiate(player);
+            insPlayer = Instantiate(player.gameObject);
         }
         //insPlayer.transform.parent = playerTypes[StatusUp.selectTypeNumber].transform;
         insPlayer.SetActive(false);
