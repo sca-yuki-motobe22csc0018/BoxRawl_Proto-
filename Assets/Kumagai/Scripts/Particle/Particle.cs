@@ -27,6 +27,11 @@ public class Particle : MonoBehaviour
     {
         if(count>3) { Destroy(this.gameObject); }
         count += Time.deltaTime;
+        if(ChainAttack.chainLv>=2)
+        {
+            _burst.count = particleCount*1.3f;
+        }
+
         //_emission = _particle.emission;
         //_emission.burstCount= particleCount;   
     }
@@ -39,7 +44,7 @@ public class Particle : MonoBehaviour
                 Debug.Log(other.gameObject.transform.position);
                 EXPController.EXP += 5.0f * PlayerMove.EXPUP;
                 PlayerMove.EXPUP += 1;
-                if (ChainAttack.chainLv >= 2)
+                if (ChainAttack.chainLv >= 3)
                 {
                     Destroy(other.gameObject);
                     Instantiate(ChainAttack.insParticle, other.gameObject.transform.position, Quaternion.identity);
