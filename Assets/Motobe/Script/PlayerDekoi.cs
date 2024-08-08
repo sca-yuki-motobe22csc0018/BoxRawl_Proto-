@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class PlayerDekoi : MonoBehaviour
 {
-
-    public static bool Set;
-    public GameObject Player;
     //Rigidbody
     private Rigidbody2D rb;
     bool a;
@@ -21,7 +18,7 @@ public class PlayerDekoi : MonoBehaviour
     {
         dropObject.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
-        Set = false;
+        //Set = false;
         dekoiDrop = false;
         dekoiDestroy = false;
     }
@@ -35,11 +32,6 @@ public class PlayerDekoi : MonoBehaviour
         }
         dekoiPary.transform.Rotate(0, 0, 550 * -1 * Time.deltaTime);
         transform.Rotate(0, 0, 750 * -1 * Time.deltaTime);
-        if (Set)
-        {
-            this.transform.position = Player.transform.position;
-            Set = false;
-        }
         if (PlayerMove.Drop)
         {
             a = true;
@@ -83,11 +75,10 @@ public class PlayerDekoi : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            dropObject.SetActive(false);
             a = false;
             SEController.drop2 = true;
             dekoiDrop = false;
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
 }

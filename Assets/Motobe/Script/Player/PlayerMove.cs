@@ -269,7 +269,13 @@ public class PlayerMove : MonoBehaviour
 
         if (PlayerDead)
         {
+            rb.gravityScale = 0;
+            rb.velocity = new Vector2(0, 0);
             return;
+        }
+        else
+        {
+            rb.gravityScale = 5;
         }
         //壁めり込み防止
         if (Input.GetKeyDown(KeyCode.A) && !right)
@@ -696,17 +702,7 @@ public class PlayerMove : MonoBehaviour
         sequence.AppendCallback(() => SceneChange());
     }
 
-    private void DekoiObject(float x, float y)
-    {
-        GameObject Dekoi_prefab = Resources.Load<GameObject>("PlayerDekoi");
-        GameObject Dekoi = Instantiate(Dekoi_prefab, new Vector3(x, y, 0), Quaternion.identity);
-        return;
-    }
-
-    void SpawnDekoi()
-    {
-        DekoiObject(this.transform.position.x,this.transform.position.y);
-    }
+    
 
     public void SceneChange()
     {

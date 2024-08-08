@@ -10,6 +10,7 @@ public class EnemyAlpha01 : MonoBehaviour
     float defaultSpeed;
     bool right;
     int dir;
+    public GameObject Pary;
 
     Vector3 scale;
 
@@ -23,14 +24,14 @@ public class EnemyAlpha01 : MonoBehaviour
         {
             right = false;
             dir = 1;
-            scale.x = 1;
+            scale.x = 1.5f;
             transform.localScale = scale;
         }
         else
         {
             right = true;
             dir = -1;
-            scale.x = -1;
+            scale.x = -1.5f;
             transform.localScale = scale;
         }
 
@@ -42,6 +43,7 @@ public class EnemyAlpha01 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Pary.transform.position = transform.position;
         if (PlayerMove.PlayerDead)
         {
             rb.velocity = new Vector2(0, 0);
@@ -53,13 +55,13 @@ public class EnemyAlpha01 : MonoBehaviour
         if (right)
         {
             dir = 1;
-            scale.x = 1;
+            scale.x = 1.5f;
             transform.localScale = scale;
         }
         else
         {
             dir = -1;
-            scale.x = -1;
+            scale.x = -1.5f;
             transform.localScale = scale;
         }
     }
@@ -122,8 +124,9 @@ public class EnemyAlpha01 : MonoBehaviour
 
     private void ObjectEnemy(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyAlpha01Children");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("BetaTurtleChilEnemy");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
+        Enemy.transform.localScale = scale;
         Enemy.transform.parent = this.transform;
         return;
     }
@@ -150,7 +153,7 @@ public class EnemyAlpha01 : MonoBehaviour
         //Debug.Log(random);
         for (int i = 1; i < rand; i++)
         {
-            ObjectEnemy(this.transform.position.x, this.transform.position.y + i);
+            ObjectEnemy(this.transform.position.x, this.transform.position.y + i*1.25f);
         }
     }
 }

@@ -25,31 +25,30 @@ public class ParyController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
             {
-                //PlayerMove.JumpCount = 1;
+                SpawnDekoi();
                 PlayerMove.ParyJump = true;
                 PlayerMove.paryCheck = true;
                 SEController.pary = true;
-                PlayerDekoi.Set = true;
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void DekoiObject(float x, float y)
     {
+        GameObject Dekoi_prefab = Resources.Load<GameObject>("PlayerDekoi");
+        GameObject Dekoi = Instantiate(Dekoi_prefab, new Vector3(x, y, 0), Quaternion.identity);
+        return;
     }
 
-
+    void SpawnDekoi()
+    {
+        DekoiObject(this.transform.position.x, this.transform.position.y);
+    }
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "EnemyPary")
         {
-            //if (Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Space))
-            {
-                //PlayerMove.JumpCount = 0;
-                parySet = true;
-                
-            }
-          
+            parySet = true;
         }
     }
 

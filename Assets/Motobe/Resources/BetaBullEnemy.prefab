@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 8947368118439489629}
   - component: {fileID: 7338191603182515743}
   - component: {fileID: 2162214393508879949}
-  - component: {fileID: 2532724944644117470}
+  - component: {fileID: 2631587200593803166}
   m_Layer: 8
   m_Name: BetaBullEnemy
   m_TagString: Enemy
@@ -291,7 +291,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2532724944644117470
+--- !u!114 &2631587200593803166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4586921590243503234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e067d3a5a2010a14d927856b4d8386e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e94e9f2f93b6ce4198654efedccbc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class EnemyChildren : MonoBehaviour
 {
+    public GameObject Pary;
+    void Update()
+    {
+        Pary.transform.position = transform.position;
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (PlayerMove.PlayerDead)

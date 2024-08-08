@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using Unity.VisualScripting;
 using Spine;
+using System.Runtime.CompilerServices;
 
 public class LevelUpWindow : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class LevelUpWindow : MonoBehaviour
     public SpriteRenderer levelUp2Back;
     public SpriteRenderer levelUp3Back;
 
-    bool levelUp;
+    public GameObject levelSelect;
+
+    public static bool levelUp;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,8 @@ public class LevelUpWindow : MonoBehaviour
         levelUp1Back.DOFade(0, 0);
         levelUp2Back.DOFade(0, 0);
         levelUp3Back.DOFade(0, 0);
+        levelSelect.transform.position = new Vector3(LevelUp02.transform.position.x, LevelUp02.transform.position.y,1); 
+        levelSelect.transform.DOScale(new Vector3(0, 0,1), 0);
     }
 
     // Update is called once per frame
@@ -39,11 +44,12 @@ public class LevelUpWindow : MonoBehaviour
                 LevelUp();
                 levelUp = true;
             }
-            else
-            {
-                LevelUpEnd();
-                levelUp = false;
-            }
+        }
+        if (LevelSelect.levelUpEnd)
+        {
+            LevelUpEnd();
+            LevelSelect.levelUpEnd = false;
+            levelUp = false;
         }
     }
 
@@ -52,6 +58,8 @@ public class LevelUpWindow : MonoBehaviour
         var sequence = DOTween.Sequence();
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(1, 13, 1), 0.2f).SetEase(Ease.InQuint));
         sequence.JoinCallback(() => WindowSE());
+        sequence.JoinCallback(() => pd());
+        sequence.JoinCallback(() => rand());
 
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(0.5f, 13, 1), 0.1f).SetEase(Ease.InQuint));
 
@@ -83,13 +91,20 @@ public class LevelUpWindow : MonoBehaviour
 
         sequence.Append(LevelUp03.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
         sequence.JoinCallback(() => CardSE2());
+
+        sequence.Append(levelSelect.transform.DOScale(new Vector3(14, 12, 1), 0.1f));
+
+        sequence.AppendCallback(() => size());
     }
 
     public void LevelUpEnd()
     {
         var sequence = DOTween.Sequence();
+
+        sequence.Append(levelSelect.transform.DOScale(new Vector3(0, 0, 1), 0.2f));
         sequence.Append(LevelUp01.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
         sequence.JoinCallback(() => CardSE3());
+        sequence.JoinCallback(() => size());
 
         sequence.Append(LevelUp02.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
         sequence.Join(LevelUp01Back.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
@@ -99,6 +114,7 @@ public class LevelUpWindow : MonoBehaviour
         sequence.Join(levelUp1Back.DOFade(0, 0.15f));
         sequence.Join(LevelUp02Back.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
         sequence.Join(LevelUp03.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
+        sequence.Join(levelSelect.transform.DOMoveX(LevelUp02.transform.position.x, 0));
         sequence.JoinCallback(() => CardSE());
         sequence.JoinCallback(() => CardSE3());
 
@@ -116,6 +132,7 @@ public class LevelUpWindow : MonoBehaviour
         sequence.JoinCallback(() => WindowSE());
 
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(0, 0, 1), 0f).SetEase(Ease.InQuint));
+        sequence.JoinCallback(() => pd());
     }
 
     private void WindowSE()
@@ -137,5 +154,22 @@ public class LevelUpWindow : MonoBehaviour
     private void CardSE3()
     {
         SEController.changeCard = true;
+    }
+
+    private void size()
+    {
+        LevelSelect.size = !LevelSelect.size;
+        LevelSelect.posNum = 1;
+    }
+
+    private void pd()
+    {
+        PlayerMove.PlayerDead = !PlayerMove.PlayerDead;
+        
+        PlayerMove.blink = true;
+    }
+    private void rand()
+    {
+        LevelRand.rand = true;
     }
 }

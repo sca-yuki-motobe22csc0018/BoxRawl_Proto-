@@ -20,6 +20,16 @@ TagManager:
   - WallChecker
   - Destroy
   - EnemyPary
+  - Level_State
+  - Level_Invincible
+  - Level_Bunshin
+  - Level_Barrier
+  - Level_Heal
+  - Level_Diffusion
+  - Level_Suction
+  - Level_ShockWaveGround
+  - Level_ShockWaveWall
+  - Level_Chain
   layers:
   - Default
   - TransparentFX
