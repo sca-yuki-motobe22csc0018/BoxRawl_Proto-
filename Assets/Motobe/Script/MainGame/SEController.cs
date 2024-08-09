@@ -14,6 +14,8 @@ public class SEController : MonoBehaviour
     public AudioClip windowSE;
     public AudioClip powerUpCardSE;
     public AudioClip changeCardSE;
+    public AudioClip selectSE;
+    public AudioClip getSE;
     public static bool pary;
     public static bool jump;
     public static bool drop1;
@@ -23,6 +25,8 @@ public class SEController : MonoBehaviour
     public static bool window;
     public static bool powerupcard;
     public static bool changeCard;
+    public static bool select;
+    public static bool get;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,8 @@ public class SEController : MonoBehaviour
         window = false;
         powerupcard = false;
         changeCard = false;
+        select = false;
+        get = false;
     }
 
     // Update is called once per frame
@@ -85,6 +91,16 @@ public class SEController : MonoBehaviour
         {
             audioSource.PlayOneShot(changeCardSE);
             changeCard = false;
+        }
+        if (select)
+        {
+            audioSource.PlayOneShot(selectSE);
+            select = false;
+        }
+        if (get)
+        {
+            audioSource.PlayOneShot(getSE);
+            get = false;
         }
     }
 }

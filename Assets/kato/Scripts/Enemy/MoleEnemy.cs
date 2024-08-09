@@ -7,13 +7,15 @@ using Spine;
 
 public class MoleEnemy : MonoBehaviour
 {
+    GameObject player;
+
     [SerializeField] ParticleSystem smokePrefab;
     ParticleSystem smoke;
 
     Rigidbody2D rg;
     float timer;
 
-    Vector3 smokePos;
+    //Vector3 smokePos;
     Vector3 GroundPos;
 
     bool onGroun;
@@ -40,6 +42,7 @@ public class MoleEnemy : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         rg = this.gameObject.GetComponent<Rigidbody2D>();
         timer = 0;
 
@@ -71,6 +74,8 @@ public class MoleEnemy : MonoBehaviour
 
         if (onGroun)
         {
+
+            //smokePos = new Vector3(GroundPos.x, this.gameObject.transform.position.y - 0.5f, this.gameObject.transform.position.z);
             this.gameObject.transform.position = GroundPos;
         }
 
@@ -87,19 +92,7 @@ public class MoleEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             rg.gravityScale = 0;
-            addPos_X = Random.Range(-10, 10);
-            if (addPos_X < 0)
-            {
-                scale.x = -0.5f;
-                transform.localScale = scale;
-            }
-            else
-            {
-                scale.x = 0.5f;
-                transform.localScale = scale;
-            }
             timer = 0;
-            smokePos = new Vector3(this.gameObject.transform.position.x + addPos_X, this.gameObject.transform.position.y - 0.5f, this.gameObject.transform.position.z);
             this.gameObject.transform.DOMoveY(this.transform.position.y - 1, 2.0f).OnComplete(OnGround);
             Pary.SetActive(false);
         }
@@ -138,11 +131,10 @@ public class MoleEnemy : MonoBehaviour
 
     private void OnGround()
     {
-        GroundPos = new Vector3(this.gameObject.transform.position.x + addPos_X, this.gameObject.transform.position.y, 0);
-        smoke = Instantiate(smokePrefab, smokePos, Quaternion.identity);
+        GroundPos = new Vector3(player.gameObject.transform.position.x, this.gameObject.transform.position.y, 0);
+        smoke = Instantiate(smokePrefab, new Vector3(GroundPos.x,this.transform.position.y+0.25f,1), Quaternion.identity);
         onGroun = true;
         this.tag = "Untagged";
-        
     }
 
     private void PlayJumpAnimation()

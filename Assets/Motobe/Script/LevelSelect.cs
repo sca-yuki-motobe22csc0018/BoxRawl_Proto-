@@ -46,26 +46,32 @@ public class LevelSelect : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.A) && posNum > 0)
             {
+                SEController.select = true;
                 posNum -= 1;
             }
             if (Input.GetKeyDown(KeyCode.D) && posNum < 2)
             {
+                SEController.select = true;
                 posNum += 1;
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (posNum == 0)
                 {
-                    StateController.level01 += 1;
+                    if (pos[0].tag == "")
+                    {
+
+                    }
                 }
                 if (posNum == 1)
                 {
-                    StateController.level02 += 1;
+                    
                 }
                 if (posNum == 2)
                 {
                     StateController.level03 += 1;
                 }
+                SEController.get = true;
                 levelUpEnd = true;
             }
         }

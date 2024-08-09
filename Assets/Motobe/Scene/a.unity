@@ -3822,7 +3822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &861595171
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5584,6 +5584,8 @@ MonoBehaviour:
   windowSE: {fileID: 8300000, guid: 5aefe319a328c184ebe0fbe7f43c5a14, type: 3}
   powerUpCardSE: {fileID: 8300000, guid: 58a2518a2f5688549b5ffe4cb28669f9, type: 3}
   changeCardSE: {fileID: 8300000, guid: afb660c3cd3e7154188a2a0da7860f5a, type: 3}
+  selectSE: {fileID: 8300000, guid: c9b3985d1462b8e43a5d4869306c98d8, type: 3}
+  getSE: {fileID: 8300000, guid: 50a0ef183a93a8d499d5fba72f62d7df, type: 3}
 --- !u!4 &1194637998
 Transform:
   m_ObjectHideFlags: 0

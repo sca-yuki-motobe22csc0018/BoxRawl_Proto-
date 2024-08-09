@@ -10,11 +10,13 @@ public class ParyController : MonoBehaviour
     public GameObject PlayerObject;
     public static bool parySet;
     public static bool paryJump;
+    float autoPary;
     // Start is called before the first frame update
     void Start()
     {
         parySet = false;
         paryJump = false;
+        autoPary = 0;
     }
 
     // Update is called once per frame
@@ -23,14 +25,17 @@ public class ParyController : MonoBehaviour
         transform.position = PlayerObject.transform.position;
         if (parySet)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
+            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButtonDown(0)) 
             {
                 SpawnDekoi();
                 PlayerMove.ParyJump = true;
                 PlayerMove.paryCheck = true;
                 SEController.pary = true;
+                //autoPary = 0;
             }
+             //&& autoPary > 0.2f
         }
+        autoPary += Time.deltaTime;
     }
 
     private void DekoiObject(float x, float y)
