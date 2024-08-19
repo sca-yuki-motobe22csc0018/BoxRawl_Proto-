@@ -19,11 +19,12 @@ public class ChainAttack : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
-          
+            canChain = true;
         }
         if(canChain)
         {
             Instantiate(particles, this.gameObject.transform.position, Quaternion.identity);
+            canChain = false;
         }
     }
 

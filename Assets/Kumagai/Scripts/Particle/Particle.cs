@@ -25,7 +25,7 @@ public class Particle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(count>3) { Destroy(this.gameObject); }
+        if(count>1) { Destroy(this.gameObject); }
         count += Time.deltaTime;
         if(ChainAttack.chainLv>=2)
         {
