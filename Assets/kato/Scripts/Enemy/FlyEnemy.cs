@@ -32,6 +32,8 @@ public class FlyEnemy : MonoBehaviour
     bool left = true;
     bool right = false;
 
+    Vector3 scale;
+
     void Start()
     {
         skinSprite = beeSkin.GetComponent<SpriteRenderer>();
@@ -43,7 +45,18 @@ public class FlyEnemy : MonoBehaviour
 
         MoveNum = 0;
 
-        lookDirection();
+        scale = transform.localScale;
+
+        if (PlayerObj.transform.position.x >= this.transform.position.x)
+        {
+            scale.x = -1.5f;
+            transform.localScale = scale;
+        }
+        else
+        {
+            scale.x = 1.5f;
+            transform.localScale = scale;
+        }
     }
 
     void Update()
@@ -70,24 +83,33 @@ public class FlyEnemy : MonoBehaviour
             timer = 0;
         }
 
-        lookDirection();
+        if (PlayerObj.transform.position.x >= this.transform.position.x)
+        {
+            scale.x = -1.5f;
+            transform.localScale = scale;
+        }
+        else
+        {
+            scale.x = 1.5f;
+            transform.localScale = scale;
+        }
     }
 
     public void BulletAttack()
     {
         BulletPos = new Vector2(this.gameObject.transform.position.x,
-                                this.gameObject.transform.position.y - 0.8f);
+                                this.gameObject.transform.position.y);// - 0.8f);
 
         BulletDir = PlayerObj.transform.position - this.gameObject.transform.position;
         BulletDir.Normalize();
         Bullet = Instantiate(BulletPrefab,BulletPos,Quaternion.identity);
         BulletRg = Bullet.GetComponent<Rigidbody2D>();
-        BulletRg.AddForce(BulletDir * 400);
+        BulletRg.AddForce(BulletDir * 15000);
     }
 
     public void Move()
     {
-        MoveNum = Random.RandomRange(1, 3);
+        MoveNum = Random.Range(1, 3);
 
         if(MoveNum == 1)
         {
@@ -106,7 +128,7 @@ public class FlyEnemy : MonoBehaviour
             }
             else if (this.gameObject.transform.position.y > 0)
             {
-                addPos_Y = Random.RandomRange(-2, 3);
+                addPos_Y = Random.Range(-2, 3);
             }
             else if (this.gameObject.transform.position.y < 0)
             {
@@ -115,26 +137,24 @@ public class FlyEnemy : MonoBehaviour
         }
         else if(MoveNum == 2)
         {
-            addPos_X = Random.RandomRange(-2, 3);
-            addPos_Y = Random.RandomRange(1, 3);
+            addPos_X = Random.Range(-2, 3);
+            addPos_Y = Random.Range(1, 3);
         }
 
         this.gameObject.transform.DOMove(new Vector2( this.gameObject.transform.position.x + addPos_X,
                                          this.gameObject.transform.position.y + addPos_Y), 1.0f);
     }
-
+    /*
     void lookDirection()   //プレイヤーのほうを見る
     {
         if (this.gameObject.transform.position.x > PlayerObj.transform.position.x)
         {
-            skinSprite.flipX = right;
-            Debug.Log("右");
+
         }
         else
         {
             skinSprite.flipX = left;
-            Debug.Log("左");
         }
     }
-
+    */
 }
