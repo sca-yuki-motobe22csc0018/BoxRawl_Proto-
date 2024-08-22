@@ -24,18 +24,18 @@ public class EnemyAlpha01 : MonoBehaviour
         {
             right = false;
             dir = 1;
-            scale.x = 1.5f;
+            scale.x = 1.25f;
             transform.localScale = scale;
         }
         else
         {
             right = true;
             dir = -1;
-            scale.x = -1.5f;
+            scale.x = -1.25f;
             transform.localScale = scale;
         }
 
-        float speedrand = Random.Range(0, 2.0f);
+        float speedrand = Random.Range(0, 0.25f);
         defaultSpeed = speed + speedrand;
         SpawnDraw();
     }
@@ -55,13 +55,13 @@ public class EnemyAlpha01 : MonoBehaviour
         if (right)
         {
             dir = 1;
-            scale.x = 1.5f;
+            scale.x = 1.25f;
             transform.localScale = scale;
         }
         else
         {
             dir = -1;
-            scale.x = -1.5f;
+            scale.x = -1.25f;
             transform.localScale = scale;
         }
     }
@@ -153,7 +153,7 @@ public class EnemyAlpha01 : MonoBehaviour
         //Debug.Log(random);
         for (int i = 1; i < rand; i++)
         {
-            ObjectEnemy(this.transform.position.x, this.transform.position.y + i*1.25f);
+            ObjectEnemy(this.transform.position.x, this.transform.position.y + i);
         }
     }
 }

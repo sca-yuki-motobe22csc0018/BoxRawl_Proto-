@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject pary;
     // Start is called before the first frame update
     void Start()
     {
-        
+        pary.transform.parent = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        pary.transform.position = this.transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour
             || collision.gameObject.tag == "Ground"
             || collision.gameObject.tag == "Wall")
         {
+            Destroy(pary.gameObject);
             Destroy(this.gameObject);
         }
     }

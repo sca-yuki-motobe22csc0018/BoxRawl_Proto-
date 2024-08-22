@@ -1,4 +1,6 @@
 using DG.Tweening;
+using Spine;
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,6 +14,8 @@ public class FlyEnemy : MonoBehaviour
 
     bool isMove;
     bool isAttack;
+
+    public static bool attack;
 
     //íeä÷åW
     public GameObject BulletPrefab;
@@ -32,35 +36,31 @@ public class FlyEnemy : MonoBehaviour
     bool left = true;
     bool right = false;
 
-    Vector3 scale;
 
     void Start()
     {
+        
+
         skinSprite = beeSkin.GetComponent<SpriteRenderer>();
         PlayerObj = GameObject.FindWithTag("Player");
-
+        beeSkin.transform.parent = null;
         isMove = true;
         isAttack = true;
         timer = 0;
 
         MoveNum = 0;
-
-        scale = transform.localScale;
-
-        if (PlayerObj.transform.position.x >= this.transform.position.x)
-        {
-            scale.x = -1.5f;
-            transform.localScale = scale;
-        }
-        else
-        {
-            scale.x = 1.5f;
-            transform.localScale = scale;
-        }
     }
 
     void Update()
     {
+        if (PlayerMove.PlayerDead)
+        {
+            return;
+        }
+        if (attack)
+        {
+            attack = false;
+        }
 
         timer += Time.deltaTime;
 
@@ -83,29 +83,22 @@ public class FlyEnemy : MonoBehaviour
             timer = 0;
         }
 
-        if (PlayerObj.transform.position.x >= this.transform.position.x)
-        {
-            scale.x = -1.5f;
-            transform.localScale = scale;
-        }
-        else
-        {
-            scale.x = 1.5f;
-            transform.localScale = scale;
-        }
     }
 
     public void BulletAttack()
     {
         BulletPos = new Vector2(this.gameObject.transform.position.x,
-                                this.gameObject.transform.position.y);// - 0.8f);
+                                this.gameObject.transform.position.y);
 
         BulletDir = PlayerObj.transform.position - this.gameObject.transform.position;
         BulletDir.Normalize();
         Bullet = Instantiate(BulletPrefab,BulletPos,Quaternion.identity);
         BulletRg = Bullet.GetComponent<Rigidbody2D>();
+        BeeSkin.anim = true;
         BulletRg.AddForce(BulletDir * 15000);
     }
+
+    
 
     public void Move()
     {
@@ -143,6 +136,22 @@ public class FlyEnemy : MonoBehaviour
 
         this.gameObject.transform.DOMove(new Vector2( this.gameObject.transform.position.x + addPos_X,
                                          this.gameObject.transform.position.y + addPos_Y), 1.0f);
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Drop"))
+        {
+            EXPController.EXP += 8.0f * PlayerMove.EXPUP;
+            PlayerMove.EXPUP += 1;
+            Destroy(beeSkin.gameObject);
+            Destroy(this.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("DestroyObj"))
+        {
+            Destroy(this.gameObject);
+        }
     }
     /*
     void lookDirection()   //ÉvÉåÉCÉÑÅ[ÇÃÇŸÇ§Çå©ÇÈ
