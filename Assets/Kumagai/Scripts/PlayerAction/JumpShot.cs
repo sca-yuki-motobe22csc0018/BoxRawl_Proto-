@@ -15,7 +15,7 @@ public class JumpShot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shotLv=0;
+        shotLv=3;
         coolTime=false;
     }
 
@@ -30,27 +30,31 @@ public class JumpShot : MonoBehaviour
         {
             loop=8;
         }
-        if(PlayerMove.JumpCount==0)
+        if(!ButtonManager.sceneCheck)
         {
-            if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+            if (PlayerMove.JumpCount == 0)
             {
-                if(!coolTime)
+                if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
                 {
-                    coolTime=true;
-                    coolTimer = setCoolTimer;
-                    StartCoroutine(shot());
+                    if (!coolTime)
+                    {
+                        coolTime = true;
+                        coolTimer = setCoolTimer;
+                        StartCoroutine(shot());
+                    }
                 }
             }
+            if (coolTimer > 0 && coolTime)
+            {
+                Debug.Log("A");
+                coolTimer -= Time.deltaTime;
+            }
+            else if (coolTimer < 0)
+            {
+                coolTime = false;
+            }
         }
-        if(coolTimer>0&&coolTime)
-        {
-            Debug.Log("A");
-            coolTimer-=Time.deltaTime;
-        }
-        else if(coolTimer<0)
-        {
-            coolTime=false;
-        }
+       
     }
 
     IEnumerator shot()

@@ -10,11 +10,13 @@ public class MouseStageSelect : MouseSelect
     [SerializeField]private int y;
     [SerializeField] private GameObject dscriptWindow;
     Vector3 firstPos;
+    Vector3 firstSize;
 
     private void Start()
     {
 
         firstPos = transform.localPosition;
+        firstSize= transform.localScale;
         SetEvent setEvent = new SetEvent(PointerEnter);
         SetEventType(enter,setEvent);
 
@@ -30,6 +32,8 @@ public class MouseStageSelect : MouseSelect
         if(!dscriptWindow.activeSelf)
         {
             transform.localPosition = firstPos;
+            transform.localScale = firstSize;
+            transform.GetComponent<SpriteRenderer>().sortingOrder = 15;
         }
     }
     public override void PointerEnter()
