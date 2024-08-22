@@ -37,19 +37,19 @@ public class LevelUpWindow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (levelUp)
         {
-            if (!levelUp)
-            {
-                LevelUp();
-                levelUp = true;
-            }
+            LevelUp();
+            levelUp = false;
+        }else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            LevelUp();
+            levelUp = false;
         }
         if (LevelSelect.levelUpEnd)
         {
             LevelUpEnd();
             LevelSelect.levelUpEnd = false;
-            levelUp = false;
         }
     }
 

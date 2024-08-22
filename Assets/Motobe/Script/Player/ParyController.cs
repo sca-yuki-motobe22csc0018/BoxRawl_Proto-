@@ -11,12 +11,16 @@ public class ParyController : MonoBehaviour
     public static bool parySet;
     public static bool paryJump;
     float autoPary;
+    public static int DekoifreMax;
+    int Dekoifre;
     // Start is called before the first frame update
     void Start()
     {
         parySet = false;
         paryJump = false;
         autoPary = 0;
+        Dekoifre = 0;
+        DekoifreMax = 0;
     }
 
     // Update is called once per frame
@@ -27,7 +31,11 @@ public class ParyController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButtonDown(0)) 
             {
-                SpawnDekoi();
+                if (DekoifreMax > Dekoifre)
+                {
+                    SpawnDekoi();
+                    Dekoifre += 1;
+                }
                 PlayerMove.ParyJump = true;
                 PlayerMove.paryCheck = true;
                 SEController.pary = true;

@@ -56,21 +56,62 @@ public class LevelSelect : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (posNum == 0)
-                {
-                    if (pos[0].tag == "")
-                    {
+                int num;
+                num = posNum;
 
+                if (pos[num].tag == "Level_State")
+                {
+                    PlayerMove.PlusJumpForce += 2.0f;
+                    PlayerMove.PlusSpeed += 2.0f;
+                }
+                if (pos[num].tag == "Level_Invincible")
+                {
+                    PlayerMove.PlusInvincibleTime += 4;
+                }
+                if (pos[num].tag == "Level_Bunshin")
+                {
+                    if (ParyController.DekoifreMax == 0)
+                    {
+                        ParyController.DekoifreMax = 1;
+                    }
+                    if (ParyController.DekoifreMax == 1)
+                    {
+                        ParyController.DekoifreMax = 5;
+                    }
+                    if (ParyController.DekoifreMax == 5)
+                    {
+                        ParyController.DekoifreMax = 100;
                     }
                 }
-                if (posNum == 1)
+                if (pos[num].tag == "Level_Barrier")
                 {
-                    
+
                 }
-                if (posNum == 2)
+                if (pos[num].tag == "Level_Heal")
                 {
-                    StateController.level03 += 1;
+
                 }
+                if (pos[num].tag == "Level_Diffusion")
+                {
+
+                }
+                if (pos[num].tag == "Level_Suction")
+                {
+
+                }
+                if (pos[num].tag == "Level_ShockWaveGround")
+                {
+
+                }
+                if (pos[num].tag == "Level_ShockWaveWall")
+                {
+
+                }
+                if (pos[num].tag == "Level_Chain")
+                {
+
+                }
+                Debug.Log(pos[num].tag);
                 SEController.get = true;
                 levelUpEnd = true;
             }

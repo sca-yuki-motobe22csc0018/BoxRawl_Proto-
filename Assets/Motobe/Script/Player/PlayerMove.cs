@@ -205,7 +205,8 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(OnWall);
+        //if(PlayerDead)
+        //Debug.Log(PlayerDead);
 
         FadeIO.FadeOut(fadeFlag);
 
