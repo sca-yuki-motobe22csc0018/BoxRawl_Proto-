@@ -5,34 +5,40 @@ using UnityEngine;
 
 public class MagnetismManager : MonoBehaviour
 {
-    [SerializeField] private float power;
-    private float timer = 1;
+    public static int MagnetismLv = 3;
     [SerializeField] private GameObject player;
-
+    [SerializeField] private float size;
+    [SerializeField] private GameObject magnObj;
+    GameObject insObject;
     private void OnEnable()
     {
-        transform.position=player.transform.position;
-        timer = 1;
+       
     }
 
     private void Update()
     {
-        timer-=Time.deltaTime;
-        this.gameObject.SetActive(timer > 0);
+        if (ParyController.parySet&&!PlayerMove.Drop)
+        {
+            if(Input.GetKeyDown(KeyCode.Space)||Input.GetMouseButtonDown(0))
+            {
+                if (MagnetismLv > 3)
+                {
+                    MagnetismLv = 3;
+                }
+                if (insObject == null)
+                {
+                    insObject = Instantiate(magnObj, transform.position, Quaternion.identity);
+                    insObject.transform.localScale = new Vector3(MagnetismLv, MagnetismLv, MagnetismLv) * size;
+
+                }
+            }
+            
+          
+        }
+        Debug.Log(insObject);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-            Vector3 dir = this.transform.position - collision.gameObject.transform.position;
-            rb.AddForce(dir.normalized * Time.deltaTime * power);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
     }
 }
