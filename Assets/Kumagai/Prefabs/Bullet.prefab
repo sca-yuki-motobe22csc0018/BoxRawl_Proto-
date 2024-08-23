@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8653353363785210098}
   - component: {fileID: -3392252849589221332}
   m_Layer: 0
-  m_Name: Burret
+  m_Name: Bullet
   m_TagString: Drop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
