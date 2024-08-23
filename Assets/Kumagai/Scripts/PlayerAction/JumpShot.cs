@@ -15,7 +15,7 @@ public class JumpShot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shotLv=3;
+        shotLv=0;
         coolTime=false;
     }
 
