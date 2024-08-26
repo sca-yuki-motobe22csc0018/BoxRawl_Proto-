@@ -7,6 +7,8 @@ public class MouseDiscript : MouseSelect
 {
 
 
+    BoxCollider2D bc;
+    Vector3 mousePos;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,12 @@ public class MouseDiscript : MouseSelect
 
         setEvent=new SetEvent(PointerDown);
         SetEventType(down,setEvent);    
+    }
+
+    private void Update()
+    {
+        mousePos=Input.mousePosition;
+        Debug.Log(mousePos);
     }
 
     public override void PointerEnter()

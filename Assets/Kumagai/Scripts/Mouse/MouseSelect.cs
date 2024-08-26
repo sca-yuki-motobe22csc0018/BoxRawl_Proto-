@@ -21,11 +21,12 @@ public class MouseSelect : MonoBehaviour//このクラスはマウス対応の際に必要な基底
 
     public virtual void PointerDown() 
     {
-        Debug.Log("基底クラス側の関数が呼ばれています\\n継承先の関数をオーバーライドしてください\"");//基底クラス側の関数が呼び出されていることを知らせる
+        Debug.Log("基底クラス側の関数が呼ばれています\\n継承先の関数をオーバーライドしてください\"");
     }
 
     public virtual void PointerExit()
     {
+        Debug.Log("基底クラス側の関数が呼ばれています\\n継承先の関数をオーバーライドしてください\"");
     }
 
     public virtual void SetEventType(string eventID,SetEvent e)
@@ -35,22 +36,22 @@ public class MouseSelect : MonoBehaviour//このクラスはマウス対応の際に必要な基底
        
         switch(eventID)
         {
-            case ("Enter"):
+            case (enter):
                 {
                     entry.eventID = EventTriggerType.PointerEnter;
                 }
                 break;
-            case ("Down"):
+            case (down):
                 {
                     entry.eventID= EventTriggerType.PointerDown;
                 }
                 break;
-            case ("Exit"):
+            case (exit):
                 {
                     entry.eventID=EventTriggerType.PointerExit;
                 }
                 break;
-            case ("Up"):
+            case (up):
                 {
                     entry.eventID = EventTriggerType.PointerUp;
                 }
