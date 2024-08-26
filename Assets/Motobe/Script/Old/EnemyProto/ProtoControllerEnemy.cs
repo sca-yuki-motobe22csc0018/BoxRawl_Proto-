@@ -69,7 +69,7 @@ public class ProtoControllerEnemy : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnTimer > spawnTime)
         {
-            int random = Random.Range(0, 15);
+            int random = Random.Range(0, 23);
             if (random < 2)
             {
                 SpawnDraw0();
@@ -92,39 +92,66 @@ public class ProtoControllerEnemy : MonoBehaviour
             else
             if (random < 14)
             {
+                SpawnDraw4();
+            }
+            else
+            if (random < 17)
+            {
+                SpawnDraw5();
+            }
+            else
+            if (random < 20)
+            {
+                SpawnDrawFly();
+            }
+            else
+            if (random < 23)
+            {
                 SpawnDrawAll();
             }
             spawnTimer = 0;
         }
     }
-    private void ObjectEnemy(float x, float y)
+    private void ObjectEnemy0(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("FlogEnemy Beta");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("BetaFlogEnemy");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         return;
     }
     private void ObjectEnemy1(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyAlpha01");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("BetaBullEnemy");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         return;
     }
     private void ObjectEnemy2(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("EnemyAlpha02");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("BetaTurtleEnemy");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         return;
     }
     private void ObjectEnemy3(float x, float y)
     {
-        GameObject Enemy_prefab = Resources.Load<GameObject>("MomongaEnemy Beta");
+        GameObject Enemy_prefab = Resources.Load<GameObject>("BetaMomongaEnemy");
+        GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
+        return;
+    }
+    private void ObjectEnemy4(float x, float y)
+    {
+        GameObject Enemy_prefab = Resources.Load<GameObject>("BetaBeeEnemy");
+        GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
+        return;
+    }
+    private void ObjectEnemy5(float x, float y)
+    {
+        GameObject Enemy_prefab = Resources.Load<GameObject>("BetaMoleEnemy");
         GameObject Enemy = Instantiate(Enemy_prefab, new Vector3(x, y, 0), Quaternion.identity);
         return;
     }
     void SpawnDraw0()
     {
         int rand=Random.Range(0, 10);
-        ObjectEnemy(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+        ObjectEnemy0(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
     }
     void SpawnDraw1()
     {
@@ -141,11 +168,31 @@ public class ProtoControllerEnemy : MonoBehaviour
         int rand = Random.Range(0, 10);
         ObjectEnemy3(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
     }
+    void SpawnDraw4()
+    {
+        int rand = Random.Range(0, 10);
+        ObjectEnemy4(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+    }
+    void SpawnDraw5()
+    {
+        int rand = Random.Range(0, 10);
+        ObjectEnemy5(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+    }
+    void SpawnDrawFly()
+    {
+        int rand = Random.Range(0, 10);
+        ObjectEnemy3(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+        ObjectEnemy4(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+        ObjectEnemy3(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+        ObjectEnemy4(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+    }
     void SpawnDrawAll()
     {
         SpawnDraw0();
         SpawnDraw1();
         SpawnDraw2();
         SpawnDraw3();
+        SpawnDraw4();
+        SpawnDraw5();
     }
 }

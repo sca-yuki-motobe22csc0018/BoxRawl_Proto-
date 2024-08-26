@@ -9,19 +9,29 @@ public class LevelSelect : MonoBehaviour
     public GameObject[] pos;
     public static int posNum;
     public static bool levelUpEnd;
+    public GameObject Heal;
+    public GameObject[] HealCount;
+    bool heal;
+    int healLevel;
     // Start is called before the first frame update
     void Start()
     {
         levelUpEnd = false;
         size = false;
         posNum = 1;
-        // 0 1 2
+        Heal.SetActive(false);
+        heal = false;
+        for (int i = 0; i < 6; i++)
+        {
+            HealCount[i].SetActive(false);
+        }
+        healLevel = 0;
+        //Rota.speed = -6;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         if (size)
         {
             if (posNum == 0)
@@ -89,7 +99,38 @@ public class LevelSelect : MonoBehaviour
                 }
                 if (pos[num].tag == "Level_Heal")
                 {
-
+                    if (healLevel == 3)
+                    {
+                        //Rota.speed -= 1;
+                    }
+                    if (healLevel == 2)
+                    {
+                        for (int i = 0; i < 6; i++)
+                        {
+                            HealCount[i].SetActive(false);
+                        }
+                        HealCount[3].SetActive(true);
+                        HealCount[4].SetActive(true);
+                        HealCount[5].SetActive(true);
+                        healLevel = 3;
+                    }
+                    if (healLevel == 1)
+                    {
+                        for (int i = 0; i < 6; i++)
+                        {
+                            HealCount[i].SetActive(false);
+                        }
+                        HealCount[1].SetActive(true);
+                        HealCount[2].SetActive(true);
+                        healLevel = 2;
+                    }
+                    if (!heal)
+                    {
+                        heal = true;
+                        Heal.SetActive(true);
+                        healLevel = 1;
+                        HealCount[0].SetActive(true);
+                    }
                 }
                 if (pos[num].tag == "Level_Diffusion")
                 {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2087231801769292055}
   - component: {fileID: 5116848453018951834}
   m_Layer: 0
-  m_Name: BeeEnemy
+  m_Name: BetaBeeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
