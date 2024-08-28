@@ -2797,6 +2797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BetaBullEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4586921590243503234, guid: 297d17ec251dea443beae8e94c29e2d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5947022136686831240, guid: 297d17ec251dea443beae8e94c29e2d2, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -7331,6 +7335,10 @@ PrefabInstance:
     - target: {fileID: 5236443938987114860, guid: f4161bae5de0aec4ab0b1e7304148326, type: 3}
       propertyPath: m_Name
       value: BetaFlogEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236443938987114860, guid: f4161bae5de0aec4ab0b1e7304148326, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5283667656653045848, guid: f4161bae5de0aec4ab0b1e7304148326, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12121,6 +12129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BetaTurtleChilEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4586921590243503234, guid: 2d94c71de23ce614fb7a3463dadf071c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4803876776441343995, guid: 2d94c71de23ce614fb7a3463dadf071c, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -16319,6 +16331,10 @@ PrefabInstance:
     - target: {fileID: 3925408937330708803, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
       propertyPath: m_Name
       value: BetaMomongaEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925408937330708803, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4753417439302133671, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
       propertyPath: m_Mesh

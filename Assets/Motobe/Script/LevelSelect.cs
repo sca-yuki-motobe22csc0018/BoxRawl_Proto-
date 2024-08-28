@@ -11,6 +11,7 @@ public class LevelSelect : MonoBehaviour
     public static bool levelUpEnd;
     public GameObject Heal;
     public GameObject[] HealCount;
+    [SerializeField] GameObject enemyspawner;
     bool heal;
     int healLevel;
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class LevelSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemyspawner.SetActive(true);
         if (size)
         {
             if (posNum == 0)
@@ -64,11 +66,11 @@ public class LevelSelect : MonoBehaviour
                 SEController.select = true;
                 posNum += 1;
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 int num;
                 num = posNum;
-
+                
                 if (pos[num].tag == "Level_State")
                 {
                     PlayerMove.PlusJumpForce += 2.0f;

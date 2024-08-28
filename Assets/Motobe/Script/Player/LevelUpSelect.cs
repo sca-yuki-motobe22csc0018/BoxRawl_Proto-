@@ -78,7 +78,7 @@ public class LevelUpSelect : MonoBehaviour
             }
             
             
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)||Input.GetMouseButtonDown(0))
             {
                 ConfirmWindow.SetActive(true); 
                 conf = true;
@@ -112,7 +112,7 @@ public class LevelUpSelect : MonoBehaviour
                 dir = 1;
             }
             
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)||Input.GetMouseButtonDown(0))
             {
                 conf = false;
                 if (set2 == 0)
