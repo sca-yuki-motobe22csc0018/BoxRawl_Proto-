@@ -69,6 +69,12 @@ public class BulletManager : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             other.GetComponent<Rigidbody2D>().AddForce(dir * power);
+            Destroy(gameObject);
         }
+        if(other.gameObject.CompareTag("Wall")||other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }
