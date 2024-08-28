@@ -43,11 +43,11 @@ public class MouseLevelSelectAction : MouseSelect
     override public void  PointerEnter()
     {
         Debug.Log("11111");
-        LevelUpSelect.set = myNumber;
+       // LevelUpSelect.set = myNumber;
     }
 
     public override void PointerDown()
     {
-        LevelSelect.LevelUp();
+      //  LevelSelect.LevelUp();
     }
 }
