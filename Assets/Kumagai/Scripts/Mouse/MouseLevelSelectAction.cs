@@ -8,36 +8,53 @@ public class MouseLevelSelectAction : MouseSelect
     [SerializeField] int myNumber;
 
     BoxCollider2D bc;
+    bool mouseFlag = false;
     Vector3 mousePos;
     // Start is called before the first frame update
     void Start()
     {
-        SetEvent setEvent = new SetEvent(PointerEnter);
-        SetEventType(enter, setEvent);
+        mouseFlag = true;
+        //SetEvent setEvent = new SetEvent(PointerEnter);
+        //SetEventType(enter, setEvent);
 
-        setEvent = new SetEvent(PointerDown);
-        SetEventType(down, setEvent);
+        //setEvent = new SetEvent(PointerDown);
+        //SetEventType(down, setEvent);
     }
 
     // Update is called once per frame
     void Update()
     {
-        mousePos = Input.mousePosition;
-        Debug.Log(mousePos);
-        if(mousePos.x>=200&&mousePos.x<600)
+        Vector3 tmpMPos = Input.mousePosition;
+        if(mousePos!=tmpMPos)
         {
-            //1
+            mousePos = Input.mousePosition;
+            mouseFlag = true;
         }
+        if(Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.S))
+        {
+            mouseFlag = false;
+        }
+        if(mouseFlag)
+        {
+            if (mousePos.x >= 200 && mousePos.x < 600)
+            {
+                LevelSelect.posNum = 0;
+                Debug.Log(1);
+            }
 
-        if(mousePos.x>=750&&mousePos.x<1200)
-        {
-            //2
-        }
+            if (mousePos.x >= 750 && mousePos.x < 1200)
+            {
+                LevelSelect.posNum = 1;
+                Debug.Log(2);
+            }
 
-        if(mousePos.x>=1300&&mousePos.x<1700)
-        {
-            //3
+            if (mousePos.x >= 1300 && mousePos.x < 1700)
+            {
+                LevelSelect.posNum = 2;
+                Debug.Log(3);
+            }
         }
+        
     }
 
     override public void  PointerEnter()
