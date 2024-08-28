@@ -17,6 +17,8 @@ public class TitleEnemy : MonoBehaviour
     SpriteRenderer enemySpr;
     [SerializeField] Sprite[] enemySprite;
 
+    [SerializeField] GameObject[] enemySkin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,9 @@ public class TitleEnemy : MonoBehaviour
 
         isUp = true;
 
-        enemySpr = EnemyObj.GetComponent<SpriteRenderer>();
+        //enemySpr = EnemyObj.GetComponent<SpriteRenderer>();
+        enemySkin[0].SetActive(true);
+        enemySkin[1].SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,7 +52,9 @@ public class TitleEnemy : MonoBehaviour
                 EnemyRg.gravityScale = 0.0f;
                 this.gameObject.transform.position = enemyStartPos;
 
-                enemySpr.sprite = enemySprite[EnemyNum];
+                //enemySpr.sprite = enemySprite[EnemyNum];
+                enemySkin[0].SetActive(true);
+                enemySkin[1].SetActive(false);
             }
             else if (EnemyNum == 1)
             {
@@ -58,7 +64,9 @@ public class TitleEnemy : MonoBehaviour
                 EnemyRg.gravityScale = 0.12f;
                 this.gameObject.transform.position = new Vector3(enemyStartPos.x, 4.3f, enemyStartPos.z);
                 
-                enemySpr.sprite = enemySprite[EnemyNum];
+                //enemySpr.sprite = enemySprite[EnemyNum];
+                enemySkin[0].SetActive(false);
+                enemySkin[1].SetActive(true);
             }
         }
 
