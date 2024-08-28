@@ -16,7 +16,7 @@ public class Particle : MonoBehaviour
         count = 0;
         _particles = GetComponent<ParticleSystem>();
         _burst = _particles.emission.GetBurst(0);
-        _burst.count = ChainAttack.chainLv*3;
+        _burst.count = ChainAttack.chainLv+3;
         _particles.emission.SetBurst(0, _burst);
         particleEvents= new List<ParticleCollisionEvent>();
 

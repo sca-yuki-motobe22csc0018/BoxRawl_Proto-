@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,12 @@ public class BulletManager : MonoBehaviour
 {
     public string moveDirection;
     private float speed;
+    private float power = 1000;
     Vector3 dir;
     // Start is called before the first frame update
     void Start()
     {
-        speed=10;
+        speed=20;
     }
 
     // Update is called once per frame
@@ -64,9 +66,9 @@ public class BulletManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ground") || other.CompareTag("Wall"))
+        if(other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(this.gameObject);
+            other.GetComponent<Rigidbody2D>().AddForce(dir * power);
         }
     }
 }
