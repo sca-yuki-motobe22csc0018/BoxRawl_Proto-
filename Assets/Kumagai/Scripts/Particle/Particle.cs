@@ -8,7 +8,7 @@ public class Particle : MonoBehaviour
     private ParticleSystem _particles;
     private ParticleSystem.Burst _burst;
     [SerializeField]private List<ParticleCollisionEvent> particleEvents;
-    [SerializeField] private int particleCount;
+    public static int particleCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,21 +16,22 @@ public class Particle : MonoBehaviour
         count = 0;
         _particles = GetComponent<ParticleSystem>();
         _burst = _particles.emission.GetBurst(0);
-        _burst.count = particleCount;
+        _burst.count = ChainAttack.chainLv*3;
         _particles.emission.SetBurst(0, _burst);
         particleEvents= new List<ParticleCollisionEvent>();
 
     }
 
+    private void OnEnable()
+    {
+        _burst.count =10;
+    }
     // Update is called once per frame
     void Update()
     {
         if(count>1) { Destroy(this.gameObject); }
         count += Time.deltaTime;
-        if(ChainAttack.chainLv>=2)
-        {
-            _burst.count = particleCount*1.3f;
-        }
+       
 
         //_emission = _particle.emission;
         //_emission.burstCount= particleCount;   

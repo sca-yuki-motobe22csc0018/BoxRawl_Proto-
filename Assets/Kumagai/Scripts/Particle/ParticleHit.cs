@@ -17,16 +17,5 @@ public class ParticleHit : MonoBehaviour
         
     }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if(other.gameObject.CompareTag("Enemy"))
-        {
-            EXPController.EXP += 5.0f * PlayerMove.EXPUP;
-            PlayerMove.EXPUP += 1;
-            Destroy(other.gameObject);
-        }
-        else
-        {
-        }
-    }
+
 }
