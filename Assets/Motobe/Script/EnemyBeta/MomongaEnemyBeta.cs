@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MomongaEnemyBeta : MonoBehaviour
 {
@@ -55,19 +54,30 @@ public class MomongaEnemyBeta : MonoBehaviour
             Pary.transform.position = new Vector3(this.transform.position.x + 0.075f, this.transform.position.y - 0.05f, 0);
         }
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Drop"))
         {
             EXPController.EXP += 8.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             Destroy(Pary.gameObject);
-            Destroy(this.gameObject);
+            Destroy(GoObject.gameObject);
+            var sequence = DOTween.Sequence();
+            sequence.AppendInterval(0.01f);
+            sequence.AppendCallback(() => Dest());
         }
 
         if (other.gameObject.CompareTag("DestroyObj"))
         {
-            Destroy(this.gameObject);
+            Destroy(Pary.gameObject);
+            Destroy(GoObject.gameObject);
+            var sequence = DOTween.Sequence();
+            sequence.AppendInterval(0.01f);
+            sequence.AppendCallback(() => Dest());
         }
+    }
+    private void Dest()
+    {
+        Destroy(this.gameObject);
     }
 }
