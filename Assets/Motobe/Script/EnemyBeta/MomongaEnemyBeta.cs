@@ -9,6 +9,7 @@ public class MomongaEnemyBeta : MonoBehaviour
 
     public GameObject GoObject;
     public GameObject Pary;
+    bool death;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +19,16 @@ public class MomongaEnemyBeta : MonoBehaviour
         GoObject.transform.position = PlayerObj.transform.position;
         GoObject.transform.parent = null;
         Pary.transform.parent = null;
+        death = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (death)
+        {
+            return;
+        }
         if (!PlayerMove.PlayerDead)
         {
             if (Vector2.Distance(transform.position, new Vector2(GoObject.transform.position.x, GoObject.transform.position.y)) < 0.1f)
@@ -60,6 +66,7 @@ public class MomongaEnemyBeta : MonoBehaviour
         {
             EXPController.EXP += 8.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
+            death = true;
             Destroy(Pary.gameObject);
             Destroy(GoObject.gameObject);
             var sequence = DOTween.Sequence();
@@ -69,6 +76,7 @@ public class MomongaEnemyBeta : MonoBehaviour
 
         if (other.gameObject.CompareTag("DestroyObj"))
         {
+            death = true;
             Destroy(Pary.gameObject);
             Destroy(GoObject.gameObject);
             var sequence = DOTween.Sequence();
