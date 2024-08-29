@@ -22,7 +22,6 @@ public class MouseDiscript : MouseSelect
     private void Update()
     {
         mousePos=Input.mousePosition;
-        Debug.Log(mousePos);
     }
 
     public override void PointerEnter()

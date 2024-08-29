@@ -42,13 +42,21 @@ public class Particle : MonoBehaviour
             Debug.Log("a");
             if (other.gameObject.CompareTag("Enemy"))
             {
-                Debug.Log(other.gameObject.transform.position);
                 EXPController.EXP += 5.0f * PlayerMove.EXPUP;
                 PlayerMove.EXPUP += 1;
                 if (ChainAttack.chainLv >= 3)
                 {
-                    Destroy(other.gameObject);
                     Instantiate(ChainAttack.insParticle, other.gameObject.transform.position, Quaternion.identity);
+                    this.gameObject.tag = "Drop";
+                }
+                else if(other.GetComponent<EnemyChildren>()!=null)
+                {
+                    ScoreManager.smallEnemyKillCount++;
+                    Debug.Log("エネミーキルカウントを加算しました");
+                }
+                else
+                {
+                    ScoreManager.bigEnemyKillCount++;
                 }
                 Destroy(other.gameObject);
             }

@@ -5,7 +5,6 @@ using static MouseSelect;
 
 public class MouseLevelSelectAction : MouseSelect
 {
-    [SerializeField] int myNumber;
 
     BoxCollider2D bc;
     bool mouseFlag = false;

@@ -44,6 +44,7 @@ public class ButtonManager : MonoBehaviour
     void Update()
     {
         SceneCheck();
+        Debug.Log(thisSceneName);
         stageSelectWindow.SetActive(stageSelect);
         Player.SetActive(!stageSelect);
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -95,6 +96,11 @@ public class ButtonManager : MonoBehaviour
                             thisSceneName = "CharaChange";
                         }
                         break;
+                    default:
+                        {
+                            thisSceneName = "Main Game";
+                        }
+                        break;
                 }
                 Player.transform.position = this.gameObject.transform.position + new Vector3(0, 0.3f, 0);//0.3はボタンサイズ
                 sceneName.text = thisSceneName;
@@ -106,7 +112,6 @@ public class ButtonManager : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        thisSceneName = "";
     }
 
     //選択したときにそのシーンに移動するかどうかをチェックする
