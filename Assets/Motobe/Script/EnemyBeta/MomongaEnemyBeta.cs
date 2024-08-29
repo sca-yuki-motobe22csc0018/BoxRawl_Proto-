@@ -61,6 +61,7 @@ public class MomongaEnemyBeta : MonoBehaviour
         {
             EXPController.EXP += 8.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
+            ScoreManager.bigEnemyKillCount++;
             Destroy(Pary.gameObject);
             Destroy(this.gameObject);
         }

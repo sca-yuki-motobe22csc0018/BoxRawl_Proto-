@@ -12,7 +12,7 @@ public class ChainAttack : MonoBehaviour
 
     private void Start()
     {
-        chainLv=3;
+        chainLv=0;
         insParticle=particles;
     }
     private void Update()
