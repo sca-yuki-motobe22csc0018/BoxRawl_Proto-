@@ -41,7 +41,7 @@ public class Particle : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
             Debug.Log("a");
-            if (other.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag("Enemy")||other.gameObject.CompareTag("EnemyPary"))
             {
                 EXPController.EXP += 5.0f * PlayerMove.EXPUP;
                 PlayerMove.EXPUP += 1;
