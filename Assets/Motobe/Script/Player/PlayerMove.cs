@@ -168,6 +168,30 @@ public class PlayerMove : MonoBehaviour
             {
                 this.transform.position = new Vector3(70, 35, 0);
             }
+            if (StageSelect.selectNumber == 4)
+            {
+                this.transform.position = new Vector3(-100, -52, 0);
+            }
+            if (StageSelect.selectNumber == 5)
+            {
+                this.transform.position = new Vector3(-50, -42, 0);
+            }
+            if (StageSelect.selectNumber == 6)
+            {
+                this.transform.position = new Vector3(0, -42, 0);
+            }
+            if (StageSelect.selectNumber == 7)
+            {
+                this.transform.position = new Vector3(50, -42, 0);
+            }
+            if (StageSelect.selectNumber == 8)
+            {
+                this.transform.position = new Vector3(100, -46, 0);
+            }
+            if (StageSelect.selectNumber == 9)
+            {
+                this.transform.position = new Vector3(0, -42, 0);
+            }
         }
         else if (SceneManager.GetActiveScene().name == "a")
         {
