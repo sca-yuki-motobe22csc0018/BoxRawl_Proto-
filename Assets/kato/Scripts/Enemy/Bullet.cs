@@ -21,7 +21,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player"
             || collision.gameObject.tag == "Ground"
-            || collision.gameObject.tag == "Wall")
+            || collision.gameObject.tag == "Wall"
+            || collision.gameObject.tag == "Ceiling")
         {
             Destroy(pary.gameObject);
             Destroy(this.gameObject);

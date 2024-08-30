@@ -13132,7 +13132,7 @@ Transform:
   m_LocalScale: {x: 10, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 893314970}
+  m_Father: {fileID: 728912099}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &276075652
 BoxCollider2D:
@@ -33177,6 +33177,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &728912098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728912099}
+  m_Layer: 0
+  m_Name: StageWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &728912099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728912098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1856894513}
+  - {fileID: 968331665}
+  - {fileID: 1121018910}
+  - {fileID: 276075651}
+  m_Father: {fileID: 893314970}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732363218
 GameObject:
   m_ObjectHideFlags: 0
@@ -41295,10 +41330,7 @@ Transform:
   m_Children:
   - {fileID: 1177543047}
   - {fileID: 467570622}
-  - {fileID: 1856894513}
-  - {fileID: 968331665}
-  - {fileID: 1121018910}
-  - {fileID: 276075651}
+  - {fileID: 728912099}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &894797246
@@ -46002,7 +46034,7 @@ Transform:
   m_LocalScale: {x: 10, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 893314970}
+  m_Father: {fileID: 728912099}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &968331666
 BoxCollider2D:
@@ -51916,7 +51948,7 @@ Transform:
   m_LocalScale: {x: 10, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 893314970}
+  m_Father: {fileID: 728912099}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1121018911
 BoxCollider2D:
@@ -81315,7 +81347,7 @@ Transform:
   m_LocalScale: {x: 10, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 893314970}
+  m_Father: {fileID: 728912099}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1856894514
 BoxCollider2D:
