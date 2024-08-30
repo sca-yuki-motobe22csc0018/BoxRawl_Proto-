@@ -13,10 +13,14 @@ public class BeeSkin : MonoBehaviour
     private string Attack;
 
     [SerializeField]
+    private string Attack2;
+
+    [SerializeField]
     private string Normal;
 
     private SkeletonAnimation _skeletonAnimation;
     public static bool anim;
+    public static bool anim2;
     Vector3 scale;
 
     /// <summary> ゲームオブジェクトに設定されているSkeletonAnimation </summary>
@@ -29,6 +33,7 @@ public class BeeSkin : MonoBehaviour
     {
         PlayerObj = GameObject.FindWithTag("Player");
         anim = false;
+        anim2 = false;
         // ゲームオブジェクトのSkeletonAnimationを取得
         skeletonAnimation = GetComponent<SkeletonAnimation>();
 
@@ -82,7 +87,13 @@ public class BeeSkin : MonoBehaviour
 
     private void OnSpineComplete(TrackEntry trackEntry)
     {
+        TrackEntry trackEntry2 = spineAnimationState.SetAnimation(0, Attack, false);
+        trackEntry2.Complete += OnSpineComplete2;
+    }
+
+    private void OnSpineComplete2(TrackEntry trackEntry)
+    {
+        anim2 = true;
         spineAnimationState.SetAnimation(0, Normal, true);
-        FlyEnemy.attack = true;
     }
 }

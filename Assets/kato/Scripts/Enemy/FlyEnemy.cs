@@ -15,8 +15,6 @@ public class FlyEnemy : MonoBehaviour
     bool isMove;
     bool isAttack;
 
-    public static bool attack;
-
     //íeä÷åW
     public GameObject BulletPrefab;
     GameObject Bullet;
@@ -32,16 +30,10 @@ public class FlyEnemy : MonoBehaviour
 
     //ÉXÉLÉì
     public GameObject beeSkin;
-    SpriteRenderer skinSprite;
-    bool left = true;
-    bool right = false;
 
 
     void Start()
     {
-        
-
-        skinSprite = beeSkin.GetComponent<SpriteRenderer>();
         PlayerObj = GameObject.FindWithTag("Player");
         beeSkin.transform.parent = null;
         isMove = true;
@@ -57,9 +49,10 @@ public class FlyEnemy : MonoBehaviour
         {
             return;
         }
-        if (attack)
+        if (BeeSkin.anim2)
         {
-            attack = false;
+            BulletAttack();
+            
         }
 
         timer += Time.deltaTime;
@@ -67,16 +60,17 @@ public class FlyEnemy : MonoBehaviour
         if(timer > 1 && isAttack)
         {
             isAttack = false;
-            BulletAttack();
+            BeeSkin.anim = true;
+            //
         }
 
-        if(timer > 2 && isMove) 
+        if(timer > 3 && isMove) 
         {
             isMove = false ;
             Move();
         }
 
-        if(timer > 4) 
+        if(timer > 5) 
         {
             isAttack = true;
             isMove = true ;
@@ -87,15 +81,13 @@ public class FlyEnemy : MonoBehaviour
 
     public void BulletAttack()
     {
-        BulletPos = new Vector2(this.gameObject.transform.position.x,
-                                this.gameObject.transform.position.y);
-
+        BulletPos = new Vector2(this.gameObject.transform.position.x,this.gameObject.transform.position.y);
         BulletDir = PlayerObj.transform.position - this.gameObject.transform.position;
         BulletDir.Normalize();
         Bullet = Instantiate(BulletPrefab,BulletPos,Quaternion.identity);
         BulletRg = Bullet.GetComponent<Rigidbody2D>();
-        BeeSkin.anim = true;
-        BulletRg.AddForce(BulletDir * 15000);
+        BulletRg.AddForce(BulletDir * 25000);
+        BeeSkin.anim2 = false;
     }
 
     

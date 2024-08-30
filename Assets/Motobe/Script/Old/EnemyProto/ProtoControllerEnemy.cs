@@ -24,7 +24,7 @@ public class ProtoControllerEnemy : MonoBehaviour
         playStageNum = StageSelect.selectNumber;
         if (playStageNum == 0)
         {
-            playStageNum = 2;
+            playStageNum = 6;
         }
         for (int i = 0; i < 10; i++)
         {
@@ -61,53 +61,195 @@ public class ProtoControllerEnemy : MonoBehaviour
                 playSpawnPoint[i] = SpawnPoint08[i];
             }
         }
+        if (playStageNum > 3 && playStageNum < 9)
+        {
+            spawnTime *= 1.5f;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (PlayerMove.PlayerDead)
+        {
+            return;
+        }
         spawnTimer += Time.deltaTime;
         if (spawnTimer > spawnTime)
         {
-            int random = Random.Range(0, 23);
-            if (random < 2)
+            if (playStageNum < 4)
             {
-                SpawnDraw0();
+                int random = Random.Range(0, 23);
+                if (random < 2)
+                {
+                    SpawnDraw0();
+                }
+                else
+                if (random < 5)
+                {
+                    SpawnDraw1();
+                }
+                else
+                if (random < 8)
+                {
+                    SpawnDraw2();
+                }
+                else
+                if (random < 11)
+                {
+                    SpawnDraw3();
+                }
+                else
+                if (random < 14)
+                {
+                    SpawnDraw4();
+                }
+                else
+                if (random < 17)
+                {
+                    SpawnDraw5();
+                }
+                else
+                if (random < 20)
+                {
+                    SpawnDrawFly();
+                }
+                else
+                {
+                    SpawnDrawAll();
+                }
             }
-            else
-            if (random < 5)
+            if(playStageNum==4)
             {
-                SpawnDraw1();
+                int random = Random.Range(0, 23);
+                if (random < 15)
+                {
+                    SpawnDraw1();
+                }
+                else
+                {
+                    SpawnDraw1();
+                    SpawnDraw1();
+                    SpawnDraw1();
+                }
             }
-            else
-            if (random < 8)
+            if (playStageNum == 5)
             {
-                SpawnDraw2();
+                int random = Random.Range(0, 23);
+                if (random < 2)
+                {
+                    SpawnDraw0();
+                }
+                else
+                if (random < 5)
+                {
+                    SpawnDraw1();
+                }
+                else
+                if (random < 8)
+                {
+                    SpawnDraw2();
+                }
+                else
+                if (random < 11)
+                {
+                    SpawnDraw3();
+                }
+                else
+                if (random < 14)
+                {
+                    SpawnDraw4();
+                }
+                else
+                if (random < 17)
+                {
+                    SpawnDraw5();
+                }
+                else
+                if (random < 20)
+                {
+                    SpawnDrawFly();
+                }
+                else
+                {
+                    SpawnDrawAll();
+                }
             }
-            else
-            if (random < 11)
+            if (playStageNum == 6)
             {
-                SpawnDraw3();
+                int random = Random.Range(0, 23);
+                if (random < 9)
+                {
+                    SpawnDraw3();
+                }
+                else
+                if (random < 18)
+                {
+                    SpawnDraw4();
+                }
+                else
+                {
+                    SpawnDrawFly();
+                }
             }
-            else
-            if (random < 14)
+            if (playStageNum == 7)
             {
-                SpawnDraw4();
+                int random = Random.Range(0, 23);
+                if (random < 6)
+                {
+                    SpawnDraw2();
+                }
+                else
+                if (random < 12)
+                {
+                    SpawnDraw3();
+                }
+                else
+                {
+                    SpawnDraw0();
+                }
             }
-            else
-            if (random < 17)
+            if (playStageNum == 8)
             {
-                SpawnDraw5();
-            }
-            else
-            if (random < 20)
-            {
-                SpawnDrawFly();
-            }
-            else
-            if (random < 23)
-            {
-                SpawnDrawAll();
+                int random = Random.Range(0, 23);
+                if (random < 2)
+                {
+                    SpawnDraw0();
+                }
+                else
+                if (random < 5)
+                {
+                    SpawnDraw1();
+                }
+                else
+                if (random < 8)
+                {
+                    SpawnDraw2();
+                }
+                else
+                if (random < 11)
+                {
+                    SpawnDraw3();
+                }
+                else
+                if (random < 14)
+                {
+                    SpawnDraw4();
+                }
+                else
+                if (random < 17)
+                {
+                    SpawnDraw5();
+                }
+                else
+                if (random < 20)
+                {
+                    SpawnDrawFly();
+                }
+                else
+                {
+                    SpawnDrawAll();
+                }
             }
             spawnTimer = 0;
         }
