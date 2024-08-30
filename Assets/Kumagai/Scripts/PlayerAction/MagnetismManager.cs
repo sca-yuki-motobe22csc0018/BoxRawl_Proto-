@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class MagnetismManager : MonoBehaviour
 {
-    public static int MagnetismLv = 3;
-    [SerializeField] private GameObject player;
+    public static int MagnetismLv = 0;
+    //[SerializeField] private GameObject player;
     [SerializeField] private float size;
     [SerializeField] private GameObject magnObj;
     GameObject insObject;

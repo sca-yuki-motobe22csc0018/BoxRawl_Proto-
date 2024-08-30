@@ -37095,6 +37095,9 @@ GameObject:
   - component: {fileID: 806031266}
   - component: {fileID: 806031265}
   - component: {fileID: 806031272}
+  - component: {fileID: 806031275}
+  - component: {fileID: 806031274}
+  - component: {fileID: 806031273}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -37326,6 +37329,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587427bc0465ab842b4b6bb5ab652b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &806031273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806031264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f5d0685d1ab0245bf4c34940000cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 3
+  magnObj: {fileID: 1842405325754127240, guid: 11746f118a65b4d42b691033273f1a35, type: 3}
+--- !u!114 &806031274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806031264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a66afebf7cafd43bc3ee5e99bf78dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1921490976731274222, guid: 34b89d51c5b50bd4a88404ddd18c031b, type: 3}
+  shotDelay: 0.3
+  setCoolTimer: 0.5
+--- !u!114 &806031275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806031264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a41f0a285eecc341a66ba25e0cba41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 7973031656697553690, guid: d5a030332ee294d4ba7cdaabf0882a96, type: 3}
 --- !u!1 &807032093
 GameObject:
   m_ObjectHideFlags: 0
