@@ -124,7 +124,7 @@ public class ButtonManager : MonoBehaviour
             {
                 case "Tutorial":
                     {
-                        sceneCheckBackGround.SetActive(true);
+                        StartCoroutine(SceneChanger());
                     }
                     break;
                 case "Main Game":

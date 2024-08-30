@@ -9,9 +9,11 @@ public class StageScore : MonoBehaviour
 
     public static int[] scores = new int[9];
     public static string[] scoreDatas =new string[9];
+    public static bool lastStage;
     public int[] tmp=new int[9];//Šm”F—p
     [SerializeField] private GameObject check;
     [SerializeField] private Text stageHighScore;
+    private int clearStageCount;
     private void Awake()
     {
         CheckTotalScore();
@@ -19,7 +21,8 @@ public class StageScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        lastStage=false;
+        clearStageCount=0;
     }
 
     // Update is called once per frame
@@ -37,7 +40,6 @@ public class StageScore : MonoBehaviour
         {
             check.SetActive(scores[StageSelect.selectNumber - 1] > 10000);
         }
-       
         else
         {
             for (int i = 0; i < 9; i++)
@@ -51,6 +53,18 @@ public class StageScore : MonoBehaviour
                 stageHighScore.text = scores[StageSelect.selectNumber-1].ToString();
             }
         }
+        for (int i = 0; i < 8; i++)
+        {
+            if (scores[i] >= 10000)
+            {
+                clearStageCount++;
+            }
+            if (clearStageCount >= 8)
+            {
+                lastStage = true;
+            }
+        }
+        clearStageCount = 0;
     }
 
     public static void CheckTotalScore()
