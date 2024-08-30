@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1294388500241569900}
   - component: {fileID: 6393088528857245793}
   - component: {fileID: 4161653507778509372}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Drop
   m_Icon: {fileID: 0}
