@@ -39,11 +39,11 @@ public class StageDscript : MonoBehaviour
         //{
         //    StartCoroutine(StageSet());
         //}
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             cancelFlag = !cancelFlag;
         }
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             cancelFlag = !cancelFlag;
         }

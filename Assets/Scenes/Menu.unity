@@ -1351,7 +1351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &171355228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1488,7 +1488,7 @@ MonoBehaviour:
   - {fileID: 208582769}
   - {fileID: 472421438}
   - {fileID: 446239253}
-  MaxSize: 1.2
+  MaxSize: 1.1
   iconSize: 1.1
 --- !u!114 &171355234
 MonoBehaviour:
