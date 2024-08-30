@@ -40,7 +40,6 @@ public class Particle : MonoBehaviour
     
     private void OnParticleCollision(GameObject other)
     {
-            Debug.Log("a");
             if (other.gameObject.CompareTag("Enemy")||other.gameObject.CompareTag("EnemyPary"))
             {
                 EXPController.EXP += 5.0f * PlayerMove.EXPUP;
@@ -64,6 +63,31 @@ public class Particle : MonoBehaviour
             else
             {
             }
-        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyPary"))
+        {
+            EXPController.EXP += 5.0f * PlayerMove.EXPUP;
+            PlayerMove.EXPUP += 1;
+            if (ChainAttack.chainLv >= 3)
+            {
+                Instantiate(ChainAttack.insParticle, collision.gameObject.transform.position, Quaternion.identity);
+                this.gameObject.tag = "Drop";
+            }
+            else if (collision.gameObject.GetComponent<EnemyChildren>() != null)
+            {
+                ScoreManager.smallEnemyKillCount++;
+                Destroy(collision.gameObject);
+                Debug.Log("エネミーキルカウントを加算しました");
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+                ScoreManager.bigEnemyKillCount++;
+            }
+            Destroy(collision.gameObject);
+        }
     }
 }
