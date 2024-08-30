@@ -136,11 +136,11 @@ public class LevelSelect : MonoBehaviour
                 }
                 if (pos[num].tag == "Level_Diffusion")
                 {
-
+                    JumpShot.shotLv++;
                 }
                 if (pos[num].tag == "Level_Suction")
                 {
-
+                    MagnetismManager.MagnetismLv++;
                 }
                 if (pos[num].tag == "Level_ShockWaveGround")
                 {
@@ -152,7 +152,7 @@ public class LevelSelect : MonoBehaviour
                 }
                 if (pos[num].tag == "Level_Chain")
                 {
-
+                    ChainAttack.chainLv++;
                 }
                 Debug.Log(pos[num].tag);
                 SEController.get = true;
