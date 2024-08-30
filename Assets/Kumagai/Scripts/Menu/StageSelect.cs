@@ -141,6 +141,11 @@ public class StageSelect : MonoBehaviour
                     ButtonManager.sceneCheck = false;
                     ButtonManager.stageSelect = false;
                 }
+                if(StageScore.lastStage)
+                {
+                selectNumber = int.Parse(stages[x, y].gameObject.name);
+                descriptionFlag = true;
+            }
                 else if (y != 1 || x != 1)
                 {
                     selectNumber = int.Parse(stages[x, y].gameObject.name);
