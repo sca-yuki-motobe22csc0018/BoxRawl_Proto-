@@ -88,7 +88,8 @@ public class ResultManager : MonoBehaviour
         else if(!isCountUp)
         {
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)
+                || Input.GetMouseButtonDown(0))
             {
                 SceneManager.LoadScene("Menu");
             }
