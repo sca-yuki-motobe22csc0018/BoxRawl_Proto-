@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChainAttack : MonoBehaviour
 {
     public static bool canChain;
-    public static int  chainLv=3;
+    public static int  chainLv;
     [SerializeField] private ParticleSystem particles;
     public static ParticleSystem insParticle;
 
