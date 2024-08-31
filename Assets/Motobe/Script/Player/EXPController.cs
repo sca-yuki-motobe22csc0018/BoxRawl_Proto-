@@ -58,6 +58,10 @@ public class EXPController : MonoBehaviour
                 LevelUpWindow.levelUp = true;
                 timerText.SetActive(false);
                 ScoreManager.lvUpCount++;
+                if(exp>=200)
+                {
+                    exp %= 100;
+                }
                 exp -= 100;
                 EXP -= 100;
             }

@@ -1351,7 +1351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &171355228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11124,13 +11124,13 @@ GameObject:
   - component: {fileID: 1197073103}
   - component: {fileID: 1197073105}
   - component: {fileID: 1197073104}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1197073103
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11164,7 +11164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11183,7 +11183,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 000
 --- !u!222 &1197073105
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11671,8 +11671,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.33, y: -0.33, z: 0}
-  m_LocalScale: {x: 0.053, y: 0.05446547, z: 0.05446547}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.0547, y: 0.054979295, z: 0.054979295}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1990548053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

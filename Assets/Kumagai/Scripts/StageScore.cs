@@ -36,7 +36,7 @@ public class StageScore : MonoBehaviour
         //        scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
         //    }
         //}
-        if (StageSelect.selectNumber!=0 )
+        if (StageSelect.selectNumber != 0)
         {
             check.SetActive(scores[StageSelect.selectNumber - 1] > 10000);
         }
@@ -48,11 +48,8 @@ public class StageScore : MonoBehaviour
                 scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
             }
             tmp = scores;
-            if (StageSelect.selectNumber != 0)
-            {
-                stageHighScore.text = scores[StageSelect.selectNumber-1].ToString();
-            }
         }
+        stageHighScore.text = scores[StageSelect.selectNumber - 1].ToString();
         for (int i = 0; i < 8; i++)
         {
             if (scores[i] >= 10000)

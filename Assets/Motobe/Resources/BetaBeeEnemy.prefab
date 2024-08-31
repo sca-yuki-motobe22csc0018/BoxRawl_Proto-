@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5889106698357006483}
   - component: {fileID: 2087231801769292055}
   - component: {fileID: 5116848453018951834}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BetaBeeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 6779280401913708217}
   - component: {fileID: 7111396628242389747}
   - component: {fileID: 8210266668512565579}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spine GameObject (bee)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3673193511069284649}
   - component: {fileID: 5950330259105319644}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: particleHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
