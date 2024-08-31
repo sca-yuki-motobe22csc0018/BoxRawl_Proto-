@@ -47,7 +47,7 @@ public class TitleManager : MonoBehaviour
         isTutorial = PlayerPrefs.GetInt("Tutorial", 0);
         Debug.Log(isTutorial);
 
-        pushImage.DOFade(0f, 3f).SetLoops(-1,LoopType.Yoyo);
+        pushImage.DOFade(0f, 1.5f).SetLoops(-1,LoopType.Yoyo);
     }
 
     // Update is called once per frame

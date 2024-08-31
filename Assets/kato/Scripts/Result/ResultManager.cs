@@ -75,7 +75,7 @@ public class ResultManager : MonoBehaviour
 
         counter = 0;
         pressText.SetActive(false);
-        pushText.DOFade(0f, 3f).SetLoops(-1, LoopType.Yoyo);
+        pushText.DOFade(0f, 1.5f).SetLoops(-1, LoopType.Yoyo);
 
     }
 
