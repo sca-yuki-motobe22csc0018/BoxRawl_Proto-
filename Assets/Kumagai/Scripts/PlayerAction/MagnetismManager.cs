@@ -12,12 +12,12 @@ public class MagnetismManager : MonoBehaviour
     GameObject insObject;
     private void OnEnable()
     {
-       
+        MagnetismLv = 0;
     }
 
     private void Update()
     {
-        if (ParyController.parySet&&!PlayerMove.Drop)
+        if (ParyController.parySet&&!PlayerMove.Drop&&MagnetismLv>0)
         {
             if(Input.GetKeyDown(KeyCode.Space)||Input.GetMouseButtonDown(0))
             {
