@@ -27,6 +27,7 @@ public class ResultManager : MonoBehaviour
     [SerializeField] Text[] scoreText;
 
     [SerializeField] GameObject pressText;
+    public Image pushText;
 
     string myName;
     [SerializeField] InputField nameField;
@@ -74,6 +75,7 @@ public class ResultManager : MonoBehaviour
 
         counter = 0;
         pressText.SetActive(false);
+        pushText.DOFade(0f, 3f).SetLoops(-1, LoopType.Yoyo);
 
     }
 
@@ -180,6 +182,21 @@ public class ResultManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            scoreText[1].DOFade(1, 1.0f);
+            scoreText[2].DOFade(1, 1.0f);
+            scoreText[3].DOFade(1, 1.0f);
+            scoreText[4].DOFade(1, 1.0f);
+
+            countScore = totalScore;
+            scoreText[0].text = totalScore.ToString("f0");
+            result = Result.ClearCheck;
+
+            pressText.SetActive(true);
+            isCountUp = false;
         }
     }
 

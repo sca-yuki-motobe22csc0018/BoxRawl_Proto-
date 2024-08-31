@@ -29,6 +29,7 @@ public class TitleManager : MonoBehaviour
 
     int isTutorial = -1;
 
+    public Image pushImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +46,8 @@ public class TitleManager : MonoBehaviour
 
         isTutorial = PlayerPrefs.GetInt("Tutorial", 0);
         Debug.Log(isTutorial);
+
+        pushImage.DOFade(0f, 3f).SetLoops(-1,LoopType.Yoyo);
     }
 
     // Update is called once per frame
