@@ -9,7 +9,6 @@ public class ScoreManager : MonoBehaviour
     public static int smallEnemyKillCount;
     public static int lvUpCount;
     public static float timer;
-    [SerializeField] private GameObject enemySpanwer;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text timeText;
     // Start is called before the first frame update
@@ -23,7 +22,10 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!PlayerMove.PlayerDead&&SceneManager.GetActiveScene().name=="Main Game"&&enemySpanwer.activeSelf)
+        //Debug.Log(PlayerMove.PlayerDead);
+        //Debug.Log(SceneManager.GetActiveScene().name);
+        //Debug.Log(enemySpanwer.activeSelf);
+        if (!PlayerMove.PlayerDead&&SceneManager.GetActiveScene().name=="Main Game")
         {
             timer += Time.deltaTime;
         }

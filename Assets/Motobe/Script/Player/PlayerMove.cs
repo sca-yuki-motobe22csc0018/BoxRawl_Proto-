@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
     //体力関係
     private int DefaultHp=5;
     //[SerializeField] public int PlusHp;
-    private int Hp;
+    [SerializeField] public static int Hp;
 
     //空中に居るかの判定
     public static int JumpCount;
@@ -97,6 +97,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] GameObject deathPrefab;
     [SerializeField] Camera camera;
 
+    public GameObject timerText;
+
     public static bool ParyJump;
 
     //public GameObject dekoi;
@@ -104,6 +106,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timerText.SetActive(false);
         //dekoi.SetActive(false);
         ParyJump = false;
         moveVec = 1;
@@ -244,11 +247,7 @@ public class PlayerMove : MonoBehaviour
             EXPUP = 3;
         }
 
-        if (PlayerDead)
-        {
-            if(EnemySpawnner!=null)
-            EnemySpawnner.SetActive(false);
-        }
+        
         //ダメージを受けた時の点滅
         if (blink)
         {
@@ -291,7 +290,11 @@ public class PlayerMove : MonoBehaviour
             PlayerSkinObject.SetActive(true);
             blinkCount = 0;
         }
-
+        if (PlayerDead)
+        {
+            if (EnemySpawnner != null)
+                EnemySpawnner.SetActive(false);
+        }
         if (PlayerDead)
         {
             rb.gravityScale = 0;
@@ -333,6 +336,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (startRota)
             {
+                EnemySpawnner.SetActive(true);
                 if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.S))
                 {
                     //Debug.Log(ParyController.parySet);
@@ -463,6 +467,27 @@ public class PlayerMove : MonoBehaviour
             {
                 DropObject.SetActive(false);
             }
+        }
+
+        if (Hp == 1)
+        {
+            HpObject[0].SetActive(true);
+        }
+        if (Hp == 2)
+        {
+            HpObject[1].SetActive(true);
+        }
+        if (Hp == 3)
+        {
+            HpObject[2].SetActive(true);
+        }
+        if (Hp == 4)
+        {
+            HpObject[3].SetActive(true);
+        }
+        if (Hp == 5)
+        {
+            HpObject[4].SetActive(true);
         }
 
         if (Trigger.EnemyTrigger)
@@ -687,7 +712,9 @@ public class PlayerMove : MonoBehaviour
     {
         startRota = true;
         if(EnemySpawnner!=null)
-        EnemySpawnner.SetActive(true);
+            EnemySpawnner.SetActive(true);
+        if (timerText != null)
+            timerText.SetActive(true);
     }
 
     public void DamageEffect()

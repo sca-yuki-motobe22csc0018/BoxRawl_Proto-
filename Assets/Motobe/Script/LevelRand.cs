@@ -23,7 +23,7 @@ public class LevelRand : MonoBehaviour
     {
         if (rand)
         {
-            if (a > 10)
+            if (a > 11)
             {
                 rand = false;
                 a = 0;
@@ -34,7 +34,7 @@ public class LevelRand : MonoBehaviour
                 level[i].SetActive(false);
             }
             */
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 11; i++)
             {
                 type[i].SetActive(false);
             }
@@ -55,7 +55,7 @@ public class LevelRand : MonoBehaviour
                 level[2].SetActive(true);
             }
             */
-            random2= Random.Range(0, 10);
+            random2= Random.Range(0, 8);
             if (random2 == 0)
             {
                 type[0].SetActive(true);
@@ -97,6 +97,11 @@ public class LevelRand : MonoBehaviour
             {
                 type[9].SetActive(true);
                 this.tag = type[9].tag;
+            }
+            else if (random2 == 10)
+            {
+                type[9].SetActive(true);
+                this.tag = type[10].tag;
             }
 
             a++;

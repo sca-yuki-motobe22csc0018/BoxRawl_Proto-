@@ -46,7 +46,7 @@ public class JumpShot : MonoBehaviour
             }
             if (coolTimer > 0 && coolTime)
             {
-                Debug.Log("A");
+                //Debug.Log("A");
                 coolTimer -= Time.deltaTime;
             }
             else if (coolTimer < 0)

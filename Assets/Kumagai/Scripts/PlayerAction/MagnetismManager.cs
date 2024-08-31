@@ -35,7 +35,7 @@ public class MagnetismManager : MonoBehaviour
             
           
         }
-        Debug.Log(insObject);
+        //Debug.Log(insObject);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

@@ -38,19 +38,19 @@ public class MouseLevelSelectAction : MouseSelect
             if (mousePos.x >= 200 && mousePos.x < 600)
             {
                 LevelSelect.posNum = 0;
-                Debug.Log(1);
+                //Debug.Log(1);
             }
 
             if (mousePos.x >= 750 && mousePos.x < 1200)
             {
                 LevelSelect.posNum = 1;
-                Debug.Log(2);
+                //Debug.Log(2);
             }
 
             if (mousePos.x >= 1300 && mousePos.x < 1700)
             {
                 LevelSelect.posNum = 2;
-                Debug.Log(3);
+                //Debug.Log(3);
             }
         }
         

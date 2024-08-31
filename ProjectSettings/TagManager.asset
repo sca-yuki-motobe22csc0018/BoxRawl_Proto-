@@ -31,6 +31,10 @@ TagManager:
   - Level_ShockWaveWall
   - Level_Chain
   - HealObj
+  - Level_StateS
+  - Level_StateJ
+  - Level_Bullet
+  - Heal
   layers:
   - Default
   - TransparentFX

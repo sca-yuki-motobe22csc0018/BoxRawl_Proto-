@@ -11,7 +11,7 @@ public class EXPController : MonoBehaviour
     public Image EXPGage2;
     int expup;
     public GameObject DestroyObj;
-
+    public GameObject timerText;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +56,7 @@ public class EXPController : MonoBehaviour
             if (PlayerMove.LevelUpWindowSet)
             {
                 LevelUpWindow.levelUp = true;
+                timerText.SetActive(false);
                 ScoreManager.lvUpCount++;
                 exp -= 100;
                 EXP -= 100;

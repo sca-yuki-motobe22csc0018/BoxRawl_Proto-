@@ -11,9 +11,9 @@ public class LevelSelect : MonoBehaviour
     public static bool levelUpEnd;
     public GameObject Heal;
     public GameObject[] HealCount;
-    [SerializeField] GameObject enemyspawner;
     bool heal;
     int healLevel;
+    public GameObject timerText;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +33,7 @@ public class LevelSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyspawner.SetActive(true);
+        //enemyspawner.SetActive(true);
         if (size)
         {
             if (posNum == 0)
@@ -136,11 +136,11 @@ public class LevelSelect : MonoBehaviour
                 }
                 if (pos[num].tag == "Level_Diffusion")
                 {
-                    JumpShot.shotLv++;
+                    MagnetismManager.MagnetismLv++;
                 }
                 if (pos[num].tag == "Level_Suction")
                 {
-                    MagnetismManager.MagnetismLv++;
+                    
                 }
                 if (pos[num].tag == "Level_ShockWaveGround")
                 {
@@ -154,8 +154,14 @@ public class LevelSelect : MonoBehaviour
                 {
                     ChainAttack.chainLv++;
                 }
+                if (pos[num].tag == "Level_Bullet")
+                {
+                    JumpShot.shotLv++;
+                }
                 Debug.Log(pos[num].tag);
+                timerText.SetActive(true);
                 SEController.get = true;
+                PlayerMove.PlayerDead = true;
                 levelUpEnd = true;
             }
         }
