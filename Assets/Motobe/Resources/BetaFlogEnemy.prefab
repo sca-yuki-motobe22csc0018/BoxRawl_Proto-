@@ -218,7 +218,7 @@ MonoBehaviour:
   JumpA: janp_a
   JumpB: janp_b
   JumpC: janp_c
-  speed: 5
+  speed: 3
   Pary: {fileID: 5685684299871975123}
 --- !u!1 &5685684299871975123
 GameObject:

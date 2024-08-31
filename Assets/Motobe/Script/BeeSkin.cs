@@ -61,12 +61,14 @@ public class BeeSkin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (anim)
         {
             anim = false;
             TrackEntry trackEntry = spineAnimationState.SetAnimation(0, Attack, false);
             trackEntry.Complete += OnSpineComplete;
         }
+        */
         if (PlayerObj.transform.position.x >= this.transform.position.x)
         {
             scale.x = -0.3f;

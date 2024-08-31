@@ -106,6 +106,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(timerText!=null)
         timerText.SetActive(false);
         //dekoi.SetActive(false);
         ParyJump = false;
@@ -468,7 +469,7 @@ public class PlayerMove : MonoBehaviour
                 DropObject.SetActive(false);
             }
         }
-
+        /*
         if (Hp == 1)
         {
             HpObject[0].SetActive(true);
@@ -489,7 +490,7 @@ public class PlayerMove : MonoBehaviour
         {
             HpObject[4].SetActive(true);
         }
-
+        */
         if (Trigger.EnemyTrigger)
         {
             if (!Drop)

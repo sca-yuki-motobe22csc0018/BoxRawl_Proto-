@@ -71,10 +71,13 @@ public class LevelSelect : MonoBehaviour
                 int num;
                 num = posNum;
                 
-                if (pos[num].tag == "Level_State")
+                if (pos[num].tag == "Level_StateS")
+                {
+                    PlayerMove.PlusSpeed += 2.0f;
+                }
+                if (pos[num].tag == "Level_StateJ")
                 {
                     PlayerMove.PlusJumpForce += 2.0f;
-                    PlayerMove.PlusSpeed += 2.0f;
                 }
                 if (pos[num].tag == "Level_Invincible")
                 {

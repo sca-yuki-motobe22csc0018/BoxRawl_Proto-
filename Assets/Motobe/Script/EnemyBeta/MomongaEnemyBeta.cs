@@ -38,7 +38,7 @@ public class MomongaEnemyBeta : MonoBehaviour
             else
             {
                 transform.position = Vector2.MoveTowards(transform.position,
-                    new Vector2(GoObject.transform.position.x, GoObject.transform.position.y), 5 * Time.deltaTime);
+                    new Vector2(GoObject.transform.position.x, GoObject.transform.position.y), 7 * Time.deltaTime);
             }
             if (GoObject.transform.position.x >= this.transform.position.x)
             {

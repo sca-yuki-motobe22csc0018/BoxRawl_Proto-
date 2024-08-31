@@ -15761,6 +15761,7 @@ MonoBehaviour:
   Ceiling01: {fileID: 0}
   deathPrefab: {fileID: 0}
   camera: {fileID: 1001084084}
+  timerText: {fileID: 0}
 --- !u!61 &1790036949
 BoxCollider2D:
   m_ObjectHideFlags: 0

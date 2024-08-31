@@ -109,7 +109,7 @@ public class FlogEnemy : MonoBehaviour
         if (Jump)
         {
             int jumpRand = Random.Range(0, 4);
-            rb.velocity = new Vector3(0, 20+jumpRand, 0);
+            rb.velocity = new Vector3(0, 17+jumpRand, 0);
             Jump = false;
             PlayJumpAnimationA();
         }

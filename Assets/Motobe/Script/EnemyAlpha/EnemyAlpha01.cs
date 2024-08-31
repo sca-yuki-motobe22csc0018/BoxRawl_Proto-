@@ -35,7 +35,7 @@ public class EnemyAlpha01 : MonoBehaviour
             transform.localScale = scale;
         }
 
-        float speedrand = Random.Range(0, 0.25f);
+        float speedrand = Random.Range(0.25f, 0.5f);
         defaultSpeed = speed + speedrand;
         SpawnDraw();
     }

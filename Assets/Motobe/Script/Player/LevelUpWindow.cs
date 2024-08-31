@@ -41,11 +41,12 @@ public class LevelUpWindow : MonoBehaviour
         {
             LevelUp();
             levelUp = false;
-        }else if (Input.GetKeyDown(KeyCode.Q))
+        }/*else if (Input.GetKeyDown(KeyCode.Alpha0)&& Input.GetKey(KeyCode.Alpha1))
         {
             LevelUp();
             levelUp = false;
         }
+        */
         if (LevelSelect.levelUpEnd)
         {
             LevelUpEnd();

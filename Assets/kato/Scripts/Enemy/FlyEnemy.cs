@@ -45,6 +45,7 @@ public class FlyEnemy : MonoBehaviour
 
     void Update()
     {
+        /*
         if (PlayerMove.PlayerDead)
         {
             return;
@@ -54,13 +55,14 @@ public class FlyEnemy : MonoBehaviour
             BulletAttack();
             
         }
-
+        */
         timer += Time.deltaTime;
 
         if(timer > 1 && isAttack)
         {
             isAttack = false;
-            BeeSkin.anim = true;
+            BulletAttack();
+            //BeeSkin.anim = true;
             //
         }
 
@@ -87,7 +89,7 @@ public class FlyEnemy : MonoBehaviour
         Bullet = Instantiate(BulletPrefab,BulletPos,Quaternion.identity);
         BulletRg = Bullet.GetComponent<Rigidbody2D>();
         BulletRg.AddForce(BulletDir * 25000);
-        BeeSkin.anim2 = false;
+        //BeeSkin.anim2 = false;
     }
 
     

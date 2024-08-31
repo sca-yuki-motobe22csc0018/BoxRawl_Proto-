@@ -55,7 +55,7 @@ public class LevelRand : MonoBehaviour
                 level[2].SetActive(true);
             }
             */
-            random2= Random.Range(0, 8);
+            random2= Random.Range(0, 7);
             if (random2 == 0)
             {
                 type[0].SetActive(true);
