@@ -6,7 +6,6 @@ public class ProtoControllerEnemy : MonoBehaviour
 {
     float spawnTimer;
     public float spawnTime;
-    private float speed = 2;
     public int playStageNum;
     public GameObject[] playSpawnPoint;
     public GameObject[] SpawnPoint01;

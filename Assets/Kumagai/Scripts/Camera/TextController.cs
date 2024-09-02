@@ -5,7 +5,7 @@ using UnityEngine;
 public class TextController : MonoBehaviour
 {
     private Vector3 pos;
-    [SerializeField] private GameObject camera;
+    //[SerializeField] private GameObject camera;
     // Start is called before the first frame update
     void Start()
     {

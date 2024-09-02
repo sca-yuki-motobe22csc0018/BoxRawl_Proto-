@@ -8,13 +8,23 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pary.transform.parent = null;
+        if (pary.gameObject != null)
+        {
+            pary.transform.parent = null;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        pary.transform.position = this.transform.position;
+        if (pary.gameObject == null)
+        {
+            Destroy(this.gameObject);
+        }
+        if (pary.gameObject != null)
+        {
+            pary.transform.position = this.transform.position;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -25,7 +35,6 @@ public class Bullet : MonoBehaviour
             || collision.gameObject.tag == "Ceiling")
         {
             Destroy(pary.gameObject);
-            Destroy(this.gameObject);
         }
     }
 }

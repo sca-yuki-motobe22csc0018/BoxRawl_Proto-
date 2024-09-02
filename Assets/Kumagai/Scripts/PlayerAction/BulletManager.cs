@@ -7,7 +7,7 @@ public class BulletManager : MonoBehaviour
 {
     public string moveDirection;
     private float speed;
-    private float power = 1000;
+
     Vector3 dir;
     // Start is called before the first frame update
     void Start()

@@ -7,12 +7,12 @@ using UnityEngine;
 public class StandardEnemyMove : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
-    private bool moveChange;
+    //private bool moveChange;
     public float addMove;
     // Start is called before the first frame update
     void Start()
     {
-        moveChange = false;   
+        //moveChange = false;   
     }
 
     // Update is called once per frame

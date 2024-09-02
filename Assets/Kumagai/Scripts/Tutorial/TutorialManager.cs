@@ -5,7 +5,7 @@ public class TutorialManager : MonoBehaviour
     private int count;
     private Rigidbody2D rb;
     [SerializeField] private float speed;
-    [SerializeField] private bool OnGround;
+    //[SerializeField] private bool OnGround;
     private bool moveVec;//�ǂ���̕����ɓ����������߂�t���O�Bfalse�Ȃ獶�Atrue�Ȃ�E
 
     void Start()
@@ -13,7 +13,7 @@ public class TutorialManager : MonoBehaviour
         count = 0;
         rb = GetComponent<Rigidbody2D>();
         moveVec = false;
-        OnGround = false;
+        //OnGround = false;
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class TutorialManager : MonoBehaviour
             count++;
             //this.transform.position = new Vector3(this.transform.position.x, collision.collider.transform.position.y + 1, 0);
             rb.AddForce(new Vector3(0, 300, 0));
-            OnGround = true;
+            //OnGround = true;
             //Debug.Log("A");
         }
         if (collision.GetComponent<Collider2D>().CompareTag("Player"))
@@ -74,7 +74,7 @@ public class TutorialManager : MonoBehaviour
         if (collision.GetComponent<Collider2D>().CompareTag("Ground"))
         {
             rb.AddForce(new Vector3(0, 100f, 0));
-            OnGround = true;
+            //OnGround = true;
             //Debug.Log("B");
         }
        

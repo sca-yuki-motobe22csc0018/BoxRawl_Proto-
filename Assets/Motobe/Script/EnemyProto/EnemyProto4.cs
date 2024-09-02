@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EnemyProto4 : MonoBehaviour
 {
+    /*{
     Rigidbody2D rb;
     [SerializeField] bool OnGround;
     [SerializeField] bool OnWall;
@@ -29,7 +30,7 @@ public class EnemyProto4 : MonoBehaviour
 
     bool Jump;
 
-   // public GameObject EnemySkin;
+    // public GameObject EnemySkin;
     private GameObject player;
     private bool myIsTrigger;
 
@@ -49,7 +50,7 @@ public class EnemyProto4 : MonoBehaviour
         target = player.transform.position - transform.position;
         Rota = true;
         int a = Random.Range(0, 2);
-        Debug.Log(Resources.Load<GameObject>("MomongaSprite/Momonga_0"+(a+1).ToString()).GetComponent<SpriteRenderer>().sprite);
+        Debug.Log(Resources.Load<GameObject>("MomongaSprite/Momonga_0" + (a + 1).ToString()).GetComponent<SpriteRenderer>().sprite);
         spriteRendere.sprite = Resources.Load<GameObject>("MomongaSprite/Momonga_01").GetComponent<SpriteRenderer>().sprite;
 
     }
@@ -270,4 +271,5 @@ public class EnemyProto4 : MonoBehaviour
             hitDirUp = false;
         }
     }
+}*/
 }

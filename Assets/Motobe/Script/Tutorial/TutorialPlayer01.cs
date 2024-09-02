@@ -43,8 +43,8 @@ public class TutorialPlayer01 : MonoBehaviour
 
     //ダメージを受けているかの確認
     public static bool blink;
-    private bool blinkCheck;
-    float blinkCount;
+    //private bool blinkCheck;
+    //float blinkCount;
 
     //Skin
     public static bool Rota;
@@ -62,11 +62,11 @@ public class TutorialPlayer01 : MonoBehaviour
     {
         JumpCount = 0;
         blink = false;
-        blinkCheck = false;
+        //blinkCheck = false;
         rb = GetComponent<Rigidbody2D>();
         PlayerSkinObject.SetActive(true);
         DropObject.SetActive(false);
-        blinkCount = 0;
+        //blinkCount = 0;
         PlusSpeed = 0;
         PlusJumpForce = 0;
         dir = -1;

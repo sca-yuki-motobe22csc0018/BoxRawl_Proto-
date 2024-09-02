@@ -32,7 +32,7 @@ public class TutorialPlayer : MonoBehaviour
     public static int JumpCount;
 
     //壁に触れているかの判定
-    [SerializeField] private bool OnWall;
+    //[SerializeField] private bool OnWall;
     bool right;
 
     //連続壁ジャンプをしないようにする
@@ -43,8 +43,8 @@ public class TutorialPlayer : MonoBehaviour
 
     //ダメージを受けているかの確認
     public static bool blink;
-    private bool blinkCheck;
-    float blinkCount;
+    //private bool blinkCheck;
+    //float blinkCount;
     /*
     //パリィ処理
     public GameObject ParyObject;
@@ -66,11 +66,11 @@ public class TutorialPlayer : MonoBehaviour
     {
         JumpCount = 0;
         blink = false;
-        blinkCheck = false;
+        //blinkCheck = false;
         rb = GetComponent<Rigidbody2D>();
         PlayerSkinObject.SetActive(true);
         DropObject.SetActive(false);
-        blinkCount = 0;
+        //blinkCount = 0;
         PlusSpeed = 0;
         PlusJumpForce = 0;
         dir=-1;
@@ -120,11 +120,11 @@ public class TutorialPlayer : MonoBehaviour
         //壁めり込み防止
         if (!right)
         {
-            OnWall = false;
+            //OnWall = false;
         }
         if (right)
         {
-            OnWall = false;
+            //OnWall = false;
         }
 
         if (playerNumber == 0)
@@ -208,7 +208,7 @@ public class TutorialPlayer : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            OnWall = true;
+            //OnWall = true;
             rota=0;
             Rota = false;
         }
@@ -241,7 +241,7 @@ public class TutorialPlayer : MonoBehaviour
             //if (ParyObject != null)
             //    ParyObject.SetActive(true);
             Rota = true;
-            OnWall = false;
+            //OnWall = false;
             DoubleWall = false;
         }
         //地面から離れたとき

@@ -37176,7 +37176,7 @@ MonoBehaviour:
   damageEffect: {fileID: 97606}
   Ceiling01: {fileID: 960338692}
   deathPrefab: {fileID: 3104951671339974050, guid: 3deaa0ad5e8907e4ab9a5ac1cb6ce9c0, type: 3}
-  camera: {fileID: 2016391282}
+  cameraObj: {fileID: 0}
   timerText: {fileID: 1670526637}
 --- !u!61 &806031268
 BoxCollider2D:
@@ -37311,7 +37311,7 @@ Transform:
   m_GameObject: {fileID: 806031264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -46, z: 0}
+  m_LocalPosition: {x: -50.1, y: -47.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55056,7 +55056,7 @@ GameObject:
   - component: {fileID: 1179612641}
   m_Layer: 3
   m_Name: Bullet
-  m_TagString: Level_Bunshin
+  m_TagString: Level_Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89353,7 +89353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 806031264}
   jumpCameraRevision: 0
-  OnGround: 0
 --- !u!114 &2016391284
 MonoBehaviour:
   m_ObjectHideFlags: 0

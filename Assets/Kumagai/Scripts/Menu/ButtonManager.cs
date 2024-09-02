@@ -19,7 +19,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject stageDiscriptWindow;
     [SerializeField] private GameObject[] stageWindow;
     [SerializeField] private GameObject DropObject;
-    private bool sceneChangeFlag;
+    //private bool sceneChangeFlag;
     public static string yesOrNo;
     public static string thisSceneName;
     public static bool sceneCheck;
@@ -173,7 +173,7 @@ public class ButtonManager : MonoBehaviour
         stageSelect = false;
             foreach(var child in stageWindow) { child.SetActive(false); }
             yield return new WaitForSeconds(0.5f);
-            sceneChangeFlag = true;
+            //sceneChangeFlag = true;
             yield return new WaitForSeconds(1f);
             //sceneGround.SetActive(false);
             //this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);

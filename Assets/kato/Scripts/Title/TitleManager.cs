@@ -16,7 +16,7 @@ public class TitleManager : MonoBehaviour
 
     [SerializeField] GameObject EnemyObj;
 
-    bool isJump = false;
+    //bool isJump = false;
     public static bool isStart;
 
 

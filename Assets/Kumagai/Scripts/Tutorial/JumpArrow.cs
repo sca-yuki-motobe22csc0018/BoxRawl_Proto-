@@ -8,8 +8,8 @@ public class JumpArrow : MonoBehaviour
     private float y;
     private float x;
     private float time;
-    private SpriteRenderer spriteRenderer;
-    private float alpha;
+    //private SpriteRenderer spriteRenderer;
+    //private float alpha;
     [SerializeField] private float addPositionX;
     private Vector3 startPos;
     Matrix4x4 mat;
@@ -19,8 +19,8 @@ public class JumpArrow : MonoBehaviour
         y = this.transform.position.y;
         x = this.transform.position.x;
         time = 0;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        alpha = 1;
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //alpha = 1;
         startPos = transform.position;
        
     }

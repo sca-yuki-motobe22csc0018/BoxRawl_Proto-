@@ -8,13 +8,13 @@ public class CameraManager : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private float jumpCameraRevision;
-    private float tmpRevision;
+    //private float tmpRevision;
     [SerializeField]
-    private bool OnGround = false;
+    //private bool OnGround = false;
     // Start is called before the first frame update
     void Start()
     {
-        tmpRevision=jumpCameraRevision;
+        //tmpRevision=jumpCameraRevision;
     }
 
     // Update is called once per frame

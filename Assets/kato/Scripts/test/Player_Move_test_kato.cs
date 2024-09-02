@@ -39,7 +39,7 @@ public class Player_Move_test_kato : MonoBehaviour
     */
 
     //�̗͊֌W
-    private int DefaultHp = 5;
+    //private int DefaultHp = 5;
     //[SerializeField] public int PlusHp;
     private int Hp;
 

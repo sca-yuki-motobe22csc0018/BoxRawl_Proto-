@@ -8,7 +8,7 @@ public class EnemyTutorial : MonoBehaviour
     float posx;
     Rigidbody2D rb;
     [SerializeField] bool OnGround;
-    [SerializeField] bool OnWall;
+    //[SerializeField] bool OnWall;
     bool Rota;
     int rota;
     bool wallSpeed;
@@ -163,7 +163,7 @@ public class EnemyTutorial : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            OnWall = true;
+            //OnWall = true;
             if (EnemyCheck == 1 || EnemyCheck == 2 || EnemyCheck == 3)
             {
                 rb.velocity = new Vector3(0, 20, 0);
@@ -200,7 +200,7 @@ public class EnemyTutorial : MonoBehaviour
         {
             if (EnemyCheck == 1 || EnemyCheck == 2 || EnemyCheck == 3)
                 Rota = true;
-            OnWall = false;
+            //OnWall = false;
         }
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TutorialEnemy : MonoBehaviour
 {
-    [SerializeField] private bool OnWall;
+    //[SerializeField] private bool OnWall;
     // Start is called before the first frame update
     void Start()
     {
-        OnWall = false;
+        //OnWall = false;
     }
 
     // Update is called once per frame

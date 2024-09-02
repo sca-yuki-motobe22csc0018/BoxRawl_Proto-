@@ -34,7 +34,7 @@ public class PlayerMove : MonoBehaviour
     private float Speed;
 
     //体力関係
-    private int DefaultHp=5;
+    //private int DefaultHp=5;
     //[SerializeField] public int PlusHp;
     [SerializeField] public static int Hp;
 
@@ -95,7 +95,7 @@ public class PlayerMove : MonoBehaviour
     bool fadeFlag;
     //死亡演出
     [SerializeField] GameObject deathPrefab;
-    [SerializeField] Camera camera;
+    [SerializeField] Camera cameraObj;
 
     public GameObject timerText;
 
@@ -749,7 +749,7 @@ public class PlayerMove : MonoBehaviour
         PlayerSkin.Rota = false;
         fadeFlag = true;
         Instantiate(deathPrefab,this.gameObject.transform.position,Quaternion.identity);
-        camera.transform.parent = null;
+        cameraObj.transform.parent = null;
         this.gameObject.SetActive(false);
         sequence.AppendInterval(3.0f);
         sequence.AppendCallback(() => SceneChange());
