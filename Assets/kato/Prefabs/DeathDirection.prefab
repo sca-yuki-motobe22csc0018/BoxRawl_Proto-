@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2391944986443623738}
   - component: {fileID: 6662153558846254144}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlayerTypeSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2994740708439251887}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fragment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6286117973997596918}
   - component: {fileID: 6109074459940488864}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PlayerCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 6674288708119726507}
   - component: {fileID: 2667178100986792850}
   - component: {fileID: 6667742025702892512}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 3979220373722921200}
   - component: {fileID: 2974506309687486704}
   - component: {fileID: 6695863693259999256}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DeathDirection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 2069060026705019311}
   - component: {fileID: 6565057106564383252}
   - component: {fileID: 1497962716269155816}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5072732135736681570}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 195167697340718619}
   - component: {fileID: 2113170321717173522}
   - component: {fileID: 1133619210337715264}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 5005536746412789884}
   - component: {fileID: 5691567846105234194}
   - component: {fileID: 9097737980118932857}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 4238260445164643093}
   - component: {fileID: 4127364011592666391}
   - component: {fileID: 6470548144233560422}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7144701098625496466}
   - component: {fileID: 4085686387753520306}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Square (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

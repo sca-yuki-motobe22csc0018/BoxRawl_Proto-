@@ -16,14 +16,15 @@ public class ProtoControllerEnemy : MonoBehaviour
     public GameObject[] SpawnPoint06;
     public GameObject[] SpawnPoint07;
     public GameObject[] SpawnPoint08;
-    
+    public GameObject[] SpawnPoint09;
+
     // Start is called before the first frame update
     void Start()
     {
         playStageNum = StageSelect.selectNumber;
         if (playStageNum == 0)
         {
-            playStageNum = 6;
+            playStageNum = 9;
         }
         for (int i = 0; i < 10; i++)
         {
@@ -59,8 +60,16 @@ public class ProtoControllerEnemy : MonoBehaviour
             {
                 playSpawnPoint[i] = SpawnPoint08[i];
             }
+            
         }
-        if (playStageNum > 3 && playStageNum < 9)
+        for (int i = 0; i < 25; i++)
+        {
+            if (playStageNum == 9)
+            {
+                playSpawnPoint[i] = SpawnPoint09[i];
+            }
+        }
+        if (playStageNum > 4 && playStageNum < 9)
         {
             spawnTime *= 1.5f;
         }
@@ -76,7 +85,7 @@ public class ProtoControllerEnemy : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnTimer > spawnTime)
         {
-            if (playStageNum < 4)
+            if (playStageNum < 4 ||playStageNum==9)
             {
                 int random = Random.Range(0, 23);
                 if (random < 2)
@@ -120,14 +129,17 @@ public class ProtoControllerEnemy : MonoBehaviour
             }
             if(playStageNum==4)
             {
-                int random = Random.Range(0, 23);
+                int random = Random.Range(0, 20);
+                if (random < 2)
+                {
+                    SpawnDrawFly();
+                }else
                 if (random < 15)
                 {
                     SpawnDraw1();
                 }
                 else
                 {
-                    SpawnDraw1();
                     SpawnDraw1();
                     SpawnDraw1();
                 }
@@ -250,6 +262,36 @@ public class ProtoControllerEnemy : MonoBehaviour
                     SpawnDrawAll();
                 }
             }
+            if (playStageNum == 9)
+            {
+                int random = Random.Range(0, 33);
+                if (random < 5)
+                {
+                    SpawnDrawStage9_0();
+                }else
+                    if (random < 10)
+                {
+                    SpawnDrawStage9_1();
+                }else
+                    if (random < 15)
+                {
+                    SpawnDrawStage9_2();
+                }else if (random < 20)
+                {
+                    SpawnDrawStage9_3();
+                }else if (random < 25)
+                {
+                    SpawnDrawStage9_4();
+                }else if (random < 30)
+                {
+                    SpawnDrawStage9_5();
+                }
+                else
+                {
+                    SpawnDrawStage9_All();
+                    Debug.Log("SpawnAll!");
+                }
+            }
             spawnTimer = 0;
         }
     }
@@ -335,5 +377,81 @@ public class ProtoControllerEnemy : MonoBehaviour
         SpawnDraw3();
         SpawnDraw4();
         SpawnDraw5();
+    }
+    void SpawnDrawStage9_0()
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            int rand = Random.Range(0, 25);
+            if (rand < 10 || rand > 15)
+            {
+                ObjectEnemy0(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+            }
+        }
+        
+    }
+    void SpawnDrawStage9_1()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            int rand = Random.Range(0, 25);
+            if (rand < 10 || rand > 15)
+            {
+                ObjectEnemy1(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+            }
+        }
+    }
+
+    void SpawnDrawStage9_2()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            int rand = Random.Range(0, 25);
+            if (rand < 10 || rand > 15)
+            {
+                ObjectEnemy2(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+            }
+        }
+    }
+    void SpawnDrawStage9_3()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            int rand = Random.Range(0, 25);
+            ObjectEnemy3(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+        }
+    }
+    void SpawnDrawStage9_4()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            int rand = Random.Range(0, 25);
+            ObjectEnemy4(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+        }
+    }
+    void SpawnDrawStage9_5()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            int rand = Random.Range(0, 25);
+            if (rand < 10 || rand > 15)
+            {
+                ObjectEnemy5(playSpawnPoint[rand].transform.position.x, playSpawnPoint[rand].transform.position.y);
+            }
+        }
+    }
+    void SpawnDrawStage9_All()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            SpawnDrawStage9_0();
+            SpawnDrawStage9_1();
+            SpawnDrawStage9_2();
+            SpawnDrawStage9_3();
+            SpawnDrawStage9_4();
+            SpawnDrawStage9_3();
+            SpawnDrawStage9_4();
+            SpawnDrawStage9_5();
+        }
     }
 }
