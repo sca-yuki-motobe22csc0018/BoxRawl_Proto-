@@ -11,8 +11,12 @@ public class LevelSelect : MonoBehaviour
     public static bool levelUpEnd;
     public GameObject Heal;
     public GameObject[] HealCount;
+    public GameObject Guard;
+    public GameObject[] GuardCount;
     bool heal;
     int healLevel;
+    bool guard;
+    int guardLevel;
     public GameObject timerText;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +31,13 @@ public class LevelSelect : MonoBehaviour
             HealCount[i].SetActive(false);
         }
         healLevel = 0;
-        //Rota.speed = -6;
+        Guard.SetActive(false);
+        guard = false;
+        for (int i = 0; i < 6; i++)
+        {
+            GuardCount[i].SetActive(false);
+        }
+        guardLevel = 0;
     }
 
     // Update is called once per frame
@@ -100,7 +110,38 @@ public class LevelSelect : MonoBehaviour
                 }
                 if (pos[num].tag == "Level_Barrier")
                 {
-
+                    if (guardLevel == 3)
+                    {
+                        //Rota.speed -= 1;
+                    }
+                    if (healLevel == 2)
+                    {
+                        for (int i = 0; i < 6; i++)
+                        {
+                            GuardCount[i].SetActive(false);
+                        }
+                        GuardCount[3].SetActive(true);
+                        GuardCount[4].SetActive(true);
+                        GuardCount[5].SetActive(true);
+                        guardLevel = 3;
+                    }
+                    if (guardLevel == 1)
+                    {
+                        for (int i = 0; i < 6; i++)
+                        {
+                            GuardCount[i].SetActive(false);
+                        }
+                        GuardCount[1].SetActive(true);
+                        GuardCount[2].SetActive(true);
+                        guardLevel = 2;
+                    }
+                    if (!heal)
+                    {
+                        heal = true;
+                        Heal.SetActive(true);
+                        guardLevel = 1;
+                        HealCount[0].SetActive(true);
+                    }
                 }
                 if (pos[num].tag == "Level_Heal")
                 {
@@ -162,7 +203,7 @@ public class LevelSelect : MonoBehaviour
                     JumpShot.shotLv++;
                 }
                 Debug.Log(pos[num].tag);
-                timerText.SetActive(true);
+                //timerText.SetActive(true);
                 SEController.get = true;
                 PlayerMove.PlayerDead = true;
                 levelUpEnd = true;

@@ -337,7 +337,8 @@ public class PlayerMove : MonoBehaviour
         {
             if (startRota)
             {
-                EnemySpawnner.SetActive(true);
+                if (SceneManager.GetActiveScene().name == "Main")
+                    EnemySpawnner.SetActive(true);
                 if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.S))
                 {
                     //Debug.Log(ParyController.parySet);
