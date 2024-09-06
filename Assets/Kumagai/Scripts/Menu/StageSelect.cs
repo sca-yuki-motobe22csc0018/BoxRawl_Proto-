@@ -148,6 +148,7 @@ public class StageSelect : MonoBehaviour
             }
                 else if (y != 1 || x != 1)
                 {
+                    
                     selectNumber = int.Parse(stages[x, y].gameObject.name);
                     descriptionFlag = true;
                     //
