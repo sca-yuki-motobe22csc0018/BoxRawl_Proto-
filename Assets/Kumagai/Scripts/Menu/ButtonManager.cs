@@ -36,6 +36,7 @@ public class ButtonManager : MonoBehaviour
         stageSelect = false;
         yesOrNo = "";
         thisSceneName = "";
+        StageSelect.selectNumber = 0;
         StartCoroutine(ButtonStart());
         StageDscript.nextScene = false;
     }
@@ -173,8 +174,6 @@ public class ButtonManager : MonoBehaviour
         stageSelect = false;
             foreach(var child in stageWindow) { child.SetActive(false); }
             yield return new WaitForSeconds(0.5f);
-            //sceneChangeFlag = true;
-            yield return new WaitForSeconds(1f);
             //sceneGround.SetActive(false);
             //this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             //this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;

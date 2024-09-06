@@ -36,9 +36,11 @@ public class StageScore : MonoBehaviour
         //        scores[i] = PlayerPrefs.GetInt(scoreDatas[i]);
         //    }
         //}
-        if (StageSelect.selectNumber != 0)
+        
+        if (StageSelect.selectNumber < 0)
         {
             check.SetActive(scores[StageSelect.selectNumber - 1] > 10000);
+            stageHighScore.text = scores[StageSelect.selectNumber - 1].ToString();
         }
         else
         {
@@ -49,7 +51,8 @@ public class StageScore : MonoBehaviour
             }
             tmp = scores;
         }
-        stageHighScore.text = scores[StageSelect.selectNumber - 1].ToString();
+      
+      
         for (int i = 0; i < 8; i++)
         {
             if (scores[i] >= 10000)
