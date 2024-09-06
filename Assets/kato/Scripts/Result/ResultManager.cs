@@ -9,7 +9,7 @@ public class ResultManager : MonoBehaviour
 {
     public static int totalScore;
     float countScore;
-    bool isCountUp;
+    bool scoreDisplayEnd;
     int tenScore;
     static float time;   //生き残った時間
     static float timeScore = 10;
@@ -34,6 +34,7 @@ public class ResultManager : MonoBehaviour
     [SerializeField] GameObject nameCanvas;
 
     bool isRank;
+    float totalScoreCountupTime = 3.0f;
 
     enum Result
     {
@@ -58,7 +59,7 @@ public class ResultManager : MonoBehaviour
         result = Result.Exp;
         nameCanvas.SetActive(false);
         countScore = 0;
-        isCountUp = true;
+        scoreDisplayEnd = false;
 
         myName = null;
 
@@ -83,11 +84,30 @@ public class ResultManager : MonoBehaviour
     void Update()
     {
         counter += Time.deltaTime;
-        if (isCountUp)
+        if (!scoreDisplayEnd)
         {
-            scoreDisplay();
+            StartCoroutine(scoreDisplay2());
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                scoreText[1].DOFade(1, 1.0f);
+                scoreText[2].DOFade(1, 1.0f);
+                scoreText[3].DOFade(1, 1.0f);
+                scoreText[4].DOFade(1, 1.0f);
+
+                countScore = totalScore;
+                scoreText[0].text = totalScore.ToString("f0");
+                if (clearScore <= totalScore) //クリアチェック
+                {
+                    mask.padding = new Vector4(0, 0, 0, 0);
+                }
+
+                pressText.SetActive(true);
+                scoreDisplayEnd = true;
+            }
+            //scoreDisplay();
         }
-        else if(!isCountUp)
+        else if(scoreDisplayEnd)
         {
 
             if (Input.GetKeyDown(KeyCode.Space)
@@ -96,26 +116,145 @@ public class ResultManager : MonoBehaviour
                 SceneManager.LoadScene("Menu");
             }
         }
-
-        //if (Input.GetKeyUp(KeyCode.Return))
-        //{
-        //    SceneManager.LoadScene("Menu");
-        //}
     }
 
+    /// <summary>
+    /// スコア計算
+    /// </summary>
+    void scoreCalculation()
+    {
+        time = ScoreManager.timer;
+        level = ScoreManager.lvUpCount;
+        enemyKillNum = ScoreManager.bigEnemyKillCount;
+        smallEnemyKillNum = ScoreManager.smallEnemyKillCount;
+
+#if false
+        //デバッグ用
+        time = Random.Range(100,601);
+        level = Random.Range(10, 100);
+        enemyKillNum = Random.Range(10, 50);
+        smallEnemyKillNum = Random.Range(10, 50);
+#endif
+
+        timeTotalScore = (int)Mathf.Floor(time * timeScore);
+        levelTotalScore = level * levelScore;
+        enemyKillTotalScore = enemyKillNum * enemyKillScore;
+        sEnemyKillTotalScore = smallEnemyKillNum * sEnemyKillScore;
+        totalScore = (int)timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
+
+        //scoreText[0].text = totalScore.ToString();
+        scoreText[1].text = level.ToString();
+        scoreText[2].text = time.ToString("f2");
+        scoreText[3].text = enemyKillNum.ToString();
+        scoreText[4].text = smallEnemyKillNum.ToString();
+    }
+
+    /// <summary>
+    /// 名前入力
+    /// いらないかも？
+    /// </summary>
+    void nameInput()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            myName = nameField.text;
+            Debug.Log(myName);
+            RankingSet.setScore(totalScore,myName);
+            RankingSet.rankingUpdate = true;
+        }
+    }
+
+    /// <summary>
+    /// スコア受け取り
+    /// </summary>
+    /// <param name="_time"></param>
+    /// <param name="_Exp"></param>
+    /// <param name="_enemyKill"></param>
+    /// <param name="_senemyKill"></param>
+    public static void SetScore (float _time, int _Exp , int _enemyKill , int _senemyKill)
+    {
+        time = _time;
+        level = _Exp;
+        enemyKillNum = _enemyKill;
+        smallEnemyKillNum = _senemyKill;
+    }
+
+    /// <summary>
+    /// 合計スコア取得
+    /// </summary>
+    /// <param name="_time"></param>
+    /// <param name="_Exp"></param>
+    /// <param name="_enemyKill"></param>
+    /// <param name="_senemyKill"></param>
+    /// <returns></returns>
+    public static int GetTotalScore(float _time, int _Exp, int _enemyKill, int _senemyKill)
+    {
+        time = _time;
+        level = _Exp;
+        enemyKillNum = _enemyKill;
+        smallEnemyKillNum = _senemyKill;
+        timeTotalScore = (time * timeScore);
+        levelTotalScore = level * levelScore;
+        enemyKillTotalScore = enemyKillNum * enemyKillScore;
+        sEnemyKillTotalScore = smallEnemyKillNum * sEnemyKillScore;
+        totalScore = (int)timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
+        return totalScore;
+    }
+
+    /// <summary>
+    /// スコアを表示
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator scoreDisplay2()
+    {
+        for(int i = 1; i < scoreText.Length; i++) 
+        {
+            scoreText[i].DOFade(1, 1.0f);
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        if (countScore < totalScore)
+        {
+            countScore += (totalScore * Time.deltaTime) / totalScoreCountupTime;
+            scoreText[0].text = countScore.ToString("f0");
+        }
+        else if (countScore > totalScore)
+        {
+            countScore = totalScore;
+            scoreText[0].text = totalScore.ToString("f0");
+            result = Result.ClearCheck;
+        }
+        yield return new WaitForSeconds(totalScoreCountupTime);
+        if (clearScore <= totalScore) //クリアチェック
+        {
+            mask.padding -= new Vector4(0, 0, ((75 * Time.deltaTime) * 5), 0);
+            if (mask.padding.z < 0)
+            {
+                result = Result.None;
+            }
+        }
+        scoreDisplayEnd = true;
+        pressText.SetActive(true);
+        yield return null;
+    }
+
+    /// <summary>
+    /// 古いスコア表示
+    /// 後で消す
+    /// </summary>
     void scoreDisplay()
     {
-        switch(result)
+        switch (result)
         {
             case Result.Exp:
-                scoreText[1].DOFade(1,1.0f);
-                if(counter >= 0.5f)
+                scoreText[1].DOFade(1, 1.0f);
+                if (counter >= 0.5f)
                 {
                     result = Result.Time;
                 }
                 break;
             case Result.Time:
-                scoreText[2].DOFade(1,1.0f);
+                scoreText[2].DOFade(1, 1.0f);
                 if (counter >= 1.0f)
                 {
                     result = Result.Enemy;
@@ -148,13 +287,13 @@ public class ResultManager : MonoBehaviour
                     result = Result.ClearCheck;
                 }
 
-                if(0 >= totalScore)
+                if (0 >= totalScore)
                 {
                     result = Result.ClearCheck;
-                    Debug.Log("yonda");
+                    Debug.Log("クリアチェック");
                 }
 
-                if(Input.GetKey(KeyCode.Return))
+                if (Input.GetKey(KeyCode.Return))
                 {
                     countScore = totalScore;
                     scoreText[0].text = totalScore.ToString("f0");
@@ -166,7 +305,7 @@ public class ResultManager : MonoBehaviour
                 if (clearScore <= totalScore)
                 {
                     mask.padding -= new Vector4(0, 0, ((75 * Time.deltaTime) * 5), 0);
-                    if(mask.padding.z < 0)
+                    if (mask.padding.z < 0)
                     {
                         result = Result.None;
                     }
@@ -178,13 +317,13 @@ public class ResultManager : MonoBehaviour
                 break;
             case Result.None:
                 pressText.SetActive(true);
-                isCountUp = false;
+                scoreDisplayEnd = false;
                 break;
             default:
                 break;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             scoreText[1].DOFade(1, 1.0f);
             scoreText[2].DOFade(1, 1.0f);
@@ -196,68 +335,7 @@ public class ResultManager : MonoBehaviour
             result = Result.ClearCheck;
 
             pressText.SetActive(true);
-            isCountUp = false;
+            scoreDisplayEnd = false;
         }
-    }
-
-    void scoreCalculation()
-    {
-#if false
-        //デバッグ用
-        time = Random.Range(100,601);
-        level = Random.Range(10, 100);
-        enemyKillNum = Random.Range(10, 50);
-        smallEnemyKillNum = Random.Range(10, 50);
-#endif
-
-        time = ScoreManager.timer;
-        level = ScoreManager.lvUpCount;
-        enemyKillNum = ScoreManager.bigEnemyKillCount;
-        smallEnemyKillNum = ScoreManager.smallEnemyKillCount;
-
-        timeTotalScore = (int)Mathf.Floor(time * timeScore);
-        levelTotalScore = level * levelScore;
-        enemyKillTotalScore = enemyKillNum * enemyKillScore;
-        sEnemyKillTotalScore = smallEnemyKillNum * sEnemyKillScore;
-        totalScore = (int)timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
-
-        //scoreText[0].text = totalScore.ToString();
-        scoreText[1].text = level.ToString();
-        scoreText[2].text = time.ToString("f2");
-        scoreText[3].text = enemyKillNum.ToString();
-        scoreText[4].text = smallEnemyKillNum.ToString();
-    }
-
-    void nameInput()
-    {
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            myName = nameField.text;
-            Debug.Log(myName);
-            RankingSet.setScore(totalScore,myName);
-            RankingSet.rankingUpdate = true;
-        }
-    }
-
-    public static void SetScore (float _time, int _Exp , int _enemyKill , int _senemyKill)
-    {
-        time = _time;
-        level = _Exp;
-        enemyKillNum = _enemyKill;
-        smallEnemyKillNum = _senemyKill;
-    }
-
-    public static int GetTotalScore(float _time, int _Exp, int _enemyKill, int _senemyKill)
-    {
-        time = _time;
-        level = _Exp;
-        enemyKillNum = _enemyKill;
-        smallEnemyKillNum = _senemyKill;
-        timeTotalScore = (time * timeScore);
-        levelTotalScore = level * levelScore;
-        enemyKillTotalScore = enemyKillNum * enemyKillScore;
-        sEnemyKillTotalScore = smallEnemyKillNum * sEnemyKillScore;
-        totalScore = (int)timeTotalScore + levelTotalScore + enemyKillTotalScore + sEnemyKillTotalScore;
-        return totalScore;
     }
 }

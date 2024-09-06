@@ -27,9 +27,11 @@ public class Death : MonoBehaviour
 
     void Update()
     {
-
     }
 
+    /// <summary>
+    /// ‰ó‚ê‚é‰‰o
+    /// </summary>
     void breack()
     {
         for (int i = 0; i < fragmentObj.Length; i++)

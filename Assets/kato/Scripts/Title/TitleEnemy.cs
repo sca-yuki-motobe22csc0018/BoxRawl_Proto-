@@ -19,7 +19,6 @@ public class TitleEnemy : MonoBehaviour
 
     [SerializeField] GameObject[] enemySkin;
 
-    // Start is called before the first frame update
     void Start()
     {
         enemyStartPos = this.gameObject.transform.position;
@@ -36,6 +35,26 @@ public class TitleEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        eMove();
+    }
+
+    /// <summary>
+    /// タイトルプレイヤーに当たった時の処理
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            this.gameObject.transform.position = new Vector3(-12.0f, 0f, 0f);
+        }
+    }
+
+    /// <summary>
+    /// 敵の動き
+    /// </summary>
+    void eMove()
+    {
         if (!TitleManager.isStart)
         {
             this.gameObject.transform.position += new Vector3(-4.0f, 0, 0) * Time.deltaTime;
@@ -45,7 +64,7 @@ public class TitleEnemy : MonoBehaviour
         {
             TitlePlayer.isJump = false;
             EnemyNum = Random.Range(0, 2);
-            if (EnemyNum == 0)
+            if (EnemyNum == 0)　//牛
             {
                 EnemyRg.velocity = Vector2.zero;
                 EnemyRg.angularVelocity = 0.0f;
@@ -56,20 +75,21 @@ public class TitleEnemy : MonoBehaviour
                 enemySkin[0].SetActive(true);
                 enemySkin[1].SetActive(false);
             }
-            else if (EnemyNum == 1)
+            else if (EnemyNum == 1) //モモンガ
             {
                 isUp = true;
                 EnemyRg.velocity = Vector2.zero;
                 EnemyRg.angularVelocity = 0.0f;
                 EnemyRg.gravityScale = 0.12f;
                 this.gameObject.transform.position = new Vector3(enemyStartPos.x, 4.3f, enemyStartPos.z);
-                
+
                 //enemySpr.sprite = enemySprite[EnemyNum];
                 enemySkin[0].SetActive(false);
                 enemySkin[1].SetActive(true);
             }
         }
 
+        //上に飛んでいく
         if (this.gameObject.transform.position.x - playerObj.transform.position.x < 2 && isUp)
         {
             if (EnemyNum == 1)
@@ -81,14 +101,6 @@ public class TitleEnemy : MonoBehaviour
 
                 Debug.Log("上に行く");
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            this.gameObject.transform.position = new Vector3(-12.0f, 0f, 0f);
         }
     }
 }

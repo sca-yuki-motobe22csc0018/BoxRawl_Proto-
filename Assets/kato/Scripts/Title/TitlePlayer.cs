@@ -10,19 +10,13 @@ public class TitlePlayer : MonoBehaviour
 
     Rigidbody2D rg;
     int moveNum;
-    //public GameObject jumpObj;
-    //public GameObject dropObj;
-    // Start is called before the first frame update
+
     void Start()
     {
         rg = this.gameObject.GetComponent<Rigidbody2D>();
         moveNum = 0;
-
-        //jumpObj.SetActive(false);
-        //dropObj.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 2 && !isJump)
@@ -39,6 +33,10 @@ public class TitlePlayer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// タイトルプレイヤー演出
+    /// </summary>
+    /// <returns></returns>
     IEnumerator playerAttack()
     {
         yield return new WaitForSeconds(0.4f);
@@ -53,8 +51,6 @@ public class TitlePlayer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            //jumpObj.SetActive(false);
-            //dropObj.SetActive(false);
             PlayerSkin.Rota = false;
         }
     }
