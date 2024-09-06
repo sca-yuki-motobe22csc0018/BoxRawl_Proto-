@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7563644696057587779}
   - component: {fileID: 3244210343863933058}
   - component: {fileID: 5889106698357006483}
-  - component: {fileID: 2087231801769292055}
-  - component: {fileID: 5116848453018951834}
   m_Layer: 8
   m_Name: BetaBeeEnemy
   m_TagString: Enemy
@@ -78,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.25088286, g: 1, b: 0, a: 0}
+  m_Color: {r: 0.25098038, g: 1, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -115,66 +113,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &2087231801769292055
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3354638904345986979}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &5116848453018951834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3354638904345986979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 732c4bc10ae64b448a0878e74bd9a967, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerObj: {fileID: 0}
-  BulletPrefab: {fileID: 8449077472646270070, guid: 9c21641290ac6394f9c79473d555cb13, type: 3}
-  beeSkin: {fileID: 3772810448609058931}
 --- !u!1 &3772810448609058931
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +125,7 @@ GameObject:
   - component: {fileID: 1846752266862066201}
   - component: {fileID: 6779280401913708217}
   - component: {fileID: 7111396628242389747}
-  - component: {fileID: 8210266668512565579}
+  - component: {fileID: 4442747550432044167}
   m_Layer: 8
   m_Name: Spine GameObject (bee)
   m_TagString: Untagged
@@ -305,7 +243,7 @@ MonoBehaviour:
   _animationName: animation
   loop: 1
   timeScale: 1
---- !u!114 &8210266668512565579
+--- !u!114 &4442747550432044167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,14 +252,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3772810448609058931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51dd8ff245430ca4a9447cc0e72197f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 953a01013d631a1478f4750cc2e1046b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerObj: {fileID: 0}
+  PlayerObj: {fileID: 3354638904345986979}
+  BulletPrefab: {fileID: 8449077472646270070, guid: 9c21641290ac6394f9c79473d555cb13, type: 3}
   mainObj: {fileID: 3354638904345986979}
   Attack: b
   Attack2: c
   Normal: animation
+  pary: {fileID: 8824038436774061542}
 --- !u!1 &8528833457590236484
 GameObject:
   m_ObjectHideFlags: 0

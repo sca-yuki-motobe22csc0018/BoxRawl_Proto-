@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
     {
         if (pary.gameObject == null)
         {
+            Debug.Log("a");
             Destroy(this.gameObject);
         }
         if (pary.gameObject != null)
@@ -33,6 +34,14 @@ public class Bullet : MonoBehaviour
             || collision.gameObject.tag == "Ground"
             || collision.gameObject.tag == "Wall"
             || collision.gameObject.tag == "Ceiling")
+        {
+            Destroy(pary.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Drop")
         {
             Destroy(pary.gameObject);
         }

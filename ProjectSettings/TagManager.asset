@@ -35,6 +35,7 @@ TagManager:
   - Level_StateJ
   - Level_Bullet
   - Heal
+  - Guard
   layers:
   - Default
   - TransparentFX
@@ -49,7 +50,7 @@ TagManager:
   - particle
   - particleTrigger
   - DeathDirection
-  - 
+  - Point
   - 
   - 
   - 

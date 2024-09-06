@@ -114,7 +114,7 @@ public class LevelSelect : MonoBehaviour
                     {
                         //Rota.speed -= 1;
                     }
-                    if (healLevel == 2)
+                    if (guardLevel == 2)
                     {
                         for (int i = 0; i < 6; i++)
                         {
@@ -135,12 +135,12 @@ public class LevelSelect : MonoBehaviour
                         GuardCount[2].SetActive(true);
                         guardLevel = 2;
                     }
-                    if (!heal)
+                    if (!guard)
                     {
-                        heal = true;
-                        Heal.SetActive(true);
+                        guard = true;
+                        Guard.SetActive(true);
                         guardLevel = 1;
-                        HealCount[0].SetActive(true);
+                        GuardCount[0].SetActive(true);
                     }
                 }
                 if (pos[num].tag == "Level_Heal")

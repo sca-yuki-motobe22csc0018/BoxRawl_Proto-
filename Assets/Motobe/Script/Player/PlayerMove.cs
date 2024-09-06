@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
-using Unity.VisualScripting;
 public class PlayerMove : MonoBehaviour
 {
     //Rigidbody
@@ -101,11 +97,17 @@ public class PlayerMove : MonoBehaviour
 
     public static bool ParyJump;
 
-    //public GameObject dekoi;
+    public GameObject Barrier;
+    public static bool barrier;
+
+    public static bool heal;
 
     // Start is called before the first frame update
     void Start()
     {
+        barrier = false;
+        heal = false;
+        Barrier.SetActive(false);
         if(timerText!=null)
         timerText.SetActive(false);
         //dekoi.SetActive(false);
@@ -306,6 +308,21 @@ public class PlayerMove : MonoBehaviour
         {
             rb.gravityScale = 5;
         }
+
+        if (barrier)
+        {
+            Barrier.SetActive(true);
+        }
+        if (heal)
+        {
+            heal = false;
+            if (Hp < 5)
+            {
+                HpObject[Hp].SetActive(true);
+                Hp += 1;
+            }
+        }
+
         //壁めり込み防止
         if (Input.GetKeyDown(KeyCode.A) && !right)
         {
@@ -470,68 +487,57 @@ public class PlayerMove : MonoBehaviour
                 DropObject.SetActive(false);
             }
         }
-        /*
-        if (Hp == 1)
-        {
-            HpObject[0].SetActive(true);
-        }
-        if (Hp == 2)
-        {
-            HpObject[1].SetActive(true);
-        }
-        if (Hp == 3)
-        {
-            HpObject[2].SetActive(true);
-        }
-        if (Hp == 4)
-        {
-            HpObject[3].SetActive(true);
-        }
-        if (Hp == 5)
-        {
-            HpObject[4].SetActive(true);
-        }
-        */
         if (Trigger.EnemyTrigger)
         {
             if (!Drop)
             {
                 if (!blink)
                 {
-                    if (Hp > 1)
+                    if (!barrier)
                     {
-                        HpObject[Hp - 1].SetActive(false);
-                        Hp -= 1;
+                        if (Hp > 1)
+                        {
+                            HpObject[Hp - 1].SetActive(false);
+                            Hp -= 1;
+                            blink = true;
+                            CameraMove.damageSway = true;
+                            DamageEffect();
+                            SEController.damage = true;
+                        }
+                        else
+                        {
+                            if (SceneManager.GetActiveScene().name == "Tutorial")
+                            {
+                                Hp = 5;
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    HpObject[i].SetActive(false);
+                                }
+                                for (int i = 0; i < Hp; i++)
+                                {
+                                    HpObject[i].SetActive(true);
+                                }
+                                return;
+                            }
+                            if (!death)
+                            {
+                                death = true;
+                                CameraMove.damageSway = true;
+                                DamageEffect();
+                                SEController.dead = true;
+                                Dead();
+                                blink = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Barrier.SetActive(false);
+                        barrier = false;
                         blink = true;
                         CameraMove.damageSway = true;
                         DamageEffect();
                         SEController.damage = true;
-                    }
-                    else
-                    {
-                        if (SceneManager.GetActiveScene().name == "Tutorial")
-                        {
-                            Hp = 5;
-                            for (int i = 0; i < 5; i++)
-                            {
-                                HpObject[i].SetActive(false);
-                            }
-                            for (int i = 0; i < Hp; i++)
-                            {
-                                HpObject[i].SetActive(true);
-                            }
-                            return;
-                        }
-                        if (!death)
-                        {
-                            death = true;
-                            CameraMove.damageSway = true;
-                            DamageEffect();
-                            SEController.dead = true;
-                            Dead();
-                            blink = true;
-                        }
-
                     }
                 }
             }
