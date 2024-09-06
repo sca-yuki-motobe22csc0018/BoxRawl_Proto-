@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// 蜂のスクリプト
+/// </summary>
 public class FlyEnemy : MonoBehaviour
 {
     public GameObject PlayerObj;
@@ -81,6 +84,9 @@ public class FlyEnemy : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 攻撃
+    /// </summary>
     public void BulletAttack()
     {
         BulletPos = new Vector2(this.gameObject.transform.position.x,this.gameObject.transform.position.y);
@@ -92,8 +98,9 @@ public class FlyEnemy : MonoBehaviour
         //BeeSkin.anim2 = false;
     }
 
-    
-
+    /// <summary>
+    /// 移動
+    /// </summary>
     public void Move()
     {
         MoveNum = Random.Range(1, 3);

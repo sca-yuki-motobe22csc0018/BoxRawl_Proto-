@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// –I‚ª”ò‚Î‚·’e‚Ìˆ—
+/// </summary>
 public class Bullet : MonoBehaviour
 {
     public GameObject pary;

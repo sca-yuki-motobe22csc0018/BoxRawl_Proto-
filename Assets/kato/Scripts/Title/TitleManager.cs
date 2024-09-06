@@ -78,6 +78,9 @@ public class TitleManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// スタート演出1
+    /// </summary>
     void startGame()
     {
         GroundObj.transform.DOMove(tergetObj.transform.position, 5.0f);
@@ -91,9 +94,12 @@ public class TitleManager : MonoBehaviour
         }
 
         StartCoroutine(playerJump());
-        
     }
 
+    /// <summary>
+    /// スタート演出2
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator playerJump()
     {
         yield return new WaitForSeconds(3.0f);
@@ -117,7 +123,4 @@ public class TitleManager : MonoBehaviour
         PlayerPrefs.Save();
         yield return null;
     }
-
-    
-
 }
