@@ -42,6 +42,8 @@ public class BeeEnemy : MonoBehaviour
     bool anim2;
     Vector3 scale;
 
+    bool isGround;
+
     public GameObject pary;
 
     /// <summary> ゲームオブジェクトに設定されているSkeletonAnimation </summary>
@@ -53,6 +55,7 @@ public class BeeEnemy : MonoBehaviour
 
     void Start()
     {
+        isGround = false;
         this.transform.parent = null;
         Destroy(mainObj);
         PlayerObj = GameObject.FindWithTag("Player");
@@ -105,19 +108,40 @@ public class BeeEnemy : MonoBehaviour
         
         timer += Time.deltaTime*2;
 
-        if (timer > 1 && isAttack)
+        if(timer > 0 && isGround)
+        {
+            //isMove = false;
+            isAttack = false;
+            //Move();
+            //timer = 4;
+        }
+
+        if (timer > 0f && isAttack && !isGround)
         {
             isAttack = false;
             anim = true;
         }
 
-        if (timer > 3 && isMove)
+        if (timer > 1f && isGround && isMove)
         {
             isMove = false;
             Move();
         }
 
-        if (timer > 11)
+        if (timer > 3f && isGround)
+        {
+            isAttack = true;
+            isMove = true;
+            timer = 0;
+        }
+
+        if (timer > 3f && isMove && !isGround)
+        {
+            isMove = false;
+            Move();
+        }
+
+        if (timer > 4)
         {
             isAttack = true;
             isMove = true;
@@ -160,36 +184,31 @@ public class BeeEnemy : MonoBehaviour
 
     public void Move()
     {
-        MoveNum = Random.Range(1, 3);
-
-        if (MoveNum == 1)
+        MoveNum = Random.Range(0, 3);
+        if (MoveNum <2)
         {
-            if (this.gameObject.transform.position.x - PlayerObj.transform.position.x > 0)
+            if (this.gameObject.transform.position.y > PlayerObj.transform.position.y)
             {
-                addPos_X = -5;
+                addPos_Y = -5;
             }
             else
             {
-                addPos_X = 5;
+                addPos_Y = 5;
             }
 
-            if (this.gameObject.transform.position.y > 10)
+            if (this.gameObject.transform.position.x > PlayerObj.transform.position.x)
             {
-                addPos_Y = -8;
+                addPos_X = -3;
             }
-            else if (this.gameObject.transform.position.y > 0)
+            else
             {
-                addPos_Y = Random.Range(-8, 8);
-            }
-            else if (this.gameObject.transform.position.y < 0)
-            {
-                addPos_Y = 5;
+                addPos_X = 3;
             }
         }
         else if (MoveNum == 2)
         {
-            addPos_X = Random.Range(-8, 8);
-            addPos_Y = Random.Range(0, 5);
+            addPos_X = Random.Range(-5, 5);
+            addPos_Y = Random.Range(8, 8);
         }
 
         this.gameObject.transform.DOMove(new Vector2(this.gameObject.transform.position.x + addPos_X,
@@ -205,11 +224,29 @@ public class BeeEnemy : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        
+
         if (other.gameObject.CompareTag("DestroyObj"))
         {
             Destroy(this.gameObject);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Wall"))
+        {
+            isGround = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wall"))
+        {
+            isGround = false;
+        }
+    }
+
     private void OnSpineComplete(TrackEntry trackEntry)
     {
         TrackEntry trackEntry2 = spineAnimationState.SetAnimation(0, Attack, false);
