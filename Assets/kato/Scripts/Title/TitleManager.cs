@@ -61,7 +61,8 @@ public class TitleManager : MonoBehaviour
             isStart = true;
             hallObject.SetActive(false);
             ButtonImage.SetActive(false);
-            startGame();
+            //startGame();
+            Invoke("startGame", 0.5f);
         }
 
         FadeIO.FadeOut(startFlag);
@@ -84,14 +85,14 @@ public class TitleManager : MonoBehaviour
     void startGame()
     {
         GroundObj.transform.DOMove(tergetObj.transform.position, 5.0f);
-        if(playerObj.transform.position.x > EnemyObj.transform.position.x)
-        {
-            EnemyObj.transform.DOMove(EnemyObj.transform.position + (tergetObj.transform.position + GroundObj.transform.position), 5.0f);
-        }
-        else
-        {
-            EnemyObj.transform.DOMoveX(EnemyObj.transform.position.x + (GroundObj.transform.position.x - tergetObj.transform.position.x), 5.0f);
-        }
+        //if(playerObj.transform.position.x > EnemyObj.transform.position.x)
+        //{
+        //    EnemyObj.transform.DOMove(EnemyObj.transform.position + (tergetObj.transform.position + GroundObj.transform.position), 5.0f);
+        //}
+        //else
+        //{
+        //    EnemyObj.transform.DOMoveX(EnemyObj.transform.position.x + (GroundObj.transform.position.x - tergetObj.transform.position.x), 5.0f);
+        //}
 
         StartCoroutine(playerJump());
     }

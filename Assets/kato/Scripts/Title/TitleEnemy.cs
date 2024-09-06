@@ -19,6 +19,7 @@ public class TitleEnemy : MonoBehaviour
 
     [SerializeField] GameObject[] enemySkin;
 
+    int moveSpeed = 1;
     void Start()
     {
         enemyStartPos = this.gameObject.transform.position;
@@ -30,6 +31,8 @@ public class TitleEnemy : MonoBehaviour
         //enemySpr = EnemyObj.GetComponent<SpriteRenderer>();
         enemySkin[0].SetActive(true);
         enemySkin[1].SetActive(false);
+
+        moveSpeed = 1;
     }
 
     // Update is called once per frame
@@ -55,12 +58,14 @@ public class TitleEnemy : MonoBehaviour
     /// </summary>
     void eMove()
     {
-        if (!TitleManager.isStart)
+        if (TitleManager.isStart)
         {
-            this.gameObject.transform.position += new Vector3(-4.0f, 0, 0) * Time.deltaTime;
+            moveSpeed = 2;
         }
+        this.gameObject.transform.position += new Vector3(-4.0f * moveSpeed, 0, 0) * Time.deltaTime;
 
-        if (this.gameObject.transform.position.x < -11)
+        if (this.gameObject.transform.position.x < -11
+            && !TitleManager.isStart)
         {
             TitlePlayer.isJump = false;
             EnemyNum = Random.Range(0, 2);
