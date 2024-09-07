@@ -13,7 +13,7 @@ public class GuardPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector3(p.transform.position.x-1.15f,p.transform.position.y+1.15f,0);
+        this.transform.position = new Vector3(p.transform.position.x-0.9f,p.transform.position.y+0.9f,0);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

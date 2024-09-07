@@ -96,18 +96,20 @@ public class LevelSelect : MonoBehaviour
                 if (pos[num].tag == "Level_InvincibleD")
                 {
                     PlayerMove.DashBarrier = true;
-                    if(PlayerMove.DashBarrierTime == 0)
+                    if (PlayerMove.DashBarrierTime == 4)
                     {
-                        PlayerMove.DashBarrierTime = 5;
+                        PlayerMove.DashBarrierTime = 2;
                     }
                     if (PlayerMove.DashBarrierTime == 5)
                     {
                         PlayerMove.DashBarrierTime = 4;
                     }
-                    if (PlayerMove.DashBarrierTime == 4)
+                    if (PlayerMove.DashBarrierTime == 0)
                     {
-                        PlayerMove.DashBarrierTime = 2;
+                        PlayerMove.DashBarrierTime = 5;
                     }
+                    
+                    
 
                 }
                 if (pos[num].tag == "Level_Bunshin")

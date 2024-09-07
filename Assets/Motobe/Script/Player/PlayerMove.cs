@@ -315,10 +315,30 @@ public class PlayerMove : MonoBehaviour
             rb.gravityScale = 5;
         }
 
-
         if (barrier)
         {
             Barrier.SetActive(true);
+        }
+        else if (DashBarrier)
+        {
+            if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            {
+                DashBarrierTimer += Time.deltaTime;
+            }
+            else
+            if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+            {
+                DashBarrierTimer += Time.deltaTime;
+            }
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+            {
+                DashBarrierTimer = 0;
+            }
+            if (DashBarrierTimer > DashBarrierTime)
+            {
+                barrier = true;
+                DashBarrierTimer = 0;
+            }
         }
         if (heal)
         {
