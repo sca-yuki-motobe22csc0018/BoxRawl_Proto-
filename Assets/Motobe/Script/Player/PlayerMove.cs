@@ -102,9 +102,15 @@ public class PlayerMove : MonoBehaviour
 
     public static bool heal;
 
+    public static bool DashBarrier;
+    public static int DashBarrierTime;
+    float DashBarrierTimer;
+
     // Start is called before the first frame update
     void Start()
     {
+        DashBarrier = false;
+        DashBarrierTime = 0;
         barrier = false;
         heal = false;
         Barrier.SetActive(false);
@@ -309,6 +315,7 @@ public class PlayerMove : MonoBehaviour
             rb.gravityScale = 5;
         }
 
+
         if (barrier)
         {
             Barrier.SetActive(true);
@@ -354,6 +361,8 @@ public class PlayerMove : MonoBehaviour
         {
             if (startRota)
             {
+
+                EnemySpawnner.SetActive(true);
                 if (SceneManager.GetActiveScene().name == "Main")
                     EnemySpawnner.SetActive(true);
                 if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.S))

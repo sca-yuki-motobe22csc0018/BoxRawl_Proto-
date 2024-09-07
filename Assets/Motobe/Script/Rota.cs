@@ -15,6 +15,9 @@ public class Rota : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, -speed * 1 * Time.deltaTime);
+        if (!PlayerMove.PlayerDead)
+        {
+            transform.Rotate(0, 0, -speed * 1 * Time.deltaTime);
+        }
     }
 }

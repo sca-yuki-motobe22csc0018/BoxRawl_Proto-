@@ -24,6 +24,10 @@ public class EXPController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (EXP > 300)
+        {
+            EXP = 300;
+        }
         if (PlayerMove.EXPUP > expup)
         {
             expup = PlayerMove.EXPUP;

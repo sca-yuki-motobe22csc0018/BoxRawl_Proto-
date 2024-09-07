@@ -5931,7 +5931,7 @@ MonoBehaviour:
   - {fileID: 1226435610}
   - {fileID: 2070195088}
   - {fileID: 1066471837}
-  timerText: {fileID: 0}
+  timerText: {fileID: 1670526637}
 --- !u!212 &113282241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6899,67 +6899,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &131787096
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1846752266862066201, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3354638904345986979, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_Name
-      value: BetaBeeEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.56327
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -22.326117
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563644696057587779, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 679aa3b1a2bba4641982d0c2572b6ba5, type: 3}
 --- !u!1 &132071615
 GameObject:
   m_ObjectHideFlags: 0
@@ -10571,7 +10510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005bdada4d298e44d9e43cc6c5a3dcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 2096663214}
 --- !u!50 &210319810
 Rigidbody2D:
   serializedVersion: 4
@@ -13893,7 +13832,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288678620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbe9c88e8c5380a4fa382f0650632f0a, type: 3}
   m_Name: 
@@ -26005,7 +25944,7 @@ GameObject:
   - component: {fileID: 528873923}
   m_Layer: 3
   m_Name: Invincible_D
-  m_TagString: Level_Invincible
+  m_TagString: Level_InvincibleD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42020,7 +41959,7 @@ GameObject:
   - component: {fileID: 897956183}
   m_Layer: 3
   m_Name: Invincible_D
-  m_TagString: Level_Invincible
+  m_TagString: Level_InvincibleD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50971,7 +50910,7 @@ GameObject:
   - component: {fileID: 1111074572}
   m_Layer: 3
   m_Name: Invincinle_T
-  m_TagString: Level_Invincible
+  m_TagString: Level_InvincibleT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68942,7 +68881,7 @@ GameObject:
   - component: {fileID: 1533236433}
   m_Layer: 3
   m_Name: Invincinle_T
-  m_TagString: Level_Invincible
+  m_TagString: Level_InvincibleT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70018,7 +69957,7 @@ GameObject:
   - component: {fileID: 1558607300}
   m_Layer: 3
   m_Name: Invincinle_T
-  m_TagString: Level_Invincible
+  m_TagString: Level_InvincibleT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79760,7 +79699,7 @@ GameObject:
   - component: {fileID: 1787794305}
   m_Layer: 3
   m_Name: Invincible_D
-  m_TagString: Level_Invincible
+  m_TagString: Level_InvincibleD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96850,4 +96789,3 @@ SceneRoots:
   - {fileID: 557070584}
   - {fileID: 298611200}
   - {fileID: 164668415}
-  - {fileID: 131787096}

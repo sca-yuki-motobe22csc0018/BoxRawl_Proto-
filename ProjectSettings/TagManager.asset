@@ -36,6 +36,8 @@ TagManager:
   - Level_Bullet
   - Heal
   - Guard
+  - Level_InvincibleD
+  - Level_InvincibleT
   layers:
   - Default
   - TransparentFX
