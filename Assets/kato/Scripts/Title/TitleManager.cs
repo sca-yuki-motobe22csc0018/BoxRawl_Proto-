@@ -66,7 +66,10 @@ public class TitleManager : MonoBehaviour
             hallObject.SetActive(false);
             ButtonImage.SetActive(false);
             //startGame();
-            momongaMove();
+            if(TitleEnemy.getTitleEnemy() == 1)
+            {
+                momongaMove();
+            }
             Invoke("startGame", 0.5f);
         }
 
