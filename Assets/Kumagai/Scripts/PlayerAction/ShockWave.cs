@@ -5,6 +5,9 @@ using UnityEngine;
 public class ShockWave : MonoBehaviour
 {
     private int dropShockWaveLv;
+    [SerializeField]private GameObject shockWaveCollider;
+    [SerializeField]private GameObject shockWave;
+    [SerializeField]private GameObject canvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +20,16 @@ public class ShockWave : MonoBehaviour
         
     }
 
-    private void DropShockWave()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-       // if()
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            if(PlayerMove.Drop)
+            {
+                shockWaveCollider.SetActive(true);
+                Instantiate(shockWave,new Vector3(transform.position.x,transform.position.y+0.4f,transform.position.z),Quaternion.identity,canvas.transform);
+                Debug.Log("ShockWave");
+            }
+        }
     }
 }

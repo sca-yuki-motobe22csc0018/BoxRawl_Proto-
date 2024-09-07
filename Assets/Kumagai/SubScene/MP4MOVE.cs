@@ -6,6 +6,7 @@ public class MP4MOVE : MonoBehaviour
 {
     [SerializeField]private GameObject obj;
     [SerializeField]private GameObject canvas;
+    [SerializeField]private GameObject player;
     //Start is called before the first frame update
     void Start()
     {
