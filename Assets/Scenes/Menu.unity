@@ -4163,6 +4163,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1790036947}
     - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1078035728}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: ground
       value: 
       objectReference: {fileID: 1929812484}
@@ -4174,6 +4178,10 @@ PrefabInstance:
       propertyPath: floorLeft
       value: 
       objectReference: {fileID: 1953378981}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: insPlayer
+      value: 
+      objectReference: {fileID: 396619757}
     - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -11458,7 +11466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2329533814132874376, guid: 6fc168194df53d54ab78e07e7e6addeb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.030769227
+      value: 0.030769223
       objectReference: {fileID: 0}
     - target: {fileID: 2329533814132874376, guid: 6fc168194df53d54ab78e07e7e6addeb, type: 3}
       propertyPath: m_LocalScale.z
@@ -13383,7 +13391,7 @@ Transform:
   m_GameObject: {fileID: 1521404376}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.4, y: 1.69, z: 0}
+  m_LocalPosition: {x: 10.4, y: 1.69, z: 48.82}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15383,6 +15391,7 @@ GameObject:
   - component: {fileID: 1777805646}
   - component: {fileID: 1777805645}
   - component: {fileID: 1777805644}
+  - component: {fileID: 1777805648}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -15451,7 +15460,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1777805647
 RectTransform:
@@ -15478,6 +15487,21 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: 2}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1777805648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777805643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e2304079de45846bd04b1c6d4c8f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 8450018055394183727, guid: 539fcb01439aa0941b69ba0069107cc1, type: 3}
+  canvas: {fileID: 1777805643}
+  player: {fileID: 1790036947}
 --- !u!1 &1779675027
 GameObject:
   m_ObjectHideFlags: 0
@@ -17561,6 +17585,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1790036947}
     - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1078035728}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: ground
       value: 
       objectReference: {fileID: 1929812484}
@@ -17572,6 +17600,10 @@ PrefabInstance:
       propertyPath: floorLeft
       value: 
       objectReference: {fileID: 1953378981}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: insPlayer
+      value: 
+      objectReference: {fileID: 396619757}
     - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: sceneName
       value: 
@@ -19509,6 +19541,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1790036947}
     - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1078035728}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: ground
       value: 
       objectReference: {fileID: 1929812484}
@@ -19520,6 +19556,10 @@ PrefabInstance:
       propertyPath: floorLeft
       value: 
       objectReference: {fileID: 1953378981}
+    - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
+      propertyPath: insPlayer
+      value: 
+      objectReference: {fileID: 396619757}
     - target: {fileID: 4332851212351844179, guid: bb77f2a141cd215469a3e7c9b25d62ea, type: 3}
       propertyPath: sceneName
       value: 

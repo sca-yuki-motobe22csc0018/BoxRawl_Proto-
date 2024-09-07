@@ -19,6 +19,8 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject stageDiscriptWindow;
     [SerializeField] private GameObject[] stageWindow;
     [SerializeField] private GameObject DropObject;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject insPlayer;
     //private bool sceneChangeFlag;
     public static string yesOrNo;
     public static string thisSceneName;
@@ -39,6 +41,8 @@ public class ButtonManager : MonoBehaviour
         StageSelect.selectNumber = 0;
         StartCoroutine(ButtonStart());
         StageDscript.nextScene = false;
+        insPlayer.SetActive(true);
+        canvas.SetActive(true);
     }
 
     // Update is called once per frame
@@ -171,15 +175,19 @@ public class ButtonManager : MonoBehaviour
             for (int i = 0; i < playerChild.Length; i++) { playerChild[i].SetActive(false); }
            // FlooringOpen();
             sceneCheckBackGround.SetActive(false);
-        stageSelect = false;
-            foreach(var child in stageWindow) { child.SetActive(false); }
+            //stageSelect = false;
+           // foreach(var child in stageWindow) { child.SetActive(false); }
             yield return new WaitForSeconds(0.5f);
-            //sceneGround.SetActive(false);
-            //this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-            //this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;
+           
+        //sceneGround.SetActive(false);
+        //this.gameObject.transform.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        //this.gameObject.transform.GetComponent<BoxCollider2D>().isTrigger = true;
             sceneChange = true;
             FadeIO.FadeOut(sceneChange);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.5f);
+            canvas.SetActive(false);
+            insPlayer.SetActive(false);
+            yield return new WaitForSeconds(1f);
             SceneManager.LoadScene(thisSceneName);
     }
 
@@ -195,6 +203,7 @@ public class ButtonManager : MonoBehaviour
             //sceneGround.transform.gameObject.GetComponent<SpriteRenderer>().color = new Color(gc.r, gc.g, gc.b, alpha);
             //Debug.Log("ŒÄ‚Î‚ê‚Ä‚¢‚Ü‚·");
             yield return new WaitForEndOfFrame();
+           
         }
     }
     private float timer=0;
