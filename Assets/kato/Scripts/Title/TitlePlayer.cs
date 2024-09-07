@@ -19,16 +19,48 @@ public class TitlePlayer : MonoBehaviour
 
     void Update()
     {
-        if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 2 && !isJump)
-        {
-            rg.velocity = new Vector2(0, 8.0f) * 1;
-            isJump = true;
-            //jumpObj.SetActive(true);
-            moveNum = Random.Range(0, 2);
+        //if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 2 && !isJump)
+        //{
+        //    rg.velocity = new Vector2(0, 8.0f) * 1;
+        //    isJump = true;
+        //    //jumpObj.SetActive(true);
+        //    moveNum = Random.Range(0, 2);
 
-            if (moveNum == 1)
+        //    if (moveNum == 1)
+            //    {
+            //        StartCoroutine(playerAttack());
+        //    }
+        //}
+
+        //------------------------------------------------------------------------------------------------------------
+        if (TitleEnemy.getTitleEnemy() == 0)
+        {
+            if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 6 && !isJump)
             {
-                StartCoroutine(playerAttack());
+                rg.velocity = new Vector2(0, 8.0f) * 1;
+                isJump = true;
+                //jumpObj.SetActive(true);
+                moveNum = Random.Range(0, 2);
+
+                if (moveNum == 1)
+                {
+                    StartCoroutine(playerAttack());
+                }
+            }
+        }
+        else
+        {
+            if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 2 && !isJump)
+            {
+                rg.velocity = new Vector2(0, 8.0f) * 1;
+                isJump = true;
+                //jumpObj.SetActive(true);
+                moveNum = Random.Range(0, 2);
+
+                if (moveNum == 1)
+                {
+                    StartCoroutine(playerAttack());
+                }
             }
         }
     }
@@ -45,6 +77,8 @@ public class TitlePlayer : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         rg.gravityScale = 1.0f;
+
+        Debug.Log("test");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

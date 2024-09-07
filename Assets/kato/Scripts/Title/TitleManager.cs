@@ -15,6 +15,7 @@ public class TitleManager : MonoBehaviour
     Rigidbody2D rg;
 
     [SerializeField] GameObject EnemyObj;
+    Rigidbody2D eRg;
 
     //bool isJump = false;
     public static bool isStart;
@@ -30,6 +31,7 @@ public class TitleManager : MonoBehaviour
     int isTutorial = -1;
 
     public Image pushImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,8 @@ public class TitleManager : MonoBehaviour
         Debug.Log(isTutorial);
 
         pushImage.DOFade(0f, 1.5f).SetLoops(-1,LoopType.Yoyo);
+
+        eRg = EnemyObj.GetComponent<Rigidbody2D>(); 
     }
 
     // Update is called once per frame
@@ -62,6 +66,7 @@ public class TitleManager : MonoBehaviour
             hallObject.SetActive(false);
             ButtonImage.SetActive(false);
             //startGame();
+            momongaMove();
             Invoke("startGame", 0.5f);
         }
 
@@ -85,14 +90,18 @@ public class TitleManager : MonoBehaviour
     void startGame()
     {
         GroundObj.transform.DOMove(tergetObj.transform.position, 5.0f);
-        //if(playerObj.transform.position.x > EnemyObj.transform.position.x)
-        //{
-        //    EnemyObj.transform.DOMove(EnemyObj.transform.position + (tergetObj.transform.position + GroundObj.transform.position), 5.0f);
-        //}
-        //else
-        //{
-        //    EnemyObj.transform.DOMoveX(EnemyObj.transform.position.x + (GroundObj.transform.position.x - tergetObj.transform.position.x), 5.0f);
-        //}
+        if(TitleEnemy.getTitleEnemy() == 1)
+        {
+            if (playerObj.transform.position.x > EnemyObj.transform.position.x)
+            {
+                EnemyObj.transform.DOMove(EnemyObj.transform.position + (tergetObj.transform.position + GroundObj.transform.position), 5.0f);
+            }
+            else
+            {
+                EnemyObj.transform.Rotate(0, -180, 0);
+                EnemyObj.transform.DOMoveX(EnemyObj.transform.position.x + (GroundObj.transform.position.x - tergetObj.transform.position.x), 5.0f);
+            }
+        }
 
         StartCoroutine(playerJump());
     }
@@ -123,5 +132,12 @@ public class TitleManager : MonoBehaviour
         PlayerPrefs.SetInt("Tutorial", isTutorial);
         PlayerPrefs.Save();
         yield return null;
+    }
+
+    void momongaMove()
+    {
+        eRg.velocity = Vector2.zero;
+        eRg.gravityScale = -0.11f;
+        eRg.angularVelocity = 0.0f;
     }
 }

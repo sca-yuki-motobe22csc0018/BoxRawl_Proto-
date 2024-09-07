@@ -1747,6 +1747,7 @@ MonoBehaviour:
   enemySkin:
   - {fileID: 4790460187192752159}
   - {fileID: 7489890983321193267}
+  cowMoveSpeed: 2.5
 --- !u!1 &424016044
 GameObject:
   m_ObjectHideFlags: 0

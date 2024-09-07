@@ -7,7 +7,7 @@ public class TitleEnemy : MonoBehaviour
 {
     Rigidbody2D EnemyRg;
     Vector3 enemyStartPos;
-    int EnemyNum = 0;
+    static public int EnemyNum = 0;
 
     public GameObject playerObj;
 
@@ -19,7 +19,8 @@ public class TitleEnemy : MonoBehaviour
 
     [SerializeField] GameObject[] enemySkin;
 
-    int moveSpeed = 1;
+    float moveSpeed = 1;
+    public float cowMoveSpeed = 2.5f;
     void Start()
     {
         enemyStartPos = this.gameObject.transform.position;
@@ -32,7 +33,8 @@ public class TitleEnemy : MonoBehaviour
         enemySkin[0].SetActive(true);
         enemySkin[1].SetActive(false);
 
-        moveSpeed = 1;
+        cowMoveSpeed = 2.5f;
+        moveSpeed = cowMoveSpeed;
     }
 
     // Update is called once per frame
@@ -60,9 +62,16 @@ public class TitleEnemy : MonoBehaviour
     {
         if (TitleManager.isStart)
         {
-            moveSpeed = 2;
+            //moveSpeed = 2;
+            if(EnemyNum == 0)
+            {
+                this.gameObject.transform.position += new Vector3(-4.0f * moveSpeed, 0, 0) * Time.deltaTime;
+            }
         }
-        this.gameObject.transform.position += new Vector3(-4.0f * moveSpeed, 0, 0) * Time.deltaTime;
+        else
+        {
+            this.gameObject.transform.position += new Vector3(-4.0f * moveSpeed, 0, 0) * Time.deltaTime;
+        }
 
         if (this.gameObject.transform.position.x < -11
             && !TitleManager.isStart)
@@ -79,6 +88,8 @@ public class TitleEnemy : MonoBehaviour
                 //enemySpr.sprite = enemySprite[EnemyNum];
                 enemySkin[0].SetActive(true);
                 enemySkin[1].SetActive(false);
+
+                moveSpeed = cowMoveSpeed;
             }
             else if (EnemyNum == 1) //ƒ‚ƒ‚ƒ“ƒK
             {
@@ -91,6 +102,7 @@ public class TitleEnemy : MonoBehaviour
                 //enemySpr.sprite = enemySprite[EnemyNum];
                 enemySkin[0].SetActive(false);
                 enemySkin[1].SetActive(true);
+                moveSpeed = 1;
             }
         }
 
@@ -107,5 +119,10 @@ public class TitleEnemy : MonoBehaviour
                 Debug.Log("ã‚És‚­");
             }
         }
+    }
+
+    static public int getTitleEnemy()
+    {
+        return EnemyNum;
     }
 }
