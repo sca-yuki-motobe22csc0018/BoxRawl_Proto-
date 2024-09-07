@@ -12383,7 +12383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1515731489
 Transform:
   m_ObjectHideFlags: 0
@@ -13136,7 +13136,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -13230,7 +13230,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1561764524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13328,67 +13328,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1619614929
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -16.69771
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.0138974
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309777451357284677, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3925408937330708803, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_Name
-      value: BetaMomongaEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753417439302133671, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f1bccde3a9d70b5498f3c52a72ad9734, type: 3}
 --- !u!1 &1620376574
 GameObject:
   m_ObjectHideFlags: 0
@@ -14853,7 +14792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1811013731
 Transform:
   m_ObjectHideFlags: 0
@@ -16564,7 +16503,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &2044530509
 GameObject:
   m_ObjectHideFlags: 0
@@ -17277,4 +17216,3 @@ SceneRoots:
   - {fileID: 537778725}
   - {fileID: 1819286761}
   - {fileID: 479308248}
-  - {fileID: 1619614929}

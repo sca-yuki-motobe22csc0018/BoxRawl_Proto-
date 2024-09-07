@@ -19,7 +19,7 @@ public class EnemyChildren : MonoBehaviour
         if (other.gameObject.CompareTag("Drop"))
         {
             this.gameObject.transform.parent = null;
-            EXPController.EXP += 1.0f * PlayerMove.EXPUP;
+            EXPController.EXP += 2.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             ScoreManager.smallEnemyKillCount++;
             Destroy(this.gameObject);

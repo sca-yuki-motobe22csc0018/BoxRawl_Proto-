@@ -64,7 +64,7 @@ public class MomongaEnemyBeta : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Drop"))
         {
-            EXPController.EXP += 8.0f * PlayerMove.EXPUP;
+            EXPController.EXP += 12.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             death = true;
             ScoreManager.bigEnemyKillCount++;

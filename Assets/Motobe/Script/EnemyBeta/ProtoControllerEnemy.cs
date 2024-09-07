@@ -24,7 +24,7 @@ public class ProtoControllerEnemy : MonoBehaviour
         playStageNum = StageSelect.selectNumber;
         if (playStageNum == 0)
         {
-            playStageNum = 9;
+            playStageNum = 4;
         }
         for (int i = 0; i < 10; i++)
         {
