@@ -11,10 +11,13 @@ public class TitlePlayer : MonoBehaviour
     Rigidbody2D rg;
     int moveNum;
 
+    [SerializeField] GameObject paryObj;
+
     void Start()
     {
         rg = this.gameObject.GetComponent<Rigidbody2D>();
         moveNum = 0;
+        paryObj.SetActive(false);
     }
 
     void Update()
@@ -63,6 +66,12 @@ public class TitlePlayer : MonoBehaviour
                 }
             }
         }
+
+        if (isJump)
+        {
+           // paryObj.SetActive(true);
+        }
+
     }
 
     /// <summary>
@@ -86,6 +95,7 @@ public class TitlePlayer : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             PlayerSkin.Rota = false;
+            paryObj.SetActive(false);
         }
     }
 

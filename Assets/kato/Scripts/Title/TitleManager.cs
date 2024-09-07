@@ -32,6 +32,9 @@ public class TitleManager : MonoBehaviour
 
     public Image pushImage;
 
+
+    [SerializeField] GameObject paryObj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,6 +121,7 @@ public class TitleManager : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         Vector2 force = new Vector3(1.0f, 9.5f);
         rg.AddForce(force *50);
+        paryObj.SetActive(true);
         PlayerSkin.Rota = true;
 
         yield return new WaitForSeconds(2.0f);
