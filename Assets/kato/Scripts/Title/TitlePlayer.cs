@@ -44,6 +44,8 @@ public class TitlePlayer : MonoBehaviour
                 paryObj.SetActive(true);
                 isJump = true;
                 //jumpObj.SetActive(true);
+                PlayerSkin.Rota = true;
+                PlayerSkin.rota *= 1;
                 moveNum = Random.Range(0, 2);
 
                 if (moveNum == 1)
@@ -60,6 +62,8 @@ public class TitlePlayer : MonoBehaviour
                 paryObj.SetActive(true);
                 isJump = true;
                 //jumpObj.SetActive(true);
+                PlayerSkin.Rota = true;
+                PlayerSkin.rota *= 1;
                 moveNum = Random.Range(0, 2);
 
                 if (moveNum == 1)
@@ -92,6 +96,7 @@ public class TitlePlayer : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         rg.gravityScale = 1.0f;
         paryObj.SetActive(false);
+        PlayerSkin.rota = 1;
 
         Debug.Log("test");
     }
