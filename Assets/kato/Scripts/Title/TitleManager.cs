@@ -123,6 +123,7 @@ public class TitleManager : MonoBehaviour
         rg.AddForce(force *50);
         paryObj.SetActive(true);
         PlayerSkin.Rota = true;
+        PlayerSkin.rota *= 1;
 
         yield return new WaitForSeconds(2.0f);
         startFlag = true;

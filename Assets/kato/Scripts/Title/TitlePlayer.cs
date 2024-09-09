@@ -38,9 +38,10 @@ public class TitlePlayer : MonoBehaviour
         //------------------------------------------------------------------------------------------------------------
         if (TitleEnemy.getTitleEnemy() == 0)
         {
-            if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 6 && !isJump)
+            if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 8 && !isJump)
             {
                 rg.velocity = new Vector2(0, 8.0f) * 1;
+                paryObj.SetActive(true);
                 isJump = true;
                 //jumpObj.SetActive(true);
                 moveNum = Random.Range(0, 2);
@@ -53,9 +54,10 @@ public class TitlePlayer : MonoBehaviour
         }
         else
         {
-            if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 2 && !isJump)
+            if (EnemyObj.transform.position.x - this.gameObject.transform.position.x < 3 && !isJump)
             {
                 rg.velocity = new Vector2(0, 8.0f) * 1;
+                paryObj.SetActive(true);
                 isJump = true;
                 //jumpObj.SetActive(true);
                 moveNum = Random.Range(0, 2);
@@ -69,7 +71,6 @@ public class TitlePlayer : MonoBehaviour
 
         if (isJump)
         {
-           // paryObj.SetActive(true);
         }
 
     }
@@ -80,12 +81,17 @@ public class TitlePlayer : MonoBehaviour
     /// <returns></returns>
     IEnumerator playerAttack()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
+        PlayerSkin.Rota = true;
+        PlayerSkin.rota *= -3;
+        yield return new WaitForSeconds(0.2f);
+        PlayerSkin.Rota = false;
         rg.gravityScale = 20.0f;
         //dropObj.SetActive(true);
 
         yield return new WaitForSeconds(0.5f);
         rg.gravityScale = 1.0f;
+        paryObj.SetActive(false);
 
         Debug.Log("test");
     }
@@ -98,5 +104,4 @@ public class TitlePlayer : MonoBehaviour
             paryObj.SetActive(false);
         }
     }
-
 }
