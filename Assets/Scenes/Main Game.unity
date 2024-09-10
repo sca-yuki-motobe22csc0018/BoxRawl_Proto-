@@ -93653,6 +93653,7 @@ MonoBehaviour:
   ParyObject: {fileID: 1029511095}
   damageEffect: {fileID: 97606}
   Ceiling01: {fileID: 960338692}
+  Wall: {fileID: 728912098}
   deathPrefab: {fileID: 3104951671339974050, guid: 3deaa0ad5e8907e4ab9a5ac1cb6ce9c0, type: 3}
   cameraObj: {fileID: 1718354178}
   timerText: {fileID: 1670526637}

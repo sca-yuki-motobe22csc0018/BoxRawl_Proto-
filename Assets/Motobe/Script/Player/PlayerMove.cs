@@ -81,6 +81,7 @@ public class PlayerMove : MonoBehaviour
 
     //天井
     public GameObject Ceiling01;
+    public GameObject Wall;
     //public GameObject Ceiling02;
     //public GameObject Ceiling03;
 
@@ -110,6 +111,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         DashBarrier = false;
+        Wall.SetActive(true);
         DashBarrierTime = 0;
         barrier = false;
         heal = false;
@@ -203,6 +205,7 @@ public class PlayerMove : MonoBehaviour
             if (StageSelect.selectNumber == 9)
             {
                 this.transform.position = new Vector3(0, -42, 0);
+                Wall.SetActive(false);
             }
         }
         else if (SceneManager.GetActiveScene().name == "a")

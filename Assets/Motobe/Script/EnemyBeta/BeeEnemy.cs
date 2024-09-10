@@ -100,6 +100,13 @@ public class BeeEnemy : MonoBehaviour
         {
             return;
         }
+
+        if(60< PlayerObj.transform.position.x- this.transform.position.x||-60< PlayerObj.transform.position.x - this.transform.position.x)
+        {
+            Debug.Log("destroy");
+            Destroy(this.gameObject);
+        }
+
         pary.gameObject.transform.position = this.transform.position;
         if (anim2)
         {
