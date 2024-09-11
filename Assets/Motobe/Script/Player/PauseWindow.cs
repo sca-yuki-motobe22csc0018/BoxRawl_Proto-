@@ -4,11 +4,14 @@ using DG.Tweening;
 public class PauseWindow : MonoBehaviour
 {
     public GameObject PauseBack;
+    public GameObject timeText;
+    public GameObject levelSel;
     bool pause;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelSel.SetActive(false);
         pause = false;
         PauseBack.transform.DOScale(new Vector2(0, 0), 0);
     }
@@ -22,10 +25,13 @@ public class PauseWindow : MonoBehaviour
             {
                 Pause();
                 pause = true;
-            }else
+                timeText.SetActive(false);
+            }
+            else
             {
                 PauseEnd();
                 pause = false;
+                timeText.SetActive(true);
             }
         }
     }

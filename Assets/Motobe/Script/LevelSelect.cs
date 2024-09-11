@@ -222,7 +222,7 @@ public class LevelSelect : MonoBehaviour
                     JumpShot.shotLv++;
                 }
                 Debug.Log(pos[num].tag);
-                //timerText.SetActive(true);
+                timerText.SetActive(true);
                 SEController.get = true;
                 PlayerMove.PlayerDead = true;
                 levelUpEnd = true;
