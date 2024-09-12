@@ -36,7 +36,8 @@ public class SpaceBlinking : MonoBehaviour
             Space.color = new Color(1, 1, 1, 1);
             yield return new WaitForSeconds(fourthWaitTime);
             Space.color = new Color(1, 1, 1, 0);
-            yield return new WaitForSeconds(fiveWaitTime);  
+            yield return new WaitForSeconds(fiveWaitTime);
+            Space.color = new Color(1, 1, 1, 1);
 
 
         }
