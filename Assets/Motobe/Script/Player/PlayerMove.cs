@@ -107,9 +107,12 @@ public class PlayerMove : MonoBehaviour
     public static int DashBarrierTime;
     float DashBarrierTimer;
 
+    public static bool start;
+
     // Start is called before the first frame update
     void Start()
     {
+        start = false;
         DashBarrier = false;
         Wall.SetActive(true);
         DashBarrierTime = 0;
@@ -751,6 +754,7 @@ public class PlayerMove : MonoBehaviour
     public void StartEnd()
     {
         startRota = true;
+        start = true;
         if(EnemySpawnner!=null)
             EnemySpawnner.SetActive(true);
         if (timerText != null)

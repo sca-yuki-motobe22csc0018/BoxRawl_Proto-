@@ -20,11 +20,13 @@ public class BullEnemy : MonoBehaviour
     public float sizeX;
 
     public GameObject Pary;
+    bool dead;
 
     // Start is called before the first frame update
     void Start()
     {
         wallSpeed = false;
+        dead = false;
         rb = GetComponent<Rigidbody2D>();
         int rand = Random.Range(0, 2);
         if (rand == 0)
@@ -40,6 +42,11 @@ public class BullEnemy : MonoBehaviour
         Jump = false;
         float speedrand = Random.Range(0, 2.0f);
         defaultSpeed = speed + speedrand;
+        if (defaultSpeed<5)
+        {
+            speed = 0;
+            defaultSpeed = 0;
+        }
         scale = transform.localScale;
     }
 
@@ -51,8 +58,17 @@ public class BullEnemy : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             return;
         }
+        if(Pary==null)
+        {
+            Destroy(this.gameObject);
+        }
+        if (dead)
+        {
+            Destroy(Pary.gameObject);
+            return;
+        }
 
-        transform.position += new Vector3(speed * dir * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(defaultSpeed * dir * Time.deltaTime, 0, 0);
 
         if (right)
         {
@@ -65,11 +81,6 @@ public class BullEnemy : MonoBehaviour
             dir = -1;
             scale.x = -sizeX;
             transform.localScale = scale;
-        }
-        if (Jump)
-        {
-            rb.velocity = new Vector3(0, 13, 0);
-            Jump = false;
         }
     }
     private void OnTriggerStay2D(Collider2D other)
@@ -85,8 +96,7 @@ public class BullEnemy : MonoBehaviour
             EXPController.EXP += 12.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             ScoreManager.bigEnemyKillCount++;
-            Destroy(Pary.gameObject);
-            Destroy(this.gameObject);
+            dead = true;
         }
     }
     private void OnCollisionEnter2D(Collision2D other)

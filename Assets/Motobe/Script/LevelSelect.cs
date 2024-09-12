@@ -17,10 +17,12 @@ public class LevelSelect : MonoBehaviour
     int healLevel;
     bool guard;
     int guardLevel;
+    public static bool notLevelUp;
     public GameObject timerText;
     // Start is called before the first frame update
     void Start()
     {
+        notLevelUp = false;
         levelUpEnd = false;
         size = false;
         posNum = 1;
@@ -78,154 +80,159 @@ public class LevelSelect : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
-                int num;
-                num = posNum;
-                
-                if (pos[num].tag == "Level_StateS")
+                if (!notLevelUp)
                 {
-                    PlayerMove.PlusSpeed += 2.0f;
-                }
-                if (pos[num].tag == "Level_StateJ")
-                {
-                    PlayerMove.PlusJumpForce += 2.0f;
-                }
-                if (pos[num].tag == "Level_InvincibleT")
-                {
-                    PlayerMove.PlusInvincibleTime += 4;
-                }
-                if (pos[num].tag == "Level_InvincibleD")
-                {
-                    PlayerMove.DashBarrier = true;
-                    if (PlayerMove.DashBarrierTime == 4)
-                    {
-                        PlayerMove.DashBarrierTime = 2;
-                    }
-                    if (PlayerMove.DashBarrierTime == 5)
-                    {
-                        PlayerMove.DashBarrierTime = 4;
-                    }
-                    if (PlayerMove.DashBarrierTime == 0)
-                    {
-                        PlayerMove.DashBarrierTime = 5;
-                    }
-                    
-                    
+                    notLevelUp = true;
+                    int num;
+                    num = posNum;
 
-                }
-                if (pos[num].tag == "Level_Bunshin")
-                {
-                    if (ParyController.DekoifreMax == 0)
+                    if (pos[num].tag == "Level_StateS")
                     {
-                        ParyController.DekoifreMax = 1;
+                        PlayerMove.PlusSpeed += 2.0f;
                     }
-                    if (ParyController.DekoifreMax == 1)
+                    if (pos[num].tag == "Level_StateJ")
                     {
-                        ParyController.DekoifreMax = 5;
+                        PlayerMove.PlusJumpForce += 2.0f;
                     }
-                    if (ParyController.DekoifreMax == 5)
+                    if (pos[num].tag == "Level_InvincibleT")
                     {
-                        ParyController.DekoifreMax = 100;
+                        PlayerMove.PlusInvincibleTime += 4;
                     }
-                }
-                if (pos[num].tag == "Level_Barrier")
-                {
-                    if (guardLevel == 3)
+                    if (pos[num].tag == "Level_InvincibleD")
                     {
-                        //Rota.speed -= 1;
-                    }
-                    if (guardLevel == 2)
-                    {
-                        for (int i = 0; i < 6; i++)
+                        PlayerMove.DashBarrier = true;
+                        if (PlayerMove.DashBarrierTime == 4)
                         {
-                            GuardCount[i].SetActive(false);
+                            PlayerMove.DashBarrierTime = 2;
                         }
-                        GuardCount[3].SetActive(true);
-                        GuardCount[4].SetActive(true);
-                        GuardCount[5].SetActive(true);
-                        guardLevel = 3;
-                    }
-                    if (guardLevel == 1)
-                    {
-                        for (int i = 0; i < 6; i++)
+                        if (PlayerMove.DashBarrierTime == 5)
                         {
-                            GuardCount[i].SetActive(false);
+                            PlayerMove.DashBarrierTime = 4;
                         }
-                        GuardCount[1].SetActive(true);
-                        GuardCount[2].SetActive(true);
-                        guardLevel = 2;
-                    }
-                    if (!guard)
-                    {
-                        guard = true;
-                        Guard.SetActive(true);
-                        guardLevel = 1;
-                        GuardCount[0].SetActive(true);
-                    }
-                }
-                if (pos[num].tag == "Level_Heal")
-                {
-                    if (healLevel == 3)
-                    {
-                        //Rota.speed -= 1;
-                    }
-                    if (healLevel == 2)
-                    {
-                        for (int i = 0; i < 6; i++)
+                        if (PlayerMove.DashBarrierTime == 0)
                         {
-                            HealCount[i].SetActive(false);
+                            PlayerMove.DashBarrierTime = 5;
                         }
-                        HealCount[3].SetActive(true);
-                        HealCount[4].SetActive(true);
-                        HealCount[5].SetActive(true);
-                        healLevel = 3;
+
+
+
                     }
-                    if (healLevel == 1)
+                    if (pos[num].tag == "Level_Bunshin")
                     {
-                        for (int i = 0; i < 6; i++)
+                        if (ParyController.DekoifreMax == 0)
                         {
-                            HealCount[i].SetActive(false);
+                            ParyController.DekoifreMax = 1;
                         }
-                        HealCount[1].SetActive(true);
-                        HealCount[2].SetActive(true);
-                        healLevel = 2;
+                        if (ParyController.DekoifreMax == 1)
+                        {
+                            ParyController.DekoifreMax = 5;
+                        }
+                        if (ParyController.DekoifreMax == 5)
+                        {
+                            ParyController.DekoifreMax = 100;
+                        }
                     }
-                    if (!heal)
+                    if (pos[num].tag == "Level_Barrier")
                     {
-                        heal = true;
-                        Heal.SetActive(true);
-                        healLevel = 1;
-                        HealCount[0].SetActive(true);
+                        if (guardLevel == 3)
+                        {
+                            //Rota.speed -= 1;
+                        }
+                        if (guardLevel == 2)
+                        {
+                            for (int i = 0; i < 6; i++)
+                            {
+                                GuardCount[i].SetActive(false);
+                            }
+                            GuardCount[3].SetActive(true);
+                            GuardCount[4].SetActive(true);
+                            GuardCount[5].SetActive(true);
+                            guardLevel = 3;
+                        }
+                        if (guardLevel == 1)
+                        {
+                            for (int i = 0; i < 6; i++)
+                            {
+                                GuardCount[i].SetActive(false);
+                            }
+                            GuardCount[1].SetActive(true);
+                            GuardCount[2].SetActive(true);
+                            guardLevel = 2;
+                        }
+                        if (!guard)
+                        {
+                            guard = true;
+                            Guard.SetActive(true);
+                            guardLevel = 1;
+                            GuardCount[0].SetActive(true);
+                        }
                     }
+                    if (pos[num].tag == "Level_Heal")
+                    {
+                        if (healLevel == 3)
+                        {
+                            //Rota.speed -= 1;
+                        }
+                        if (healLevel == 2)
+                        {
+                            for (int i = 0; i < 6; i++)
+                            {
+                                HealCount[i].SetActive(false);
+                            }
+                            HealCount[3].SetActive(true);
+                            HealCount[4].SetActive(true);
+                            HealCount[5].SetActive(true);
+                            healLevel = 3;
+                        }
+                        if (healLevel == 1)
+                        {
+                            for (int i = 0; i < 6; i++)
+                            {
+                                HealCount[i].SetActive(false);
+                            }
+                            HealCount[1].SetActive(true);
+                            HealCount[2].SetActive(true);
+                            healLevel = 2;
+                        }
+                        if (!heal)
+                        {
+                            heal = true;
+                            Heal.SetActive(true);
+                            healLevel = 1;
+                            HealCount[0].SetActive(true);
+                        }
+                    }
+                    if (pos[num].tag == "Level_Diffusion")
+                    {
+                        MagnetismManager.MagnetismLv++;
+                    }
+                    if (pos[num].tag == "Level_Suction")
+                    {
+
+                    }
+                    if (pos[num].tag == "Level_ShockWaveGround")
+                    {
+                        ShockWave.dropShockWaveLv++;
+                    }
+                    if (pos[num].tag == "Level_ShockWaveWall")
+                    {
+                        ShockWave.wallShockWaveLv++;
+                    }
+                    if (pos[num].tag == "Level_Chain")
+                    {
+                        ChainAttack.chainLv++;
+                    }
+                    if (pos[num].tag == "Level_Bullet")
+                    {
+                        JumpShot.shotLv++;
+                    }
+                    Debug.Log(pos[num].tag);
+                    //timerText.SetActive(true);
+                    SEController.get = true;
+                    PlayerMove.PlayerDead = true;
+                    levelUpEnd = true;
                 }
-                if (pos[num].tag == "Level_Diffusion")
-                {
-                    MagnetismManager.MagnetismLv++;
-                }
-                if (pos[num].tag == "Level_Suction")
-                {
-                    
-                }
-                if (pos[num].tag == "Level_ShockWaveGround")
-                {
-                    ShockWave.dropShockWaveLv++;
-                }
-                if (pos[num].tag == "Level_ShockWaveWall")
-                {
-                    ShockWave.wallShockWaveLv++;
-                }
-                if (pos[num].tag == "Level_Chain")
-                {
-                    ChainAttack.chainLv++;
-                }
-                if (pos[num].tag == "Level_Bullet")
-                {
-                    JumpShot.shotLv++;
-                }
-                Debug.Log(pos[num].tag);
-                //timerText.SetActive(true);
-                SEController.get = true;
-                PlayerMove.PlayerDead = true;
-                levelUpEnd = true;
+                
             }
         }
     }

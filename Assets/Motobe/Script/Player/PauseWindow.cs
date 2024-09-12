@@ -5,15 +5,23 @@ public class PauseWindow : MonoBehaviour
 {
     public GameObject PauseBack;
     public GameObject timeText;
-    public GameObject levelSel;
+    public GameObject pauseSel;
+    public GameObject fade01;
+    public GameObject fade02;
     bool pause;
+    public static bool pauseEnd;
+    public GameObject back;
 
     // Start is called before the first frame update
     void Start()
     {
-        levelSel.SetActive(false);
+        pauseSel.SetActive(false);
+        fade01.SetActive(true);
+        fade02.SetActive(false);
         pause = false;
         PauseBack.transform.DOScale(new Vector2(0, 0), 0);
+        pauseEnd = false;
+        back.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,18 +29,18 @@ public class PauseWindow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if(!pause)
+            if(!pause&&PlayerMove.start)
             {
                 Pause();
                 pause = true;
+                PauseSelect.posNum = 1;
                 timeText.SetActive(false);
             }
-            else
-            {
-                PauseEnd();
-                pause = false;
-                timeText.SetActive(true);
-            }
+        }
+        if (pauseEnd)
+        {
+            pauseEnd = false;
+            PauseEnd();
         }
     }
 
@@ -48,6 +56,7 @@ public class PauseWindow : MonoBehaviour
         sequence.Append(PauseBack.transform.DOScale(new Vector3(28, 12, 1), 0.15f).SetEase(Ease.InQuint));
 
         sequence.Append(PauseBack.transform.DOScale(new Vector3(25, 12, 1), 0.1f));
+        sequence.JoinCallback(() => sel());
 
     }
 
@@ -62,6 +71,7 @@ public class PauseWindow : MonoBehaviour
 
         sequence.Append(PauseBack.transform.DOScale(new Vector3(0, 0, 1), 0f).SetEase(Ease.InQuint));
         sequence.JoinCallback(() => pd());
+        sequence.JoinCallback(() => pE());
     }
 
     private void WindowSE()
@@ -70,16 +80,17 @@ public class PauseWindow : MonoBehaviour
         SEController.window = true;
     }
 
-    private void size()
-    {
-        LevelSelect.size = !LevelSelect.size;
-        LevelSelect.posNum = 1;
-    }
-
     private void pd()
     {
         PlayerMove.PlayerDead = !PlayerMove.PlayerDead;
+    }
 
-        PlayerMove.blink = true;
+    private void sel()
+    {
+        pauseSel.SetActive(true);
+    }
+    private void pE()
+    {
+        pause = false;
     }
 }

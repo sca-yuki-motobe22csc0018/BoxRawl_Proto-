@@ -30,7 +30,11 @@ public class JumpShot : MonoBehaviour
         {
             loop=8;
         }
-        if(!ButtonManager.sceneCheck)
+        if (PlayerMove.PlayerDead)
+        {
+            return;
+        }
+        if (!ButtonManager.sceneCheck)
         {
             if (PlayerMove.JumpCount == 0)
             {

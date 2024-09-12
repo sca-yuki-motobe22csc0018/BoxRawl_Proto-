@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 2162214393508879949}
   - component: {fileID: 2631587200593803166}
   - component: {fileID: -6742533436369599757}
-  - component: {fileID: 8232572583156061561}
   m_Layer: 8
   m_Name: BetaBullEnemy
   m_TagString: Enemy
@@ -160,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4586921590243503234}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.105222784, w: 0.9944487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -168,7 +167,7 @@ Transform:
   - {fileID: 8274921945781880170}
   - {fileID: 2407653043708315912}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.08}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8947368118439489629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -300,12 +299,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4586921590243503234}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e94e9f2f93b6ce4198654efedccbc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 24
   EnemyCheck: 0
   sizeX: 1.5
   Pary: {fileID: 4312648977600471341}
@@ -322,18 +321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burst: {fileID: 4310674649076793103, guid: d76c6998d9017204cb9761dd7ae88893, type: 3}
---- !u!114 &8232572583156061561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4586921590243503234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a40aa2ea61986440bfcce432dd149f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5501594545265335683
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour
     {
         if (pary.gameObject == null)
         {
-            Debug.Log("a");
             Destroy(this.gameObject);
         }
         if (pary.gameObject != null)

@@ -9,21 +9,25 @@ public class PauseLevelSelect : MonoBehaviour
     public GameObject[] pos;
     public static int posNum;
     public GameObject timerText;
+    public GameObject back;
+    public GameObject fade01;
+    public GameObject fade02;
+    public GameObject pauseSel;
 
-    bool left;
-    bool right;
     float leftTimer;
     float rightTimer;
+    float upTimer;
+    float downTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         levelSel = false;
         posNum = 0;
-        left = false;
-        right = false;
         leftTimer = 0;
         rightTimer = 0;
+        upTimer = 0;
+        downTimer = 0;
     }
 
     // Update is called once per frame
@@ -35,10 +39,17 @@ public class PauseLevelSelect : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
-            left = false;
             leftTimer = 0;
         }
-        if (posNum < 11)
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            upTimer = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            downTimer = 0;
+        }
+        if (posNum < 12)
         {
             if (Input.GetKeyDown(KeyCode.D))
             {
@@ -75,7 +86,104 @@ public class PauseLevelSelect : MonoBehaviour
             }
         }
 
-
+        
+        if (posNum<4)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                posNum += 4;
+                if (Input.GetKey(KeyCode.S))
+                {
+                    downTimer += Time.deltaTime;
+                }
+                if (downTimer > 0.4f)
+                {
+                    posNum += 4;
+                    SEController.select = true;
+                    downTimer = 0.3f;
+                }
+                return;
+            }
+        }
+        if (posNum > 3 && posNum < 8)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                posNum -= 4;
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                posNum += 4;
+                return;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                downTimer += Time.deltaTime;
+            }
+            if (downTimer > 0.4f)
+            {
+                posNum += 4;
+                SEController.select = true;
+                downTimer = 0.3f;
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                upTimer += Time.deltaTime;
+            }
+            if (upTimer > 0.4f)
+            {
+                posNum -= 4;
+                SEController.select = true;
+                upTimer = 0.3f;
+            }
+        }
+        if (posNum > 7 && posNum < 12)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                posNum -= 4;
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                posNum = 12;
+                return;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                downTimer += Time.deltaTime;
+            }
+            if (downTimer > 0.4f)
+            {
+                posNum =12;
+                SEController.select = true;
+                downTimer = 0.3f;
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                upTimer += Time.deltaTime;
+            }
+            if (upTimer > 0.4f)
+            {
+                posNum -= 4;
+                SEController.select = true;
+                upTimer = 0.3f;
+            }
+        }
+        if (posNum == 12)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                posNum =11;
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                back.SetActive(false);
+                pauseSel.SetActive(true);
+                fade01.SetActive(true);
+                fade02.SetActive(false);
+                this.gameObject.SetActive(false);
+            }
+        }
 
         if (posNum == 0)
         {
@@ -125,15 +233,19 @@ public class PauseLevelSelect : MonoBehaviour
         {
             this.transform.position = new Vector3(pos[11].transform.position.x, pos[11].transform.position.y, 1);
         }
+        else if (posNum == 12)
+        {
+            this.transform.position = new Vector3(pos[12].transform.position.x, pos[12].transform.position.y, 1);
+        }
 
         sin = Mathf.Sin(Time.time * 6);
         if (sin > 0.8f)
         {
-            this.gameObject.transform.localScale = new Vector3(0.85f * sin * 1.2f, 0.85f * sin * 1.2f, 1);
+            this.gameObject.transform.localScale = new Vector3(0.036f * sin * 1.2f, 0.075f * sin * 1.2f, 1);
         }
         else if (sin < -0.8f)
         {
-            this.gameObject.transform.localScale = new Vector3(0.85f * sin * 1.2f, 0.85f * sin * 1.2f, 1);
+            this.gameObject.transform.localScale = new Vector3(0.036f * sin * 1.2f, 0.075f * sin * 1.2f, 1);
         }
     }
 

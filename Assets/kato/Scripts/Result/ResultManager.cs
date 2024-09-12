@@ -36,6 +36,8 @@ public class ResultManager : MonoBehaviour
     bool isRank;
     float totalScoreCountupTime = 3.0f;
 
+    bool se;
+
     enum Result
     {
         Exp,
@@ -78,6 +80,7 @@ public class ResultManager : MonoBehaviour
         pressText.SetActive(false);
         pushText.DOFade(0f, 1.5f).SetLoops(-1, LoopType.Yoyo);
 
+        se = false;
     }
 
 
@@ -231,6 +234,11 @@ public class ResultManager : MonoBehaviour
             if (mask.padding.z < 0)
             {
                 result = Result.None;
+                if (se == false)
+                {
+                    se = true;
+                    SEController.check = true;
+                }
             }
         }
         scoreDisplayEnd = true;

@@ -17,6 +17,7 @@ public class SEController : MonoBehaviour
     public AudioClip getSE;
     public AudioClip levelUpSE;
     public AudioClip cardSE;
+    public AudioClip checkSE;
     public static bool pary;
     public static bool jump;
     public static bool drop1;
@@ -30,6 +31,7 @@ public class SEController : MonoBehaviour
     public static bool get;
     public static bool levelUp;
     public static bool card;
+    public static bool check;
     float jumpInterval;
     float timer;
     public AudioClip hnsn;
@@ -49,6 +51,7 @@ public class SEController : MonoBehaviour
         changeCard = false;
         select = false;
         get = false;
+        check = false;
         jumpInterval = 0;
         a = 0;
     }
@@ -139,6 +142,11 @@ public class SEController : MonoBehaviour
         {
             audioSource.PlayOneShot(cardSE);
             card = false;
+        }
+        if (check)
+        {
+            audioSource.PlayOneShot(checkSE);
+            check = false;
         }
     }
 }

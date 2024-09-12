@@ -39,14 +39,16 @@ public class LevelUpWindow : MonoBehaviour
     {
         if (levelUp)
         {
+            LevelSelect.notLevelUp = false;
             LevelUp();
             levelUp = false;
-        }else if (Input.GetKeyDown(KeyCode.Q))
+        }/*else if (Input.GetKeyDown(KeyCode.Q))
         {
+            LevelSelect.notLevelUp = false;
             LevelUp();
             levelUp = false;
         }
-        
+        */
         if (LevelSelect.levelUpEnd)
         {
             LevelUpEnd();
