@@ -354,12 +354,12 @@ public class PlayerMove : MonoBehaviour
         }
 
         //壁めり込み防止
-        if (Input.GetKeyDown(KeyCode.A) && !right)
+        if (Input.GetKeyDown(KeyCode.A))// && !right)
         {
             OnWall = false;
             moveVec = -1;
         }
-        if (Input.GetKeyDown(KeyCode.D) && right)
+        if (Input.GetKeyDown(KeyCode.D))// && right)
         {
             OnWall = false;
             moveVec = 1;
