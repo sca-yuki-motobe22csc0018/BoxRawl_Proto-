@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2110835321984847591}
   - component: {fileID: 5097403325418563510}
   - component: {fileID: -7918793453908318392}
+  - component: {fileID: 4307233796616048373}
   m_Layer: 8
   m_Name: BetaMomongaEnemy
   m_TagString: Enemy
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3925408937330708803}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.105222784, w: 0.9944487}
   m_LocalPosition: {x: -5.5141773, y: 2.4536893, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38,7 +39,7 @@ Transform:
   - {fileID: 8784366680051308157}
   - {fileID: 6754476373984824087}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.08}
 --- !u!212 &8260681885387290358
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -177,6 +178,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4307233796616048373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925408937330708803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d59eb097bff5cd4e81d15420c09a31a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burst: {fileID: 4310674649076793103, guid: d76c6998d9017204cb9761dd7ae88893, type: 3}
 --- !u!1 &4291364536266677468
 GameObject:
   m_ObjectHideFlags: 0

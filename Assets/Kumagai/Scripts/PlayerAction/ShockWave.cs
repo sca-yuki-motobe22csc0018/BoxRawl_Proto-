@@ -27,8 +27,8 @@ public class ShockWave : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            wallFirst = true;
-            if(dropShockWaveLv>0)
+            wallFirst = false;
+            if (dropShockWaveLv>0)
             {
                 if (PlayerMove.Drop)
                 {
@@ -36,7 +36,6 @@ public class ShockWave : MonoBehaviour
                     Debug.Log("ShockWave");
                 }
             }
-            
         }
 
         if (collision.gameObject.CompareTag("Wall"))
@@ -60,6 +59,14 @@ public class ShockWave : MonoBehaviour
                 }
             }
             
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            wallFirst = true;
         }
     }
 }
