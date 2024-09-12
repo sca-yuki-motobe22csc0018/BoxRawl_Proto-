@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class StageDscript : MonoBehaviour
@@ -23,6 +24,8 @@ public class StageDscript : MonoBehaviour
     [SerializeField] private GameObject insPlayer;
     public static bool setSizeEnd;
     public static bool cancelFlag;
+    [SerializeField] private Text stageName;
+    [SerializeField] private Text stageDiscript;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -55,6 +58,58 @@ public class StageDscript : MonoBehaviour
         else
         {
             insPlayer.transform.position = start.transform.position;
+        }
+        switch(StageSelect.selectNumber)
+        {
+            case 1:
+                {
+                    stageName.text = "BasicStyle 1";
+                    stageDiscript.text = "広くて普遍的なステージ\nまずはココから\n操作や敵に慣れよう";
+                }
+                break;
+            case 2:
+                {
+                    stageName.text = "BasicStyle 2";
+                    stageDiscript.text = "広くて普遍的なステージ\nまずはココから\n操作や敵に慣れよう";
+
+                }
+                break;
+            case 3:
+                {
+                    stageName.text = "BasicStyle 3";
+                    stageDiscript.text = "広くて普遍的なステージ\nまずはココから\n操作や敵に慣れよう";
+                }
+                break;
+            case 4:
+                {
+                    stageName.text ="Bison panic";
+                    stageDiscript.text = "牛が大量発生するステージ\nスピードに翻弄されないように\n気を付けよう";
+                }
+                break;
+            case 5:
+                {
+                    stageName.text = "Parry party";
+                    stageDiscript.text = "連続でパリィしやすいステージ\n高いところから一気に\n敵を倒そう";
+                }
+                break;
+            case 6:
+                {
+                    stageName.text = "Wall jump";
+                    stageDiscript.text = "足場が少なく\n安全地帯が少ないステージ\n壁ジャンプで高所に行こう";
+                }
+                break;
+            case 7:
+                {
+                    stageName.text = "Put togetter";
+                    stageDiscript.text = "中央の大きな穴が\n特徴的なステージ\n敵を集めてまとめて倒そう";
+                }
+                break;
+            case 8:
+                {
+                    stageName.text = "Avoid room";
+                    stageDiscript.text = "弾幕が飛び交うステージ\n足場と壁を使って縦横無尽に避けまくろう";
+                }
+                break;
         }
     }
      void DscriptSetVec()
