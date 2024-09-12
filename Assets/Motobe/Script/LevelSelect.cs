@@ -207,11 +207,11 @@ public class LevelSelect : MonoBehaviour
                 }
                 if (pos[num].tag == "Level_ShockWaveGround")
                 {
-
+                    ShockWave.dropShockWaveLv++;
                 }
                 if (pos[num].tag == "Level_ShockWaveWall")
                 {
-
+                    ShockWave.wallShockWaveLv++;
                 }
                 if (pos[num].tag == "Level_Chain")
                 {

@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 7338191603182515743}
   - component: {fileID: 2162214393508879949}
   - component: {fileID: 2631587200593803166}
+  - component: {fileID: -9197760448515538412}
   m_Layer: 8
   m_Name: BetaBullEnemy
   m_TagString: Enemy
@@ -307,6 +308,20 @@ MonoBehaviour:
   EnemyCheck: 0
   sizeX: 1.5
   Pary: {fileID: 4312648977600471341}
+--- !u!114 &-9197760448515538412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586921590243503234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f55f4b06f4bfc14f91b7c17f2d98927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burst: {fileID: 4310674649076793103, guid: d76c6998d9017204cb9761dd7ae88893, type: 3}
+  canvas: {fileID: 0}
 --- !u!1 &5501594545265335683
 GameObject:
   m_ObjectHideFlags: 0

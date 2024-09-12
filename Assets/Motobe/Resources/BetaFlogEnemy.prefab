@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1431236321170221524}
   - component: {fileID: 5352193326943751031}
   - component: {fileID: 3473748749409370510}
+  - component: {fileID: 4826844116615238371}
   m_Layer: 8
   m_Name: BetaFlogEnemy
   m_TagString: Enemy
@@ -220,6 +221,19 @@ MonoBehaviour:
   JumpC: janp_c
   speed: 3
   Pary: {fileID: 5685684299871975123}
+--- !u!114 &4826844116615238371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236443938987114860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f55f4b06f4bfc14f91b7c17f2d98927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burst: {fileID: 4310674649076793103, guid: d76c6998d9017204cb9761dd7ae88893, type: 3}
 --- !u!1 &5685684299871975123
 GameObject:
   m_ObjectHideFlags: 0
