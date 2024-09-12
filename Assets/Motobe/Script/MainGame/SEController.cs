@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class SEController : MonoBehaviour
@@ -8,7 +7,7 @@ public class SEController : MonoBehaviour
     public AudioClip parySE;
     public AudioClip jumpSE;
     public AudioClip drop1SE;
-    public AudioClip dorp2SE;
+    public AudioClip drop2SE;
     public AudioClip damageSE;
     public AudioClip deadSE;
     public AudioClip windowSE;
@@ -16,6 +15,8 @@ public class SEController : MonoBehaviour
     public AudioClip changeCardSE;
     public AudioClip selectSE;
     public AudioClip getSE;
+    public AudioClip levelUpSE;
+    public AudioClip cardSE;
     public static bool pary;
     public static bool jump;
     public static bool drop1;
@@ -27,6 +28,12 @@ public class SEController : MonoBehaviour
     public static bool changeCard;
     public static bool select;
     public static bool get;
+    public static bool levelUp;
+    public static bool card;
+    float jumpInterval;
+    float timer;
+    public AudioClip hnsn;
+    int a;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,20 +49,32 @@ public class SEController : MonoBehaviour
         changeCard = false;
         select = false;
         get = false;
+        jumpInterval = 0;
+        a = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (pary)
         {
             audioSource.PlayOneShot(parySE);
             pary = false;
+            Debug.Log("pary");
         }
         if (jump)
         {
-            audioSource.PlayOneShot(jumpSE);
-            jump = false;
+            if (jumpInterval == 0)
+            {
+                audioSource.PlayOneShot(jumpSE);
+            }
+            jumpInterval += Time.deltaTime;
+            if(jumpInterval > 0.1f)
+            {
+                jumpInterval = 0;
+                jump = false;
+            }
         }
         if (drop1)
         {
@@ -64,7 +83,7 @@ public class SEController : MonoBehaviour
         }
         if (drop2)
         {
-            audioSource.PlayOneShot(parySE);
+            audioSource.PlayOneShot(drop2SE);
             drop2 = false;
         }
         if (damage)
@@ -74,13 +93,27 @@ public class SEController : MonoBehaviour
         }
         if (dead)
         {
-            audioSource.PlayOneShot(deadSE);
-            dead = false;
+            timer += Time.deltaTime;
+            if (timer > 0.075f && a < 7)
+            {
+                audioSource.PlayOneShot(hnsn);
+                a += 1;
+                timer = 0;
+            }
+            if (a > 7)
+            {
+                dead = false;
+            }
         }
         if (window)
         {
             audioSource.PlayOneShot(windowSE);
             window = false;
+        }
+        if (levelUp)
+        {
+            audioSource.PlayOneShot(levelUpSE);
+            levelUp = false;
         }
         if (powerupcard)
         {
@@ -101,6 +134,11 @@ public class SEController : MonoBehaviour
         {
             audioSource.PlayOneShot(getSE);
             get = false;
+        }
+        if (card)
+        {
+            audioSource.PlayOneShot(cardSE);
+            card = false;
         }
     }
 }

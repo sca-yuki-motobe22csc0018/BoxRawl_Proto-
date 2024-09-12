@@ -59,6 +59,7 @@ public class LevelUpWindow : MonoBehaviour
         var sequence = DOTween.Sequence();
         sequence.Append(LevelUpBack.transform.DOScale(new Vector3(1, 13, 1), 0.2f).SetEase(Ease.InQuint));
         sequence.JoinCallback(() => WindowSE());
+        sequence.JoinCallback(() => LevelUpSE());
         sequence.JoinCallback(() => pd());
         sequence.JoinCallback(() => rand());
 
@@ -141,10 +142,15 @@ public class LevelUpWindow : MonoBehaviour
 
         SEController.window = true;
     }
+    private void LevelUpSE()
+    {
+
+        SEController.levelUp = true;
+    }
 
     private void CardSE()
     {
-        SEController.jump = true;
+        SEController.card = true;
     }
 
     private void CardSE2()

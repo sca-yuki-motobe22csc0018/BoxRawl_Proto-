@@ -20,7 +20,6 @@ public class ShockWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(wallShockWaveLv);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
