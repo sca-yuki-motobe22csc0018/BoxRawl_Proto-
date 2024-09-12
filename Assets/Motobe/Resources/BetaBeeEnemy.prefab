@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7563644696057587779}
+  - component: {fileID: 3415713502225506825}
   m_Layer: 8
   m_Name: BetaBeeEnemy
   m_TagString: Enemy
@@ -24,14 +25,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3354638904345986979}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.105222784, w: 0.9944487}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7933313080927869233}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.08}
+--- !u!114 &3415713502225506825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3354638904345986979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d59eb097bff5cd4e81d15420c09a31a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burst: {fileID: 4310674649076793103, guid: d76c6998d9017204cb9761dd7ae88893, type: 3}
 --- !u!1 &3772810448609058931
 GameObject:
   m_ObjectHideFlags: 0

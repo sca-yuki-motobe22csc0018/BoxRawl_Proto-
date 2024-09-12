@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 7338191603182515743}
   - component: {fileID: 2162214393508879949}
   - component: {fileID: 3277407487159640221}
+  - component: {fileID: -7505414969573659295}
   m_Layer: 8
   m_Name: BetaTurtleEnemy
   m_TagString: Enemy
@@ -313,7 +314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4586921590243503234}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.105222784, w: 0.9944487}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
@@ -321,7 +322,7 @@ Transform:
   - {fileID: 3072668683634278297}
   - {fileID: 6678959936710127740}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.08}
 --- !u!212 &8947368118439489629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -460,3 +461,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.04
   Pary: {fileID: 4265155403773213516}
+--- !u!114 &-7505414969573659295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586921590243503234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d59eb097bff5cd4e81d15420c09a31a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burst: {fileID: 4310674649076793103, guid: d76c6998d9017204cb9761dd7ae88893, type: 3}
