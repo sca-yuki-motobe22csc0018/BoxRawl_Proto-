@@ -18,7 +18,7 @@ public class ShockWaveDestroy : MonoBehaviour
 
     IEnumerator thisDestroy()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
     }
 }
