@@ -10,6 +10,7 @@ public class EnemyBurstManager : MonoBehaviour
     void Start()
     {
         canvas=GameObject.Find("EffectCanvas");
+        Instantiate(burst, new Vector3(0,0,0), Quaternion.identity);
     }
 
     // Update is called once per frame

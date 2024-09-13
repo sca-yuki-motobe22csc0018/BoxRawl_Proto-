@@ -21,7 +21,7 @@ public class SpawnParyPlayer : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
             Instantiate(player, this.transform.position, Quaternion.identity);
         }
     }
