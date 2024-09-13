@@ -15,6 +15,8 @@ public class ShockWave : MonoBehaviour
         wallFirst = true;
         dropShockWaveLv = 0;    
         wallShockWaveLv=0;
+        Instantiate(shockWave, new Vector3(0,0,0), Quaternion.identity);
+        //一番最初に動画が再生されたときに黒い四角のものが出てしまうため、画面外で一度生成してみる
     }
 
     // Update is called once per frame
