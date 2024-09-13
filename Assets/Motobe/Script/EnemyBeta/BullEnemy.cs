@@ -60,6 +60,7 @@ public class BullEnemy : MonoBehaviour
         }
         if(Pary==null)
         {
+            Trigger.EnemyTrigger = false;
             Destroy(this.gameObject);
         }
         if (dead)

@@ -156,6 +156,7 @@ public class PlayerMove : MonoBehaviour
         deathBlink = false;
         fadeFlag = false;
         onGround = false;
+        Trigger.EnemyTrigger = false;
         Hp = 5;//DefaultHp + PlusHp;
 
         for(int i = 0; i < 5; i++)
@@ -478,8 +479,6 @@ public class PlayerMove : MonoBehaviour
                             if (!Drop)
                             {
                                 PlayerSkin.rota = -1;
-
-                               
                             }
                         }
                     }
@@ -556,6 +555,11 @@ public class PlayerMove : MonoBehaviour
                             }
                             if (!death)
                             {
+                                HpObject[4].SetActive(false);
+                                HpObject[3].SetActive(false);
+                                HpObject[2].SetActive(false);
+                                HpObject[1].SetActive(false);
+                                HpObject[0].SetActive(false);
                                 death = true;
                                 CameraMove.damageSway = true;
                                 DamageEffect();
@@ -585,6 +589,7 @@ public class PlayerMove : MonoBehaviour
         //Groundにふれたとき
         if (other.gameObject.CompareTag("Ground")||other.gameObject.CompareTag("Button"))
         {
+            ParyController.playerOnGround = true;
             if (!PlayerDekoi.dekoiDrop)
             {
                 PlayerDekoi.dekoiDestroy = true;
@@ -598,17 +603,7 @@ public class PlayerMove : MonoBehaviour
                 if (Ceiling01 != null)
                 {
                     Ceiling01.SetActive(true);
-                }/*
-                if (Ceiling02 != null)
-                {
-                    Ceiling02.SetActive(true);
                 }
-                if (Ceiling03 != null)
-                {
-                    Ceiling01.SetActive(true);
-                }*/
-
-                //Time.timeScale = 0;
             }
             else if(SceneManager.GetActiveScene().name=="Menu")
             {
@@ -739,16 +734,30 @@ public class PlayerMove : MonoBehaviour
             cGo.a = 0.0f;
             imgGo.color = cGo;
             sequence.Append(DOTween.ToAlpha(() => img3.color, color => img3.color = color, 1, 0.25f));
+            sequence.JoinCallback(() => soundSE(1));
             sequence.Append(DOTween.ToAlpha(() => img3.color, color => img3.color = color, 0, 0.25f));
             sequence.Append(DOTween.ToAlpha(() => img2.color, color => img2.color = color, 1, 0.25f));
+            sequence.JoinCallback(() => soundSE(1));
             sequence.Append(DOTween.ToAlpha(() => img2.color, color => img2.color = color, 0, 0.25f));
             sequence.Append(DOTween.ToAlpha(() => img1.color, color => img1.color = color, 1, 0.25f));
+            sequence.JoinCallback(() => soundSE(1));
             sequence.Append(DOTween.ToAlpha(() => img1.color, color => img1.color = color, 0, 0.25f));
             sequence.Append(DOTween.ToAlpha(() => imgGo.color, color => imgGo.color = color, 1, 0.25f));
+            sequence.JoinCallback(() => soundSE(0));
             sequence.Append(DOTween.ToAlpha(() => imgGo.color, color => imgGo.color = color, 0, 0.25f));
             sequence.AppendCallback(() => StartEnd());
         }
-       
+    }
+    void soundSE(int a)
+    {
+        if (a == 0)
+        {
+            SEController.start = true;
+        }
+        else
+        {
+            SEController.countDown = true;
+        }
     }
 
     public void StartEnd()
@@ -802,6 +811,7 @@ public class PlayerMove : MonoBehaviour
 
     public void SceneChange()
     {
+        
         SceneManager.LoadScene("Result");
     }
 }

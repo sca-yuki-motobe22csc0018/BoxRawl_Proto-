@@ -182,6 +182,8 @@ public class PauseLevelSelect : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                SEController.enter = true;
+                CardClose();
                 back.SetActive(false);
                 pauseSel.SetActive(true);
                 fade01.SetActive(true);
@@ -194,6 +196,7 @@ public class PauseLevelSelect : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && change == false)
             {
+                SEController.enter = true;
                 CardOpen();
                 change = true;
             }
@@ -266,23 +269,28 @@ public class PauseLevelSelect : MonoBehaviour
     {
         var sequence = DOTween.Sequence();
         sequence.Append(CardOmote.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
-
+        sequence.JoinCallback(() => Change());
         sequence.Append(CardBack.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
-
         sequence.JoinCallback(() => CardSE());
 
         sequence.AppendInterval(0.05f);
-        sequence.JoinCallback(() => Change());
+        sequence.JoinCallback(() => Change2());
 
         sequence.Append(CardBack.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
 
         sequence.Append(CardOmote.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
         sequence.JoinCallback(() => CardSE());
-        sequence.JoinCallback(() => Change2());
+        sequence.AppendInterval(0.05f);
+        sequence.AppendCallback(() => Change3());
+    }
 
+    void CardClose()
+    {
+        var sequence = DOTween.Sequence();
+        sequence.Append(CardOmote.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
 
-        //sequence.Append(CardOmote.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
-        //sequence.Join(CardBack.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
+        sequence.Append(CardBack.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
+        sequence.JoinCallback(() => CardSE());
     }
 
     private void CardSE()
@@ -291,10 +299,14 @@ public class PauseLevelSelect : MonoBehaviour
     }
     private void Change()
     {
-        LevelCard.change=true;
+        LevelCard.level = posNum;
     }
     private void Change2()
     {
-        change=false;
+        LevelCard.change = true;
+    }
+    private void Change3()
+    {
+        change = false;
     }
 }

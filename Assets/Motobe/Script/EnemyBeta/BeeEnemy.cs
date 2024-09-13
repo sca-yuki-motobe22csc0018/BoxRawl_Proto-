@@ -222,6 +222,7 @@ public class BeeEnemy : MonoBehaviour
         {
             EXPController.EXP += 12.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
+            Trigger.EnemyTrigger = false;
             Destroy(this.gameObject);
         }
 

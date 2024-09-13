@@ -75,6 +75,7 @@ public class PauseSelect : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            SEController.enter = true;
             if (posNum == 0)
             {
                 PauseWindow.pauseEnd = true;
@@ -90,7 +91,10 @@ public class PauseSelect : MonoBehaviour
                 this.gameObject.SetActive(false);
             }else if(posNum==2) 
             {
-                //
+                PauseWindow.pauseEnd = true;
+                Trigger.EnemyTrigger = true;
+                PlayerMove.Hp = 0;
+                this.gameObject.SetActive(false);
             }     
         }
 

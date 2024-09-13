@@ -66,7 +66,7 @@ public class ResultManager : MonoBehaviour
         myName = null;
 
         tenScore = RankingSet.getTenScore();
-        Debug.Log(tenScore);
+        //Debug.Log(tenScore);
 
         scoreText[0].text = "0";
         for (int i = 1; i < scoreText.Length; i++) 

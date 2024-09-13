@@ -27,6 +27,15 @@ public class PauseWindow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pauseEnd)
+        {
+            pauseEnd = false;
+            PauseEnd();
+        }
+        if (PlayerMove.PlayerDead)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             if(!pause&&PlayerMove.start)
@@ -37,11 +46,7 @@ public class PauseWindow : MonoBehaviour
                 timeText.SetActive(false);
             }
         }
-        if (pauseEnd)
-        {
-            pauseEnd = false;
-            PauseEnd();
-        }
+        
     }
 
     public void Pause()

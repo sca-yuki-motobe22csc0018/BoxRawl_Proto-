@@ -87,6 +87,7 @@ public class MomongaEnemyBeta : MonoBehaviour
     }
     private void Dest()
     {
+        Trigger.EnemyTrigger = false;
         Destroy(this.gameObject);
     }
 }

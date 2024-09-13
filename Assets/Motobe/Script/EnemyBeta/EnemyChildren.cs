@@ -18,6 +18,7 @@ public class EnemyChildren : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Drop"))
         {
+            Trigger.EnemyTrigger = false;
             this.gameObject.transform.parent = null;
             EXPController.EXP += 2.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;

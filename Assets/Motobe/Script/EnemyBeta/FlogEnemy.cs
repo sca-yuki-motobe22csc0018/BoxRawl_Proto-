@@ -132,6 +132,7 @@ public class FlogEnemy : MonoBehaviour
 
         if (other.gameObject.CompareTag("Drop"))
         {
+            Trigger.EnemyTrigger = false;
             EXPController.EXP += 12.0f * PlayerMove.EXPUP;
             PlayerMove.EXPUP += 1;
             ScoreManager.bigEnemyKillCount++;

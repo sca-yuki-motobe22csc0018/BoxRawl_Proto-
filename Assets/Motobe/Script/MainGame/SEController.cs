@@ -18,6 +18,9 @@ public class SEController : MonoBehaviour
     public AudioClip levelUpSE;
     public AudioClip cardSE;
     public AudioClip checkSE;
+    public AudioClip countDownSE;
+    public AudioClip startSE;
+    public AudioClip enterSE;
     public static bool pary;
     public static bool jump;
     public static bool drop1;
@@ -32,6 +35,9 @@ public class SEController : MonoBehaviour
     public static bool levelUp;
     public static bool card;
     public static bool check;
+    public static bool countDown;
+    public static bool start;
+    public static bool enter;
     float jumpInterval;
     float timer;
     public AudioClip hnsn;
@@ -52,6 +58,9 @@ public class SEController : MonoBehaviour
         select = false;
         get = false;
         check = false;
+        countDown = false;
+        start = false;
+        enter = false;
         jumpInterval = 0;
         a = 0;
     }
@@ -64,7 +73,6 @@ public class SEController : MonoBehaviour
         {
             audioSource.PlayOneShot(parySE);
             pary = false;
-            Debug.Log("pary");
         }
         if (jump)
         {
@@ -96,6 +104,8 @@ public class SEController : MonoBehaviour
         }
         if (dead)
         {
+            //•Êƒo[ƒWƒ‡ƒ“
+            /*
             timer += Time.deltaTime;
             if (timer > 0.075f && a < 7)
             {
@@ -107,6 +117,9 @@ public class SEController : MonoBehaviour
             {
                 dead = false;
             }
+            */
+            audioSource.PlayOneShot(deadSE);
+            dead = false;
         }
         if (window)
         {
@@ -147,6 +160,21 @@ public class SEController : MonoBehaviour
         {
             audioSource.PlayOneShot(checkSE);
             check = false;
+        }
+        if (countDown)
+        {
+            audioSource.PlayOneShot(countDownSE);
+            countDown = false;
+        }
+        if (start)
+        {
+            audioSource.PlayOneShot(startSE);
+            start = false;
+        }
+        if (enter)
+        {
+            audioSource.PlayOneShot(enterSE);
+            enter = false;
         }
     }
 }

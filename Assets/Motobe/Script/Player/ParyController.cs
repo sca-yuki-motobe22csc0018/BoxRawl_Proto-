@@ -13,6 +13,7 @@ public class ParyController : MonoBehaviour
     float autoPary;
     public static int DekoifreMax;
     int Dekoifre;
+    public static bool playerOnGround;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +22,17 @@ public class ParyController : MonoBehaviour
         autoPary = 0;
         Dekoifre = 0;
         DekoifreMax = 0;
+        playerOnGround = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerOnGround)
+        {
+            Dekoifre = 0;
+            playerOnGround = false;
+        }
         transform.position = PlayerObject.transform.position;
         if (parySet)
         {
