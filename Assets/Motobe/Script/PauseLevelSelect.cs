@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PauseLevelSelect : MonoBehaviour
 {
@@ -18,10 +19,14 @@ public class PauseLevelSelect : MonoBehaviour
     float rightTimer;
     float upTimer;
     float downTimer;
+    public GameObject CardBack;
+    public GameObject CardOmote;
+    bool change;
 
     // Start is called before the first frame update
     void Start()
     {
+        change=false;
         levelSel = false;
         posNum = 0;
         leftTimer = 0;
@@ -185,9 +190,18 @@ public class PauseLevelSelect : MonoBehaviour
             }
         }
 
+        if (posNum < 12)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && change == false)
+            {
+                CardOpen();
+                change = true;
+            }
+        }
         if (posNum == 0)
         {
             this.transform.position = new Vector3(pos[0].transform.position.x, pos[0].transform.position.y, 1);
+            
         }
         else if (posNum == 1)
         {
@@ -248,5 +262,39 @@ public class PauseLevelSelect : MonoBehaviour
             this.gameObject.transform.localScale = new Vector3(0.036f * sin * 1.2f, 0.075f * sin * 1.2f, 1);
         }
     }
+    void CardOpen()
+    {
+        var sequence = DOTween.Sequence();
+        sequence.Append(CardOmote.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
 
+        sequence.Append(CardBack.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
+
+        sequence.JoinCallback(() => CardSE());
+
+        sequence.AppendInterval(0.05f);
+        sequence.JoinCallback(() => Change());
+
+        sequence.Append(CardBack.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
+
+        sequence.Append(CardOmote.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
+        sequence.JoinCallback(() => CardSE());
+        sequence.JoinCallback(() => Change2());
+
+
+        //sequence.Append(CardOmote.transform.DORotate(new Vector3(0, 0, 0), 0.15f));
+        //sequence.Join(CardBack.transform.DORotate(new Vector3(0, 90, 0), 0.15f));
+    }
+
+    private void CardSE()
+    {
+        SEController.changeCard = true;
+    }
+    private void Change()
+    {
+        LevelCard.change=true;
+    }
+    private void Change2()
+    {
+        change=false;
+    }
 }
