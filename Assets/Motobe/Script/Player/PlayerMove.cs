@@ -347,6 +347,10 @@ public class PlayerMove : MonoBehaviour
                 DashBarrierTimer = 0;
             }
         }
+        if (!barrier)
+        {
+            Barrier.SetActive(false);
+        }
         if (heal)
         {
             heal = false;

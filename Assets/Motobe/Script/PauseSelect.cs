@@ -94,6 +94,7 @@ public class PauseSelect : MonoBehaviour
                 PauseWindow.pauseEnd = true;
                 Trigger.EnemyTrigger = true;
                 PlayerMove.Hp = 0;
+                PlayerMove.barrier = false;
                 this.gameObject.SetActive(false);
             }     
         }

@@ -18,7 +18,7 @@ public class LevelCard : MonoBehaviour
         {
             type[i].SetActive(false);
         }
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             thisLevel[i].SetActive(false);
         }
@@ -36,7 +36,7 @@ public class LevelCard : MonoBehaviour
             }
             type[level].SetActive(true);
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 thisLevel[i].SetActive(false);
             }
